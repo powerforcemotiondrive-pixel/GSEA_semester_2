@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT Module 1 - Formative Evaluation Guidelines</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../output.css">
+    <style>
+      /* Signature Tactile Micro-Mesh Texture */
+      .textured-surface {
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+          repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+          repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+      }
+      .icon-box,
+      [class*="rounded-full"],
+      button:disabled,
+      .btn-inactive,
+      .back-btn {
+        background-image: none !important;
+      }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 antialiased font-sans">
+
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-lg border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="textured-surface bg-[#152438] text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#0d1724] shrink-0 relative overflow-hidden">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="bg-[#d97706] p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+          <svg width="22" height="22" class="w-5.5 h-5.5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AT
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #fef3c7; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 1 - Aerodromes • Session 5 - Formative Evaluation 1 Guidelines
+          </p>
+        </div>
+      </div>
+      <!-- Back to Module Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a class="back-btn flex items-center space-x-1.5 bg-[#d97706] hover:bg-[#b45309] active:bg-[#92400e] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0"
+           href="../index.html?track=aas#module1">
+          <svg width="14" height="14" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 1</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <main class="flex-1 bg-white p-4 sm:p-6 lg:p-8 space-y-6 overflow-y-auto">
+
+      <!-- Executive Overview Card -->
+      <section class="bg-gradient-to-r from-slate-50 to-amber-50/40 border border-slate-200 rounded-xl p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide bg-[#152438] text-white">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            30-Minute Oral Tutorial Slot • In Pairs
+          </span>
+          <span class="text-xs font-bold text-[#d97706] bg-amber-100/80 px-2.5 py-0.5 rounded-md border border-amber-200">
+            Graded out of 20 Points • Contributes to Semester FE
+          </span>
+        </div>
+        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
+          How the Formative Evaluation Works
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          The Formative Evaluation takes place in <strong>pairs</strong> during a scheduled <strong>30-minute tutorial slot</strong>. You and your partner will present a comprehensive technical profile of an airport of your choice, participate in spontaneous teacher Q&amp;A, demonstrate active mastery of Module 1 technical vocabulary, present your personal vocabulary learning log, and conduct an autonomous self-critique of your personal strong and weak points.
+        </p>
+      </section>
+
+      <!-- 30-Minute Timeline Breakdown -->
+      <section class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#d97706]"></span>
+          <h3 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wide">
+            The 30-Minute Oral Tutorial Roadmap
+          </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+          <!-- Step 1 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 1</span>
+                <span class="px-2 py-0.5 rounded bg-[#152438] text-white font-mono text-[11px] font-bold">0–2 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Welcome &amp; Setup</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Connect your laptop or set up your visual support (aerodrome charts, slides). The teacher confirms your airport topic and division of roles.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Get settled &amp; relaxed
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="border border-amber-200 rounded-xl p-3.5 bg-amber-50/40 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-amber-200">
+                <span class="text-[10px] font-black uppercase text-amber-700">Stage 2</span>
+                <span class="px-2 py-0.5 rounded bg-[#d97706] text-white font-mono text-[11px] font-bold">2–14 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Airport Presentation</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Deliver your technical airport analysis with visual aids. Both students share talking time equally (~6 minutes per student). <em>Do not read from notes!</em>
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-amber-200/60 text-[10px] text-amber-800 font-semibold">
+              Equal 50/50 speaking time
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 3</span>
+                <span class="px-2 py-0.5 rounded bg-[#152438] text-white font-mono text-[11px] font-bold">14–20 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Teacher Q&amp;A</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Spontaneous interactive questions from the teacher testing technical comprehension, hot spot risk assessment, and incident cause justification.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Spontaneous dialogue
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="border border-emerald-200 rounded-xl p-3.5 bg-emerald-50/40 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-emerald-200">
+                <span class="text-[10px] font-black uppercase text-emerald-700">Stage 4</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-700 text-white font-mono text-[11px] font-bold">20–26 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Portfolio Check</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Present your updated personal vocabulary log with recorded Module 1 lexis. Conduct an honest self-critique of your personal strengths and weaknesses.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-emerald-200/60 text-[10px] text-emerald-800 font-semibold">
+              Self-evaluation ready
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 5</span>
+                <span class="px-2 py-0.5 rounded bg-[#152438] text-white font-mono text-[11px] font-bold">26–30 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Feedback &amp; Targets</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Receive concise, encouraging examiner feedback on technical fluency, pronunciation, grammar control, and specific targets for future modules.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Mark out of 20 awarded
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 1 Task Description: Airports -->
+      <section class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#d97706]"></span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wide">
+              Evaluation Activity: Technical Airport Profile &amp; Operational Analysis
+            </h3>
+          </div>
+          <span class="text-[11px] font-semibold text-slate-500">Pair Preparation Task</span>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900">Task Overview</h4>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            In pairs, select any commercial or civil aerodrome of your choice worldwide (e.g. <em>Toulouse-Blagnac, London Heathrow, Chicago O'Hare, Madeira Funchal, St. Maarten Princess Juliana, Tokyo Haneda, Gibraltar, Courchevel</em>). Over a 10-to-12 minute collaborative presentation, you must deliver a rigorous operational briefing analyzing the airport's layout, traffic constraints, safety hot spots, and incident history, while demonstrating that you have learned and mastered the specialized lexis from Sessions 1–4.
+          </p>
+        </div>
+
+        <!-- 4 Core Analytical Dimensions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Dimension 1: Technical Details -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#152438] text-white text-[10.5px] font-bold tracking-wide">DIMENSION 1</span>
+              <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Infrastructure</span>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900">Technical Details &amp; Physical Infrastructure</h4>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Runway System:</strong> Magnetic designators (azimuth headings), lengths, surface pavement (asphalt/concrete), friction characteristics, approach lighting systems (PAPI, ALS).</li>
+              <li><strong>Airfield Movement Areas:</strong> Taxiway designators (Alpha, Bravo...), high-speed exit turnoffs, runway holding points (CAT I, CAT II/III stop bars), perimeter service roads.</li>
+              <li><strong>Apron &amp; Stands:</strong> Contact gates with passenger boarding bridges (jet bridges), remote stands, ground support equipment (GSE) staging lanes, hydrant fueling pipelines.</li>
+              <li><strong>Air Navigation Facilities:</strong> Control tower height and line-of-sight, surface movement radar (A-SMGCS), ILS localizer and glideslope antennas.</li>
+            </ul>
+          </div>
+
+          <!-- Dimension 2: Key Information & Operational Profile -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#152438] text-white text-[10.5px] font-bold tracking-wide">DIMENSION 2</span>
+              <span class="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">Traffic &amp; Ops</span>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900">Key Information, Traffic &amp; Constraints</h4>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Operational Classification:</strong> International hub, secondary regional field, dedicated cargo hub, or mixed civil/military base.</li>
+              <li><strong>Traffic Volumes:</strong> Annual passenger throughput, cargo tonnage, peak-hour movements, and primary based airlines.</li>
+              <li><strong>Slot &amp; Capacity Constraints:</strong> Coordinated slot allocation, turnaround time (TAT) targets, and Eurocontrol CTOT compliance.</li>
+              <li><strong>Environmental Procedures:</strong> Noise abatement departure procedures (NADP), night curfews, acoustic buffer zones, and residential relations.</li>
+            </ul>
+          </div>
+
+          <!-- Dimension 3: Hot Spots & Safety Challenges -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#152438] text-white text-[10.5px] font-bold tracking-wide">DIMENSION 3</span>
+              <span class="text-[11px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">Safety Hazards</span>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900">Aerodrome Hot Spots &amp; Operational Hazards</h4>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Published Hot Spots:</strong> Complex taxiway intersections, converging runway crossings, or blind spots from the control tower cab where runway incursion risk is elevated.</li>
+              <li><strong>Apron Servicing Risks:</strong> Congested vehicle corridors, GSE pushback conflicts, and FOD hazards.</li>
+              <li><strong>Adverse Weather Challenges:</strong> Critical crosswind runways, low visibility procedures (LVP / RVR minimums), de-icing pad management, and snow clearing sequences.</li>
+              <li><strong>Wildlife &amp; Obstacles:</strong> Bird hazard management programs and terrain obstacle limitation surfaces (OLS).</li>
+            </ul>
+          </div>
+
+          <!-- Dimension 4: Incidents / Accidents & Lessons Learned -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#152438] text-white text-[10.5px] font-bold tracking-wide">DIMENSION 4</span>
+              <span class="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">Case Analysis</span>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900">Notable Incidents, Accidents &amp; Safety Lessons</h4>
+            <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+              <li><strong>Accident / Incident Case Study:</strong> Detail at least one historical or notable surface occurrence (e.g. runway incursion, landing overrun, apron collision, tailstrike).</li>
+              <li><strong>Causal Chain:</strong> Analyze root causes (phraseology breakdown, human factors, loss of situational awareness, weather, or equipment failure).</li>
+              <li><strong>Safety Upgrades Implemented:</strong> Explain physical or procedural changes introduced following the incident (e.g. illuminated red stop bars, radar safety logic, enhanced taxiway centerline markings, revised SOPs).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vocabulary Activation Box -->
+      <section class="border border-amber-200 rounded-xl p-4 sm:p-5 bg-amber-50/50 space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#d97706]"></span>
+          <h3 class="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">
+            Mandatory Vocabulary Activation (Sessions 1 to 4)
+          </h3>
+        </div>
+        <p class="text-xs text-slate-700 leading-relaxed">
+          To achieve top marks on Criterion 4 (Vocabulary &amp; Aeronautical Lexis), your pair must naturally integrate at least <strong>6 to 8 specialized technical terms</strong> learned during Module 1. Plant these terms into your speaking notes and deploy them accurately in context:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-[11px]">
+          <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+            <strong class="text-amber-900 block mb-0.5">Session 1 (Aviation Survey):</strong>
+            <em>Passenger rights (EU261), slot allocation, security screening, noise abatement, hub carrier, suborbital trajectory.</em>
+          </div>
+          <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+            <strong class="text-amber-900 block mb-0.5">Session 2 (Airfield Movement):</strong>
+            <em>Airside vs. landside, runway designators, taxiway markings, holding points, stop bars, magnetic heading, jet bridge.</em>
+          </div>
+          <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+            <strong class="text-amber-900 block mb-0.5">Session 3 (Turnaround &amp; GSE):</strong>
+            <em>Turnaround time (TAT), Ground Power Unit (GPU), pushback tug, belt loader, de-icing rig, Foreign Object Debris (FOD), chocks.</em>
+          </div>
+          <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+            <strong class="text-amber-900 block mb-0.5">Session 4 (Jobs in Aviation):</strong>
+            <em>ATCO vs. AFISO, Turnaround Coordinator, Flight Dispatcher, Ramp Agent, responsible for, tasked with, authority over.</em>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Supports Guidance & Rules -->
+      <section class="p-4 bg-white rounded-xl border border-slate-200 space-y-3">
+        <h4 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wide">Visual Supports &amp; Delivery Rules</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-emerald-50/50 border border-emerald-200 rounded-lg text-slate-700">
+            <strong class="text-emerald-800 block mb-1">✅ DO:</strong>
+            <ul class="space-y-1 list-disc pl-4">
+              <li>Use 4 to 6 clean, visual slides with photos, diagrams, and aerodrome charts.</li>
+              <li>Display the official airport layout map and zoom into published hot spots.</li>
+              <li>Use bullet cue cards only and maintain strong eye contact with the examiner.</li>
+            </ul>
+          </div>
+          <div class="p-3 bg-rose-50/50 border border-rose-200 rounded-lg text-slate-700">
+            <strong class="text-rose-800 block mb-1">❌ DO NOT:</strong>
+            <ul class="space-y-1 list-disc pl-4">
+              <li>Never write full paragraphs or long sentences on your slides.</li>
+              <li>Never read aloud from notes, prepared sheets, or screens (reading is severely penalized).</li>
+              <li>Never let one partner monopolize the speaking time.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Institutional & TOEIC Note -->
+      <section class="p-3.5 bg-slate-100 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
+        <strong class="text-slate-800 block">Assessment Policy Note: TOEIC &amp; Evaluation Rubric</strong>
+        <p class="leading-relaxed">
+          In this oral evaluation, grading is criteria-referenced across fluency, pronunciation, grammatical accuracy, technical vocabulary deployment, teamwork, and your portfolio organization. <strong>TOEIC test performance does not factor into this oral evaluation score.</strong> TOEIC practice continues to be maintained and tracked independently on the platform.
+        </p>
+      </section>
+
+      <!-- Student Success Tips -->
+      <section class="p-4 rounded-xl border space-y-2.5 bg-amber-50/70 border-amber-200">
+        <div class="flex items-center gap-1.5 font-bold text-xs text-amber-800">
+          <span>💡</span>
+          <span class="uppercase tracking-wide">Examiner Success Tips</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-slate-700">
+          <div class="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+            <strong>1. 50/50 Handover Rule:</strong> Rehearse smooth transitions. Each student must speak for approximately 6 minutes.
+          </div>
+          <div class="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+            <strong>2. Show, Don't Read:</strong> Point to the aerodrome chart when explaining taxiway routing and hot spots.
+          </div>
+          <div class="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+            <strong>3. Self-Critique Ready:</strong> Arrive with your vocabulary log open and 2 clear personal targets identified.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom status footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700">Active: AT Module 1 Formative Evaluation 1 Guidelines (Airports)</span>
+      <span class="font-medium">GSEA Semester 1 Technical English • Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
+

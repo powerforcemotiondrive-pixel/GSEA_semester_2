@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2 - Formative Evaluation Guidelines</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../output.css">
+    <style>
+      /* Signature Tactile Micro-Mesh Texture */
+      .textured-surface {
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+          repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+          repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+      }
+      .icon-box,
+      [class*="rounded-full"],
+      button:disabled,
+      .btn-inactive,
+      .back-btn {
+        background-image: none !important;
+      }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 antialiased font-sans">
+
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-lg border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="textured-surface bg-[#1b382b] text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#12241c] shrink-0 relative overflow-hidden">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="bg-[#10b981] p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+          <svg width="22" height="22" class="w-5.5 h-5.5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AG
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #a7f3d0; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 2 - Weather & the Environment • Session 5 - Formative Evaluation Guidelines
+          </p>
+        </div>
+      </div>
+      <!-- Back to Module Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a class="back-btn flex items-center space-x-1.5 bg-[#10b981] hover:bg-[#059669] active:bg-[#047857] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0"
+           href="../index.html#module2">
+          <svg width="14" height="14" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 2</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <main class="flex-1 bg-white p-4 sm:p-6 lg:p-8 space-y-6 overflow-y-auto">
+
+      <!-- Executive Overview Card -->
+      <section class="bg-gradient-to-r from-slate-50 to-orange-50/40 border border-slate-200 rounded-xl p-4 sm:p-6 shadow-xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide bg-[#1b382b] text-white">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            30-Minute Oral Tutorial Slot • In Pairs
+          </span>
+          <span class="text-xs font-bold text-[#10b981] bg-orange-100/80 px-2.5 py-0.5 rounded-md border border-orange-200">
+            Graded out of 20 Points • Contributes to Semester FE
+          </span>
+        </div>
+        <h2 class="text-lg sm:text-xl font-bold text-slate-800">
+          How the Formative Evaluation Works
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          The Formative Evaluation takes place in <strong>pairs</strong> during a dedicated <strong>30-minute tutorial slot</strong>. You and your partner will present your prepared task using visual supports, participate in a spontaneous Q&amp;A discussion with your teacher, present evidence of your ongoing portfolio and TOEIC study, and discuss your personal strong and weak points.
+        </p>
+      </section>
+
+      <!-- 30-Minute Timeline Breakdown -->
+      <section class="space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+          <h3 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wide">
+            The 30-Minute Oral Tutorial Roadmap
+          </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+          <!-- Step 1 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 1</span>
+                <span class="px-2 py-0.5 rounded bg-[#1b382b] text-white font-mono text-[11px] font-bold">0–2 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Welcome &amp; Setup</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Connect your laptop or set up your visual support. The teacher introduces the session and confirms your topic.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Get settled &amp; relaxed
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="border border-orange-200 rounded-xl p-3.5 bg-orange-50/40 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-orange-200">
+                <span class="text-[10px] font-black uppercase text-orange-700">Stage 2</span>
+                <span class="px-2 py-0.5 rounded bg-[#10b981] text-white font-mono text-[11px] font-bold">2–14 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Pair Presentation</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Deliver your prepared task with visual aids. Both students share talking time equally (~6 minutes per student). <em>Do not read from notes!</em>
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-orange-200/60 text-[10px] text-orange-800 font-semibold">
+              Equal 50/50 speaking time
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 3</span>
+                <span class="px-2 py-0.5 rounded bg-[#1b382b] text-white font-mono text-[11px] font-bold">14–20 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Teacher Q&amp;A</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Spontaneous interactive questions from the teacher to test your comprehension, justify your choices, and discuss alternatives.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Spontaneous dialogue
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="border border-emerald-200 rounded-xl p-3.5 bg-emerald-50/40 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-emerald-200">
+                <span class="text-[10px] font-black uppercase text-emerald-700">Stage 4</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-700 text-white font-mono text-[11px] font-bold">20–26 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Portfolio &amp; Self-Critique</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Show evidence of vocabulary logs and TOEIC practice. Discuss your personal strong points and weak points (arrive prepared!).
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-emerald-200/60 text-[10px] text-emerald-800 font-semibold">
+              Self-evaluation ready
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+                <span class="text-[10px] font-black uppercase text-slate-500">Stage 5</span>
+                <span class="px-2 py-0.5 rounded bg-[#1b382b] text-white font-mono text-[11px] font-bold">26–30 min</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-slate-800 mt-2">Feedback &amp; Targets</h4>
+              <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                Receive concise, encouraging feedback from the teacher on your strengths and 1–2 practical action points for future sessions.
+              </p>
+            </div>
+            <div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-semibold">
+              Mark out of 20 awarded
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 2 Task Options -->
+      <section class="space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-800 uppercase tracking-wide">
+              Module 2 Task: Choose Option A or Option B (Climate Resilience)
+            </h3>
+          </div>
+          <span class="text-[11px] font-semibold text-slate-500">Prepare with your partner before the evaluation</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Option A -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs hover:border-emerald-300 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[11px] font-bold tracking-wide">OPTION A</span>
+                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Aviation Infrastructure</span>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-slate-800">
+                Redesign an Airport for Climate Resilience
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Select a major commercial airport facing pronounced climatic vulnerabilities (e.g., <em>Nice LFMN, Amsterdam EHAM, Dubai OMDB, London Gatwick EGKK, Boston Logan KBOS, Singapore Changi WSSS</em>) and design a comprehensive 2050 resilience masterplan.
+              </p>
+              
+              <div class="mt-3.5 space-y-2">
+                <span class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Key Requirements to Include:</span>
+                <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                  <li><strong>Hazard Profile:</strong> Evaluate acute threats (storm surges, flash floods, supercell microbursts) and chronic trends (sea-level rise, density altitude limits).</li>
+                  <li><strong>Physical Engineering:</strong> Permeable taxiway shoulders, subterranean retention reservoirs, sea dikes, and reflective cool pavement coatings.</li>
+                  <li><strong>Nature-Based Solutions:</strong> Constructed wetlands, bioswales, and airside wildlife hazard management (deterring birds from climb paths).</li>
+                  <li><strong>Contingency Operations:</strong> Heat mitigation for ramp crews, emergency flood diversions, and airport microgrid energy resilience.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <span>Target Lexis: <em>storm surge, density altitude, permeable pavement, bioswale, wildlife hazard management</em></span>
+            </div>
+          </div>
+
+          <!-- Option B -->
+          <div class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white shadow-xs hover:border-emerald-300 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[11px] font-bold tracking-wide">OPTION B</span>
+                <span class="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">Urban Planning</span>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-slate-800">
+                Redesign a City / Urban District for Climate Resilience
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Select an international metropolis facing severe urban heat islands or cloudburst inundation (e.g., <em>Copenhagen, Rotterdam, Paris, Barcelona, Athens, Tokyo</em>) and formulate an eco-district masterplan.
+              </p>
+              
+              <div class="mt-3.5 space-y-2">
+                <span class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Key Requirements to Include:</span>
+                <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                  <li><strong>Hazard Profile:</strong> Map urban heat islands (UHI), impermeable surface runoff rates, and historic precipitation return intervals.</li>
+                  <li><strong>Sponge City Interventions:</strong> Sunken water retention squares, permeable asphalt boulevards, and deep seawater/geothermal district cooling networks.</li>
+                  <li><strong>Urban Greening:</strong> 15-minute neighborhood zoning, pedestrian superblocks, rooftop green canopies, and biodiversity corridors.</li>
+                  <li><strong>Social Equity &amp; Governance:</strong> Shaded public cooling islands for vulnerable residents, emergency heat warnings, and public capex defense.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <span>Target Lexis: <em>urban heat island, sponge city, 15-minute city, district cooling, biodiversity net gain</em></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Core Technical Dimensions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+          <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-xs">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[10px] font-bold tracking-wide">DIMENSION 1</span>
+              <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Hazard Profile</span>
+            </div>
+            <h5 class="text-sm font-bold text-slate-800">Climate Hazard Assessment &amp; Baseline Vulnerability</h5>
+            <ul class="text-xs text-slate-600 space-y-1 mt-2 list-disc pl-4">
+              <li><strong>Acute Shocks:</strong> Flash floods, 100-year storm surges, supercell squalls, and microburst wind shear.</li>
+              <li><strong>Chronic Trends:</strong> Rising mean summer temperatures, sea-level rise, and urban heat island amplification.</li>
+              <li><strong>Critical Assets at Risk:</strong> Runways, underground power vaults, transit tunnels, and passenger terminals.</li>
+            </ul>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-xs">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[10px] font-bold tracking-wide">DIMENSION 2</span>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Civil Engineering</span>
+            </div>
+            <h5 class="text-sm font-bold text-slate-800">Hard Engineering &amp; Physical Infrastructure</h5>
+            <ul class="text-xs text-slate-600 space-y-1 mt-2 list-disc pl-4">
+              <li><strong>Water Infiltration:</strong> Porous pavements, underground storm retention cisterns, and reinforced sea dikes.</li>
+              <li><strong>Passive Cooling:</strong> High-albedo cool roofs, subterranean district cooling loops, and shaded walkways.</li>
+              <li><strong>Energy Autonomy:</strong> Solar PV canopies, decentralized microgrids, and battery energy storage (BESS).</li>
+            </ul>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-xs">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[10px] font-bold tracking-wide">DIMENSION 3</span>
+              <span class="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Nature-Based Solutions</span>
+            </div>
+            <h5 class="text-sm font-bold text-slate-800">Nature-Based Solutions (NbS) &amp; Ecological Co-Benefits</h5>
+            <ul class="text-xs text-slate-600 space-y-1 mt-2 list-disc pl-4">
+              <li><strong>Natural Infiltration:</strong> Constructed wetlands, bioswales, rain gardens, and pocket micro-forests.</li>
+              <li><strong>Biodiversity Net Gain (BNG):</strong> Restoring ecological corridors without attracting bird strike hazards near flight paths.</li>
+              <li><strong>Social DDRS:</strong> Public park cooling corridors, equitable access, and green transit connectivity.</li>
+            </ul>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-xs">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#1b382b] text-white text-[10px] font-bold tracking-wide">DIMENSION 4</span>
+              <span class="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">Contingencies</span>
+            </div>
+            <h5 class="text-sm font-bold text-slate-800">Operational Contingency Protocols &amp; Stakeholder Defense</h5>
+            <ul class="text-xs text-slate-600 space-y-1 mt-2 list-disc pl-4">
+              <li><strong>Operating Protocols:</strong> Extreme heat night departure rescheduling, apron lightning closures, flood diversions.</li>
+              <li><strong>Lifecycle Economics:</strong> Justifying initial capex against 30-year flood loss prevention and insurance savings.</li>
+              <li><strong>Stakeholder Q&amp;A:</strong> Defending choices against carrier pushback, resident skepticism, and regulatory barriers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mandatory Vocabulary Activation Box -->
+        <div class="border border-amber-200 rounded-xl p-4 bg-amber-50/50 space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+            <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">
+              Mandatory Vocabulary Activation (Sessions 1 to 4)
+            </h5>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            To achieve full marks on Criterion 4, you and your partner must actively deploy at least <strong>6 to 8 specialized technical terms</strong> from Module 2:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-[11px]">
+            <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+              <strong class="text-amber-900 block mb-0.5">Session 1 (Extreme Weather):</strong>
+              <em>Heatwave, flash flood, storm surge, sea-level rise, atmospheric river, precipitation, resilience.</em>
+            </div>
+            <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+              <strong class="text-amber-900 block mb-0.5">Session 2 (Sustainable Cities):</strong>
+              <em>15-minute city, urban heat island, permeable pavement, low-emission zone, district cooling, bioswale.</em>
+            </div>
+            <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+              <strong class="text-amber-900 block mb-0.5">Session 3 (Policy Arguments):</strong>
+              <em>Empirical evidence, concession, trade-off, prioritize investing in, advocate retrofitting, mandate.</em>
+            </div>
+            <div class="p-2.5 bg-white rounded-lg border border-amber-200">
+              <strong class="text-amber-900 block mb-0.5">Session 4 (Biodiversity):</strong>
+              <em>Biodiversity net gain, constructed wetland, ecological corridor, wildlife hazard, bird strike deterrent.</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AG vs AAS Track Differentiation Box -->
+      <section class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-slate-50/80 space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#1b382b]"></span>
+          <h3 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wider">
+            Track-Specific Linguistic Requirements (AG vs. AAS)
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3.5 bg-white rounded-lg border border-slate-200">
+            <span class="font-bold text-[#10b981] text-xs block mb-1">General English (AG Track) Focus:</span>
+            <p class="text-slate-600 leading-relaxed">
+              Demonstrate command of <strong>Word Forms &amp; suffixes</strong>, <strong>Subject-Verb agreement with collective nouns</strong>, <strong>Gerunds vs. Infinitives</strong>, polite <strong>concession and hedging</strong> (<em>"While I acknowledge the upfront capex, empirical evidence indicates..."</em>), and <strong>thematic resilience lexis</strong>.
+            </p>
+          </div>
+          <div class="p-3.5 bg-white rounded-lg border border-slate-200">
+            <span class="font-bold text-[#152438] text-xs block mb-1">Technical English (AAS Track) Focus:</span>
+            <p class="text-slate-600 leading-relaxed">
+              Demonstrate command of <strong>flight physics &amp; aerodynamics</strong> (lift, thrust, drag, weight, 3 axes, AoA, stalls), <strong>aircraft anatomy</strong> (flight control surfaces, structural components), <strong>commercial fleet metrics</strong>, and <strong>accident root-cause analysis</strong>.
+            </p>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500 italic">
+          *Note: In both tracks, actively using terms from this website's vocabulary revision lists during your presentation and Q&amp;A is required and evaluated.
+        </p>
+      </section>
+
+      <!-- Visual Supports & Slides Guidance -->
+      <section class="border border-slate-200 rounded-xl p-4 sm:p-5 bg-white space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+          <h3 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wider">
+            Visual Supports: What to Prepare (and What to Avoid)
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-emerald-50/50 border border-emerald-200 rounded-lg">
+            <span class="font-bold text-emerald-800 block mb-1">✅ DO:</span>
+            <ul class="text-slate-700 space-y-1 list-disc pl-4">
+              <li>Use 4 to 6 clean slides (PowerPoint, Canva, or PDF), a one-page infographic, or an itinerary map.</li>
+              <li>Include high-quality photos, route diagrams, comparison charts, and short bullet prompts.</li>
+              <li>Use visual aids as cues to speak directly to the teacher—make eye contact!</li>
+            </ul>
+          </div>
+          <div class="p-3 bg-rose-50/50 border border-rose-200 rounded-lg">
+            <span class="font-bold text-rose-800 block mb-1">❌ DO NOT:</span>
+            <ul class="text-slate-700 space-y-1 list-disc pl-4">
+              <li>Do NOT write full paragraphs or complete sentences on your slides.</li>
+              <li>Do NOT read your presentation from paper, phone notes, or the screen.</li>
+              <li>Do NOT create more than 7 slides—you will run out of time during your 12-minute window.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Student Success Tips (B2 Level) -->
+      <section class="border border-amber-200 bg-amber-50/50 rounded-xl p-4 sm:p-5 space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-600">💡</span>
+          <h3 class="text-xs sm:text-sm font-bold text-amber-900 uppercase tracking-wider">
+            Top Tips to Excel in Your Formative Evaluation (B2 Friendly)
+          </h3>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">1. Respect the 50/50 Rule</strong>
+            <p class="text-slate-600 leading-relaxed">
+              Coordinate smoothly with your partner. Practice your handovers: <em>"Now, [Partner] will present our lodging choices..."</em> or <em>"Building on that point..."</em> Equal speaking time is part of the grade!
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">2. Plant Your Target Lexicon</strong>
+            <p class="text-slate-600 leading-relaxed">
+              Choose 4 to 6 specific vocabulary words from the session lists and write them on a reminder card. Speak them clearly and naturally in context during your presentation.
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">3. Signpost Your Talk</strong>
+            <p class="text-slate-600 leading-relaxed">
+              Guide the teacher through your presentation with clear linkers: <em>To begin with, in contrast, furthermore, as a consequence, finally</em>. This dramatically boosts your Fluency score.
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">4. Come Ready for Self-Critique</strong>
+            <p class="text-slate-600 leading-relaxed">
+              Don't wait for the teacher to point out flaws. Arrive ready to say: <em>"My strong point is conversational fluency, but I am currently focusing on prepositions in timed TOEIC drills."</em>
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">5. Handle Q&amp;A Calmly</strong>
+            <p class="text-slate-600 leading-relaxed">
+              If you need a moment to think, use natural stalling phrases: <em>"That's an interesting question; from our research..."</em> rather than silence or switching to French.
+            </p>
+          </div>
+          <div class="p-3 bg-white rounded-lg border border-amber-200/80 shadow-2xs">
+            <strong class="text-slate-800 block font-bold mb-1">6. Bring Your Portfolio Ready</strong>
+            <p class="text-slate-600 leading-relaxed">
+              Have your physical notebook or digital portfolio open and ready on your desk right from minute one. Show that you have tracked vocabulary and completed regular practice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stylized Skills Footer Area (5 Columns, 10 Items) -->
+      <div class="w-full pt-3 pb-3 px-4 rounded-xl border border-slate-200/60 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-5 gap-y-2.5 gap-x-4 shadow-sm vocab-footer">
+        <div class="flex flex-col vocab-item"><span class="text-sm font-black italic tracking-wide text-[#1b382b] vocab-word" style="color: #1b382b; font-style: italic;">FLUENCY</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈfluː.ən.si/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase text-[#10b981] vocab-word" style="color: #10b981; text-transform: uppercase;">Grammar</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈɡræm.ər/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold normal-case text-slate-700 underline decoration-slate-300 vocab-word" style="color: #334155; text-decoration: underline; text-decoration-color: #cbd5e1;">Aviation Lexis</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌeɪ.viˈeɪ.ʃən ˈlek.sɪs/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-[#12241c] vocab-word" style="color: #12241c; font-style: italic;">Pronunciation</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/prəˌnʌn.siˈeɪ.shən/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase tracking-wider text-teal-700 vocab-word" style="color: #0f766e; text-transform: uppercase;">Comprehension</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-sm font-black italic text-sky-700 vocab-word" style="color: #0369a1; font-style: italic;">Discussion</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/dɪˈskʌʃ.ən/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-extrabold uppercase text-[#ea5d74] vocab-word" style="color: #ea5d74; text-transform: uppercase;">CORRECTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/kəˈrek.ʃən/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold tracking-widest text-[#10b981] vocab-word" style="color: #10b981; letter-spacing: 0.08em;">INTERACTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌɪn.təˈræk.ʃən/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-amber-700 vocab-word" style="color: #b45309; font-style: italic;">Assessment</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/əˈses.mənt/</span></div>
+        <div class="flex flex-col vocab-item"><span class="text-xs font-bold tracking-wider text-slate-600 vocab-word" style="color: #475569;">Portfolio</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/pɔːtˈfəʊ.li.əʊ/</span></div>
+      </div>
+
+    </main>
+
+    <!-- Bottom status footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-4 py-2.5 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700">Active: Module 2 Formative Evaluation Guidelines</span>
+      <span class="font-medium">GSEA Semester 1 • English Program • Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

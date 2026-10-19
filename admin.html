@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSEA26A Course Administration Hub - Groups, Planning &amp; Rotas</title>
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="output.css">
+  <style>
+    :root {
+      --primary: #1e293b;
+      --primary-dark: #0f172a;
+      --accent: #ea580c;
+      --accent-dark: #c2410c;
+    }
+    .textured-surface {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 75%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.16) 100%) !important;
+      background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100% !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 font-sans">
+
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-4">
+  <div class="bg-white rounded-2xl shadow-xl border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Top Header -->
+    <header class="textured-surface bg-slate-800 text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-900 shrink-0">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="bg-orange-600 p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+          <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate">
+            GSEA SEMESTER 2 AG &amp; AAS
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate text-orange-300 mt-0.5">
+            Course Admin — Class Groups, Teachers, Weekly Calendar &amp; FE Rotas
+          </p>
+        </div>
+      </div>
+      
+      <!-- Back Navigation -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a href="index.html" class="flex items-center space-x-1.5 bg-orange-600 hover:bg-orange-700 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0">
+          <svg class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Return to Course Deck</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Navigation Tab Strip -->
+    <div class="bg-slate-800/95 border-b border-slate-700 px-4 sm:px-6 py-2 flex items-center gap-2 overflow-x-auto text-xs">
+      <button onclick="switchAdminTab('groups')" id="tab-btn-groups" class="px-3.5 py-1.5 rounded-lg font-bold text-white bg-white/25 shadow-xs transition-all cursor-pointer">
+        Class Groups &amp; Teachers
+      </button>
+      <button onclick="switchAdminTab('calendar')" id="tab-btn-calendar" class="px-3.5 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">
+        Weekly Course Calendar
+      </button>
+      <button onclick="switchAdminTab('rota')" id="tab-btn-rota" class="px-3.5 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">
+        FE Tutorial Rotas
+      </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="p-4 sm:p-8 bg-slate-50 min-h-[500px]">
+
+      <!-- Section 1: Groups & Teachers -->
+      <section id="section-groups" class="space-y-6">
+        <!-- Overview Card -->
+        <div class="bg-gradient-to-r from-slate-50 to-orange-50/40 border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide text-white bg-slate-800">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Promotion: GSEA26A • 19 Students
+            </span>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border border-orange-200 bg-orange-50 text-orange-700">
+              Official Rosters &amp; Faculty Assignments
+            </span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-800">
+            Class Groups, Assigned Teachers &amp; Course Timetables
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Official promotion structure for the academic semester. The GSEA26A promotion is divided into <strong>Group A (10 students)</strong> and <strong>Group B (9 students)</strong> for all General English (LV101E) and Aeronautical English (LV121E) classroom sessions. For oral Formative Evaluations (FE1, FE2), students follow dynamic rotating pairings and trios across exactly 4 slots of 30 minutes (2 hours total).
+          </p>
+        </div>
+
+        <!-- Faculty Grid -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>
+            <h3 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wide">
+              Teaching Faculty &amp; Weekly Schedules
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- AG -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
+              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-white font-mono text-[11px] font-black bg-slate-800">LV101E</span>
+                  <span class="text-xs font-bold text-slate-800">General English (AG)</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Fridays 08h00 – 10h00</span>
+              </div>
+              <div class="space-y-2.5 text-xs">
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-700">Group A Teacher</span>
+                  <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Geri MIDDLETON</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-700">Group B Teacher</span>
+                  <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Penny WRIGHT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AAS -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
+              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-white font-mono text-[11px] font-black bg-orange-600">LV121E</span>
+                  <span class="text-xs font-bold text-slate-800">Aeronautical English (AAS)</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Wednesdays 13h15 – 15h15</span>
+              </div>
+              <div class="space-y-2.5 text-xs">
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-700">Group A Teacher</span>
+                  <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Tracy NEILL</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-700">Group B Teacher</span>
+                  <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Ally HEWETT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coordination Note -->
+          <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs text-slate-600">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Course Coordination &amp; Administration: <strong>Phil PARRIS (LH/LAN)</strong> • <span class="font-mono text-slate-500 font-bold">v1.0.0</span>
+            </span>
+            <span class="text-slate-400 text-[11px]">Academic Year 2024–2025</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Rotation Callout Banner -->
+        <div class="p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl flex items-start gap-3 text-xs text-amber-950 shadow-2xs">
+          <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="space-y-1">
+            <span class="font-bold block">Dynamic Formative Evaluation (FE) Rotations:</span>
+            <p class="text-[11px] text-amber-900 leading-relaxed">
+              To ensure variety in group work and timeslot fairness, groups do <strong>not</strong> have fixed pairs or trios. Group A rotates across 2 pairs + 2 trios (4 slots = 2h), and Group B rotates across 3 pairs + 1 trio (4 slots = 2h). Every student experiences different peers and rotates between early and late slots across FE1 and FE2. Switch to the <strong>FE Tutorial Rotas</strong> tab to view your complete evaluation schedule.
+            </p>
+          </div>
+        </div>
+
+        <!-- Student Rosters -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wide">
+                Official Student Group Lists
+              </h3>
+            </div>
+            <span class="text-[11px] text-slate-400">19 Total Students</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Group A Table -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-2xs">
+              <div class="p-3 text-white flex items-center justify-between bg-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <h4 class="text-xs font-bold uppercase tracking-wider">Group A (10 Students)</h4>
+                </div>
+                <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded font-mono font-bold">2 Pairs + 2 Trios • 4 Slots</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr class="bg-slate-50 text-slate-500 border-b border-slate-200 text-[11px]">
+                      <th class="py-2 px-3 w-10 font-bold">#</th>
+                      <th class="py-2 px-3 font-bold">Surname</th>
+                      <th class="py-2 px-3 font-bold">First Name</th>
+                      <th class="py-2 px-3 font-bold text-right">FE Rota</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 text-slate-700">
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">BEDU</td><td class="py-2 px-3">Titouan</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">BEN HASSEN</td><td class="py-2 px-3">Ewan</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">MEYER</td><td class="py-2 px-3">Alexandre</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">LE BRAS</td><td class="py-2 px-3">Aine</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">ROBIN</td><td class="py-2 px-3">Louise</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">RENARD</td><td class="py-2 px-3">Ruben</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">ILPIDE</td><td class="py-2 px-3">Anatole</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">RASPILLER</td><td class="py-2 px-3">Thomas</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">RENAULT</td><td class="py-2 px-3">Guillaume</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">10</td><td class="py-2 px-3 font-bold text-slate-800">CAMGUILHEM</td><td class="py-2 px-3">Vincent</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Group B Table -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-2xs">
+              <div class="p-3 text-white flex items-center justify-between bg-orange-700">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <h4 class="text-xs font-bold uppercase tracking-wider">Group B (9 Students)</h4>
+                </div>
+                <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded font-mono font-bold">3 Pairs + 1 Trio • 4 Slots</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr class="bg-slate-50 text-slate-500 border-b border-slate-200 text-[11px]">
+                      <th class="py-2 px-3 w-10 font-bold">#</th>
+                      <th class="py-2 px-3 font-bold">Surname</th>
+                      <th class="py-2 px-3 font-bold">First Name</th>
+                      <th class="py-2 px-3 font-bold text-right">FE Rota</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 text-slate-700">
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">SEVIN</td><td class="py-2 px-3">Brian</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">BENSMAINE</td><td class="py-2 px-3">Mohamed</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">DEBORDE</td><td class="py-2 px-3">Vincent</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">VILLAIN</td><td class="py-2 px-3">Maxime</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">SELLES</td><td class="py-2 px-3">Eliott</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">HAVA</td><td class="py-2 px-3">Peter</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">MARMANDE</td><td class="py-2 px-3">Justine</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">KUHN</td><td class="py-2 px-3">Aurianne</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                    <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">GADBIN</td><td class="py-2 px-3">Francois</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Weekly Calendar -->
+      <section id="section-calendar" class="space-y-6 hidden">
+        <!-- Overview Card -->
+        <div class="bg-gradient-to-r from-slate-50 to-orange-50/40 border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide text-white bg-slate-800">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Semester 2 Schedule • Start Week 44
+            </span>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border border-orange-200 bg-orange-50 text-orange-700" id="standalone-cal-course-badge">
+              LV101E (Fri 08h00 – 10h00)
+            </span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-800">
+            Weekly Course Calendar &amp; Evaluation Milestones
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Teaching sessions begin officially in <strong>Week 44</strong>. Each module runs for 4 consecutive teaching weeks followed by a dedicated Formative Evaluation (FE) tutorial week in 30-minute pair/trio slots.
+          </p>
+        </div>
+
+        <!-- Course Calendar Track Switcher -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Select Course Track Calendar:</span>
+              <div class="inline-flex rounded-lg border border-slate-200 p-0.5 bg-slate-50" id="standalone-cal-course-pills">
+                <button type="button" onclick="setStandaloneCalendarCourse('ag')" id="btn-cal-ag" class="px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-slate-800 text-white shadow-xs">
+                  General English (AG • LV101E)
+                </button>
+                <button type="button" onclick="setStandaloneCalendarCourse('aas')" id="btn-cal-aas" class="px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900">
+                  Aeronautical English (AAS • LV121E)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modules Timeline Container -->
+        <div class="space-y-4" id="standalone-calendar-timeline">
+          <!-- Populated via renderStandaloneCalendar() -->
+        </div>
+      </section>
+
+      <!-- Section 3: FE Tutorial Rotas -->
+      <section id="section-rota" class="space-y-6 hidden">
+        <!-- Overview Card -->
+        <div class="bg-gradient-to-r from-slate-50 to-orange-50/40 border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide text-white bg-slate-800">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Official Formative Evaluation Rota • GSEA26A
+            </span>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border border-orange-200 bg-orange-50 text-orange-700">
+              Dynamic Rotations • 4 Slots of 30 min (2 Hours)
+            </span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-800">
+            30-Minute Oral Tutorial Timetables
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Every student group has an exact <strong>30-minute appointment slot</strong> with their assigned teacher. To guarantee fairness, pairings and trios rotate across FE1 and FE2, alternating early and late slots. Group A consists of <strong>2 pairs + 2 trios (10 students)</strong> and Group B consists of <strong>3 pairs + 1 trio (9 students)</strong>, precisely fitting 4 slots of 30 minutes (2 hours total).
+          </p>
+        </div>
+
+        <!-- Interactive Filters Strip (Course Track Switcher) -->
+        <div class="bg-white border border-slate-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <!-- Course Selector -->
+            <div>
+              <span class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Select Course Track:</span>
+              <div class="inline-flex rounded-lg border border-slate-200 p-0.5 bg-slate-50" id="standalone-course-pills">
+                <button type="button" onclick="setStandaloneRotaCourse('ag')" id="btn-course-ag" class="px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-slate-800 text-white shadow-xs">
+                  General English (AG • LV101E)
+                </button>
+                <button type="button" onclick="setStandaloneRotaCourse('aas')" id="btn-course-aas" class="px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900">
+                  Aeronautical English (AAS • LV121E)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Semester 2 Rotation Matrix Table (FE1 & FE2 At a Glance) -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-2xs">
+          <div class="p-3.5 bg-slate-800 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2.5" id="standalone-matrix-header-bar">
+            <!-- Populated via renderStandaloneRota() -->
+          </div>
+          <div class="overflow-x-auto" id="standalone-matrix-container">
+            <!-- Populated via renderStandaloneRota() -->
+          </div>
+        </div>
+
+        <!-- Preparation Checklist -->
+        <div class="p-4 bg-white border border-slate-200 rounded-xl space-y-2">
+          <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Essential Checklist for Formative Evaluation Day
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <strong class="text-slate-800 block font-bold mb-1">1. Arrive Early</strong>
+              <p class="text-slate-600">Be outside the examination room 5 minutes before your scheduled start time.</p>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <strong class="text-slate-800 block font-bold mb-1">2. Visual Supports</strong>
+              <p class="text-slate-600">Have your slides or handouts ready to display immediately. Do not read from notes!</p>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <strong class="text-slate-800 block font-bold mb-1">3. Vocabulary &amp; TOEIC</strong>
+              <p class="text-slate-600">Have your vocabulary logs and completed TOEIC practice records open and ready for inspection.</p>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <strong class="text-slate-800 block font-bold mb-1">4. Self-Critique Ready</strong>
+              <p class="text-slate-600">Arrive with your personal strong points and weak points clearly thought through to discuss.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 px-4 py-3 sm:px-6 flex items-center justify-between text-xs text-slate-500">
+      <span>GSEA26A Official Course Administration • ENAC Language Hub</span>
+      <span>SCORM 1.2 Compatible</span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  const ADMIN_CALENDAR_SCHEDULES = {
+    ag: {
+      code: "LV101E",
+      name: "General English (AG)",
+      dayTime: "Fridays 08h00 – 10h00",
+      faculty: "Geri MIDDLETON (Group A) & Penny WRIGHT (Group B)",
+      modules: [
+        {
+          num: 1,
+          title: "Module 1: Travel, Transport & Society",
+          weeks: "Weeks 44 – 48",
+          headerBg: "#1e293b",
+          sessions: [
+            { week: "W44", date: "Fri 31 Oct", title: "Session 1 — Introduction & Travel Anecdotes", tag: "Teaching Session", isFe: false },
+            { week: "W45", date: "Fri 07 Nov", title: "Session 2 — Evolution of Transport", tag: "Teaching Session", isFe: false },
+            { week: "W46", date: "Fri 14 Nov", title: "Session 3 — Overtourism", tag: "Teaching Session", isFe: false },
+            { week: "W47", date: "Fri 21 Nov", title: "Session 4 — Sustainable and Eco-tourism", tag: "Teaching Session • Prep FE1", isFe: false },
+            { week: "W48", date: "Fri 28 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Fri 28 Nov • 30-min evaluation slots (Geri MIDDLETON / Penny WRIGHT)", tag: "Grade /20", isFe: true }
+          ]
+        },
+        {
+          num: 2,
+          title: "Module 2: Weather, Environment & Ecological Transition",
+          weeks: "Weeks 49 – Week 3",
+          headerBg: "#1b382b",
+          sessions: [
+            { week: "W49", date: "Fri 05 Dec", title: "Session 1 — Extreme Weather", tag: "Teaching Session", isFe: false },
+            { week: "W50", date: "Fri 12 Dec", title: "Session 2 — Sustainable Cities", tag: "Teaching Session", isFe: false },
+            { isHoliday: true, text: "🎄 Weeks 51 & 52 — Christmas & Winter Vacation (No Classes)" },
+            { week: "W01", date: "Fri 09 Jan", title: "Session 3 — Building and Supporting Arguments", tag: "Teaching Session", isFe: false },
+            { week: "W02", date: "Fri 16 Jan", title: "Session 4 — Biodiversity in Urban Areas and Airports", tag: "Teaching Session • Prep FE2", isFe: false },
+            { week: "W03", date: "Fri 23 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Climate Resilience Redesign (Airport / City)", subtitle: "Fri 23 Jan • 30-min evaluation slots (Geri MIDDLETON / Penny WRIGHT)", tag: "Grade /20", isFe: true }
+          ]
+        }
+      ]
+    },
+    aas: {
+      code: "LV121E",
+      name: "Aeronautical English (AAS)",
+      dayTime: "Wednesdays 13h15 – 15h15",
+      faculty: "Tracy NEILL (Group A) & Ally HEWETT (Group B)",
+      modules: [
+        {
+          num: 1,
+          title: "Module 1: Aerodromes, Air Traffic & Surface Operations",
+          weeks: "Weeks 44 – 48",
+          headerBg: "#1e293b",
+          sessions: [
+            { week: "W44", date: "Wed 29 Oct", title: "Session 1 — Introduction & Aviation Survey", tag: "Teaching Session", isFe: false },
+            { week: "W45", date: "Wed 05 Nov", title: "Session 2 — Passenger Journey & Airfield Movement", tag: "Teaching Session", isFe: false },
+            { week: "W46", date: "Wed 12 Nov", title: "Session 3 — Ground Operations & Turnaround", tag: "Teaching Session", isFe: false },
+            { week: "W47", date: "Wed 19 Nov", title: "Session 4 — Air Traffic Control & Surface Movement", tag: "Teaching Session • Prep FE1", isFe: false },
+            { week: "W48", date: "Wed 26 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Wed 26 Nov • 30-min evaluation slots (Tracy NEILL / Ally HEWETT)", tag: "Grade /20", isFe: true }
+          ]
+        },
+        {
+          num: 2,
+          title: "Module 2: Aircraft & Aerodynamics",
+          weeks: "Weeks 49 – Week 3",
+          headerBg: "#1b382b",
+          sessions: [
+            { week: "W49", date: "Wed 03 Dec", title: "Session 1 — Aerodynamics & Flight Principles", tag: "Teaching Session", isFe: false },
+            { week: "W50", date: "Wed 10 Dec", title: "Session 2 — Aircraft Anatomy: Structure & Systems", tag: "Teaching Session", isFe: false },
+            { isHoliday: true, text: "🎄 Weeks 51 & 52 — Christmas & Winter Vacation (No Classes)" },
+            { week: "W01", date: "Wed 07 Jan", title: "Session 3 — Commercial Aircraft & Airlines", tag: "Teaching Session", isFe: false },
+            { week: "W02", date: "Wed 14 Jan", title: "Session 4 — Significant Aviation Accidents & Aircraft Types", tag: "Teaching Session • Prep FE2", isFe: false },
+            { week: "W03", date: "Wed 21 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Aircraft & Airlines Profile", subtitle: "Wed 21 Jan • 30-min evaluation slots (Tracy NEILL / Ally HEWETT)", tag: "Grade /20", isFe: true }
+          ]
+        }
+      ]
+    }
+  };
+
+  const ADMIN_ROTA_SCHEDULES = {
+    ag: {
+      code: "LV101E",
+      name: "General English (AG)",
+      dayTime: "Fridays 08h00 – 10h00",
+      fes: {
+        1: {
+          title: "FE1 — Module 1 Oral Evaluation",
+          week: "Week 48",
+          dateStr: "Friday 28 November 2024",
+          groupA: {
+            teacher: "Geri MIDDLETON",
+            slots: [
+              { num: 1, time: "08h00 – 08h30", type: "pair", students: ["BEDU Titouan", "BEN HASSEN Ewan"] },
+              { num: 2, time: "08h30 – 09h00", type: "pair", students: ["MEYER Alexandre", "LE BRAS Aine"] },
+              { num: 3, time: "09h00 – 09h30", type: "trio", students: ["ROBIN Louise", "RENARD Ruben", "ILPIDE Anatole"] },
+              { num: 4, time: "09h30 – 10h00", type: "trio", students: ["RASPILLER Thomas", "RENAULT Guillaume", "CAMGUILHEM Vincent"] }
+            ]
+          },
+          groupB: {
+            teacher: "Penny WRIGHT",
+            slots: [
+              { num: 1, time: "08h00 – 08h30", type: "pair", students: ["SEVIN Brian", "BENSMAINE Mohamed"] },
+              { num: 2, time: "08h30 – 09h00", type: "pair", students: ["DEBORDE Vincent", "VILLAIN Maxime"] },
+              { num: 3, time: "09h00 – 09h30", type: "pair", students: ["SELLES Eliott", "HAVA Peter"] },
+              { num: 4, time: "09h30 – 10h00", type: "trio", students: ["MARMANDE Justine", "KUHN Aurianne", "GADBIN Francois"] }
+            ]
+          }
+        },
+        2: {
+          title: "FE2 — Module 2 Oral Evaluation",
+          week: "Week 03",
+          dateStr: "Friday 23 January 2025",
+          groupA: {
+            teacher: "Geri MIDDLETON",
+            slots: [
+              { num: 1, time: "08h00 – 08h30", type: "trio", students: ["RASPILLER Thomas", "ROBIN Louise", "MEYER Alexandre"] },
+              { num: 2, time: "08h30 – 09h00", type: "pair", students: ["RENAULT Guillaume", "RENARD Ruben"] },
+              { num: 3, time: "09h00 – 09h30", type: "pair", students: ["CAMGUILHEM Vincent", "BEN HASSEN Ewan"] },
+              { num: 4, time: "09h30 – 10h00", type: "trio", students: ["BEDU Titouan", "LE BRAS Aine", "ILPIDE Anatole"] }
+            ]
+          },
+          groupB: {
+            teacher: "Penny WRIGHT",
+            slots: [
+              { num: 1, time: "08h00 – 08h30", type: "pair", students: ["KUHN Aurianne", "SEVIN Brian"] },
+              { num: 2, time: "08h30 – 09h00", type: "trio", students: ["BENSMAINE Mohamed", "DEBORDE Vincent", "SELLES Eliott"] },
+              { num: 3, time: "09h00 – 09h30", type: "pair", students: ["VILLAIN Maxime", "MARMANDE Justine"] },
+              { num: 4, time: "09h30 – 10h00", type: "pair", students: ["HAVA Peter", "GADBIN Francois"] }
+            ]
+          }
+        }
+      }
+    },
+    aas: {
+      code: "LV121E",
+      name: "Aeronautical English (AAS)",
+      dayTime: "Wednesdays 13h15 – 15h15",
+      fes: {
+        1: {
+          title: "FE1 — Module 1 Oral Evaluation",
+          week: "Week 48",
+          dateStr: "Wednesday 26 November 2024",
+          groupA: {
+            teacher: "Tracy NEILL",
+            slots: [
+              { num: 1, time: "13h15 – 13h45", type: "pair", students: ["BEDU Titouan", "MEYER Alexandre"] },
+              { num: 2, time: "13h45 – 14h15", type: "trio", students: ["BEN HASSEN Ewan", "ROBIN Louise", "RASPILLER Thomas"] },
+              { num: 3, time: "14h15 – 14h45", type: "pair", students: ["LE BRAS Aine", "RENARD Ruben"] },
+              { num: 4, time: "14h45 – 15h15", type: "trio", students: ["ILPIDE Anatole", "RENAULT Guillaume", "CAMGUILHEM Vincent"] }
+            ]
+          },
+          groupB: {
+            teacher: "Ally HEWETT",
+            slots: [
+              { num: 1, time: "13h15 – 13h45", type: "pair", students: ["SEVIN Brian", "VILLAIN Maxime"] },
+              { num: 2, time: "13h45 – 14h15", type: "pair", students: ["BENSMAINE Mohamed", "HAVA Peter"] },
+              { num: 3, time: "14h15 – 14h45", type: "pair", students: ["DEBORDE Vincent", "MARMANDE Justine"] },
+              { num: 4, time: "14h45 – 15h15", type: "trio", students: ["SELLES Eliott", "KUHN Aurianne", "GADBIN Francois"] }
+            ]
+          }
+        },
+        2: {
+          title: "FE2 — Module 2 Oral Evaluation",
+          week: "Week 03",
+          dateStr: "Wednesday 21 January 2025",
+          groupA: {
+            teacher: "Tracy NEILL",
+            slots: [
+              { num: 1, time: "13h15 – 13h45", type: "trio", students: ["RENAULT Guillaume", "BEN HASSEN Ewan", "RENARD Ruben"] },
+              { num: 2, time: "13h45 – 14h15", type: "pair", students: ["CAMGUILHEM Vincent", "LE BRAS Aine"] },
+              { num: 3, time: "14h15 – 14h45", type: "trio", students: ["ILPIDE Anatole", "MEYER Alexandre", "ROBIN Louise"] },
+              { num: 4, time: "14h45 – 15h15", type: "pair", students: ["BEDU Titouan", "RASPILLER Thomas"] }
+            ]
+          },
+          groupB: {
+            teacher: "Ally HEWETT",
+            slots: [
+              { num: 1, time: "13h15 – 13h45", type: "pair", students: ["KUHN Aurianne", "BENSMAINE Mohamed"] },
+              { num: 2, time: "13h45 – 14h15", type: "trio", students: ["GADBIN Francois", "DEBORDE Vincent", "SEVIN Brian"] },
+              { num: 3, time: "14h15 – 14h45", type: "pair", students: ["SELLES Eliott", "MARMANDE Justine"] },
+              { num: 4, time: "14h45 – 15h15", type: "pair", students: ["VILLAIN Maxime", "HAVA Peter"] }
+            ]
+          }
+        }
+      }
+    }
+  };
+
+  let standaloneRotaState = {
+    course: 'ag',
+    fe: 1
+  };
+
+  function setStandaloneRotaCourse(courseKey) {
+    standaloneRotaState.course = courseKey;
+    renderStandaloneRota();
+  }
+
+  function setStandaloneRotaFe(feNum) {
+    standaloneRotaState.fe = Number(feNum);
+    renderStandaloneRota();
+  }
+
+  function renderStandaloneSlotStudents(students) {
+    if (students.length === 2) {
+      return `${students[0]} &amp; ${students[1]}`;
+    }
+    return `${students[0]}, ${students[1]} &amp; ${students[2]}`;
+  }
+
+  const standaloneCalendarState = {
+    course: 'ag'
+  };
+
+  function setStandaloneCalendarCourse(courseKey) {
+    standaloneCalendarState.course = courseKey;
+    renderStandaloneCalendar();
+  }
+
+  function renderStandaloneCalendar() {
+    const activeCalKey = standaloneCalendarState.course || 'ag';
+    const calSched = ADMIN_CALENDAR_SCHEDULES[activeCalKey] || ADMIN_CALENDAR_SCHEDULES.ag;
+
+    // Update Overview Badge
+    const calBadge = document.getElementById('standalone-cal-course-badge');
+    if (calBadge) {
+      calBadge.textContent = `${calSched.code} (${calSched.dayTime})`;
+    }
+
+    // Update Pill Buttons
+    const btnAg = document.getElementById('btn-cal-ag');
+    const btnAas = document.getElementById('btn-cal-aas');
+    if (btnAg && btnAas) {
+      if (activeCalKey === 'ag') {
+        btnAg.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-slate-800 text-white shadow-xs";
+        btnAas.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900";
+      } else {
+        btnAg.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900";
+        btnAas.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-orange-600 text-white shadow-xs";
+      }
+    }
+
+    // Render Modules Timeline with Schedule & Faculty Banner
+    const timelineEl = document.getElementById('standalone-calendar-timeline');
+    if (timelineEl) {
+      timelineEl.innerHTML = `
+        <!-- Active Track Schedule & Faculty Banner -->
+        <div class="bg-slate-800 text-white p-3.5 sm:p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs border border-slate-700/60">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded font-mono font-black text-xs ${activeCalKey === 'ag' ? 'bg-slate-700 text-amber-300 border border-amber-300/30' : 'bg-orange-700 text-amber-200 border border-amber-300/30'}">
+              ${calSched.code}
+            </span>
+            <div>
+              <h3 class="text-sm font-bold text-white">
+                ${calSched.name} — Weekly Schedule &amp; Milestones
+              </h3>
+              <p class="text-xs text-slate-300 mt-0.5">
+                ${calSched.dayTime} • Faculty: ${calSched.faculty}
+              </p>
+            </div>
+          </div>
+          <span class="self-start sm:self-auto px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-white/10 text-slate-200 border border-white/15">
+            Weeks 44 – 03 • 2 Modules + 2 FEs
+          </span>
+        </div>
+
+        ${calSched.modules.map(mod => `
+          <div class="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-2xs">
+            <div class="p-3 text-white flex items-center justify-between" style="background-color: ${mod.headerBg};">
+              <span class="font-bold text-xs uppercase tracking-wide">${mod.title}</span>
+              <span class="text-[11px] bg-white/20 px-2 py-0.5 rounded font-mono font-bold">${mod.weeks}</span>
+            </div>
+            <div class="divide-y divide-slate-100 text-xs">
+              ${mod.sessions.map(s => {
+                if (s.isHoliday) {
+                  return `
+                    <div class="p-2.5 bg-slate-100 text-slate-500 flex items-center justify-center gap-2 font-semibold text-[11px]">
+                      <span>${s.text}</span>
+                    </div>
+                  `;
+                }
+                if (s.isFe) {
+                  return `
+                    <div class="p-3.5 flex items-center justify-between bg-amber-50/70 border-l-4 border-amber-500">
+                      <div class="flex items-center gap-3">
+                        <span class="px-2 py-1 rounded font-mono text-[10px] font-black text-white bg-amber-600">${s.week}</span>
+                        <div>
+                          <span class="font-bold text-amber-950 block">${s.title}</span>
+                          <span class="text-amber-800 text-[11px]">${s.subtitle}</span>
+                        </div>
+                      </div>
+                      <span class="px-2.5 py-1 rounded text-[10px] font-bold bg-amber-200 text-amber-900 border border-amber-300">${s.tag}</span>
+                    </div>
+                  `;
+                }
+                return `
+                  <div class="p-3 flex items-center justify-between hover:bg-slate-50/70">
+                    <div class="flex items-center gap-3">
+                      <span class="px-2 py-1 rounded font-mono text-[10px] font-bold bg-slate-100 text-slate-700">${s.week}</span>
+                      <div>
+                        <span class="font-bold text-slate-800 block">${s.title}</span>
+                        <span class="text-slate-500 text-[11px]">${s.date} • ${calSched.dayTime}</span>
+                      </div>
+                    </div>
+                    <span class="text-slate-500 font-medium">${s.tag}</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `).join('')}
+
+        <!-- Weeks 9–12 Wrap up -->
+        <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-600">
+          <span class="font-medium">
+            <strong>Weeks 9–12:</strong> Independent Portfolio Completion, TOEIC Verification &amp; Summative Examination Period.
+          </span>
+          <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-slate-200 text-slate-700 font-mono">End of S2</span>
+        </div>
+      `;
+    }
+  }
+
+  function renderStandaloneRota() {
+    const courseSched = ADMIN_ROTA_SCHEDULES[standaloneRotaState.course] || ADMIN_ROTA_SCHEDULES.ag;
+
+    // Update Pill Buttons
+    const btnAg = document.getElementById('btn-course-ag');
+    const btnAas = document.getElementById('btn-course-aas');
+    if (btnAg && btnAas) {
+      if (standaloneRotaState.course === 'ag') {
+        btnAg.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-slate-800 text-white shadow-xs";
+        btnAas.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900";
+      } else {
+        btnAg.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer text-slate-600 hover:text-slate-900";
+        btnAas.className = "px-3.5 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer bg-orange-600 text-white shadow-xs";
+      }
+    }
+
+    // Update Matrix Header Bar (Repositioned from floating filter)
+    const headerBar = document.getElementById('standalone-matrix-header-bar');
+    if (headerBar) {
+      headerBar.innerHTML = `
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-1 rounded font-mono font-black text-white text-[11px] shadow-2xs ${standaloneRotaState.course === 'ag' ? 'bg-sky-600' : 'bg-orange-600'}">
+            ${courseSched.code}
+          </span>
+          <div>
+            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
+              ${courseSched.name} — Complete Semester Evaluation Schedule
+            </h3>
+            <p class="text-[11px] text-slate-300 font-medium">
+              ${courseSched.dayTime} • 30-min evaluation slots
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] sm:text-[11px] font-mono text-slate-300 font-bold bg-slate-700/80 px-2.5 py-1 rounded border border-slate-600/50">
+            FE1 • FE2
+          </span>
+        </div>
+      `;
+    }
+
+    const matrixContainer = document.getElementById('standalone-matrix-container');
+    if (matrixContainer) {
+      matrixContainer.innerHTML = `
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-50 text-slate-600 border-b border-slate-200 text-[11px]">
+              <th class="py-2.5 px-3 font-bold w-24">Group &amp; Slot</th>
+              <th class="py-2.5 px-3 font-bold">FE1 (Week 48)</th>
+              <th class="py-2.5 px-3 font-bold">FE2 (Week 03)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <!-- Group A Rows -->
+            <tr class="bg-slate-50/80 font-bold text-slate-800 text-[11px]">
+              <td colspan="3" class="py-2 px-3 tracking-wide uppercase bg-slate-100">
+                Group A (${standaloneRotaState.course === 'ag' ? 'Fridays • Geri MIDDLETON' : 'Wednesdays • Tracy NEILL'})
+              </td>
+            </tr>
+            ${[0, 1, 2, 3].map(idx => `
+              <tr class="hover:bg-slate-50/70">
+                <td class="py-2.5 px-3 font-bold font-mono text-slate-800 whitespace-nowrap">
+                  Slot ${idx + 1} (${courseSched.fes[1].groupA.slots[idx].time.split(' – ')[0]})
+                </td>
+                <td class="py-2.5 px-3">
+                  <span class="font-semibold block ${courseSched.fes[1].groupA.slots[idx].type === 'trio' ? 'text-amber-900 font-bold' : 'text-slate-800'}">
+                    ${renderStandaloneSlotStudents(courseSched.fes[1].groupA.slots[idx].students)}
+                  </span>
+                  <span class="text-[10px] text-slate-400 font-mono">${courseSched.fes[1].groupA.slots[idx].type.toUpperCase()}</span>
+                </td>
+                <td class="py-2.5 px-3">
+                  <span class="font-semibold block ${courseSched.fes[2].groupA.slots[idx].type === 'trio' ? 'text-amber-900 font-bold' : 'text-slate-800'}">
+                    ${renderStandaloneSlotStudents(courseSched.fes[2].groupA.slots[idx].students)}
+                  </span>
+                  <span class="text-[10px] text-slate-400 font-mono">${courseSched.fes[2].groupA.slots[idx].type.toUpperCase()}</span>
+                </td>
+              </tr>
+            `).join('')}
+
+            <!-- Group B Rows -->
+            <tr class="bg-slate-50/80 font-bold text-slate-800 text-[11px]">
+              <td colspan="3" class="py-2 px-3 tracking-wide uppercase bg-slate-100">
+                Group B (${standaloneRotaState.course === 'ag' ? 'Fridays • Penny WRIGHT' : 'Wednesdays • Ally HEWETT'})
+              </td>
+            </tr>
+            ${[0, 1, 2, 3].map(idx => `
+              <tr class="hover:bg-slate-50/70">
+                <td class="py-2.5 px-3 font-bold font-mono text-slate-800 whitespace-nowrap">
+                  Slot ${idx + 1} (${courseSched.fes[1].groupB.slots[idx].time.split(' – ')[0]})
+                </td>
+                <td class="py-2.5 px-3">
+                  <span class="font-semibold block ${courseSched.fes[1].groupB.slots[idx].type === 'trio' ? 'text-amber-900 font-bold' : 'text-slate-800'}">
+                    ${renderStandaloneSlotStudents(courseSched.fes[1].groupB.slots[idx].students)}
+                  </span>
+                  <span class="text-[10px] text-slate-400 font-mono">${courseSched.fes[1].groupB.slots[idx].type.toUpperCase()}</span>
+                </td>
+                <td class="py-2.5 px-3">
+                  <span class="font-semibold block ${courseSched.fes[2].groupB.slots[idx].type === 'trio' ? 'text-amber-900 font-bold' : 'text-slate-800'}">
+                    ${renderStandaloneSlotStudents(courseSched.fes[2].groupB.slots[idx].students)}
+                  </span>
+                  <span class="text-[10px] text-slate-400 font-mono">${courseSched.fes[2].groupB.slots[idx].type.toUpperCase()}</span>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+  }
+
+  function switchAdminTab(tabKey) {
+    const sections = {
+      groups: document.getElementById('section-groups'),
+      calendar: document.getElementById('section-calendar'),
+      rota: document.getElementById('section-rota')
+    };
+    const btns = {
+      groups: document.getElementById('tab-btn-groups'),
+      calendar: document.getElementById('tab-btn-calendar'),
+      rota: document.getElementById('tab-btn-rota')
+    };
+
+    Object.keys(sections).forEach(key => {
+      if (sections[key]) {
+        if (key === tabKey) {
+          sections[key].classList.remove('hidden');
+        } else {
+          sections[key].classList.add('hidden');
+        }
+      }
+      if (btns[key]) {
+        if (key === tabKey) {
+          btns[key].className = "px-3.5 py-1.5 rounded-lg font-bold text-white bg-white/25 shadow-xs transition-all cursor-pointer";
+        } else {
+          btns[key].className = "px-3.5 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer";
+        }
+      }
+    });
+
+    if (tabKey === 'calendar') {
+      renderStandaloneCalendar();
+    } else if (tabKey === 'rota') {
+      renderStandaloneRota();
+    }
+  }
+
+  // Handle URL hash if provided (#groups, #calendar, #rota)
+  window.addEventListener('DOMContentLoaded', () => {
+    renderStandaloneCalendar();
+    renderStandaloneRota();
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'calendar' || hash === 'rota' || hash === 'groups') {
+      switchAdminTab(hash);
+    }
+  });
+</script>
+
+</body>
+</html>
+

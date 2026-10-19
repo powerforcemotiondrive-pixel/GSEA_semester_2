@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Session 2 - Additional Materials &amp; Resources</title>
+  <!-- Local Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+
+  <style>
+
+    /* Robust, self-contained styling for resilient rendering across all browsers */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f1f5f9;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container Canvas */
+    .deck-container {
+      width: 98%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 12px 8px;
+    }
+    @media (min-width: 640px) {
+      .deck-container {
+        width: 95%;
+        padding: 12px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .deck-container {
+        width: 90%;
+      }
+    }
+    .moodle-deck-canvas {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header styling */
+    .deck-header {
+      background-color: #1b382b;
+      color: #ffffff;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #12241c;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%);
+    }
+    .header-icon-box {
+      background-color: #10b981;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn {
+      background-image: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #10b981;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn:hover {
+      background-color: #059669;
+      transform: translateY(-1px);
+    }
+
+    /* Content Area */
+    .deck-body {
+      background-color: #ffffff;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .deck-body {
+        padding: 16px 14px;
+        gap: 18px;
+      }
+    }
+
+    /* Unified Section Panels: Clean, shaded background container for distinct section separation */
+    .section-panel {
+      background-color: #f8fafc; /* subtle slate tint for elegant contrast */
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    @media (max-width: 640px) {
+      .section-panel {
+        padding: 14px 14px;
+      }
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .section-badge {
+      background-color: #1b382b;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1b382b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .section-intro {
+      font-size: 12px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Section 1: Evenly Spaced 3-Column Video Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 720px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .compact-video-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0; /* Prevents grid blowout */
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .compact-video-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .video-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tag-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tag-amber {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    .tag-emerald {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    .tag-sky {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+    .video-header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .watch-direct-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #b91c1c;
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 9999px;
+      padding: 1.5px 7px;
+      text-decoration: none;
+      line-height: 1.3;
+      transition: all 0.15s ease;
+    }
+    .watch-direct-btn:hover {
+      background-color: #fee2e2;
+      border-color: #f87171;
+      color: #991b1b;
+      transform: translateY(-0.5px);
+    }
+    .local-file-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 11.5px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+    .local-file-banner-icon {
+      font-size: 16px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .local-file-banner-text code {
+      background-color: #dbeafe;
+      color: #1e3a8a;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #0f172a;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+    .video-player-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-facade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-facade img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.86;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .video-facade:hover img {
+      transform: scale(1.05);
+      opacity: 0.96;
+    }
+    .video-play-btn {
+      position: absolute;
+      width: 52px;
+      height: 36px;
+      background-color: rgba(239, 68, 68, 0.92);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      z-index: 2;
+    }
+    .video-facade:hover .video-play-btn {
+      transform: scale(1.12);
+      background-color: #dc2626;
+    }
+    .video-play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+      margin-left: 2px;
+    }
+    .video-facade-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: #f8fafc;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 2;
+    }
+    .video-caption {
+      font-size: 11px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Section 2: News Articles Grid (2 Equal Columns) */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 680px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .news-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      min-width: 0;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .news-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+    .news-topic {
+      font-weight: 800;
+      color: #1b382b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .news-source-tag {
+      background-color: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .news-heading {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 6px 0;
+    }
+    .news-snippet {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+    }
+    .read-time {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .article-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #1b382b;
+      color: #ffffff;
+      padding: 6px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .article-btn:hover {
+      background-color: #12241c;
+    }
+
+    /* Section 3: Web Resources (6 Items in 3x2 Grid) */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 580px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .resource-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .resource-card:hover {
+      border-color: #10b981;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(112, 151, 189, 0.15);
+    }
+    .resource-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .resource-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #10b981;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .resource-icon {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      transition: color 0.15s ease;
+    }
+    .resource-card:hover .resource-icon {
+      color: #10b981;
+    }
+    .resource-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 3px 0;
+      transition: color 0.15s ease;
+    }
+    .resource-card:hover .resource-name {
+      color: #1b382b;
+    }
+    .resource-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .resource-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1b382b;
+    }
+
+    /* Bottom Vocabulary Ribbon */
+    .vocab-footer {
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      background-color: rgba(248, 250, 252, 0.5);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    @media (min-width: 640px) {
+      .vocab-footer {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .vocab-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .vocab-word {
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .vocab-ipa {
+      font-size: 8px;
+      color: #94a3b8;
+      font-family: monospace;
+      margin-top: 1px;
+    }
+
+    /* Deck Footer */
+    .deck-footer {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 10px 18px;
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Grammar Point & TOEIC Diagnostic Styles (Module 2 Slate Palette) */
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 860px) {
+      .grammar-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .grammar-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .grammar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+      gap: 8px;
+    }
+    .grammar-card-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+    .grammar-formula-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      margin: 8px 0;
+    }
+    .grammar-formula {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1b382b;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: -0.01em;
+    }
+    .toeic-question-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 6px;
+    }
+    .toeic-question-stem {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.5;
+      margin: 4px 0 10px 0;
+    }
+    .toeic-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    @media (max-width: 500px) {
+      .toeic-options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .toeic-option-item {
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toeic-option-letter {
+      font-weight: 700;
+      color: #94a3b8;
+    }
+    .grammar-details {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .grammar-summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1b382b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background-color: #f8fafc;
+      transition: background-color 0.15s ease;
+    }
+    .grammar-summary:hover {
+      background-color: #f1f5f9;
+    }
+    .grammar-summary::-webkit-details-marker {
+      display: none;
+    }
+    .grammar-analysis-body {
+      padding: 12px 14px;
+      border-top: 1px solid #e2e8f0;
+      background-color: #ffffff;
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: #475569;
+    }
+  
+    /* Signature Tactile Micro-Mesh Texture */
+    .textured-surface {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+    }
+
+    .header-icon-box,
+    .section-badge,
+    button:disabled,
+    .btn-inactive,
+    .article-btn,
+    .back-btn {
+      background-image: none !important;
+    }
+    
+  
+  </style>
+</head>
+<body class="bg-canvas-mod2">
+
+<!-- Main Canvas Container -->
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3 font-sans deck-container">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-card-mod2 border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="deck-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div class="header-icon-box" style="background-color: #10b981;">
+          <svg width="20" height="20" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AG
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #a7f3d0; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 2 - Weather & the Environment • Session 2 - Additional Materials &amp; Resources: Sustainable Cities &amp; Mobility
+          </p>
+        </div>
+      </div>
+      
+      <!-- Back to Module / Session Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a class="flex items-center space-x-1.5 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0 back-btn"
+           style="background-color: #10b981; background-image: none !important;"
+           href="../index.html#module2">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 2</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <div class="deck-body">
+      
+      <!-- Introduction & Badge Area -->
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 4px; border-bottom: 1px solid #f1f5f9;">
+        <div>
+          <span style="display: inline-block; background-color: #1b382b; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: 11px; font-weight: 800; border: 1px solid #12241c; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            GSEA Supplementary Resource Hub
+          </span>
+        </div>
+        <h2 style="font-size: 22px; font-weight: 900; color: #1b382b; margin: 4px 0 0 0; letter-spacing: -0.02em;">
+          Session 2 Multimedia, Case Studies &amp; Research Links
+        </h2>
+        <p style="font-size: 13px; color: #64748b; line-height: 1.55; margin: 0; max-width: 950px;">
+          Explore curated audio-visual material, real-world case studies on Sustainable Cities &amp; Mobility, and authoritative reference portals to expand your DD&amp;RS insights, master technical vocabulary, and prepare for class discussions.
+        </p>
+      </div>
+
+      <!-- SECTION 1: YOUTUBE VIDEO VIEWERS (Shaded Panel, 3 Evenly Spaced) -->
+            <!-- SECTION 1: VIDEOS (3 Compact Cards) -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge" style="background-color: #1b382b;">01</span>
+          <h3 class="section-title" style="color: #1b382b;">Video Viewers &amp; Analysis</h3>
+        </div>
+        <p class="section-intro">
+          Watch the accompanying video clips below and take notes on relevant technical vocabulary, arguments, and policy trade-offs.
+        </p>
+
+        <!-- Dynamic Local File Mode Warning Banner -->
+        <div id="local-file-banner" class="local-file-banner" style="display: none;">
+          <div class="local-file-banner-icon">💡</div>
+          <div class="local-file-banner-text">
+            <strong>Viewing Tip:</strong> Click any video thumbnail or the <strong>Watch ↗</strong> button to watch directly on YouTube with full subtitles, playback speed controls, and interactive transcripts.
+          </div>
+        </div>
+
+        <!-- 3-Column Evenly Spaced Video Grid -->
+        <div class="video-grid">
+
+          <!-- Video 1 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 1: The 15-Minute City Explained">Video 1: The 15-Minute City Explained</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=5dVcn8NjbwY" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 1 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-amber">Urban Design</span>
+              </div>
+            </div>
+            
+            <div class="video-player-container" data-video-id="5dVcn8NjbwY" data-video-title="The 15-Minute City Explained">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/5dVcn8NjbwY" 
+                title="YouTube video player 1 - The 15-Minute City Explained" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Urbanist Carlos Moreno details how cities can be reorganized so daily services are reachable within a 15-minute walk or cycle.
+            </p>
+          </div>
+          <!-- Video 2 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 2: How Cities Redesign Streets for People">Video 2: How Cities Redesign Streets for People</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=RYuGWOjm26E" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 2 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-emerald">Active Mobility</span>
+              </div>
+            </div>
+            
+            <div class="video-player-container" data-video-id="RYuGWOjm26E" data-video-title="How Cities Redesign Streets for People">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/RYuGWOjm26E" 
+                title="YouTube video player 2 - How Cities Redesign Streets for People" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Urban case studies demonstrating pedestrianization, protected cycling corridors, and the transformation of car-centric roadways.
+            </p>
+          </div>
+          <!-- Video 3 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 3: Decarbonizing Urban Freight &amp; Public Transit">Video 3: Decarbonizing Urban Freight &amp; Public Transit</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=9a4JSBX7_n0" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 3 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-sky">Clean Logistics</span>
+              </div>
+            </div>
+            
+            <div class="video-player-container" data-video-id="9a4JSBX7_n0" data-video-title="Decarbonizing Urban Freight &amp; Public Transit">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/9a4JSBX7_n0" 
+                title="YouTube video player 3 - Decarbonizing Urban Freight &amp; Public Transit" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Examining electric bus rapid transit, cargo-bike micro-hubs, and zero-emission delivery zones in European metropolitan centers.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: FEATURED CASE STUDIES & POLICY REPORTS -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge" style="background-color: #1b382b;">02</span>
+          <h3 class="section-title" style="color: #1b382b;">Featured Case Studies &amp; Policy Reports</h3>
+        </div>
+        <p class="section-intro">
+          Read these two industry reports examining ecological responsibility, technical standards, and evolving transport policy.
+        </p>
+
+        <div class="news-grid">
+
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic" style="color: #1b382b;">C40 Cities Climate Leadership</span>
+                <span class="news-source-tag">Urban Policy</span>
+              </div>
+              <h4 class="news-heading">
+                Urban Mobility Transition Index
+              </h4>
+              <p class="news-snippet">
+                Comparative scoring of 50 global cities on public transit share, air quality improvements, and active mobility network integration.
+              </p>
+            </div>
+            
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 5-7 mins</span>
+              <a href="https://www.c40.org" target="_blank" rel="noopener noreferrer" class="article-btn" style="background-color: #1b382b;">
+                <span>Read Full Report</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic" style="color: #1b382b;">OECD Urban Studies</span>
+                <span class="news-source-tag">Economic Analysis</span>
+              </div>
+              <h4 class="news-heading">
+                The Economics of Low-Emission Zones and Public Health
+              </h4>
+              <p class="news-snippet">
+                Empirical assessment of health outcomes, commercial vitality, and emissions reductions following the implementation of urban clean-air zones.
+              </p>
+            </div>
+            
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 5-7 mins</span>
+              <a href="https://www.oecd.org" target="_blank" rel="noopener noreferrer" class="article-btn" style="background-color: #1b382b;">
+                <span>Read Full Report</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: CURATED WEB RESOURCES & REFERENCES (6 Items, 3x2 Grid) -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge" style="background-color: #1b382b;">03</span>
+          <h3 class="section-title" style="color: #1b382b;">Curated Web Resources &amp; References</h3>
+        </div>
+        <p class="section-intro">
+          Use these 6 trusted websites for grammar practice, vocabulary study, and sustainability research.
+        </p>
+
+        <div class="resources-grid">
+
+          <!-- Resource 1 -->
+          <a href="https://www.c40.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">01 • Urban Climate Leadership</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">C40 Cities Network</h4>
+              <p class="resource-desc">
+                Mayors leading the urban fight against climate change through progressive mobility and clean air zones.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource 2 -->
+          <a href="https://www.uitp.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">02 • Public Transit Federation</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">UITP Urban Transit Association</h4>
+              <p class="resource-desc">
+                International Association of Public Transport global reports and transit benchmarks.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource 3 -->
+          <a href="https://www.itdp.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">03 • Sustainable Transport Institute</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">ITDP Sustainable Transport</h4>
+              <p class="resource-desc">
+                Institute for Transportation and Development Policy BRT and cycling standards.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource 4 -->
+          <a href="https://transport.ec.europa.eu" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">04 • EU Mobility Framework</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">European Commission Urban Mobility</h4>
+              <p class="resource-desc">
+                EU framework for Sustainable Urban Mobility Plans (SUMP) and city decarbonization.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource 5 -->
+          <a href="https://ourworldindata.org/urbanization" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">05 • Urbanization Statistics</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Our World in Data: Urbanization</h4>
+              <p class="resource-desc">
+                Global statistical datasets on metropolitan density, transit usage, and urban sprawl.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource 6 -->
+          <a href="https://www.etsglobal.org/fr/fr" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag" style="color: #10b981;">06 • TOEIC Business Context</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">ETS Global TOEIC Preparation</h4>
+              <p class="resource-desc">
+                Vocabulary exercises for municipal tenders, urban planning proposals, and contracts.
+              </p>
+            </div>
+            <div class="resource-action" style="color: #1b382b;">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge" style="background-color: #1b382b;">04</span>
+          <h3 class="section-title" style="color: #1b382b;">Grammar Point: Subject-Verb Agreement &amp; TOEIC Practice</h3>
+        </div>
+        <p class="section-intro">
+          Learn how to find the real subject of a sentence when other words and extra information stand between the subject and the verb.
+        </p>
+
+        <!-- 2-Column Responsive Layout -->
+        <div class="grammar-grid">
+          
+          <!-- Column 1: Grammar Definition, Formation & Rules -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #1b382b;">Matching Subjects &amp; Verbs</span>
+                <span class="tag-pill tag-sky">B1–B2 Grammar Focus</span>
+              </div>
+              
+              <!-- Formula / Reference Banner -->
+              <div class="grammar-formula-box">
+                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Basic Rule</div>
+                <div class="grammar-formula">
+                  Main Subject [Singular] + (words in between) + Verb with -s [Singular]
+                </div>
+              </div>
+
+              <!-- When to Use It -->
+              <div style="font-size: 12px; color: #475569; line-height: 1.55; margin-top: 10px;">
+                <p style="margin: 0 0 6px 0;">
+                  <strong style="color: #1e293b;">Core Rules:</strong> A singular subject takes a singular verb (ending in <em>-s</em>). A plural subject takes a plural verb (without <em>-s</em>). Watch out for words in between:
+                </p>
+                <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>
+                    <strong style="color: #1e293b;">1. Words in Between (The "of / in / with" trap):</strong> In <em>"The integration of light-rail corridors"</em>, the real subject is <span style="font-weight: 700; color: #1b382b;">integration</span> (singular), not <em>corridors</em> (plural). The verb must be singular (<em>reduces</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">2. Companies &amp; Organizations:</strong> Words like <em>the committee</em>, <em>the transit board</em>, or <em>the municipality</em> count as one single unit and take a singular verb.
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">3. Words like Each / Every / One of:</strong> Phrases like <em>Each of the hubs</em> or <em>One of the passengers</em> always take a <span style="font-weight: 600; color: #334155;">singular verb</span>.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Crucial TOEIC Contrast / Pitfall Alert -->
+              <div style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #f0f9ff; border: 1px solid #bae6fd; font-size: 11px; color: #0369a1; line-height: 1.45;">
+                <strong>⚠️ TOEIC Trap Alert:</strong> The test often puts plural nouns right in front of the blank (e.g., <em>"...corridors into hubs [ _____ ]"</em>) to fool you. Ignore the words inside <em>"of..."</em> or <em>"in..."</em> and match the verb to the very first main noun!
+              </div>
+            </div>
+
+            <!-- Authentic Urban Mobility Examples -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 4px;">
+              <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px;">Urban Mobility Examples</span>
+              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: #334155;">
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #1b382b; font-weight: 800;">✓</span>
+                  <span><em>"The expansion of electric tramways into suburban districts <strong>has improved</strong> regional air quality."</em></span>
+                </div>
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #1b382b; font-weight: 800;">✓</span>
+                  <span><em>"Each of the city's shared mobility hubs <strong>provides</strong> free solar battery recharging."</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: TOEIC Part 5 Practice Question & Interactive Reveal -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #10b981;">TOEIC Diagnostic Practice</span>
+                <span class="tag-pill tag-sky">Part 5: Incomplete Sentences</span>
+              </div>
+
+              <!-- Question Prompt Box -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Sample Item • Reading Section</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The integration of autonomous light-rail corridors into regional transit hubs ________ commuter congestion by nearly forty percent.
+                </p>
+                
+                <!-- Options Grid -->
+                <div class="toeic-options-grid">
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(A)</span> reduces
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(B)</span> reduce
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(C)</span> reducing
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(D)</span> are reducing
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Self-Check Disclosure -->
+            <div>
+              <details class="grammar-details">
+                <summary class="grammar-summary" style="color: #1b382b;">
+                  <span style="display: flex; align-items: center; gap: 6px;">
+                    <span>💡</span>
+                    <span>Click to Reveal Answer &amp; TOEIC Strategy Analysis</span>
+                  </span>
+                  <span style="font-size: 11px; color: #94a3b8;">▼</span>
+                </summary>
+                
+                <div class="grammar-analysis-body">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <span style="background-color: #dcfce7; color: #166534; font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 4px; border: 1px solid #bbf7d0;">
+                      Correct Answer: (A) reduces
+                    </span>
+                  </div>
+                  
+                  <p style="margin: 0 0 8px 0;">
+                    <strong>Why (A) is correct:</strong> The real subject of this sentence is the singular noun <strong>The integration</strong>. The plural nouns that follow (<em>corridors</em>, <em>hubs</em>) are part of extra descriptions starting with <em>of</em> and <em>into</em>. Because <em>The integration</em> is singular (it), the present tense verb needs an <em>-s</em> (<strong>reduces</strong>).
+                  </p>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px;">
+                    <span style="font-weight: 700; color: #1e293b;">Why the Other Choices Are Incorrect:</span>
+                    <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11px; display: flex; flex-direction: column; gap: 3px;">
+                      <li><strong>(B) reduce:</strong> Plural verb; incorrectly matches the plural words <em>corridors</em> or <em>hubs</em>.</li>
+                      <li><strong>(C) reducing:</strong> Has an <em>-ing</em> ending; cannot be the main verb without <em>is</em> or <em>are</em>.</li>
+                      <li><strong>(D) are reducing:</strong> Plural form; does not match the singular subject <em>The integration</em>.</li>
+                    </ul>
+                  </div>
+
+                  <div style="padding: 7px 10px; border-radius: 6px; background-color: #f0f9ff; border: 1px solid #bae6fd; font-size: 10.5px; color: #0369a1;">
+                    <strong>📌 Quick Test Tip:</strong> Cross out phrases starting with <em>of</em>, <em>in</em>, or <em>for</em> before picking your verb. Match the verb to the noun that came before them!
+                  </div>
+                </div>
+              </details>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Stylized Skills Footer Area -->
+            <div class="w-full pt-3 pb-3 px-4 rounded-xl border border-slate-200/60 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-4 gap-y-2.5 gap-x-4 shadow-sm vocab-footer">
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic tracking-wide text-[#c0684f] vocab-word" style="color: #c0684f; font-style: italic;">FLUENCY</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈfluː.ən.si/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase text-[#d6a555] vocab-word" style="color: #d6a555; text-transform: uppercase;">Grammar</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈɡræm.ər/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold normal-case text-slate-700 underline decoration-slate-300 vocab-word" style="color: #334155; text-decoration: underline; text-decoration-color: #cbd5e1;">Technical Vocabulary</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈtek.nɪ.kəl vəˈkæb/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-[#a85640] vocab-word" style="color: #a85640; font-style: italic;">Pronunciation</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/prəˌnʌn.siˈeɪ.shən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase tracking-wider text-teal-700 vocab-word" style="color: #0f766e; text-transform: uppercase;">Comprehension</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic text-sky-700 vocab-word" style="color: #0369a1; font-style: italic;">Discussion</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/dɪˈskʌʃ.ən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-extrabold uppercase text-[#ea5d74] vocab-word" style="color: #ea5d74; text-transform: uppercase;">CORRECTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/kəˈrek.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold tracking-widest text-[#d6a555] vocab-word" style="color: #d6a555; letter-spacing: 0.08em;">INTERACTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌɪn.təˈræk.ʃən/</span></div>
+            </div>
+      </div>
+
+    
+
+    <!-- Bottom status footer -->
+    <footer class="deck-footer bg-slate-50 border-t border-slate-200 px-3 py-2 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700" style="font-weight: 600; color: #334155;">Active: Session 2 Additional Materials</span>
+      <span class="font-medium">GSEA Semester 1 English • Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var isFile = window.location.protocol === 'file:';
+      if (isFile) {
+        var banner = document.getElementById('local-file-banner');
+        if (banner) banner.style.display = 'flex';
+
+        var containers = document.querySelectorAll('.video-player-container[data-video-id]');
+        containers.forEach(function(el) {
+          var vid = el.getAttribute('data-video-id');
+          var title = el.getAttribute('data-video-title') || 'Video';
+          var url = 'https://www.youtube.com/watch?v=' + vid;
+          el.innerHTML = 
+            '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="video-facade" title="' + title + ' - Click to play on YouTube">' +
+              '<img src="https://img.youtube.com/vi/' + vid + '/hqdefault.jpg" alt="' + title + '" loading="lazy">' +
+              '<div class="video-play-btn" aria-hidden="true">' +
+                '<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>' +
+              '</div>' +
+              '<div class="video-facade-badge">' +
+                '<span>Watch on YouTube ↗</span>' +
+              '</div>' +
+            '</a>';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

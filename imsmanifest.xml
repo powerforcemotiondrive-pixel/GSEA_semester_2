@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="com.enac.gsea.course" version="1.0" 
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="GSEA_ORG">
+    <organization identifier="GSEA_ORG">
+      <title>GSEA Semester 2 - Course Modules</title>
+      <item identifier="ITEM_MOD1">
+        <title>Module 1: Travel &amp; Transport</title>
+        <item identifier="ITEM_M1_S1" identifierref="RESOURCE_1" parameters="#module1-card1">
+          <title>Session 1 - Introduction &amp; Travel Anecdotes</title>
+        </item>
+        <item identifier="ITEM_M1_S2" identifierref="RESOURCE_1" parameters="#module1-card2">
+          <title>Session 2 - Evolution of Transport</title>
+        </item>
+        <item identifier="ITEM_M1_S3" identifierref="RESOURCE_1" parameters="#module1-card3">
+          <title>Session 3 - Overtourism</title>
+        </item>
+        <item identifier="ITEM_M1_S4" identifierref="RESOURCE_1" parameters="#module1-card4">
+          <title>Session 4 - Sustainable and Eco-tourism</title>
+        </item>
+        <item identifier="ITEM_M1_S5" identifierref="RESOURCE_1" parameters="#module1-card5">
+          <title>Session 5 - Formative Evaluation</title>
+        </item>
+        <item identifier="ITEM_M1_S6" identifierref="RESOURCE_1" parameters="#module1-card6">
+          <title>Focus: DDRS Framework</title>
+        </item>
+        <item identifier="ITEM_M1_S7" identifierref="RESOURCE_1" parameters="#module1-card7">
+          <title>Course Admin</title>
+        </item>
+      </item>
+      <item identifier="ITEM_MOD2">
+        <title>Module 2: Weather &amp; the Environment</title>
+        <item identifier="ITEM_M2_S1" identifierref="RESOURCE_1" parameters="#module2-card1">
+          <title>Session 1: Extreme Weather</title>
+        </item>
+        <item identifier="ITEM_M2_S2" identifierref="RESOURCE_1" parameters="#module2-card2">
+          <title>Session 2: Sustainable Cities</title>
+        </item>
+        <item identifier="ITEM_M2_S3" identifierref="RESOURCE_1" parameters="#module2-card3">
+          <title>Session 3: Building and Supporting Arguments</title>
+        </item>
+        <item identifier="ITEM_M2_S4" identifierref="RESOURCE_1" parameters="#module2-card4">
+          <title>Session 4: Biodiversity in Urban Areas and Airports</title>
+        </item>
+        <item identifier="ITEM_M2_S5" identifierref="RESOURCE_1" parameters="#module2-card5">
+          <title>Session 5 - Formative Evaluation</title>
+        </item>
+        <item identifier="ITEM_M2_S6" identifierref="RESOURCE_1" parameters="#module2-card6">
+          <title>Focus: DDRS Framework</title>
+        </item>
+        <item identifier="ITEM_M2_S7" identifierref="RESOURCE_1" parameters="#module2-card7">
+          <title>Course Admin</title>
+        </item>
+        <item identifier="ITEM_M2_S8" identifierref="RESOURCE_1" parameters="#module2-card8">
+          <title>English Immersion (End of S2)</title>
+        </item>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RESOURCE_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <!-- Main course entry file -->
+      <file href="index.html"/>
+      <file href="portfolio.html"/>
+      <file href="admin.html"/>
+      <file href="immersion.html"/>
+      <file href="ddrs.html"/>
+      <file href="ddrs1.html"/>
+      <file href="ddrs2.html"/>
+      <file href="ddrs3.html"/>
+      
+      <!-- Compiled Tailwind CSS stylesheet -->
+      <file href="output.css"/>
+      
+      <!-- Structured Course Data Architecture -->
+      <file href="data/course-data.js"/>
+      
+      <!-- Session 1 Course Pages (Modules 1, 2, 3) -->
+      <file href="session1/plan1.html"/>
+      <file href="session1/obj1.html"/>
+      <file href="session1/admat1.html"/>
+      <file href="session1/rev1.html"/>
+      <file href="session1/plan2.html"/>
+      <file href="session1/obj2.html"/>
+      <file href="session1/admat2.html"/>
+      <file href="session1/rev2.html"/>
+      <file href="session1/plan3.html"/>
+      <file href="session1/obj3.html"/>
+      <file href="session1/admat3.html"/>
+      <file href="session1/rev3.html"/>
+      <!-- Technical English (AT) Course Pages -->
+      <file href="session1/admat_aas1.html"/>
+      <file href="session1/rev_aas1.html"/>
+      <file href="session1/admat_aas2.html"/>
+      <file href="session1/rev_aas2.html"/>
+      
+      <!-- Session 2 Course Pages (Modules 1, 2, 3) -->
+      <file href="session2/plan1.html"/>
+      <file href="session2/obj1.html"/>
+      <file href="session2/admat1.html"/>
+      <file href="session2/rev1.html"/>
+      <file href="session2/plan2.html"/>
+      <file href="session2/obj2.html"/>
+      <file href="session2/admat2.html"/>
+      <file href="session2/rev2.html"/>
+      <file href="session2/plan3.html"/>
+      <file href="session2/obj3.html"/>
+      <file href="session2/admat3.html"/>
+      <file href="session2/rev3.html"/>
+      <file href="session2/admat_aas1.html"/>
+      <file href="session2/rev_aas1.html"/>
+      <file href="session2/admat_aas2.html"/>
+      <file href="session2/rev_aas2.html"/>
+      
+      <!-- Session 3 Course Pages (Modules 1, 2, 3) -->
+      <file href="session3/plan1.html"/>
+      <file href="session3/obj1.html"/>
+      <file href="session3/admat1.html"/>
+      <file href="session3/rev1.html"/>
+      <file href="session3/plan2.html"/>
+      <file href="session3/obj2.html"/>
+      <file href="session3/admat2.html"/>
+      <file href="session3/rev2.html"/>
+      <file href="session3/plan3.html"/>
+      <file href="session3/obj3.html"/>
+      <file href="session3/admat3.html"/>
+      <file href="session3/rev3.html"/>
+      <file href="session3/admat_aas1.html"/>
+      <file href="session3/rev_aas1.html"/>
+      <file href="session3/admat_aas2.html"/>
+      <file href="session3/rev_aas2.html"/>
+      
+      <!-- Session 4 Course Pages (Modules 1, 2, 3) -->
+      <file href="session4/plan1.html"/>
+      <file href="session4/obj1.html"/>
+      <file href="session4/admat1.html"/>
+      <file href="session4/rev1.html"/>
+      <file href="session4/plan2.html"/>
+      <file href="session4/obj2.html"/>
+      <file href="session4/admat2.html"/>
+      <file href="session4/rev2.html"/>
+      <file href="session4/plan3.html"/>
+      <file href="session4/obj3.html"/>
+      <file href="session4/admat3.html"/>
+      <file href="session4/rev3.html"/>
+      <file href="session4/admat_aas1.html"/>
+      <file href="session4/rev_aas1.html"/>
+      <file href="session4/admat_aas2.html"/>
+      <file href="session4/rev_aas2.html"/>
+      
+      <!-- Session 5 Formative Evaluation Pages (Modules 1, 2, 3) -->
+      <file href="session5/guidelines1.html"/>
+      <file href="session5/obj1.html"/>
+      <file href="session5/criteria1.html"/>
+      <file href="session5/guidelines2.html"/>
+      <file href="session5/obj2.html"/>
+      <file href="session5/criteria2.html"/>
+      <file href="session5/guidelines3.html"/>
+      <file href="session5/obj3.html"/>
+      <file href="session5/criteria3.html"/>
+      <file href="session5/guidelines_aas1.html"/>
+      <file href="session5/obj_aas1.html"/>
+      <file href="session5/criteria_aas1.html"/>
+      <file href="session5/guidelines_aas2.html"/>
+      <file href="session5/obj_aas2.html"/>
+      <file href="session5/criteria_aas2.html"/>
+      
+      <!-- AG General English Track Card Images -->
+      <file href="images/ag_m1card1.jpg"/>
+      <file href="images/ag_m1card2.jpg"/>
+      <file href="images/ag_m1card3.jpg"/>
+      <file href="images/ag_m1card4.jpg"/>
+      <file href="images/ddrs_ag_mod1.jpg"/>
+      <file href="images/fe_progress_check.png"/>
+      <file href="images/course_admin.jpg"/>
+      <file href="images/semester_objectives.png"/>
+      <file href="images/ag_m2card1.jpg"/>
+      <file href="images/ag_m2card2.jpg"/>
+      <file href="images/ag_m2card3.jpg"/>
+      <file href="images/ag_m2card4.jpg"/>
+      <file href="images/ddrs_ag_mod2.jpg"/>
+      <file href="images/ag_m3card1.jpg"/>
+      <file href="images/ag_m3card2.jpg"/>
+      <file href="images/ag_m3card3.jpg"/>
+      <file href="images/ag_m3card4.jpg"/>
+      <file href="images/ddrs_ag_mod3.jpg"/>
+      <file href="images/immersion_card.jpg"/>
+      
+      <!-- AT Technical English Track Card Images -->
+      <file href="images/aas_m1card1.jpg"/>
+      <file href="images/aas_m1card2.jpg"/>
+      <file href="images/aas_m1card3.jpg"/>
+      <file href="images/aas_m1card4.jpg"/>
+      <file href="images/fe_aas_mod1.jpg"/>
+      <file href="images/ddrs_aas_mod1.jpg"/>
+      <file href="images/aas_m2card1.jpg"/>
+      <file href="images/aas_m2card2.jpg"/>
+      <file href="images/aas_m2card3.jpg"/>
+      <file href="images/aas_m2card4.jpg"/>
+      <file href="images/fe_aas_mod2.jpg"/>
+      <file href="images/ddrs_aas_mod2.jpg"/>
+      <file href="images/aas_m3card1.jpg"/>
+      <file href="images/aas_m3card2.jpg"/>
+      <file href="images/aas_m3card3.jpg"/>
+      <file href="images/aas_m3card4.jpg"/>
+      <file href="images/ddrs_aas_mod3.jpg"/>
+      <file href="images/turnaround_apron.jpg"/>
+      
+      <!-- Student Worksheets & PDF Documents -->
+    </resource>
+  </resources>
+</manifest>

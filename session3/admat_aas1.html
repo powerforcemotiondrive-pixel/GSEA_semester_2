@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AT Module 1 Session 3 - Additional Materials &amp; Resources</title>
+  <!-- Local Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f5f2ee;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-container {
+      width: 98%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 12px 8px;
+    }
+    @media (min-width: 640px) {
+      .deck-container {
+        width: 95%;
+        padding: 12px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .deck-container {
+        width: 90%;
+      }
+    }
+    .moodle-deck-canvas {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 20px 25px -5px rgba(61, 45, 37, 0.06), 0 8px 10px -6px rgba(61, 45, 37, 0.04), 0 1px 3px 0 rgba(61, 45, 37, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .deck-header {
+      background-color: #152438;
+      color: #ffffff;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #0d1724;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%);
+    }
+    .header-icon-box {
+      background-color: #d97706;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn {
+      background-image: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #d97706;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn:hover {
+      background-color: #b45309;
+      transform: translateY(-1px);
+    }
+
+    .deck-body {
+      background-color: #ffffff;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .deck-body {
+        padding: 16px 14px;
+        gap: 18px;
+      }
+    }
+
+    .section-panel {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .section-badge {
+      background-color: #152438;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #152438;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .section-intro {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0 0 16px 0;
+      line-height: 1.5;
+    }
+
+    /* Video cards */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .compact-video-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .video-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .video-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      shrink-0;
+    }
+    .watch-direct-btn {
+      font-size: 10px;
+      font-weight: 700;
+      color: #b91c1c;
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 3px 7px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .watch-direct-btn:hover {
+      background-color: #fee2e2;
+    }
+    .tag-pill {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-amber { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .tag-emerald { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+    .tag-sky { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #0f172a;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .video-player-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* News articles */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .news-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: border-color 0.15s ease;
+    }
+    .news-card:hover {
+      border-color: #cbd5e1;
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .news-topic {
+      font-size: 11px;
+      font-weight: 800;
+      color: #152438;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .news-source-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      background-color: #f1f5f9;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .news-heading {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.35;
+      margin: 0 0 6px 0;
+    }
+    .news-snippet {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0 0 12px 0;
+    }
+    .news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+    }
+    .read-time {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .article-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: #152438;
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+    .article-btn:hover {
+      background-color: #0d1724;
+    }
+
+    /* Resources grid */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .resource-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      transition: all 0.15s ease;
+    }
+    .resource-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .resource-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #d97706;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .resource-name {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+    }
+    .resource-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0 0 8px 0;
+    }
+    .resource-link-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0369a1;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* Grammar & TOEIC */
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 900px) {
+      .grammar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .grammar-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .grammar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .grammar-card-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .grammar-formula-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 8px 0 12px 0;
+    }
+    .grammar-formula {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #152438;
+      font-family: monospace;
+      letter-spacing: -0.01em;
+      margin-top: 3px;
+    }
+    .toeic-question-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .toeic-question-stem {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.5;
+      margin: 8px 0 12px 0;
+    }
+    .toeic-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .toeic-option-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .toeic-option-letter {
+      font-weight: 800;
+      color: #64748b;
+      font-size: 11px;
+    }
+    .reveal-details {
+      margin-top: 10px;
+    }
+    .reveal-details summary {
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0369a1;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck-container">
+  <div class="moodle-deck-canvas">
+
+    <!-- Header bar -->
+    <header class="deck-header">
+      <div style="display: flex; align-items: center; gap: 14px; min-width: 0; flex: 1;">
+        <div class="header-icon-box">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <div style="min-width: 0;">
+          <h1 style="font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AT
+          </h1>
+          <p style="font-size: 12px; font-weight: 500; color: #fef3c7; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 1 - Aerodrome • Session 3 - Ground Operations &amp; Turnaround
+          </p>
+        </div>
+      </div>
+      <a class="back-btn" href="../index.html?track=aas#module1">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+        </svg>
+        <span>Back to Module 1</span>
+      </a>
+    </header>
+
+    <!-- Main Content Workspace -->
+    <main class="deck-body">
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 1: VIDEO ANALYSIS (3 COMPACT CARDS)                              -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">01</span>
+          <h3 class="section-title">Video Viewers &amp; Operational Analysis</h3>
+        </div>
+        <p class="section-intro">
+          Analyze real-time commercial aircraft turnaround choreography, airside ground support equipment (GSE), and pushback maneuvers from stand to taxiway.
+        </p>
+
+        <div class="video-grid">
+          <!-- Video 1 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 1: What Happens To An Aircraft During Its Turnaround?">Video 1: Aircraft Turnaround Process</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=EiKeGmkX6fY" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-amber">Turnaround</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="EiKeGmkX6fY" data-video-title="What Happens To An Aircraft During Its Turnaround?">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/EiKeGmkX6fY" 
+                title="What Happens To An Aircraft During Its Turnaround? - Simple Flying" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Step-by-step breakdown of the rapid 35 to 45-minute commercial turnaround: blocks-on, chocks, deplaning, baggage handling, fueling, catering, and pushback.
+            </p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 2: 20 Types of Aircraft Ground Support Equipment (GSE)">Video 2: Apron GSE Equipment</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=R90mroZyAL4" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-emerald">GSE Fleet</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="R90mroZyAL4" data-video-title="20 Types of Aircraft Ground Support Equipment (GSE)">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/R90mroZyAL4" 
+                title="20 Types of Aircraft Ground Support Equipment (GSE) used in Aircraft Ground Handling at Airports" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Visual field guide to the specialized vehicles operating on the apron stand: pushback tugs, ground power units (GPU), belt loaders, catering hi-lifts, and de-icing rigs.
+            </p>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 3: Pushback Operations &amp; Electric Tugs">Video 3: Pushback &amp; Electric Tugs</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=2BZbHAJQ70s" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-sky">Ramp Safety</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="2BZbHAJQ70s" data-video-title="The Future of Pushback is Electric">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/2BZbHAJQ70s" 
+                title="The FUTURE of PUSHBACK is ELECTRIC! Explained by CAPTAIN JOE" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Captain Joe explains how pushback tractors maneuver commercial airliners out of the gate, interphone headset communication, and next-generation electric tug innovations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 2: TECHNICAL READING & INDUSTRY BRIEFINGS (2 CARDS)               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">02</span>
+          <h3 class="section-title">Technical Articles &amp; Operational Briefings</h3>
+        </div>
+        <p class="section-intro">
+          Review official safety bulletins and industry engineering analyses examining turnaround coordination, safety corridors, and ground support equipment electrification.
+        </p>
+
+        <div class="news-grid">
+          <!-- Article 1 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Ramp Safety Protocol</span>
+                <span class="news-source-tag">IATA Safety Briefing</span>
+              </div>
+              <h4 class="news-heading">Managing Parallel Servicing Hazards during Fast-Turnaround Operations</h4>
+              <p class="news-snippet">
+                An operational analysis of simultaneous ground servicing workflows, vehicle clearance corridors, and safety communication protocols between flight crew and apron handling agents.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">5-7 min read</span>
+              <a href="https://www.iata.org" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Decarbonization &amp; Innovation</span>
+                <span class="news-source-tag">ACI World Journal</span>
+              </div>
+              <h4 class="news-heading">Electrification of Ground Support Equipment on European Aprons</h4>
+              <p class="news-snippet">
+                Examining the transition from diesel-powered tugs and belt loaders to zero-emission battery electric GSE (e-GSE) across major hub aerodromes to cut apron emissions and noise.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">5-7 min read</span>
+              <a href="https://www.aci.aero" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 3: CURATED WEB RESOURCES & REFERENCES (6 CARDS)                   -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">03</span>
+          <h3 class="section-title">Curated Web Resources &amp; Industry Portals</h3>
+        </div>
+        <p class="section-intro">
+          Authoritative references, aerodrome regulatory frameworks, and professional English practice portals for ground operations and turnaround management.
+        </p>
+
+        <div class="resources-grid">
+          <!-- Resource 1 -->
+          <a href="https://www.icao.int" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">01 • Regulatory Standard</div>
+              <div class="resource-name">ICAO Annex 14 (Aerodromes)</div>
+              <p class="resource-desc">International Standards and Recommended Practices for aerodrome design, apron management, and visual aids.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 2 -->
+          <a href="https://www.iata.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">02 • Ramp Operations Manual</div>
+              <div class="resource-name">IATA Airport Handling Manual (AHM)</div>
+              <p class="resource-desc">Global industry baseline procedures for safe and efficient ground handling operations and GSE standards.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 3 -->
+          <a href="https://www.easa.europa.eu" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">03 • European Safety Guidance</div>
+              <div class="resource-name">EASA Ground Handling Safety Hub</div>
+              <p class="resource-desc">Safety promotion bulletins addressing ramp collision prevention, turnaround hazards, and human factors.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 4 -->
+          <a href="https://www.aci.aero" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">04 • Apron Best Practices</div>
+              <div class="resource-name">ACI World Apron Safety Guidelines</div>
+              <p class="resource-desc">Airports Council International recommendations on apron markings, service vehicle routing, and FOD management.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 5 -->
+          <a href="https://www.skybrary.aero" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">05 • Safety Knowledge Network</div>
+              <div class="resource-name">SKYbrary Aviation Safety: Ground Operations</div>
+              <p class="resource-desc">Peer-reviewed aviation safety repository detailing turnaround incident analysis and mitigation strategies.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 6 -->
+          <a href="https://www.etsglobal.org/fr/fr" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">06 • Professional English Practice</div>
+              <div class="resource-name">ETS Global TOEIC Preparation</div>
+              <p class="resource-desc">Practice materials for workplace and transportation logistics reading comprehension.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 4: GRAMMAR FOCUS & TOEIC APPLICATION                               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">04</span>
+          <h3 class="section-title">Grammar Point: Cause, Effect &amp; Relative Clauses in Ground Operations</h3>
+        </div>
+        <p class="section-intro">
+          Construct clear spoken and written sentences explaining turnaround delays and defining GSE vehicles using formal linkers for professional operational reporting.
+        </p>
+
+        <div class="grammar-grid">
+          <!-- Column 1: Grammar Definition, Formation & Rules -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #152438;">The Cause &amp; Effect Framework</span>
+                <span class="tag-pill tag-amber">B2 Professional Focus</span>
+              </div>
+              
+              <!-- Formula Banner -->
+              <div class="grammar-formula-box">
+                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Grammar Patterns</div>
+                <div class="grammar-formula">
+                  Due to / Owing to + [Noun Phrase]  |  [Cause] + led to / resulted in + [Noun]
+                </div>
+              </div>
+
+              <!-- Core Rules -->
+              <div style="font-size: 12px; color: #475569; line-height: 1.55; margin-top: 10px;">
+                <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>
+                    <strong style="color: #1e293b;">1. Formal Prepositional Causes (Due to / Owing to):</strong> Followed strictly by a noun phrase or gerund, never by a full subject+verb clause (<em>"<strong>Due to heavy ramp congestion</strong>, the refueler was delayed"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">2. Result Verbs (Led to / Resulted in):</strong> Express the direct outcome of an event (<em>"An overheated conveyor <strong>resulted in</strong> a 15-minute baggage delay"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">3. Defining Relative Clauses (Which / That):</strong> Used to clearly define airside vehicles without jargon (<em>"The GPU is a mobile generator <strong>that supplies electricity</strong> to the cabin"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">4. Transitional Connectors (Consequently / As a result):</strong> Placed at the start of a sentence followed by a comma to introduce a consequence.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pitfall Alert -->
+              <div style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #fffbeb; border: 1px solid #fef3c7; font-size: 11px; color: #92400e; line-height: 1.45;">
+                <strong>⚠️ Common Grammar Trap:</strong> Do not write <em>due to because</em> or follow <em>due to</em> with a full sentence! Say <em>"Due to the storm"</em> (noun phrase), NOT <em>"Due to the storm was bad"</em>. For full clauses, use <em>"Because the storm was severe..."</em>.
+              </div>
+            </div>
+
+            <!-- Workplace Examples -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 4px;">
+              <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px;">Ground Handling Examples</span>
+              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: #334155;">
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>"<strong>Owing to a mechanical defect</strong> on the pushback tractor, stand clearance was postponed by ten minutes."</em></span>
+                </div>
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>"The belt loader experienced an electrical failure, <strong>which prevented handlers</strong> from unloading the forward hold on schedule."</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: TOEIC Part 5 Practice Question & Interactive Reveal -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #d97706;">TOEIC Diagnostic Practice</span>
+                <span class="tag-pill tag-sky">Part 5: Incomplete Sentences</span>
+              </div>
+
+              <!-- Question Prompt Box -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Sample Item • Logistics &amp; Operations</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  Due to a temporary failure of the mobile ground power unit, cabin air conditioning ________ until the auxiliary system was activated.
+                </p>
+                
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(A)</span>
+                    <span>was suspended</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(B)</span>
+                    <span>to suspend</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(C)</span>
+                    <span>suspending</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(D)</span>
+                    <span>suspends</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Reveal Details Block -->
+              <details class="reveal-details">
+                <summary>Click to Reveal Correct Answer &amp; Explanations</summary>
+                <div style="margin-top: 10px; padding: 12px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER</span>
+                    <strong style="color: #065f46; font-size: 12px;">(A) was suspended</strong>
+                  </div>
+                  
+                  <p style="font-size: 11.5px; color: #334155; margin: 0 0 8px 0; line-height: 1.5;">
+                    <strong>Grammar Analysis:</strong> The sentence requires a past passive finite verb: the air conditioning was suspended by ground handling crew until auxiliary power was restored.
+                  </p>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px;">
+                    <span style="font-weight: 700; color: #1e293b; font-size: 11px;">Why the Other Choices Are Incorrect:</span>
+                    <div style="font-size: 11px; color: #64748b; padding-left: 8px;">
+                      <strong>(B) to suspend:</strong> An infinitive cannot serve as the main finite verb of the clause.<br>
+                      <strong>(C) suspending:</strong> A present participle without an auxiliary verb cannot complete the predicate.<br>
+                      <strong>(D) suspends:</strong> Active present tense contradicts the past time anchor (<em>"was activated"</em>) and the passive role of air conditioning.
+                    </div>
+                  </div>
+                  
+                  <div style="background-color: #f1f5f9; padding: 6px 10px; border-radius: 6px; font-size: 10.5px; color: #475569;">
+                    <strong>TOEIC Strategy:</strong> Identify the passive receiver of the action (<em>"air conditioning"</em>) and the past time marker (<em>"was activated"</em>), which necessitates <em>was + past participle</em>.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 8px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; color: #64748b;">
+              <span>Target Competency: Passive Voice in Delay Reporting</span>
+              <span style="font-weight: 700; color: #d97706;">Score Goal: 850+</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom status footer -->
+    <footer style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 12px 24px; font-size: 11px; color: #64748b; display: flex; justify-content: space-between; align-items: center; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;">
+      <span style="font-weight: 600; color: #334155;">Active: AAS Session 3 Ground Operations &amp; Turnaround</span>
+      <span style="font-weight: 500;">GSEA Semester 1 Technical English • Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
+

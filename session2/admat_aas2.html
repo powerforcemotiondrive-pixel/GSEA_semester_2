@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AT Module 2 Session 2 - Additional Materials &amp; Resources</title>
+  <!-- Local Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f1f5f9;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-container {
+      width: 98%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 12px 8px;
+    }
+    @media (min-width: 640px) {
+      .deck-container {
+        width: 95%;
+        padding: 12px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .deck-container {
+        width: 90%;
+      }
+    }
+    .moodle-deck-canvas {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 20px 25px -5px rgba(61, 45, 37, 0.06), 0 8px 10px -6px rgba(61, 45, 37, 0.04), 0 1px 3px 0 rgba(61, 45, 37, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .deck-header {
+      background-color: #152438;
+      color: #ffffff;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #0d1724;
+    }
+    .header-icon-box {
+      background-color: #d97706;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #d97706;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .back-btn:hover {
+      background-color: #b45309;
+    }
+
+    .deck-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .deck-body {
+        padding: 16px 14px;
+        gap: 18px;
+      }
+    }
+
+    .section-panel {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #152438;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .section-intro {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 0 0 18px 0;
+      line-height: 1.5;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .compact-video-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .compact-video-card:hover {
+      box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .video-header {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f1f5f9;
+      background-color: #ffffff;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .video-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .watch-direct-btn {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #d97706;
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      padding: 3px 7px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .watch-direct-btn:hover {
+      background-color: #d97706;
+      color: #ffffff;
+    }
+    .tag-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-amber { background-color: #fef3c7; color: #92400e; }
+    .tag-emerald { background-color: #d1fae5; color: #065f46; }
+    .tag-sky { background-color: #e0f2fe; color: #0369a1; }
+
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #0f172a;
+    }
+    .video-player-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0;
+      background-color: #ffffff;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .news-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .news-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .news-topic {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .news-source-tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748b;
+      background-color: #f1f5f9;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .news-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.4;
+      margin: 0 0 8px 0;
+    }
+    .news-snippet {
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0 0 14px 0;
+    }
+    .news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+    .read-time {
+      font-size: 10.5px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .article-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #152438;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+    .article-btn:hover {
+      background-color: #d97706;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .resource-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .resource-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transform: translateY(-1px);
+    }
+    .resource-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .resource-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .resource-icon {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .resource-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+      line-height: 1.35;
+    }
+    .resource-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0 0 10px 0;
+    }
+    .resource-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #d97706;
+      padding-top: 8px;
+      border-top: 1px solid #f8fafc;
+    }
+
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (min-width: 1024px) {
+      .grammar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .grammar-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .grammar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 12px;
+    }
+    .grammar-card-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .grammar-formula-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .grammar-formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+      color: #152438;
+      letter-spacing: 0.02em;
+      margin-top: 3px;
+    }
+
+    .toeic-question-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .toeic-question-stem {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.5;
+      margin: 8px 0 0 0;
+    }
+    .toeic-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .toeic-option-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .toeic-option-letter {
+      font-weight: 800;
+      color: #94a3b8;
+    }
+    .reveal-details summary {
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      color: #d97706;
+      user-select: none;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck-container">
+  <div class="moodle-deck-canvas">
+
+    <!-- Header bar -->
+    <header class="deck-header">
+      <div style="display: flex; align-items: center; gap: 14px; min-width: 0; flex: 1;">
+        <div class="header-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AT
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #fef3c7; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 2 - Aircraft & Aerodynamics • Session 2 - Aircraft Anatomy: Structure & Systems
+          </p>
+        </div>
+      </div>
+      <a href="../index.html?track=aas#module2" class="back-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+        <span>Back to Module 2</span>
+      </a>
+    </header>
+
+    <!-- Main Deck Content Body -->
+    <main class="deck-body">
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 1: VIDEO ANALYSIS (3 Videos)                                      -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">01</span>
+          <h3 class="section-title">Video Viewers &amp; Operational Analysis</h3>
+        </div>
+        <p class="section-intro">
+          Watch the video clips below and take notes on aircraft control surface operations, walkaround inspections, and primary airframe structures.
+        </p>
+
+        <div class="video-grid">
+          
+          <!-- Video 1 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 1: Airbus A320 Preflight: Technical Exterior Walkaround">Video 1: A320 Preflight Walkaround</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=Tdf_Ac7_gwA" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-amber">Line Operations</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="Tdf_Ac7_gwA" data-video-title="Video 1: Airbus A320 Preflight: Technical Exterior Walkaround">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/Tdf_Ac7_gwA" 
+                title="Video 1: Airbus A320 Preflight: Technical Exterior Walkaround" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Step-by-step exterior pre-departure walkaround checking pitot-static probes, gear assemblies, tires, and control surfaces.
+            </p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 2: How Airplane Flaps and Slats Work">Video 2: High-Lift Devices: Flaps &amp; Slats</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=fUPNN3N-oDI" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-emerald">Airframe Systems</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="fUPNN3N-oDI" data-video-title="Video 2: How Airplane Flaps and Slats Work">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/fUPNN3N-oDI" 
+                title="Video 2: How Airplane Flaps and Slats Work" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Understand trailing-edge flaps and leading-edge slats, hydraulic actuator tracks, camber change, and stall speed reduction.
+            </p>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 3: Turbofan Architecture: CFM56 Jet Engines">Video 3: Jet Engine Turbofan Architecture</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=S2HymZd3GEE" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-sky">Propulsion</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="S2HymZd3GEE" data-video-title="Video 3: Turbofan Architecture: CFM56 Jet Engines">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/S2HymZd3GEE" 
+                title="Video 3: Turbofan Architecture: CFM56 Jet Engines" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Inspect the compressor stages, combustion chamber, turbine blades, bypass ratio, and thrust generation in modern turbofans.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 2: FEATURED NEWS & INDUSTRY CASE STUDIES (2 Columns)              -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">02</span>
+          <h3 class="section-title">Featured News &amp; Operational Case Studies</h3>
+        </div>
+        <p class="section-intro">
+          Read these two aviation engineering reports on composite airframe maintenance and advanced flap/slat actuation mechanisms.
+        </p>
+
+        <div class="news-grid">
+          
+          <!-- Article 1 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Airframe Technology</span>
+                <span class="news-source-tag">Aerospace Manufacturing</span>
+              </div>
+              <h4 class="news-heading">
+                Composite Materials and Carbon Fiber in Modern Airframe Structures
+              </h4>
+              <p class="news-snippet">
+                How carbon-fiber-reinforced polymers (CFRP) in the Boeing 787 and Airbus A350 eliminate corrosion and reduce empty weight.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 4-5 mins</span>
+              <a href="https://www.aero-mag.com" target="_blank" rel="noopener noreferrer" class="article-btn">
+                <span>Read Source</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <!-- Article 2 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Line Maintenance</span>
+                <span class="news-source-tag">Aviation Maintenance Magazine</span>
+              </div>
+              <h4 class="news-heading">
+                Conducting Visual Pre-Flight Inspections: Detecting Cracks, Dents, and Bird Strikes
+              </h4>
+              <p class="news-snippet">
+                A practical guide for ramp engineers and line pilots identifying structural damage on engine cowlings, radomes, and leading edges.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 5-6 mins</span>
+              <a href="https://www.av-maint.com" target="_blank" rel="noopener noreferrer" class="article-btn">
+                <span>Read Source</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 3: CURATED WEB RESOURCES & REFERENCES (6 Items, 3x2 Grid)         -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">03</span>
+          <h3 class="section-title">Curated Web Resources &amp; Industry Portals</h3>
+        </div>
+        <p class="section-intro">
+          Use these 6 trusted aerospace portals and databases for engineering research, regulatory review, and technical lexis development.
+        </p>
+
+        <div class="resources-grid">
+          
+          <!-- Resource -->
+          <a href="https://www.skybrary.aero/articles/flight-control-surfaces" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">01 • Flight Controls</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Skybrary: Aircraft Flight Control Surfaces</h4>
+              <p class="resource-desc">
+                Comprehensive encyclopedia entries on primary and secondary flight control systems.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource -->
+          <a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aircraft_airframe_handbook" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">02 • Airframe Engineering</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">FAA AMT Airframe Handbook (FAA-H-8083-31A)</h4>
+              <p class="resource-desc">
+                Authoritative technical manual on aircraft structures, composite repairs, and hydraulics.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource -->
+          <a href="https://aircraft.airbus.com/en/aircraft" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">03 • Airbus Specifications</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Airbus Aircraft Family Technical Data</h4>
+              <p class="resource-desc">
+                Official payload, dimensions, and structural specifications for the A220, A320, and A350 families.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource -->
+          <a href="https://www.boeing.com/commercial" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">04 • Boeing Engineering</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Boeing Commercial Airplanes Technical Highlights</h4>
+              <p class="resource-desc">
+                Detailed structural diagrams and systems overview of the 737 MAX and 787 Dreamliner.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource -->
+          <a href="https://www.easa.europa.eu" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">05 • Maintenance Standards</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">EASA Part-66 Aircraft Maintenance Standards</h4>
+              <p class="resource-desc">
+                European airworthiness regulations and syllabus requirements for airframe certifications.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+          <!-- Resource -->
+          <a href="https://www.rolls-royce.com/products-and-services/civil-aerospace.aspx" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">06 • Engine Architecture</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Rolls-Royce Trent Engine Cutaway & Architecture</h4>
+              <p class="resource-desc">
+                Interactive visualization and explanatory guides on high-bypass turbofan components.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Portal</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 4: GRAMMAR FOCUS & TOEIC APPLICATION                               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">04</span>
+          <h3 class="section-title">Grammar Point: Spatial Prepositions & Passive Voice for Pre-Flight Defect Reporting</h3>
+        </div>
+        <p class="section-intro">
+          Review core aerodynamic language structures and complete the diagnostic Part 5 exam question.
+        </p>
+
+        <div class="grammar-grid">
+          <!-- Column 1: Rules & Formulations -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #152438;">Aerospace Language Clinic</span>
+                <span class="tag-pill tag-amber">B1–B2 Grammar Focus</span>
+              </div>
+              
+              <!-- Formula Banner -->
+              <div class="grammar-formula-box">
+                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Aircraft Inspection Formula</div>
+                <div class="grammar-formula">
+                  Subject + is/are/was/were + Past Participle (+ Prepositional Location)
+                </div>
+              </div>
+
+              <!-- Rules -->
+              <div style="font-size: 12px; color: #475569; line-height: 1.55; margin-top: 10px;">
+                <p style="margin: 0 0 6px 0;">
+                  <strong style="color: #1e293b;">Key Communicative Guidelines:</strong>
+                </p>
+                <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;">
+                  
+                  <li>
+                    <strong style="color: #1e293b;">1. Spatial Prepositions for Airframe Anatomy:</strong> Locates external parts precisely (<em>'Leading-edge slats are mounted along the forward wing skin; trailing-edge flaps are situated adjacent to the engine pylon'</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">2. Present Passive for Structural Functions:</strong> Explains standard operational mechanisms (<em>'Hydraulic actuators are powered by redundant engine-driven pumps'</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">3. Past Passive for Walkaround Defect Reports:</strong> Documents pre-departure technical anomalies (<em>'A hydraulic leak was observed near the main gear brake lines'</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">4. Modal Passive for Maintenance Clearance:</strong> Mandates safety release actions (<em>'All inspection panels must be securely fastened before the aircraft is cleared for pushback'</em>).
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pitfall Alert -->
+              <div style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #fffbeb; border: 1px solid #fef3c7; font-size: 11px; color: #92400e; line-height: 1.45;">
+                ⚠️ TOEIC Part 5 Passive Voice Alert: Be sure to check subject-verb agreement with collective or plural aviation nouns (e.g., 'The landing gear IS inspected' vs. 'The main gear assemblies ARE inspected').
+              </div>
+            </div>
+
+            <!-- Authentic Workplace Examples -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 4px;">
+              <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px;">Authentic Operational Examples</span>
+              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: #334155;">
+                
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>During the exterior walkaround, minor surface abrasions were detected on the composite radome.</em></span>
+                </div>
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>The pitot-static probes are electrically heated to prevent ice formation during climb.</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: TOEIC Part 5 Diagnostic Item -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #d97706;">TOEIC Diagnostic Practice</span>
+                <span class="tag-pill tag-sky">Part 5: Reading Section</span>
+              </div>
+
+              <!-- Question Box -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Sample Item • Timed Practice</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Target: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The line maintenance engineer conducted a thorough exterior walkaround to ensure that no hydraulic fluid was ------- from the landing gear.
+                </p>
+                <div class="toeic-options-list">
+                  
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">A</span>
+                    <span>leaking</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">B</span>
+                    <span>leaked</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">C</span>
+                    <span>leaks</span>
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">D</span>
+                    <span>leak</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reveal Explanation -->
+              <details class="reveal-details bg-amber-50/70 border border-amber-200/80 rounded-lg p-3">
+                <summary>Click to Reveal Correct Answer &amp; Explanations</summary>
+                <div class="mt-2 text-xs text-slate-700 leading-relaxed pt-2 border-t border-amber-200/60">
+                  <p class="font-bold text-slate-900 mb-1">
+                    Correct Answer: <span class="text-[#d97706] font-mono">A</span>
+                  </p>
+                  <p class="text-slate-600">
+                    The past continuous auxiliary 'was' requires the present participle 'leaking'.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom status footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-4 py-3 text-xs text-slate-500 flex justify-between items-center shrink-0">
+      <span class="font-medium text-slate-700">Active: AAS Session 2 Additional Materials</span>
+      <span class="font-medium">GSEA Semester 1 Technical English. Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

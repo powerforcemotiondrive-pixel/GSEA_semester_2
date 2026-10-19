@@ -1,0 +1,32 @@
+{
+  "name": "gsea-semester2-scorm",
+  "version": "1.0.0",
+  "description": "ENAC GSEA Semester 2 English Courseware and SCORM 1.2 Package (2 Modules: AG & AAS)",
+  "main": "index.html",
+  "scripts": {
+    "build:html": "node scripts/build-html.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --minify",
+    "build": "node scripts/build-html.js && npx @tailwindcss/cli -i ./src/input.css -o ./output.css --minify",
+    "package": "node scripts/package-scorm.js",
+    "dev:css": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --watch",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerforcemotiondrive-pixel/semester1_ag.git"
+  },
+  "keywords": [
+    "enac",
+    "gsea",
+    "english",
+    "scorm",
+    "moodle"
+  ],
+  "author": "Phil Parris",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

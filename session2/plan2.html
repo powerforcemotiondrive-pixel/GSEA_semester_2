@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 2 - Lesson Plan</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../output.css">
+    <style>
+      /* Signature Tactile Micro-Mesh Texture */
+      .textured-surface {
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+          repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+          repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+      }
+
+      /* Inactive buttons and header controls must not have mesh texture */
+      .icon-box,
+      [class*="rounded-full"],
+      button:disabled,
+      .btn-inactive,
+      .back-btn {
+        background-image: none !important;
+      }
+    </style>
+  </head>
+<body class="bg-canvas-mod2 min-h-screen">
+
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3 font-sans">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-card-mod2 border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="textured-surface bg-[#1b382b] text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#12241c] shrink-0 relative overflow-hidden">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="bg-[#10b981] p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+          <svg width="20" height="20" style="width: 20px; height: 20px;" class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AG
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #a7f3d0; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 2 - Weather & the Environment • Session 2 - Sustainable Cities
+          </p>
+        </div>
+      </div>
+      <!-- Back to Module Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a class="back-btn flex items-center space-x-1.5 bg-[#10b981] hover:bg-[#059669] active:bg-[#047857] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0"
+           href="../index.html#module2">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 2</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <div class="flex-1 bg-white p-4 sm:p-8 flex flex-col justify-between overflow-y-auto">
+        <div class="space-y-4">
+          <div class="flex flex-col lg:flex-row gap-6 items-start justify-between">
+            <div class="space-y-4 flex-1">
+            
+            <div class="inline-flex items-center space-x-2 bg-[#1b382b] text-white px-3.5 py-1 rounded-full text-xs font-black tracking-wide border border-[#12241c] shadow-sm">
+              GSEA Semester 1 Lesson Outline
+            </div>
+            
+            <h2 class="text-xl sm:text-2xl font-black text-[#1b382b] tracking-tight">
+              Session 2 Lesson Plan (2 Hours)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              A 2-hour session agenda combining conversational warm-ups, TOEIC test practice, vocabulary building, speaking activities, and evaluation preparation.
+            </p>
+            
+            <!-- Timed Lesson Plan Breakdown -->
+            <div class="space-y-2.5 pt-2">
+              <!-- Item -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="bg-[#1b382b] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">0-15</span>
+                <div class="flex items-start space-x-2">
+                  <span class="font-black text-[#10b981] text-xs sm:text-sm pt-0.2">1.</span>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#1b382b]">Conversational Warm-Up: My Ideal City (15 mins)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Students discuss in pairs what features make a city enjoyable to live in (parks, cycle paths, public transport).</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="bg-[#1b382b] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">15-45</span>
+                <div class="flex items-start space-x-2">
+                  <span class="font-black text-[#10b981] text-xs sm:text-sm pt-0.2">2.</span>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#1b382b]">TOEIC Strategy: Urban Notices & Bulletins (30 mins)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Practice Part 7 reading comprehension with municipal updates, transit timetables, and environmental regulations.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="bg-[#1b382b] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">45-65</span>
+                <div class="flex items-start space-x-2">
+                  <span class="font-black text-[#10b981] text-xs sm:text-sm pt-0.2">3.</span>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#1b382b]">Vocabulary Builder: 15-Minute City Concepts (20 mins)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Vocabulary for urban planning: pedestrian zone, green corridor, district heating, and low-emission zones.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="bg-[#1b382b] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">65-110</span>
+                <div class="flex items-start space-x-2">
+                  <span class="font-black text-[#10b981] text-xs sm:text-sm pt-0.2">4.</span>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#1b382b]">Structured Discussion & Grammar (45 mins)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Compare two European cities using Subject-Verb Agreement with collective nouns and long noun phrases.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Item -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="bg-[#1b382b] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">110-120</span>
+                <div class="flex items-start space-x-2">
+                  <span class="font-black text-[#10b981] text-xs sm:text-sm pt-0.2">5.</span>
+                  <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-[#1b382b]">Debrief, Evaluation Prep & Wrap-Up (10 mins)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Class recap, key grammatical reminders for subject-verb agreement, and personal vocabulary logging.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <!-- Square Image Container -->
+            <div class="w-full sm:w-48 h-48 rounded-xl shrink-0 overflow-hidden shadow-md" style="box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);">
+              <img class="w-full h-full object-cover" src="../images/m2card2.png" alt="Session 2 graphic">
+            </div>
+          </div>
+
+          <!-- Stylized Skills Footer Area -->
+          <div class="w-full pt-3 pb-3 px-4 rounded-xl border border-slate-200/60 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-4 gap-y-2.5 gap-x-4 shadow-sm vocab-footer">
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic tracking-wide text-[#c0684f] vocab-word" style="color: #c0684f; font-style: italic;">FLUENCY</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈfluː.ən.si/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase text-[#d6a555] vocab-word" style="color: #d6a555; text-transform: uppercase;">Grammar</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈɡræm.ər/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold normal-case text-slate-700 underline decoration-slate-300 vocab-word" style="color: #334155; text-decoration: underline; text-decoration-color: #cbd5e1;">Technical Vocabulary</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈtek.nɪ.kəl vəˈkæb/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-[#a85640] vocab-word" style="color: #a85640; font-style: italic;">Pronunciation</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/prəˌnʌn.siˈeɪ.shən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase tracking-wider text-teal-700 vocab-word" style="color: #0f766e; text-transform: uppercase;">Comprehension</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic text-sky-700 vocab-word" style="color: #0369a1; font-style: italic;">Discussion</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/dɪˈskʌʃ.ən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-extrabold uppercase text-[#ea5d74] vocab-word" style="color: #ea5d74; text-transform: uppercase;">CORRECTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/kəˈrek.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold tracking-widest text-[#d6a555] vocab-word" style="color: #d6a555; letter-spacing: 0.08em;">INTERACTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌɪn.təˈræk.ʃən/</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom status footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-3 py-2 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700">Active: Session 2 Lesson Plan</span>
+      <span class="font-medium">GSEA Semester 1 English. Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSEA Semester 1 — English Learning Portfolio</title>
+  
+  <link rel="stylesheet" href="output.css">
+
+  <style>
+    :root {
+      /* Base Canvas & Palette */
+      --bg-canvas: #f8fafc;
+      --box-bg: #ffffff;
+      --box-border: #e2e8f0;
+      --input-bg: #ffffff;
+      --input-border: #cbd5e1;
+      --input-text: #0f172a;
+      
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --text-heading: #0f172a;
+
+      /* Dynamic Theme Variables (Default to AG Emerald) */
+      --theme-primary: #1b382b;
+      --theme-accent: #10b981;
+      --theme-accent-hover: #059669;
+      --theme-accent-dark: #047857;
+      --theme-highlight: #d1fae5;
+      --theme-badge-bg: #ecfdf5;
+      --theme-badge-text: #065f46;
+      --theme-badge-border: #a7f3d0;
+      
+      --btn-submit-from: #10b981;
+      --btn-submit-to: #059669;
+      --btn-submit-border: #047857;
+      --btn-submit-shadow: rgba(16, 185, 129, 0.25);
+      --btn-submit-shadow-hover: rgba(16, 185, 129, 0.38);
+      --input-focus-shadow: rgba(16, 185, 129, 0.2);
+
+      --banner-bg: #374151;
+      --banner-border: #1f2937;
+      --banner-icon-bg: #10b981;
+      --banner-icon-color: #ffffff;
+      
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+      --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Track-Specific Theme Overrides */
+    body.theme-ag {
+      --theme-primary: #1b382b;
+      --theme-accent: #10b981;
+      --theme-accent-hover: #059669;
+      --theme-accent-dark: #047857;
+      --theme-highlight: #d1fae5;
+      --theme-badge-bg: #ecfdf5;
+      --theme-badge-text: #065f46;
+      --theme-badge-border: #a7f3d0;
+      --btn-submit-from: #10b981;
+      --btn-submit-to: #059669;
+      --btn-submit-border: #047857;
+      --btn-submit-shadow: rgba(16, 185, 129, 0.25);
+      --btn-submit-shadow-hover: rgba(16, 185, 129, 0.38);
+      --input-focus-shadow: rgba(16, 185, 129, 0.2);
+      --banner-icon-bg: #10b981;
+    }
+
+    body.theme-aas {
+      --theme-primary: #1a2238;
+      --theme-accent: #3b82f6;
+      --theme-accent-hover: #2563eb;
+      --theme-accent-dark: #1d4ed8;
+      --theme-highlight: #e0e7ff;
+      --theme-badge-bg: #eff6ff;
+      --theme-badge-text: #1e40af;
+      --theme-badge-border: #bfdbfe;
+      --btn-submit-from: #3b82f6;
+      --btn-submit-to: #2563eb;
+      --btn-submit-border: #1d4ed8;
+      --btn-submit-shadow: rgba(59, 130, 246, 0.25);
+      --btn-submit-shadow-hover: rgba(59, 130, 246, 0.38);
+      --input-focus-shadow: rgba(59, 130, 246, 0.2);
+      --banner-icon-bg: #3b82f6;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      color: var(--text-main);
+      min-height: 100vh;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .drop-shadow-box {
+      background-color: var(--box-bg);
+      border: 1px solid var(--box-border);
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+    }
+
+    .drop-shadow-box:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Signature Precision CAD Micro-Grid Flight-Deck Header */
+    .textured-surface,
+    .header-banner {
+      background-color: #374151 !important;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 75%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.16) 100%) !important;
+      background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100% !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 4px 12px -2px rgba(0, 0, 0, 0.15) !important;
+      border: 1px solid #1f2937 !important;
+      border-radius: 1rem;
+      position: sticky;
+      top: 0.75rem;
+      z-index: 40;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .form-input {
+      width: 100%;
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 0.5rem;
+      padding: 0.625rem 0.875rem;
+      font-size: 0.875rem;
+      color: var(--input-text);
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input.form-input,
+    select.form-input {
+      height: 2.75rem !important; /* 44px uniform height matching buttons */
+      min-height: 2.75rem !important;
+      box-sizing: border-box;
+    }
+
+    select.form-input {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+      background-position: right 0.75rem center;
+      background-repeat: no-repeat;
+      background-size: 1.25rem 1.25rem;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-input:focus {
+      border-color: var(--theme-accent);
+      box-shadow: 0 0 0 3px var(--input-focus-shadow);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 0.375rem;
+    }
+
+    .field-instruction {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .theme-badge {
+      background-color: var(--theme-badge-bg);
+      color: var(--theme-badge-text);
+      border: 1px solid var(--theme-badge-border);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--btn-submit-from), var(--btn-submit-to));
+      border: 1px solid var(--btn-submit-border);
+      color: #ffffff;
+      box-shadow: 0 4px 12px var(--btn-submit-shadow);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      filter: brightness(1.08);
+      box-shadow: 0 6px 16px var(--btn-submit-shadow-hover);
+      transform: translateY(-1px);
+    }
+
+    .rating-btn {
+      padding: 0.35rem 0;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .rating-btn:hover {
+      background-color: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .rating-btn.active {
+      background-color: var(--theme-accent) !important;
+      color: #ffffff !important;
+      border-color: var(--theme-accent-dark) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Print / PDF Export Styling */
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+      .print-page-break { page-break-after: always; }
+      .drop-shadow-box { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+    }
+
+    .portfolio-container {
+      padding-bottom: 5.5rem !important; /* Clearance for fixed flight-deck footer */
+    }
+
+    /* Fixed Flight-Deck Portfolio Footer */
+    .portfolio-fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background-color: #1f2937 !important;
+      background-image: 
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.14) 0%, transparent 75%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.22) 100%) !important;
+      background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100% !important;
+      border-top: 1px solid #111827 !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 -4px 16px rgba(0, 0, 0, 0.3) !important;
+      transition: all 0.25s ease;
+    }
+
+    /* In-Drawer Embedded Mode (when loaded in deck slide-over drawer) */
+    html.in-drawer-mode header.header-banner,
+    body.in-drawer-mode header.header-banner {
+      display: none !important;
+    }
+    html.in-drawer-mode #portfolio-fixed-footer,
+    body.in-drawer-mode #portfolio-fixed-footer {
+      display: none !important;
+    }
+    html.in-drawer-mode body,
+    body.in-drawer-mode {
+      min-height: auto !important;
+    }
+    html.in-drawer-mode .portfolio-container,
+    body.in-drawer-mode .portfolio-container {
+      max-width: 100% !important;
+      padding-top: 1rem !important;
+      padding-bottom: 2.5rem !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-drawer-mode');
+    }
+  </script>
+</head>
+<body class="theme-ag antialiased selection:bg-emerald-500/20 selection:text-emerald-900">
+
+  <div class="portfolio-container max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-5">
+    
+    <!-- Top Flight-Deck Navigation & Branding Header -->
+    <header class="header-banner textured-surface px-4 py-3.5 sm:px-6 sm:py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Dynamic Header Icon -->
+        <div id="header-icon-box" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white transition-all duration-300" style="background-color: var(--theme-accent);">
+          <svg id="header-icon-ag" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          <svg id="header-icon-aas" class="w-5 h-5 sm:w-6 sm:h-6 hidden" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 id="header-title" class="text-sm sm:text-base font-extrabold text-white tracking-wide uppercase">
+              GSEA SEMESTER 1 AG
+            </h1>
+          </div>
+          <p id="header-subtitle" class="text-xs text-slate-300 font-medium mt-0.5">
+            General English (LV101E) • Formative Learning Portfolio &amp; Self-Evaluation Log
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Header Actions (Track Switcher & Return Link) -->
+      <div class="flex items-center gap-2.5 self-start md:self-auto shrink-0">
+        <!-- Dual-Track Switcher -->
+        <div class="inline-flex items-center bg-black/40 p-1 rounded-lg border border-white/15 shadow-inner" role="tablist">
+          <button id="tab-btn-ag" type="button" onclick="switchTrack('ag')" class="px-2.5 py-1 rounded-md text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 text-white bg-emerald-600 shadow-xs">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            <span>AG</span>
+          </button>
+          <button id="tab-btn-aas" type="button" onclick="switchTrack('aas')" class="px-2.5 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-white/70 hover:text-white hover:bg-white/10">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            <span>AT</span>
+          </button>
+        </div>
+
+        <!-- Return to Course Deck Link -->
+        <a id="return-deck-link" href="index.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/45 hover:bg-black/60 text-slate-100 hover:text-white border border-white/15 text-xs font-semibold transition-all no-underline shadow-inner hover:-translate-y-[1px]" title="Return to Main Course Deck">
+          <span>Deck ↗</span>
+        </a>
+
+        <!-- Live DB Beacon -->
+        <div id="conn-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-mono font-bold text-slate-200">
+          <span id="conn-dot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="conn-text">Live</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Student Authentication & Workstation Session -->
+    <div class="no-print drop-shadow-box p-5 sm:p-6">
+      <div class="flex items-center justify-between border-b border-[var(--box-border)] pb-3 mb-4">
+        <div>
+          <h2 class="section-title">1. Student Authentication</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Select your name from the promotion roster and enter your 4-digit security PIN.</p>
+        </div>
+        <span id="authStatusPill" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+          Not Signed In
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+        <div>
+          <label for="studentSelect" class="field-label">Student Name</label>
+          <select id="studentSelect" onchange="handleStudentSelectChange()" class="form-input">
+            <option value="">-- Choose Name --</option>
+            <optgroup label="Official GSEA 26A Promotion — Group A">
+              <option value="Titouan BEDU">Titouan BEDU</option>
+              <option value="Ewan BEN HASSEN">Ewan BEN HASSEN</option>
+              <option value="Alexandre MEYER">Alexandre MEYER</option>
+              <option value="Aine LE BRAS">Aine LE BRAS</option>
+              <option value="Louise ROBIN">Louise ROBIN</option>
+              <option value="Ruben RENARD">Ruben RENARD</option>
+              <option value="Anatole ILPIDE">Anatole ILPIDE</option>
+              <option value="Thomas RASPILLER">Thomas RASPILLER</option>
+              <option value="Guillaume RENAULT">Guillaume RENAULT</option>
+              <option value="Vincent CAMGUILHEM">Vincent CAMGUILHEM</option>
+            </optgroup>
+            <optgroup label="Official GSEA 26A Promotion — Group B">
+              <option value="Brian SEVIN">Brian SEVIN</option>
+              <option value="Mohamed BENSMAINE">Mohamed BENSMAINE</option>
+              <option value="Vincent DEBORDE">Vincent DEBORDE</option>
+              <option value="Maxime VILLAIN">Maxime VILLAIN</option>
+              <option value="Eliott SELLES">Eliott SELLES</option>
+              <option value="Peter HAVA">Peter HAVA</option>
+              <option value="Justine MARMANDE">Justine MARMANDE</option>
+              <option value="Aurianne KUHN">Aurianne KUHN</option>
+              <option value="Francois GADBIN">Francois GADBIN</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div>
+          <label for="studentPin" class="field-label">4-Digit Security PIN</label>
+          <input type="password" id="studentPin" maxlength="6" placeholder="••••" class="form-input font-mono tracking-widest">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <button id="btnLoad" type="button" onclick="fetchHistory()" class="w-full btn-submit font-bold h-11 px-3 rounded-lg text-sm transition flex items-center justify-center">
+            Load Logs
+          </button>
+          <button id="btnSignOut" type="button" onclick="signOut()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-semibold h-11 px-3 rounded-lg text-sm transition flex items-center justify-center">
+            Sign Out
+          </button>
+        </div>
+      </div>
+
+      <div id="authStatusAlert" class="hidden text-xs mt-3.5 px-3.5 py-2.5 rounded-lg border font-medium"></div>
+    </div>
+
+    <!-- Section 2: Portfolio Entry Submission Form -->
+    <form id="portfolioForm" onsubmit="submitLog(event)" class="no-print drop-shadow-box p-5 sm:p-6 space-y-5">
+      <div class="border-b border-[var(--box-border)] pb-3 flex items-center justify-between">
+        <div>
+          <h2 id="form-section-title" class="section-title">2. New Session Entry</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Please provide a thorough self-evaluation for today's session.</p>
+        </div>
+        <span id="draftSavedIndicator" class="text-xs text-emerald-700 font-semibold flex items-center gap-1.5 hidden bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+          <span>💾</span> Draft auto-saved
+        </span>
+      </div>
+
+      <!-- Edit Mode Banner (Visible only when actively editing an existing entry) -->
+      <div id="editModeBanner" class="hidden text-xs p-3.5 rounded-xl border border-sky-300 bg-sky-50 text-sky-900 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="text-base shrink-0">✏️</span>
+          <span class="truncate"><strong>Editing Mode:</strong> Updating logged reflection for <strong id="editModeTarget">Module 1 • Session 1</strong>.</span>
+        </div>
+        <button type="button" onclick="cancelEditingEntry()" class="px-2.5 py-1 rounded-md text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition cursor-pointer shrink-0 shadow-2xs">
+          Cancel Edit
+        </button>
+      </div>
+
+      <!-- Module and Session Selection -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="moduleSelect" class="field-label">Curriculum Module</label>
+          <select id="moduleSelect" onchange="updateSessionAvailability()" required class="form-input">
+            <!-- Populated dynamically via switchTrack() -->
+          </select>
+        </div>
+        <div>
+          <label for="sessionSelect" class="field-label">Session Number</label>
+          <select id="sessionSelect" onchange="updateSessionAvailability()" required class="form-input">
+            <option value="Session 1">Session 1</option>
+            <option value="Session 2">Session 2</option>
+            <option value="Session 3">Session 3</option>
+            <option value="Session 4">Session 4</option>
+            <option value="FORMATIVE EVALUATION">FORMATIVE EVALUATION</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Module Completed Banner (Only displayed when all 5 sessions in module are completed) -->
+      <div id="moduleCompletedBanner" class="hidden text-xs p-3.5 rounded-xl border border-blue-500/30 bg-blue-50/80 text-blue-900 flex items-center gap-2.5">
+      </div>
+
+      <!-- Question 1: Key Vocabulary -->
+      <div>
+        <label id="lbl-vocab" for="vocab" class="field-label">
+          1. Key Vocabulary &amp; Lexical Structures Learnt
+        </label>
+        <p id="instr-vocab" class="field-instruction">
+          List the essential words, collocations, and idiomatic phrases covered today. <strong>Please give a detailed explanation of their meaning and usage in communicative context.</strong>
+        </p>
+        <textarea id="vocab" rows="2" required class="form-input"></textarea>
+      </div>
+
+      <!-- Question 2: Lesson Content Review -->
+      <div>
+        <label id="lbl-content" for="contentReview" class="field-label">
+          2. Lesson Content Review (What I Learnt in This Session)
+        </label>
+        <p id="instr-content" class="field-instruction">
+          Summarize the communication activities, debates, or procedures explored today. <strong>Please give a detailed explanation of the core concepts, skills, and communication strategies you developed.</strong>
+        </p>
+        <textarea id="contentReview" rows="3" required class="form-input"></textarea>
+      </div>
+
+      <!-- Question 3: Target Improvement Areas -->
+      <div>
+        <label id="lbl-workon" for="workOn" class="field-label">
+          3. Target Improvement Areas Following This Session
+        </label>
+        <p id="instr-workon" class="field-instruction">
+          Identify your language challenges and self-assessment points. <strong>Please give a detailed explanation of what specific grammar, pronunciation, vocabulary, or fluency areas you need to work on and how you plan to improve.</strong>
+        </p>
+        <textarea id="workOn" rows="2" required class="form-input"></textarea>
+      </div>
+
+      <!-- Question 4: Formative Evaluation Relevance -->
+      <div>
+        <label id="lbl-evalhelp" for="evalHelp" class="field-label">
+          4. Formative Evaluation Relevance &amp; Strategy
+        </label>
+        <p id="instr-evalhelp" class="field-instruction">
+          Connect today's learning to your upcoming 30-minute oral evaluation tutorial. <strong>Please give a detailed explanation of how these communicative skills, arguments, and vocabulary will help you succeed in your formative evaluation.</strong>
+        </p>
+        <textarea id="evalHelp" rows="2" required class="form-input"></textarea>
+      </div>
+
+      <!-- Question 5: Formative Evaluation Preparedness (Scale 1-10) -->
+      <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+          <div>
+            <label id="lbl-evalrating" for="evalRating" class="field-label mb-0 text-slate-800">
+              5. Formative Evaluation Preparedness Rating
+            </label>
+            <p id="instr-evalrating" class="field-instruction mb-0">
+              Rate your current confidence and readiness for the upcoming 30-minute oral Formative Evaluation tutorial on a scale of 1 to 10.
+            </p>
+          </div>
+          <span id="evalRatingBadge" class="theme-badge font-bold font-mono text-xs px-2.5 py-0.5 rounded-full shrink-0 self-start sm:self-auto">
+            7 / 10
+          </span>
+        </div>
+        
+        <input type="range" id="evalRating" min="1" max="10" value="7" step="1" 
+               oninput="syncRating('evalRating', this.value)" 
+               class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-200" style="accent-color: var(--theme-accent);">
+        
+        <div class="grid grid-cols-10 gap-1 sm:gap-1.5" id="evalRatingPills">
+          <button type="button" onclick="setRating('evalRating', 1)" class="rating-btn" data-val="1">1</button>
+          <button type="button" onclick="setRating('evalRating', 2)" class="rating-btn" data-val="2">2</button>
+          <button type="button" onclick="setRating('evalRating', 3)" class="rating-btn" data-val="3">3</button>
+          <button type="button" onclick="setRating('evalRating', 4)" class="rating-btn" data-val="4">4</button>
+          <button type="button" onclick="setRating('evalRating', 5)" class="rating-btn" data-val="5">5</button>
+          <button type="button" onclick="setRating('evalRating', 6)" class="rating-btn" data-val="6">6</button>
+          <button type="button" onclick="setRating('evalRating', 7)" class="rating-btn active" data-val="7">7</button>
+          <button type="button" onclick="setRating('evalRating', 8)" class="rating-btn" data-val="8">8</button>
+          <button type="button" onclick="setRating('evalRating', 9)" class="rating-btn" data-val="9">9</button>
+          <button type="button" onclick="setRating('evalRating', 10)" class="rating-btn" data-val="10">10</button>
+        </div>
+        <div class="flex justify-between text-[11px] text-slate-500 px-0.5">
+          <span>1 = Not prepared at all</span>
+          <span>5 = Moderate progress</span>
+          <span>10 = Fully prepared &amp; confident</span>
+        </div>
+      </div>
+
+      <!-- Questions 6 & 7: TOEIC Preparation & Preparedness (ACTIVE for AG, MUTED for AAS) -->
+      <div id="toeicSection" class="space-y-4 pt-2 border-t border-slate-200">
+        <div>
+          <label for="toeicPrep" class="field-label">
+            6. Weekly TOEIC Preparation (Global Exam / Practice)
+          </label>
+          <p class="field-instruction">
+            Detail your independent preparation for the TOEIC listening and reading test this week. <strong>Please give a detailed explanation with concrete examples of tests, exercises, and scores completed on Global Exam or other resources.</strong>
+          </p>
+          <textarea id="toeicPrep" rows="2" class="form-input"></textarea>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+            <div>
+              <label for="toeicRating" class="field-label mb-0 text-slate-800">
+                7. TOEIC Test Preparedness Rating
+              </label>
+              <p class="field-instruction mb-0">
+                Rate your current confidence and readiness for your upcoming official TOEIC test on a scale of 1 to 10.
+              </p>
+            </div>
+            <span id="toeicRatingBadge" class="theme-badge font-bold font-mono text-xs px-2.5 py-0.5 rounded-full shrink-0 self-start sm:self-auto">
+              7 / 10
+            </span>
+          </div>
+          
+          <input type="range" id="toeicRating" min="1" max="10" value="7" step="1" 
+                 oninput="syncRating('toeicRating', this.value)" 
+                 class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-200" style="accent-color: var(--theme-accent);">
+          
+          <div class="grid grid-cols-10 gap-1 sm:gap-1.5" id="toeicRatingPills">
+            <button type="button" onclick="setRating('toeicRating', 1)" class="rating-btn" data-val="1">1</button>
+            <button type="button" onclick="setRating('toeicRating', 2)" class="rating-btn" data-val="2">2</button>
+            <button type="button" onclick="setRating('toeicRating', 3)" class="rating-btn" data-val="3">3</button>
+            <button type="button" onclick="setRating('toeicRating', 4)" class="rating-btn" data-val="4">4</button>
+            <button type="button" onclick="setRating('toeicRating', 5)" class="rating-btn" data-val="5">5</button>
+            <button type="button" onclick="setRating('toeicRating', 6)" class="rating-btn" data-val="6">6</button>
+            <button type="button" onclick="setRating('toeicRating', 7)" class="rating-btn active" data-val="7">7</button>
+            <button type="button" onclick="setRating('toeicRating', 8)" class="rating-btn" data-val="8">8</button>
+            <button type="button" onclick="setRating('toeicRating', 9)" class="rating-btn" data-val="9">9</button>
+            <button type="button" onclick="setRating('toeicRating', 10)" class="rating-btn" data-val="10">10</button>
+          </div>
+          <div class="flex justify-between text-[11px] text-slate-500 px-0.5">
+            <span>1 = Not prepared at all</span>
+            <span>5 = Moderate confidence</span>
+            <span>10 = Fully prepared for target score</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Submission Controls -->
+      <div class="pt-2 flex items-center gap-3">
+        <button type="submit" id="btnSubmit" class="flex-1 btn-submit font-bold h-11 py-2 rounded-xl text-sm transition flex items-center justify-center gap-2">
+          <span>Submit Portfolio Entry</span>
+        </button>
+        <button type="button" id="btnCancelEdit" onclick="cancelEditingEntry()" class="hidden px-4 h-11 rounded-xl text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer">
+          Cancel
+        </button>
+      </div>
+    </form>
+
+    <!-- Section 3: Portfolio Completion Checklist -->
+    <div id="checklistPanel" class="no-print drop-shadow-box p-5 sm:p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--box-border)] pb-3">
+        <div>
+          <h2 class="section-title">3. Portfolio Completion Checklist</h2>
+          <p id="checklistSubtitle" class="text-xs text-slate-500 mt-0.5">Track your 15 required session logs across all three modules.</p>
+        </div>
+        <span id="checklistStatusPill" class="text-xs font-mono font-bold px-3 py-1 rounded-full theme-badge">
+          0 / 15 completed
+        </span>
+      </div>
+
+      <!-- Dynamic Checklist Grid -->
+      <div id="checklistGrid" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <!-- Rendered dynamically by renderChecklist() -->
+      </div>
+    </div>
+
+    <!-- Section 4: Logged Portfolio History -->
+    <div class="drop-shadow-box p-5 sm:p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--box-border)] pb-3">
+        <div>
+          <h2 class="section-title">4. Logged Portfolio History</h2>
+          <p id="historySubtitle" class="text-xs text-slate-500 mt-0.5">Review and export your previously logged session reflections.</p>
+        </div>
+
+        <div class="flex items-center gap-2 no-print">
+          <!-- Filter Buttons -->
+          <div class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs font-semibold">
+            <button type="button" onclick="setModuleFilter('all')" id="filter-btn-all" class="px-2.5 py-1 rounded-md transition text-slate-700 bg-white shadow-2xs font-bold">All</button>
+            <button type="button" onclick="setModuleFilter('Module 1')" id="filter-btn-m1" class="px-2.5 py-1 rounded-md transition text-slate-600 hover:text-slate-900">M1</button>
+            <button type="button" onclick="setModuleFilter('Module 2')" id="filter-btn-m2" class="px-2.5 py-1 rounded-md transition text-slate-600 hover:text-slate-900">M2</button>
+            <button type="button" onclick="setModuleFilter('Module 3')" id="filter-btn-m3" class="px-2.5 py-1 rounded-md transition text-slate-600 hover:text-slate-900">M3</button>
+          </div>
+
+          <!-- Print / PDF Export Button -->
+          <button type="button" onclick="window.print()" class="px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            <span>Print / PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- History Entries Container -->
+      <div id="logsContainer" class="space-y-3">
+        <div class="text-center py-8 text-slate-400 text-xs font-medium">
+          Select your name above and click "Load Logs" to view your logged portfolio entries.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fixed Flight-Deck Portfolio Footer -->
+  <footer id="portfolio-fixed-footer" class="portfolio-fixed-footer no-print">
+    <div class="max-w-4xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between text-xs text-slate-300">
+      <div class="flex items-center gap-2 min-w-0">
+        <span id="footer-track-badge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold text-white bg-emerald-600 shadow-xs shrink-0">AG • LV101E</span>
+        <span id="footer-course-title" class="font-bold text-white tracking-wide truncate text-[11px] sm:text-xs">GSEA Semester 1 General English (AG)</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <span class="text-slate-300 hidden sm:inline text-[11px] sm:text-xs">Phil PARRIS <span class="text-slate-400 font-mono text-[10px] sm:text-[11px]">(LH/LAN)</span></span>
+        <span class="text-slate-500 hidden sm:inline">•</span>
+        <span id="footer-version-badge" class="font-mono text-emerald-400 font-bold bg-black/40 px-2 py-0.5 rounded border border-white/10 text-[10px] sm:text-xs">v1.2.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    // ============================================================================
+    // GOOGLE BACKEND CONFIGURATION
+    // ============================================================================
+
+    // 1. Google Apps Script Web App URL (Read-only PIN verification & history log fetching)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzDboduMJRhUKJx0IiJ8RkE5cQm8Cl-HPXq2UXr0me30kdQug62SOCRaERQa3xAk6VGWA/exec";
+
+    // 2. Google Form Submission URL (Zero write-lock buffer)
+    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScNpCfTcMx5oUQe0CMldXdtcyuJ4nZ3bEya-H8C5x-yGCWOOw/formResponse";
+
+    // 3. Google Form Field Mapping (Verified Entry IDs)
+    const GOOGLE_FORM_ENTRIES = {
+      student: "entry.497833618",        // Student Name
+      pin: "entry.706546231",            // 4-Digit Security code
+      track: "entry.2129214365",         // Curriculum Track (AG / AAS)
+      module: "entry.1908919593",        // Module
+      session: "entry.1322270621",       // Session Number
+      vocab: "entry.1343452059",         // Key vocabulary
+      contentReview: "entry.10291943",   // Lesson content review (What I learnt in this session)
+      workOn: "entry.1758827933",        // Target areas following session
+      evalHelp: "entry.2087914325",      // Formative evaluation relevance
+      evalRating: "entry.995017051",     // Formative evaluation preparedness rating (1-10)
+      toeicPrep: "entry.1836642914",     // Weekly TOEIC prep
+      toeicRating: "entry.1244476891"    // TOEIC test preparedness rating (1-10)
+    };
+
+    // ============================================================================
+    // CURRICULUM TRACK CONFIGURATIONS (AG vs AAS)
+    // ============================================================================
+
+    const TRACK_CONFIGS = {
+      ag: {
+        code: "AG",
+        title: "GSEA SEMESTER 1 AG",
+        subtitle: "General English (LV101E) • Formative Learning Portfolio & Self-Evaluation Log",
+        themeClass: "theme-ag",
+        modules: [
+          { key: "Module 1", title: "Module 1 (Sessions 1 - 5): Travel, Transport & Leisure", formValue: "Travel, Transport and Leisure" },
+          { key: "Module 2", title: "Module 2 (Sessions 6 - 10): Weather & the Environment", formValue: "Weather and the Environment" },
+          { key: "Module 3", title: "Module 3 (Sessions 11 - 15): New Technology", formValue: "New Technology" }
+        ],
+        questions: {
+          vocabLabel: "1. Key General English Vocabulary & Idiomatic Expressions Learnt",
+          vocabInstruction: "List the essential words, collocations, and idiomatic phrases covered in this session. <strong>Please give a detailed explanation of their meaning and usage in communicative context.</strong>",
+          vocabPlaceholder: "",
+          contentLabel: "2. Lesson Content Review (What I Learnt in This Session)",
+          contentInstruction: "Summarize the speaking tasks, listening/reading texts, and debates completed today. <strong>Please give a detailed explanation of the core concepts, communication strategies, and arguments you explored.</strong>",
+          contentPlaceholder: "",
+          workOnLabel: "3. Target Improvement Areas Following This Session",
+          workOnInstruction: "Identify your language challenges and self-assessment points. <strong>Please give a detailed explanation of what specific grammar, pronunciation, vocabulary, or fluency areas you need to work on and how you plan to improve.</strong>",
+          workOnPlaceholder: "",
+          evalHelpLabel: "4. Formative Evaluation Relevance & Strategy",
+          evalHelpInstruction: "Connect today's learning to your upcoming 30-minute oral evaluation tutorial. <strong>Please give a detailed explanation of how these communicative skills, arguments, and vocabulary will help you succeed in your AG formative evaluation.</strong>",
+          evalHelpPlaceholder: "",
+          evalRatingLabel: "5. General English Formative Evaluation Preparedness",
+          evalRatingInstruction: "Rate your current confidence and readiness for the upcoming 30-minute General English Formative Evaluation tutorial on a scale of 1 to 10."
+        },
+        hasToeic: true
+      },
+      aas: {
+        code: "AT",
+        title: "GSEA SEMESTER 1 AT",
+        subtitle: "Technical English (LV121E) • Formative Learning Portfolio & Technical Operations Log",
+        themeClass: "theme-aas",
+        modules: [
+          { key: "Module 1", title: "Module 1 (Sessions 1 - 5): Aerodrome", formValue: "Aerodrome" },
+          { key: "Module 2", title: "Module 2 (Sessions 6 - 10): Aircraft and Aerodynamics", formValue: "Aircraft and Aerodynamics" },
+          { key: "Module 3", title: "Module 3 (Sessions 11 - 15): Safety and Security", formValue: "Safety and Security" }
+        ],
+        questions: {
+          vocabLabel: "1. Key Technical Vocabulary Learnt",
+          vocabInstruction: "List the aviation terms, standard ICAO phraseology, and technical vocabulary covered in this session. <strong>Please give a detailed explanation of their operational meaning and standard usage in aviation context.</strong>",
+          vocabPlaceholder: "",
+          contentLabel: "2. Technical Content & Operations Review (What I Learnt in This Session)",
+          contentInstruction: "Summarize the aeronautical topics, operational scenarios, and aviation procedures studied today. <strong>Please give a detailed explanation of the aviation concepts, radio-telephony protocols, or safety systems explored.</strong>",
+          contentPlaceholder: "",
+          workOnLabel: "3. Technical Communication Areas to Work On Following This Session",
+          workOnInstruction: "Identify your technical communication challenges and operational language gaps. <strong>Please give a detailed explanation of what specific aeronautical terms, standard phraseology, listening comprehension, or pronunciation issues you need to consolidate.</strong>",
+          workOnPlaceholder: "",
+          evalHelpLabel: "4. Technical English Formative Evaluation Relevance & Strategy",
+          evalHelpInstruction: "Connect today's learning to your upcoming 30-minute aeronautical oral evaluation tutorial. <strong>Please give a detailed explanation of how this operational knowledge, technical precision, and communication clarity will help you succeed in your AAS formative evaluation.</strong>",
+          evalHelpPlaceholder: "",
+          evalRatingLabel: "5. Technical English Formative Evaluation Preparedness",
+          evalRatingInstruction: "Rate your current confidence and readiness for the upcoming 30-minute Aeronautical English Formative Evaluation tutorial on a scale of 1 to 10."
+        },
+        hasToeic: false // Muted per instructions
+      }
+    };
+
+    // ============================================================================
+    // APPLICATION STATE
+    // ============================================================================
+
+    let currentTrack = "ag";
+    let currentLoadedLogs = [];
+    let currentFilteredLogs = [];
+    let currentFilterModule = "all";
+    let editingEntry = null;
+
+    // Detect track from URL query parameter (e.g. ?track=aas)
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const trackParam = (urlParams.get("track") || "").toLowerCase();
+      if (trackParam === "aas" || trackParam === "ag") {
+        currentTrack = trackParam;
+      }
+
+      switchTrack(currentTrack, false);
+      restoreSavedCredentials();
+      setupAutoSaveListeners();
+      checkBackendPing();
+
+      // If embedded in course deck slide-over drawer, activate in-drawer mode
+      if (window.self !== window.top) {
+        document.body.classList.add("in-drawer-mode");
+        const deckLink = document.getElementById("return-deck-link");
+        if (deckLink) deckLink.classList.add("hidden");
+      }
+    });
+
+    // ============================================================================
+    // DYNAMIC TRACK SWITCHING (AG vs AAS)
+    // ============================================================================
+
+    function switchTrack(trackKey, userInitiated = true) {
+      if (!TRACK_CONFIGS[trackKey]) return;
+      currentTrack = trackKey;
+      const config = TRACK_CONFIGS[trackKey];
+
+      // 1. Update body class & CSS variables
+      const inDrawer = (window.self !== window.top) || document.documentElement.classList.contains('in-drawer-mode');
+      document.body.className = `${config.themeClass} ${inDrawer ? 'in-drawer-mode ' : ''}antialiased selection:bg-emerald-500/20 selection:text-emerald-900`;
+
+      // 2. Update Header branding
+      document.getElementById("header-title").innerText = config.title;
+      document.getElementById("header-subtitle").innerText = config.subtitle;
+
+      const agIcon = document.getElementById("header-icon-ag");
+      const aasIcon = document.getElementById("header-icon-aas");
+      if (trackKey === "ag") {
+        agIcon.classList.remove("hidden");
+        aasIcon.classList.add("hidden");
+        document.getElementById("tab-btn-ag").className = "px-2.5 py-1 rounded-md text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 text-white bg-emerald-600 shadow-xs";
+        document.getElementById("tab-btn-aas").className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-white/70 hover:text-white hover:bg-white/10";
+      } else {
+        agIcon.classList.add("hidden");
+        aasIcon.classList.remove("hidden");
+        document.getElementById("tab-btn-ag").className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 text-white/70 hover:text-white hover:bg-white/10";
+        document.getElementById("tab-btn-aas").className = "px-2.5 py-1 rounded-md text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 text-white bg-blue-600 shadow-xs";
+      }
+
+      // 3. Update Module Dropdown
+      const modSelect = document.getElementById("moduleSelect");
+      const prevVal = modSelect.value;
+      modSelect.innerHTML = config.modules.map((m, idx) => `
+        <option value="${m.title}">${m.title}</option>
+      `).join("");
+
+      // 4. Update Question Labels, Instructions and Placeholders
+      document.getElementById("lbl-vocab").innerText = config.questions.vocabLabel;
+      document.getElementById("instr-vocab").innerHTML = config.questions.vocabInstruction;
+      document.getElementById("vocab").placeholder = config.questions.vocabPlaceholder;
+
+      document.getElementById("lbl-content").innerText = config.questions.contentLabel;
+      document.getElementById("instr-content").innerHTML = config.questions.contentInstruction;
+      document.getElementById("contentReview").placeholder = config.questions.contentPlaceholder;
+
+      document.getElementById("lbl-workon").innerText = config.questions.workOnLabel;
+      document.getElementById("instr-workon").innerHTML = config.questions.workOnInstruction;
+      document.getElementById("workOn").placeholder = config.questions.workOnPlaceholder;
+
+      document.getElementById("lbl-evalhelp").innerText = config.questions.evalHelpLabel;
+      document.getElementById("instr-evalhelp").innerHTML = config.questions.evalHelpInstruction;
+      document.getElementById("evalHelp").placeholder = config.questions.evalHelpPlaceholder;
+
+      document.getElementById("lbl-evalrating").innerText = config.questions.evalRatingLabel;
+      document.getElementById("instr-evalrating").innerText = config.questions.evalRatingInstruction;
+
+      // 5. Handle Muting of Questions 8 & 9 (TOEIC)
+      const toeicSection = document.getElementById("toeicSection");
+      const toeicPrep = document.getElementById("toeicPrep");
+      const toeicRating = document.getElementById("toeicRating");
+
+      if (config.hasToeic) {
+        toeicSection.classList.remove("hidden");
+        toeicPrep.required = true;
+      } else {
+        toeicSection.classList.add("hidden");
+        toeicPrep.required = false;
+      }
+
+      // 6. Update URL parameter without reload
+      if (userInitiated) {
+        const url = new URL(window.location);
+        url.searchParams.set("track", trackKey);
+        window.history.replaceState({}, "", url);
+      }
+
+      // 7. Re-render checklist and history for the active track
+      renderChecklist();
+      renderHistoryLogs();
+      updateSessionAvailability();
+      restoreDraft();
+
+      // 8. Update Fixed Flight-Deck Footer Track Branding
+      const footerBadge = document.getElementById("footer-track-badge");
+      const footerTitle = document.getElementById("footer-course-title");
+      const footerVersion = document.getElementById("footer-version-badge");
+      if (footerBadge && footerTitle) {
+        if (trackKey === "ag") {
+          footerBadge.innerText = "AG • LV101E";
+          footerBadge.className = "px-2 py-0.5 rounded text-[10px] font-mono font-bold text-white bg-emerald-600 shadow-xs shrink-0";
+          footerTitle.innerText = "GSEA Semester 1 General English (AG)";
+          if (footerVersion) footerVersion.className = "font-mono text-emerald-400 font-bold bg-black/40 px-2 py-0.5 rounded border border-white/10 text-[10px] sm:text-xs";
+        } else {
+          footerBadge.innerText = "AT • LV121E";
+          footerBadge.className = "px-2 py-0.5 rounded text-[10px] font-mono font-bold text-white bg-blue-600 shadow-xs shrink-0";
+          footerTitle.innerText = "GSEA Semester 1 Technical English (AT)";
+          if (footerVersion) footerVersion.className = "font-mono text-blue-400 font-bold bg-black/40 px-2 py-0.5 rounded border border-white/10 text-[10px] sm:text-xs";
+        }
+      }
+
+      // 9. Bidirectionally sync with parent drawer header if embedded
+      if (window.parent && window.parent !== window) {
+        try {
+          if (typeof window.parent.syncPortfolioDrawerHeader === 'function') {
+            window.parent.syncPortfolioDrawerHeader(trackKey);
+          }
+        } catch (e) {
+          // ignore cross-origin if any
+        }
+      }
+    }
+
+    // ============================================================================
+    // RATING SLIDERS & PILLS
+    // ============================================================================
+
+    function setRating(id, val) {
+      const slider = document.getElementById(id);
+      if (slider) {
+        slider.value = val;
+        syncRating(id, val);
+        saveDraft();
+      }
+    }
+
+    function syncRating(id, val) {
+      const badge = document.getElementById(id + "Badge");
+      if (badge) badge.innerText = `${val} / 10`;
+
+      const pillsContainer = document.getElementById(id + "Pills");
+      if (pillsContainer) {
+        const buttons = pillsContainer.querySelectorAll(".rating-btn");
+        buttons.forEach(btn => {
+          if (btn.getAttribute("data-val") === String(val)) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+    }
+
+    // ============================================================================
+    // AUTHENTICATION & SESSION CREDENTIALS
+    // ============================================================================
+
+    function restoreSavedCredentials() {
+      try {
+        const savedStudent = localStorage.getItem("gsea_student") || sessionStorage.getItem("gsea_student");
+        const savedPin = localStorage.getItem("gsea_pin") || sessionStorage.getItem("gsea_pin");
+        if (savedStudent) {
+          document.getElementById("studentSelect").value = savedStudent;
+          if (savedPin) {
+            document.getElementById("studentPin").value = savedPin;
+            fetchHistory({ silent: true });
+          }
+        }
+      } catch (e) {}
+    }
+
+    function handleStudentSelectChange() {
+      const pinInput = document.getElementById("studentPin");
+      if (pinInput) pinInput.value = "";
+
+      try {
+        localStorage.removeItem("gsea_student");
+        localStorage.removeItem("gsea_pin");
+        sessionStorage.removeItem("gsea_student");
+        sessionStorage.removeItem("gsea_pin");
+      } catch (e) {}
+
+      currentLoadedLogs = [];
+      renderChecklist();
+      renderHistoryLogs();
+      updateSessionAvailability();
+      restoreDraft();
+    }
+
+    function signOut() {
+      try {
+        localStorage.removeItem("gsea_student");
+        localStorage.removeItem("gsea_pin");
+        sessionStorage.removeItem("gsea_student");
+        sessionStorage.removeItem("gsea_pin");
+      } catch (e) {}
+      document.getElementById("studentSelect").value = "";
+      document.getElementById("studentPin").value = "";
+      currentLoadedLogs = [];
+      renderChecklist();
+      renderHistoryLogs();
+      updateSessionAvailability();
+      resetFormInputs();
+      showAuthStatus("Signed out successfully.", false);
+      document.getElementById("authStatusPill").innerText = "Not Signed In";
+      document.getElementById("authStatusPill").className = "text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200";
+    }
+
+    function showAuthStatus(message, isError) {
+      const el = document.getElementById("authStatusAlert");
+      if (!el) return;
+      el.innerText = message;
+      el.className = isError 
+        ? "text-xs mt-3.5 px-3.5 py-2.5 rounded-lg border font-medium bg-red-50 text-red-800 border-red-200" 
+        : "text-xs mt-3.5 px-3.5 py-2.5 rounded-lg border font-medium bg-emerald-50 text-emerald-800 border-emerald-200";
+      el.classList.remove("hidden");
+      setTimeout(() => { el.classList.add("hidden"); }, 5000);
+    }
+
+    // ============================================================================
+    // DRAFT AUTO-SAVE & RESTORATION (Persistent per student & track via localStorage)
+    // ============================================================================
+
+    function getDraftStorageKey() {
+      const student = document.getElementById("studentSelect").value;
+      if (!student) return null;
+      return `gsea_draft_${encodeURIComponent(student)}_${currentTrack}`;
+    }
+
+    function setupAutoSaveListeners() {
+      const fields = ["vocab", "contentReview", "workOn", "evalHelp", "evalRating", "toeicPrep", "toeicRating", "moduleSelect", "sessionSelect"];
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", saveDraft);
+          el.addEventListener("change", saveDraft);
+        }
+      });
+    }
+
+    function saveDraft() {
+      if (editingEntry) return; // Do not overwrite regular drafts while in active editing mode
+      const key = getDraftStorageKey();
+      if (!key) return;
+
+      const draft = {
+        module: document.getElementById("moduleSelect").value,
+        session: document.getElementById("sessionSelect").value,
+        vocab: document.getElementById("vocab").value,
+        contentReview: document.getElementById("contentReview").value,
+        workOn: document.getElementById("workOn").value,
+        evalHelp: document.getElementById("evalHelp").value,
+        evalRating: document.getElementById("evalRating").value,
+        toeicPrep: document.getElementById("toeicPrep") ? document.getElementById("toeicPrep").value : "",
+        toeicRating: document.getElementById("toeicRating") ? document.getElementById("toeicRating").value : ""
+      };
+
+      try {
+        localStorage.setItem(key, JSON.stringify(draft));
+        const ind = document.getElementById("draftSavedIndicator");
+        if (ind) {
+          ind.classList.remove("hidden");
+          clearTimeout(window._draftTimer);
+          window._draftTimer = setTimeout(() => { ind.classList.add("hidden"); }, 2000);
+        }
+      } catch (e) {
+        try { sessionStorage.setItem(key, JSON.stringify(draft)); } catch (se) {}
+      }
+    }
+
+    function restoreDraft() {
+      const key = getDraftStorageKey();
+      if (!key) return;
+
+      try {
+        const raw = localStorage.getItem(key) || sessionStorage.getItem(key);
+        if (!raw) return;
+        const draft = JSON.parse(raw);
+
+        if (draft.module && document.getElementById("moduleSelect")) document.getElementById("moduleSelect").value = draft.module;
+        if (draft.session && document.getElementById("sessionSelect")) document.getElementById("sessionSelect").value = draft.session;
+        if (draft.vocab && document.getElementById("vocab")) document.getElementById("vocab").value = draft.vocab;
+        if (draft.contentReview && document.getElementById("contentReview")) document.getElementById("contentReview").value = draft.contentReview;
+        if (draft.workOn && document.getElementById("workOn")) document.getElementById("workOn").value = draft.workOn;
+        if (draft.evalHelp && document.getElementById("evalHelp")) document.getElementById("evalHelp").value = draft.evalHelp;
+        if (draft.evalRating && document.getElementById("evalRating")) {
+          document.getElementById("evalRating").value = draft.evalRating;
+          syncRating("evalRating", draft.evalRating);
+        }
+        if (draft.toeicPrep && document.getElementById("toeicPrep")) document.getElementById("toeicPrep").value = draft.toeicPrep;
+        if (draft.toeicRating && document.getElementById("toeicRating")) {
+          document.getElementById("toeicRating").value = draft.toeicRating;
+          syncRating("toeicRating", draft.toeicRating);
+        }
+      } catch (e) {}
+    }
+
+    function clearDraft() {
+      const key = getDraftStorageKey();
+      if (key) {
+        try { localStorage.removeItem(key); } catch (e) {}
+        try { sessionStorage.removeItem(key); } catch (e) {}
+      }
+    }
+
+    function resetFormInputs() {
+      document.getElementById("vocab").value = "";
+      document.getElementById("contentReview").value = "";
+      document.getElementById("workOn").value = "";
+      document.getElementById("evalHelp").value = "";
+      setRating("evalRating", 7);
+      if (document.getElementById("toeicPrep")) document.getElementById("toeicPrep").value = "";
+      if (document.getElementById("toeicRating")) setRating("toeicRating", 7);
+      clearDraft();
+    }
+
+    // ============================================================================
+    // FETCH LOGS (PIN Authentication via Google Apps Script Web App)
+    // ============================================================================
+
+    async function fetchHistory(options = {}) {
+      const student = document.getElementById("studentSelect").value;
+      const pin = document.getElementById("studentPin").value.trim();
+
+      if (!student || !pin) {
+        if (!options.silent) showAuthStatus("Please select your name and enter your 4-digit PIN.", true);
+        return;
+      }
+
+      const btn = document.getElementById("btnLoad");
+      if (btn && !options.silent) {
+        btn.innerText = "Verifying...";
+        btn.disabled = true;
+      }
+
+      try {
+        const queryUrl = `${SCRIPT_URL}?action=login&student=${encodeURIComponent(student)}&pin=${encodeURIComponent(pin)}&track=${encodeURIComponent(currentTrack)}&_t=${Date.now()}`;
+        const res = await fetch(queryUrl);
+        const data = await res.json();
+
+        if (data.success) {
+          try {
+            localStorage.setItem("gsea_student", student);
+            localStorage.setItem("gsea_pin", pin);
+            sessionStorage.setItem("gsea_student", student);
+            sessionStorage.setItem("gsea_pin", pin);
+          } catch (e) {}
+          // Deduplicate logs by (track, moduleKey, sessionNum) — keeping the latest revision
+          const rawLogs = data.logs || [];
+          const logMap = new Map();
+          rawLogs.forEach(entry => {
+            const tr = (entry.track || currentTrack).toUpperCase();
+            const mk = getModuleKey(entry.module);
+            const sn = formatSessionNum(entry.session);
+            const key = `${tr}_${mk}_${sn}`;
+            logMap.set(key, entry);
+          });
+          currentLoadedLogs = Array.from(logMap.values());
+
+          document.getElementById("authStatusPill").innerText = `Signed In: ${student}`;
+          document.getElementById("authStatusPill").className = "text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300";
+
+          renderChecklist();
+          renderHistoryLogs();
+          updateSessionAvailability();
+
+          if (!options.silent) {
+            showAuthStatus(`Welcome, ${student}! Verified ${currentLoadedLogs.length} logged entries.`, false);
+          }
+        } else {
+          if (!options.silent) {
+            showAuthStatus(data.message || "Invalid PIN. Please check your 4-digit code.", true);
+          }
+        }
+      } catch (err) {
+        if (!options.silent) {
+          showAuthStatus("Connection error to authentication server. Please retry.", true);
+        }
+      } finally {
+        if (btn) {
+          btn.innerText = "Load Logs";
+          btn.disabled = false;
+        }
+      }
+    }
+
+    // ============================================================================
+    // SUBMISSION (Route 1: Google Form / Route 2: Apps Script Fallback)
+    // ============================================================================
+
+    async function submitLog(e) {
+      e.preventDefault();
+
+      const student = document.getElementById("studentSelect").value;
+      const pin = document.getElementById("studentPin").value.trim();
+      const mod = document.getElementById("moduleSelect").value;
+      const ses = document.getElementById("sessionSelect").value;
+
+      if (!student || !pin) {
+        showAuthStatus("Please authenticate with your name and 4-digit PIN before submitting.", true);
+        return;
+      }
+
+      // Protection: Check if already completed (bypassed if in editing mode)
+      const isEdit = (editingEntry !== null);
+      const modKey = getModuleKey(mod);
+      const isAlreadyCompleted = currentLoadedLogs.some(l => 
+        (l.track || currentTrack).toUpperCase() === currentTrack.toUpperCase() &&
+        getModuleKey(l.module) === modKey && 
+        formatSessionNum(l.session) === formatSessionNum(ses)
+      );
+
+      if (isAlreadyCompleted && !isEdit) {
+        showAuthStatus(`Session ${ses} for ${modKey} is already recorded in your portfolio. Click 'Edit' below on that reflection to modify it.`, true);
+        return;
+      }
+
+      const btn = document.getElementById("btnSubmit");
+      btn.innerText = isEdit ? "Updating Reflection..." : "Encrypting & Submitting...";
+      btn.disabled = true;
+
+      const isAas = (currentTrack === "aas");
+      const vocab = document.getElementById("vocab").value.trim();
+      const contentReview = document.getElementById("contentReview").value.trim();
+      const workOn = document.getElementById("workOn").value.trim();
+      const evalHelp = document.getElementById("evalHelp").value.trim();
+      const evalRating = document.getElementById("evalRating").value;
+
+      // When in AAS, automatically mute TOEIC values
+      const toeicPrep = isAas ? "N/A (AT Track)" : (document.getElementById("toeicPrep") ? document.getElementById("toeicPrep").value.trim() : "");
+      const toeicRating = isAas ? "10" : (document.getElementById("toeicRating") ? document.getElementById("toeicRating").value : "10");
+
+      const payload = {
+        student,
+        pin,
+        track: currentTrack.toUpperCase(),
+        module: getFormModuleValue(mod),
+        session: ses,
+        vocab,
+        contentReview,
+        workOn,
+        evalHelp,
+        evalRating,
+        toeicPrep,
+        toeicRating
+      };
+
+      let success = false;
+
+      // ROUTE 1: Google Forms Direct High-Throughput (Zero-Lock)
+      try {
+        const formBody = new URLSearchParams();
+        formBody.append(GOOGLE_FORM_ENTRIES.student, payload.student);
+        formBody.append(GOOGLE_FORM_ENTRIES.pin, payload.pin);
+        formBody.append(GOOGLE_FORM_ENTRIES.track, payload.track);
+        formBody.append(GOOGLE_FORM_ENTRIES.module, payload.module);
+        formBody.append(GOOGLE_FORM_ENTRIES.session, getFormSessionValue(payload.session));
+        formBody.append(GOOGLE_FORM_ENTRIES.vocab, payload.vocab);
+        formBody.append(GOOGLE_FORM_ENTRIES.contentReview, payload.contentReview);
+        formBody.append(GOOGLE_FORM_ENTRIES.workOn, payload.workOn);
+        formBody.append(GOOGLE_FORM_ENTRIES.evalHelp, payload.evalHelp);
+        formBody.append(GOOGLE_FORM_ENTRIES.evalRating, payload.evalRating);
+        formBody.append(GOOGLE_FORM_ENTRIES.toeicPrep, payload.toeicPrep);
+        formBody.append(GOOGLE_FORM_ENTRIES.toeicRating, payload.toeicRating);
+
+        await fetch(GOOGLE_FORM_ACTION_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formBody.toString()
+        });
+
+        success = true;
+      } catch (formErr) {
+        console.warn("Google Form route failed, attempting Route 2 fallback:", formErr);
+      }
+
+      // ROUTE 2: Fallback to Apps Script Direct Write
+      if (!success) {
+        try {
+          const res = await fetch(SCRIPT_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ action: "submit", ...payload })
+          });
+          const resData = await res.json();
+          if (resData.success) success = true;
+        } catch (scriptErr) {
+          console.error("Both submission routes failed:", scriptErr);
+        }
+      }
+
+      if (success) {
+        const newEntry = {
+          timestamp: new Date().toISOString().replace("T", " ").substring(0, 16),
+          track: currentTrack.toUpperCase(),
+          module: payload.module,
+          session: payload.session,
+          vocab: payload.vocab,
+          contentReview: payload.contentReview,
+          workOn: payload.workOn,
+          evalHelp: payload.evalHelp,
+          evalRating: payload.evalRating,
+          toeicPrep: payload.toeicPrep,
+          toeicRating: payload.toeicRating
+        };
+
+        if (isEdit) {
+          const targetModKey = getModuleKey(payload.module);
+          const targetSesNum = formatSessionNum(payload.session);
+          const existIdx = currentLoadedLogs.findIndex(l =>
+            (l.track || currentTrack).toUpperCase() === currentTrack.toUpperCase() &&
+            getModuleKey(l.module) === targetModKey &&
+            formatSessionNum(l.session) === targetSesNum
+          );
+          if (existIdx !== -1) {
+            currentLoadedLogs[existIdx] = newEntry;
+          } else {
+            currentLoadedLogs.push(newEntry);
+          }
+          cancelEditingEntry();
+          showAuthStatus("✓ Reflection updated and recorded successfully!", false);
+        } else {
+          currentLoadedLogs.push(newEntry);
+          showAuthStatus("✓ Portfolio entry submitted and recorded successfully!", false);
+          resetFormInputs();
+        }
+
+        renderChecklist();
+        renderHistoryLogs();
+        updateSessionAvailability();
+
+        // Background sync with database after latency window (4500ms)
+        setTimeout(() => fetchHistory({ silent: true }), 4500);
+      } else {
+        showAuthStatus("Submission error: unable to reach recording database. Please check connection and retry.", true);
+      }
+
+      btn.innerText = editingEntry ? "Update & Save Reflection" : "Submit Portfolio Entry";
+      btn.disabled = false;
+    }
+
+    // ============================================================================
+    // CHECKLIST & COMPLETION STATUS (Filtered by active track)
+    // ============================================================================
+
+    function renderChecklist() {
+      const grid = document.getElementById("checklistGrid");
+      if (!grid) return;
+
+      const config = TRACK_CONFIGS[currentTrack];
+      const activeLogs = currentLoadedLogs.filter(l => (l.track || currentTrack).toUpperCase() === currentTrack.toUpperCase());
+
+      let totalCompleted = 0;
+
+      grid.innerHTML = config.modules.map((mod, mIdx) => {
+        const modKey = `Module ${mIdx + 1}`;
+        let modCompleted = 0;
+
+        const sessionItems = [1, 2, 3, 4, 5].map(sNum => {
+          const sLabel = (sNum === 5) ? "FE" : `S${sNum}`;
+          const isDone = activeLogs.some(l => 
+            getModuleKey(l.module) === modKey && 
+            formatSessionNum(l.session) === String(sNum)
+          );
+
+          if (isDone) {
+            modCompleted++;
+            totalCompleted++;
+            return `
+              <span class="inline-flex items-center justify-center text-[10px] font-bold font-mono px-2 py-1 rounded bg-emerald-100 text-emerald-800 border border-emerald-300" title="Completed: Session ${sNum}">
+                ✓ ${sLabel}
+              </span>
+            `;
+          } else {
+            return `
+              <span class="inline-flex items-center justify-center text-[10px] font-mono px-2 py-1 rounded bg-slate-100 text-slate-400 border border-slate-200" title="Pending: Session ${sNum}">
+                ${sLabel}
+              </span>
+            `;
+          }
+        }).join("");
+
+        return `
+          <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-800">${modKey}</span>
+              <span class="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full ${modCompleted === 5 ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-600'}">
+                ${modCompleted} / 5
+              </span>
+            </div>
+            <div class="grid grid-cols-5 gap-1">
+              ${sessionItems}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      const statusPill = document.getElementById("checklistStatusPill");
+      if (statusPill) {
+        statusPill.innerText = `${totalCompleted} / 15 completed`;
+      }
+    }
+
+    function updateSessionAvailability() {
+      const modSelect = document.getElementById("moduleSelect");
+      const sesSelect = document.getElementById("sessionSelect");
+      const banner = document.getElementById("moduleCompletedBanner");
+      const submitBtn = document.getElementById("btnSubmit");
+
+      if (!modSelect || !sesSelect) return;
+
+      const mod = modSelect.value;
+      const modKey = getModuleKey(mod);
+      const options = sesSelect.options;
+      let firstAvailableValue = null;
+      let hasAvailable = false;
+
+      for (let i = 0; i < options.length; i++) {
+        const opt = options[i];
+        if (!opt.dataset.baseValue) {
+          opt.dataset.baseValue = opt.value;
+        }
+        const baseVal = opt.dataset.baseValue;
+        const sesNum = formatSessionNum(baseVal);
+
+        // Check if this session is already completed by the student
+        const isCompleted = currentLoadedLogs.some(l => 
+          (l.track || currentTrack).toUpperCase() === currentTrack.toUpperCase() &&
+          getModuleKey(l.module) === modKey && 
+          formatSessionNum(l.session) === sesNum
+        );
+
+        // If we are currently editing this specific session, allow it!
+        const isCurrentlyBeingEdited = editingEntry && 
+          (editingEntry.track || currentTrack).toUpperCase() === currentTrack.toUpperCase() &&
+          getModuleKey(editingEntry.module) === modKey && 
+          formatSessionNum(editingEntry.session) === sesNum;
+
+        if (isCompleted && !isCurrentlyBeingEdited) {
+          opt.disabled = true;
+          opt.innerText = `${baseVal} (✓ Completed)`;
+          opt.classList.add("text-slate-400", "italic");
+        } else {
+          opt.disabled = false;
+          opt.innerText = baseVal;
+          opt.classList.remove("text-slate-400", "italic");
+          if (!firstAvailableValue) {
+            firstAvailableValue = baseVal;
+          }
+          hasAvailable = true;
+        }
+      }
+
+      // If the currently selected option is disabled, auto-advance to the first open session
+      if (sesSelect.selectedOptions[0] && sesSelect.selectedOptions[0].disabled) {
+        if (firstAvailableValue) {
+          sesSelect.value = firstAvailableValue;
+        }
+      }
+
+      // All sessions completed in this module?
+      if (!hasAvailable && currentLoadedLogs.length > 0 && !editingEntry) {
+        if (banner) {
+          banner.classList.remove("hidden");
+          banner.innerHTML = `
+            <span class="text-base shrink-0">🛡️</span>
+            <div><strong>Module Completed:</strong> All 5 sessions for <strong>${escapeHtml(modKey)}</strong> have been completed and recorded. Select another module above to log new entries.</div>
+          `;
+        }
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+          submitBtn.innerText = "All Sessions in this Module Completed";
+        }
+      } else {
+        if (banner) banner.classList.add("hidden");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+          submitBtn.innerText = editingEntry ? "Update & Save Reflection" : "Submit Portfolio Entry";
+        }
+      }
+    }
+
+    function startEditingEntry(idx) {
+      const entry = (currentFilteredLogs && currentFilteredLogs[idx]) || currentLoadedLogs[idx];
+      if (!entry) return;
+
+      editingEntry = entry;
+
+      // 1. Switch to matching track if not already active
+      const entryTrack = (entry.track || currentTrack).toLowerCase();
+      if (entryTrack !== currentTrack.toLowerCase()) {
+        switchTrack(entryTrack, false);
+      }
+
+      // 2. Select matching module in dropdown
+      const modSelect = document.getElementById("moduleSelect");
+      const targetModKey = getModuleKey(entry.module);
+      for (let i = 0; i < modSelect.options.length; i++) {
+        if (getModuleKey(modSelect.options[i].value) === targetModKey) {
+          modSelect.selectedIndex = i;
+          break;
+        }
+      }
+
+      // 3. Update session availability so this session can be selected
+      updateSessionAvailability();
+
+      // 4. Select matching session in dropdown
+      const sesSelect = document.getElementById("sessionSelect");
+      const targetSesNum = formatSessionNum(entry.session);
+      for (let i = 0; i < sesSelect.options.length; i++) {
+        const baseVal = sesSelect.options[i].dataset.baseValue || sesSelect.options[i].value;
+        if (formatSessionNum(baseVal) === targetSesNum) {
+          sesSelect.selectedIndex = i;
+          break;
+        }
+      }
+
+      // 5. Populate form input fields with existing reflection text
+      document.getElementById("vocab").value = entry.vocab || "";
+      document.getElementById("contentReview").value = entry.contentReview || "";
+      document.getElementById("workOn").value = entry.workOn || "";
+      document.getElementById("evalHelp").value = entry.evalHelp || "";
+      setRating("evalRating", parseInt(entry.evalRating, 10) || 7);
+
+      const isAas = (currentTrack === "aas");
+      if (!isAas) {
+        if (document.getElementById("toeicPrep")) {
+          document.getElementById("toeicPrep").value = entry.toeicPrep || "";
+        }
+        if (document.getElementById("toeicRating")) {
+          setRating("toeicRating", parseInt(entry.toeicRating, 10) || 7);
+        }
+      }
+
+      // 6. Show Edit Mode Banner & update buttons
+      const banner = document.getElementById("editModeBanner");
+      const targetSpan = document.getElementById("editModeTarget");
+      const cancelBtn = document.getElementById("btnCancelEdit");
+      const submitBtn = document.getElementById("btnSubmit");
+
+      if (banner && targetSpan) {
+        targetSpan.innerText = `${targetModKey} • ${entry.session}`;
+        banner.classList.remove("hidden");
+      }
+      if (cancelBtn) cancelBtn.classList.remove("hidden");
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>💾</span> <span>Update &amp; Save Reflection</span>`;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+      }
+
+      // 7. Smooth scroll to form
+      const formEl = document.getElementById("portfolioForm");
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function cancelEditingEntry() {
+      editingEntry = null;
+
+      const banner = document.getElementById("editModeBanner");
+      const cancelBtn = document.getElementById("btnCancelEdit");
+      const submitBtn = document.getElementById("btnSubmit");
+
+      if (banner) banner.classList.add("hidden");
+      if (cancelBtn) cancelBtn.classList.add("hidden");
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>Submit Portfolio Entry</span>`;
+      }
+
+      resetFormInputs();
+      updateSessionAvailability();
+    }
+
+    // ============================================================================
+    // LOGGED HISTORY RENDERING
+    // ============================================================================
+
+    function setModuleFilter(modFilter) {
+      currentFilterModule = modFilter;
+      ["all", "m1", "m2", "m3"].forEach(f => {
+        const btn = document.getElementById(`filter-btn-${f}`);
+        if (!btn) return;
+        const target = (f === "all") ? "all" : `Module ${f.replace("m", "")}`;
+        if (target === modFilter) {
+          btn.className = "px-2.5 py-1 rounded-md transition text-slate-900 bg-white shadow-2xs font-bold";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-md transition text-slate-600 hover:text-slate-900";
+        }
+      });
+      renderHistoryLogs();
+    }
+
+    function renderHistoryLogs() {
+      const container = document.getElementById("logsContainer");
+      if (!container) return;
+
+      const trackLogs = currentLoadedLogs.filter(l => {
+        const itemTrack = (l.track || currentTrack).toUpperCase();
+        return itemTrack === currentTrack.toUpperCase();
+      });
+
+      const filtered = trackLogs.filter(l => {
+        if (currentFilterModule === "all") return true;
+        return getModuleKey(l.module) === currentFilterModule;
+      });
+
+      currentFilteredLogs = filtered;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-400 text-xs font-medium">
+            No logged reflections recorded for <strong>${TRACK_CONFIGS[currentTrack].code}</strong> ${currentFilterModule === 'all' ? '' : `(${currentFilterModule})`}.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((entry, idx) => {
+        const modKey = getModuleKey(entry.module) || entry.module;
+        const isAasEntry = (currentTrack === "aas");
+
+        return `
+          <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-white shadow-xs space-y-3.5 print-page-break">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full theme-badge font-mono">
+                  ${escapeHtml(entry.track || currentTrack.toUpperCase())} • ${escapeHtml(modKey)}
+                </span>
+                <span class="text-xs font-semibold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+                  ${escapeHtml(entry.session)}
+                </span>
+              </div>
+              <div class="flex items-center gap-2 self-end sm:self-auto">
+                <span class="text-[11px] font-mono text-slate-400">
+                  ${escapeHtml(entry.timestamp || "")}
+                </span>
+                <button type="button" onclick="startEditingEntry(${idx})" class="no-print inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer shadow-2xs hover:border-slate-400" title="Edit this logged reflection">
+                  <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                  <span>Edit</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Vocabulary Block -->
+            <div>
+              <h4 class="text-xs font-bold text-slate-700">${isAasEntry ? 'Aeronautical Vocabulary & Phraseology' : 'Key Vocabulary & Lexical Structures'}</h4>
+              <p class="text-xs text-slate-800 mt-0.5 whitespace-pre-wrap leading-relaxed">${escapeHtml(entry.vocab || "—")}</p>
+            </div>
+
+            <!-- Content Review Block -->
+            <div>
+              <h4 class="text-xs font-bold text-slate-700">${isAasEntry ? 'Aeronautical Operations & Lesson Content' : 'Lesson Content Review'}</h4>
+              <p class="text-xs text-slate-800 mt-0.5 whitespace-pre-wrap leading-relaxed">${escapeHtml(entry.contentReview || "—")}</p>
+            </div>
+
+            <!-- Target Areas Block -->
+            <div>
+              <h4 class="text-xs font-bold text-slate-700">${isAasEntry ? 'Target Communication Skills to Work On' : 'Target Improvement Areas'}</h4>
+              <p class="text-xs text-slate-800 mt-0.5 whitespace-pre-wrap leading-relaxed">${escapeHtml(entry.workOn || "—")}</p>
+            </div>
+
+            <!-- FE Relevance Block -->
+            <div>
+              <h4 class="text-xs font-bold text-slate-700">Formative Evaluation Relevance &amp; Strategy</h4>
+              <p class="text-xs text-slate-800 mt-0.5 whitespace-pre-wrap leading-relaxed">${escapeHtml(entry.evalHelp || "—")}</p>
+            </div>
+
+            <!-- Rating Badges -->
+            <div class="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-100">
+              <div class="text-[11px] font-semibold text-slate-600 flex items-center gap-1.5">
+                <span>FE Preparedness:</span>
+                <span class="theme-badge font-mono font-bold px-2 py-0.5 rounded-full">${escapeHtml(String(entry.evalRating || "—"))} / 10</span>
+              </div>
+
+              ${!isAasEntry && entry.toeicRating ? `
+                <div class="text-[11px] font-semibold text-slate-600 flex items-center gap-1.5 ml-2">
+                  <span>TOEIC Preparedness:</span>
+                  <span class="bg-slate-100 text-slate-800 border border-slate-300 font-mono font-bold px-2 py-0.5 rounded-full">${escapeHtml(String(entry.toeicRating))} / 10</span>
+                </div>
+              ` : ''}
+            </div>
+
+            ${!isAasEntry && entry.toeicPrep && !entry.toeicPrep.includes("N/A") ? `
+              <div class="text-xs text-slate-600 pt-1">
+                <strong>TOEIC Practice:</strong> ${escapeHtml(entry.toeicPrep)}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join("");
+    }
+
+    // ============================================================================
+    // UTILITIES & HELPER FUNCTIONS
+    // ============================================================================
+
+    function getModuleKey(str) {
+      const s = String(str || "").toLowerCase();
+      if (s.includes("1") || s.includes("travel") || s.includes("aerodrome")) return "Module 1";
+      if (s.includes("2") || s.includes("weather") || s.includes("aircraft") || s.includes("aerodynamics")) return "Module 2";
+      if (s.includes("3") || s.includes("technology") || s.includes("tech") || s.includes("safety") || s.includes("security")) return "Module 3";
+      return str;
+    }
+
+    function formatSessionNum(str) {
+      const s = String(str || "").toLowerCase();
+      if (s.includes("1")) return "1";
+      if (s.includes("2")) return "2";
+      if (s.includes("3")) return "3";
+      if (s.includes("4")) return "4";
+      if (s.includes("5") || s.includes("formative")) return "5";
+      return s.replace(/\D/g, "") || str;
+    }
+
+    function getFormModuleValue(mod) {
+      const m = String(mod || "").toLowerCase();
+      if (currentTrack === "ag") {
+        if (m.includes("1") || m.includes("travel")) return "Travel, Transport and Leisure";
+        if (m.includes("2") || m.includes("weather")) return "Weather and the Environment";
+        if (m.includes("3") || m.includes("tech")) return "New Technology";
+      } else {
+        if (m.includes("1") || m.includes("aerodrome")) return "Aerodrome";
+        if (m.includes("2") || m.includes("aircraft") || m.includes("aerodynamics")) return "Aircraft and Aerodynamics";
+        if (m.includes("3") || m.includes("safety") || m.includes("security")) return "Safety and Security";
+      }
+      return mod;
+    }
+
+    function getFormSessionValue(ses) {
+      const s = String(ses || "").toLowerCase();
+      if (s.includes("1")) return "1";
+      if (s.includes("2")) return "2";
+      if (s.includes("3")) return "3";
+      if (s.includes("4")) return "4";
+      if (s.includes("5") || s.includes("formative")) return "5";
+      return s.replace(/\D/g, "") || ses;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    async function checkBackendPing() {
+      try {
+        const res = await fetch(`${SCRIPT_URL}?action=ping&_t=${Date.now()}`);
+        const data = await res.json();
+        const dot = document.getElementById("conn-dot");
+        const text = document.getElementById("conn-text");
+        if (data.success) {
+          dot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse";
+          text.innerText = "Live";
+        }
+      } catch (e) {
+        const dot = document.getElementById("conn-dot");
+        const text = document.getElementById("conn-text");
+        if (dot && text) {
+          dot.className = "w-2 h-2 rounded-full bg-amber-400";
+          text.innerText = "Connected";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+

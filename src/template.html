@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>GSEA Semester 2 - Course Modules</title>
+  <!-- Tailwind CSS CLI Output -->
+  <link rel="stylesheet" href="output.css">
+  <!-- Structured Course Data Engine -->
+  <script src="data/course-data.js"></script>
+  <style>
+    /* Signature Precision CAD Micro-Grid (Deck Header only) */
+    .textured-surface,
+    #deck-header {
+      background-image: 
+        /* Layer 1: Top ambient spotlight */
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 75%),
+        /* Layer 2: Hairline precision grid vertical lines */
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        /* Layer 3: Hairline precision grid horizontal lines */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        /* Layer 4: Vertical depth gradient */
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.16) 100%) !important;
+      background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100% !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* All buttons, badges, and controls must NOT have mesh texture */
+    button,
+    a[role="button"],
+    .module-buttons-group button,
+    #action-links-container a,
+    #action-links-container button,
+    #prev-btn,
+    #next-btn,
+    #deck-icon-box,
+    #counter-badge,
+    .btn-inactive {
+      background-image: none !important;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Dynamic canvas backdrop & tactile textured background behind the main frame */
+    body {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      transition: background-color 0.4s ease;
+    }
+    .moodle-deck-canvas {
+      transition: box-shadow 0.4s ease;
+    }
+
+    /* Theme transitions */
+    #deck-header, #flight-deck-ribbon, #deck-icon-box, #card-heading, #prev-btn, #next-btn, #counter-badge, .module-buttons-group button, #action-links-container a, #action-links-container button, #program-switcher button {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+    }
+
+    #flight-deck-ribbon {
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Continuous Assessment Criteria Skills Tiles (Combined Resting Deep Tone + Hover Accent) */
+    .skill-tile {
+      transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .skill-tile .skill-word {
+      color: var(--skills-color, #0f172a);
+      transition: color 0.15s ease;
+    }
+    .skill-tile:hover {
+      background-color: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .skill-tile:hover .skill-word {
+      color: var(--skills-accent, #ea580c) !important;
+    }
+
+    .module-buttons-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    @media (min-width: 640px) {
+      .module-buttons-group {
+        gap: 3px;
+      }
+    }
+    /* Rock-Solid Static Deck Geometry - Zero Vertical Shifting & Zero Edge Clipping */
+    .moodle-deck-canvas {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .workspace-split {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0%;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .sidebar-menu {
+      width: 100%;
+      background-color: #f8fafc;
+      border-right: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      max-height: 9rem;
+      overflow-y: auto;
+    }
+
+    .content-panel {
+      flex: 1 1 0%;
+      background-color: #ffffff;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    @media (min-width: 768px) {
+      .moodle-deck-canvas {
+        height: 690px;
+        min-height: 690px;
+        max-height: 690px;
+      }
+      .workspace-split {
+        flex-direction: row;
+        height: 100%;
+        max-height: none;
+      }
+      .sidebar-menu {
+        width: 16rem;
+        height: 100%;
+        max-height: none;
+      }
+      .content-panel {
+        height: 100%;
+        max-height: none;
+        overflow-y: auto;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    /* Status footer clearance for letter descenders (g, y, p, q, j) */
+    .moodle-deck-canvas > footer {
+      min-height: 38px;
+      line-height: 1.4;
+      padding-top: 0.625rem;
+      padding-bottom: 0.625rem;
+    }
+
+    #action-links-container {
+      min-height: 38px;
+    }
+
+    /* Subtle slim scrollbar for internal content pane */
+    .content-panel::-webkit-scrollbar,
+    .sidebar-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+    .content-panel::-webkit-scrollbar-track,
+    .sidebar-menu::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .content-panel::-webkit-scrollbar-thumb,
+    .sidebar-menu::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .content-panel::-webkit-scrollbar-thumb:hover,
+    .sidebar-menu::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Vocabulary skills footer baseline styles & contrast */
+    .vocab-footer {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      background-color: rgba(248, 250, 252, 0.6);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 0.625rem;
+      column-gap: 1rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    @media (min-width: 640px) {
+      .vocab-footer {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    .vocab-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vocab-ipa {
+      font-size: 10px !important;
+      color: #64748b !important;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.4 !important;
+      letter-spacing: 0.02em;
+    }
+
+    /* Modal Drawer & Backdrop transitions */
+    #deck-modal-drawer {
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #resource-modal-backdrop {
+      transition: opacity 0.28s ease;
+    }
+
+    /* 3D Flip Flashcard */
+    .flashcard-perspective {
+      perspective: 1000px;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flashcard-inner.flipped {
+      transform: rotateY(180deg);
+    }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      top: 0;
+      left: 0;
+    }
+    .flashcard-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Option A: Silky Aerospace AG <-> AT Track Cross-Dissolve (750ms total) */
+    .track-crossfade-exit {
+      opacity: 0 !important;
+      filter: blur(1.5px);
+      transform: scale(0.992) translateY(3px) !important;
+      transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                  filter 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+      pointer-events: none;
+    }
+    .track-crossfade-enter {
+      opacity: 1 !important;
+      filter: blur(0px);
+      transform: scale(1) translateY(0) !important;
+      transition: opacity 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 450ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 450ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    /* Coordinated Header Title & Icon Dissolve */
+    .header-crossfade-exit {
+      opacity: 0 !important;
+      filter: blur(1px);
+      transform: translateY(-2px) !important;
+      transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1),
+                  filter 280ms cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .header-crossfade-enter {
+      opacity: 1 !important;
+      filter: blur(0px);
+      transform: translateY(0) !important;
+      transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 420ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 420ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    /* Concept 1: Aeronautical Flight Strips Navigation (Calm, Grounded) */
+    .flight-strip-card {
+      transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.16s ease,
+                  border-color 0.16s ease,
+                  box-shadow 0.16s ease,
+                  color 0.16s ease;
+      will-change: transform;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #modal-body, #modal-body * {
+        visibility: visible !important;
+      }
+      #modal-body {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 8mm !important;
+        margin: 0 !important;
+        background: white !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-canvas-mod1 min-h-screen flex items-center justify-center" style="background-color: #f1f5f9;">
+
+  <!-- Custom Tailwind adjustments -->
+  <div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3 font-sans">
+    <!-- Main Deck Container -->
+    <div class="moodle-deck-canvas bg-white rounded-2xl shadow-card-mod1 border border-slate-300 flex flex-col overflow-hidden">
+      
+      <!-- Header bar -->
+      <header id="deck-header" class="textured-surface bg-[#374151] text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#1f2937] shrink-0 relative overflow-hidden">
+        <div id="deck-header-info" class="flex items-center space-x-3 sm:space-x-4">
+          <div id="deck-icon-box" class="bg-[#ea580c] p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+            <!-- Theme Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden">
+            <h1 id="deck-main-title" class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate">GSEA SEMESTER 2 AG</h1>
+            <p id="deck-subtitle" class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate text-slate-300 mt-0.5">Module 1 - Travel, Transport &amp; Leisure</p>
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex items-center space-x-2">
+          <button id="deck-portfolio-btn" type="button" onclick="openPortfolioDrawer()" class="flex items-center space-x-1.5 bg-[#1f2937] hover:bg-[#111827] active:bg-[#0f172a] text-slate-100 px-2.5 sm:px-3 py-1.5 rounded-lg font-semibold text-xs transition-all border border-[#111827] shadow-xs hover:shadow-sm hover:-translate-y-[1px] active:translate-y-0 cursor-pointer mr-1" title="Open Formative Learning Portfolio Drawer">
+            <span id="deck-port-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="deck-port-label">AG Portfolio</span>
+          </button>
+          <span id="counter-badge" class="text-xs font-medium text-white bg-[#1f2937] px-2.5 py-1 rounded-md border border-[#111827] mr-1 shadow-md">1 of 6</span>
+          <button id="prev-btn" class="flex items-center space-x-1 bg-[#1f2937] hover:bg-[#111827] active:bg-[#0f172a] text-slate-100 px-3 py-1.5 rounded-lg font-semibold text-xs transition-all border border-[#111827] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer shadow-xs hover:shadow-sm hover:-translate-y-[1px] active:translate-y-0" type="button">
+            <span class="pointer-events-none">Previous</span>
+          </button>
+          <button id="next-btn" class="flex items-center space-x-1 bg-[#ea580c] hover:bg-[#c2410c] active:bg-[#9a3412] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-xs hover:shadow-sm disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer hover:-translate-y-[1px] active:translate-y-0" type="button">
+            <span class="pointer-events-none">Next</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Flight Deck Navigation Ribbon -->
+      <nav id="flight-deck-ribbon" class="bg-[#1f2937] text-white px-2 sm:px-5 py-1.5 sm:py-2 border-b border-[#111827] flex items-center justify-between gap-1 sm:gap-3 shrink-0 z-10 transition-colors duration-200 overflow-x-auto no-scrollbar">
+        <!-- Left: Curriculum Track Switcher (AG / AAS) -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <span class="text-[10px] font-black uppercase tracking-wider text-slate-300 hidden sm:inline-block">Track:</span>
+          <div id="program-switcher" class="inline-flex items-center bg-black/40 p-0.5 rounded-lg border border-white/15 shadow-inner" role="tablist" aria-label="Curriculum Track">
+            <button id="prog-btn-ag"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    title="General English (AG)"
+                    class="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-black transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 text-white shadow-xs">
+              <svg width="13" height="13" class="w-3.5 h-3.5 shrink-0 opacity-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+              <span>AG</span>
+            </button>
+            <button id="prog-btn-aas"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    title="Aeronautical English (AAS)"
+                    class="px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 text-white/70 hover:text-white hover:bg-white/10">
+              <svg width="13" height="13" class="w-3.5 h-3.5 shrink-0 opacity-90" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              <span>AAS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Center: Flight Deck HUD Promotion Callsign Badge (Link to e-Campus) -->
+        <div class="flex items-center justify-center shrink-0">
+          <a id="promo-callsign-badge"
+             href="https://e-campus.enac.fr"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/45 backdrop-blur-xs border border-white/15 shadow-inner transition-all duration-300 select-none group cursor-pointer hover:border-white/40 hover:bg-black/60 hover:-translate-y-[1px] active:translate-y-0 no-underline"
+             title="Return to ENAC e-Campus (https://e-campus.enac.fr) ↗">
+            <span id="promo-badge-dot" class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse transition-all duration-300"></span>
+            <span id="promo-badge-text" class="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-slate-100 uppercase transition-colors duration-300 group-hover:text-white">GSEA 26A</span>
+            <svg class="w-2.5 h-2.5 text-slate-400 group-hover:text-white opacity-0 group-hover:opacity-100 -ml-0.5 transition-all duration-200 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: Module Selection Tabs (MOD 1 / MOD 2) -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <span class="text-[10px] font-black uppercase tracking-wider text-slate-300 flex items-center gap-1">
+            <svg width="12" height="12" class="w-3 h-3 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+            <span>Module:</span>
+          </span>
+          <div id="module-selector-container" class="module-buttons-group inline-flex items-center bg-black/40 p-0.5 rounded-lg border border-white/15 shadow-inner" role="tablist" aria-label="Course Module Selection">
+            <!-- Populated via script: MOD 1, MOD 2 -->
+          </div>
+        </div>
+      </nav>
+
+      <!-- Workspace Body -->
+      <div class="flex-1 flex flex-col md:flex-row overflow-hidden workspace-split">
+        <!-- Sidebar Directory -->
+        <div class="w-full md:w-64 bg-slate-50 border-r border-slate-200 flex flex-col shrink-0 max-h-32 md:max-h-none overflow-y-auto overflow-x-hidden sidebar-menu">
+          <div class="p-2.5 bg-slate-200/70 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-600">
+            Contents Menu
+          </div>
+          <div id="deck-menu" class="p-2 space-y-1.5">
+            <!-- Populated via script -->
+          </div>
+        </div>
+
+        <!-- Main Content Panel Area -->
+        <div class="flex-1 bg-white p-4 sm:p-6 flex flex-col justify-between overflow-y-auto content-panel">
+          <!-- Content Card Details with Widescreen Avionics Display (Direction A) -->
+          <div class="space-y-4">
+            <div class="flex flex-col lg:flex-row gap-5 items-start justify-between">
+              <div class="space-y-3.5 flex-1 min-w-0">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <h2 id="card-heading" class="text-xl sm:text-2xl font-black tracking-tight" style="color: #374151;"></h2>
+                </div>
+                <div id="card-desc" class="space-y-3"></div>
+              </div>
+              <!-- Image Container: Direction A Widescreen Avionics Display (16:10 / 4:3) -->
+              <div id="image-container" class="w-full sm:w-60 lg:w-64 h-44 sm:h-48 md:h-52 rounded-2xl shrink-0 overflow-hidden shadow-md border border-slate-200/90 relative hidden group bg-slate-100">
+                <img id="card-image" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Session graphic">
+              </div>
+            </div>
+
+            <!-- Stylized Skills Footer Area -->
+            <div id="card-skills" class="w-full pt-2.5 pb-2.5 px-3.5 sm:px-4 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-2xs flex flex-col" style="--skills-color: #0f172a; --skills-accent: #ea580c;">
+              <div class="flex items-center justify-between pb-1.5 mb-2 border-b border-slate-200/70 select-none">
+                <div class="flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-slate-500">
+                  <svg width="13" height="13" class="shrink-0 transition-colors" style="color: var(--skills-accent);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                  <span class="transition-colors font-extrabold" style="color: var(--skills-color);">Continuous Assessment Criteria</span>
+                </div>
+                <span class="text-[9.5px] font-mono text-slate-400 font-medium hidden sm:inline">Click to listen</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-y-2 gap-x-2.5">
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Fluency')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Fluency</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/ˈfluː.ən.si/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Grammar')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Grammar</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/ˈɡræm.ər/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Technical Vocabulary')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Technical Vocabulary</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/ˈtek.nɪ.kəl vəˈkæb/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Pronunciation')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Pronunciation</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/prəˌnʌn.siˈeɪ.shən/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Comprehension')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Comprehension</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Discussion')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Discussion</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/dɪˈskʌʃ.ən/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Correction')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Correction</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/kəˈrek.ʃən/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Interaction')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Interaction</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/ˌɪn.təˈræk.ʃən/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Assessment')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Assessment</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/əˈses.mənt/</span></div>
+                <div class="skill-tile flex flex-col p-1.5 rounded-lg border border-transparent transition-all cursor-pointer select-none group" role="button" tabindex="0" onclick="speakWord('Portfolio')" title="Click to listen"><span class="skill-word text-[11.5px] font-extrabold uppercase tracking-wide">Portfolio</span><span class="text-[9.5px] text-slate-400 font-mono mt-0.5 group-hover:text-slate-600 transition-colors">/pɔːtˈfəʊ.li.əʊ/</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Executive Action Dock: Label on Left, Open Resources on Right -->
+          <div id="action-dock" class="pt-3.5 border-t border-slate-200/80 flex items-center justify-between gap-3 mt-4 w-full">
+            <!-- Left: Subtle Technical Status / Workspace Breadcrumb -->
+            <div id="action-dock-label" class="flex items-center gap-2 shrink-0 select-none">
+              <span id="action-dock-dot" class="w-2 h-2 rounded-full transition-colors duration-200" style="background-color: #374151;"></span>
+              <span id="action-dock-title" class="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-500">Session 01 Study Resources</span>
+            </div>
+            <!-- Right: Single Access CTA Button (Right Aligned) -->
+            <div id="action-links-container" class="flex items-center justify-end shrink-0"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom status footer -->
+      <footer class="bg-slate-50 border-t border-slate-200 px-3 py-2 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+        <span id="footer-status" class="font-medium text-slate-700">Ready</span>
+        <span id="footer-curriculum-label" class="font-medium">GSEA Semester 2 General English (AG) • Phil PARRIS (LH/LAN) • <span class="font-mono text-slate-400 font-semibold">v1.0.0</span></span>
+      </footer>
+    </div>
+
+  </div>
+  <!-- Slide-Over Resource Modal Drawer (SCORM In-Deck Hub) -->
+  <div id="deck-resource-modal" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!-- Backdrop Overlay -->
+    <div id="resource-modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs opacity-0 transition-opacity duration-300"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+      <div id="deck-modal-drawer" class="w-screen max-w-4xl h-full bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+        
+        <!-- Drawer Header -->
+        <header id="modal-header" class="textured-surface bg-[#374151] text-white px-4 py-3.5 sm:px-6 sm:py-4 flex flex-col gap-3 border-b border-[#1f2937] shrink-0">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center space-x-3 min-w-0">
+              <span id="modal-tag" class="bg-white/20 text-white text-[11px] sm:text-xs font-extrabold px-2.5 py-1 rounded-md tracking-wide shrink-0">Module 1 • Session 1</span>
+              <h2 id="modal-title" class="text-sm sm:text-base font-bold text-white truncate">Session Details</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 shrink-0">
+              <!-- Close Modal Button -->
+              <button id="modal-close-btn" type="button" aria-label="Close modal" class="text-white hover:text-white bg-black/20 hover:bg-black/35 p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Modal Navigation Tab Strip -->
+          <nav id="modal-tab-strip" class="flex items-center gap-1 overflow-x-auto pb-0.5 text-xs select-none">
+            <button data-tab="objectives" id="modal-tab-objectives" class="modal-tab-btn modal-tab-standard flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">Objectives</button>
+            <button data-tab="plan" id="modal-tab-plan" class="modal-tab-btn modal-tab-standard flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">Lesson Plan</button>
+            <button data-tab="plan_obj" id="modal-tab-plan-obj" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">Lesson Plan / Objectives</button>
+            <button data-tab="content" id="modal-tab-content" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">Lesson Content</button>
+            <button data-tab="revision" id="modal-tab-revision" class="modal-tab-btn modal-tab-standard flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">Vocabulary</button>
+            <button data-tab="materials" id="modal-tab-materials" class="modal-tab-btn modal-tab-standard flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">Additional Materials</button>
+            <button data-tab="toeic" id="modal-tab-toeic" class="modal-tab-btn modal-tab-standard flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer">TOEIC Practice</button>
+            <button data-tab="ddrs" id="modal-tab-ddrs" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">DDRS</button>
+            <!-- Formative Evaluation Tabs -->
+            <button data-tab="fe_guidelines" id="modal-tab-fe-guidelines" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">FE Guidelines</button>
+            <button data-tab="fe_objectives" id="modal-tab-fe-objectives" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">FE Objectives</button>
+            <button data-tab="fe_criteria" id="modal-tab-fe-criteria" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">FE Marking Criteria</button>
+            <!-- Course Administration Tabs -->
+            <button data-tab="admin_groups" id="modal-tab-admin-groups" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">Class Groups &amp; Teachers</button>
+            <button data-tab="admin_calendar" id="modal-tab-admin-calendar" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">Weekly Calendar</button>
+            <button data-tab="admin_rota" id="modal-tab-admin-rota" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">FE Tutorial Rotas</button>
+            <!-- English Immersion Tabs -->
+            <button data-tab="immersion_overview" id="modal-tab-immersion-overview" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">Immersion Overview</button>
+            <button data-tab="immersion_cities" id="modal-tab-immersion-cities" class="modal-tab-btn flex items-center gap-1 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">6 Destination Guides</button>
+            <!-- Semester Objectives Tabs -->
+            <button data-tab="sem_obj_en" id="modal-tab-sem-obj-en" class="modal-tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">🇬🇧 English (EN)</button>
+            <button data-tab="sem_obj_fr" id="modal-tab-sem-obj-fr" class="modal-tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-white/80 hover:text-white hover:bg-white/10 transition-all cursor-pointer hidden">🇫🇷 Français (FR)</button>
+          </nav>
+        </header>
+
+        <!-- Drawer Content Area -->
+        <div id="modal-body" class="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50 space-y-4">
+          <!-- Populated via script -->
+        </div>
+
+        <!-- Drawer Footer -->
+        <footer class="bg-white border-t border-slate-200 px-4 py-2.5 sm:px-6 sm:py-3 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex items-center justify-between text-xs text-slate-500 shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="modal-scorm-status" class="font-medium">SCORM 1.2 Connected • Active Tracking</span>
+          </div>
+          <button type="button" onclick="closeModalDrawer()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-100 active:bg-slate-200 text-slate-700 font-bold text-xs shadow-2xs hover:shadow-xs transition-all cursor-pointer">
+            <span>Close Drawer</span>
+            <kbd class="font-mono text-[10px] text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Esc</kbd>
+          </button>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Portfolio Modal Drawer (In-Deck Formative Portfolio Hub) -->
+  <div id="deck-portfolio-modal" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="portfolio-drawer-title" role="dialog" aria-modal="true">
+    <!-- Backdrop Overlay -->
+    <div id="portfolio-modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs opacity-0 transition-opacity duration-300"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+      <div id="deck-portfolio-drawer" class="w-screen max-w-4xl h-full bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+        
+        <!-- Drawer Header -->
+        <header id="portfolio-drawer-header" class="textured-surface bg-[#1f2937] text-white px-3.5 py-3 sm:px-6 sm:py-3.5 flex items-center justify-between border-b border-[#111827] shrink-0 gap-3">
+          <div class="flex items-center space-x-2.5 sm:space-x-3 min-w-0">
+            <div id="portfolio-drawer-icon" class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-white bg-emerald-600 shadow-xs">
+              <svg id="portfolio-drawer-icon-ag" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              <svg id="portfolio-drawer-icon-aas" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 id="portfolio-drawer-title" class="text-xs sm:text-sm font-bold text-white uppercase tracking-wide truncate">
+                GSEA SEMESTER 2 AG
+              </h2>
+              <p id="portfolio-drawer-subtitle" class="text-[11px] text-slate-300 truncate mt-0.5">
+                General English (LV101E) • Formative Learning Portfolio &amp; Self-Evaluation Log
+              </p>
+            </div>
+          </div>
+
+          <!-- Drawer Action Controls (Track switcher, Live Status, Close) -->
+          <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+            <!-- In-Drawer Track Switcher -->
+            <div class="inline-flex items-center bg-black/40 p-0.5 rounded-lg border border-white/15 shadow-inner">
+              <button id="drawer-tab-btn-ag" type="button" onclick="setDrawerTrack('ag')" class="px-2 py-1 rounded text-[11px] font-black transition-all cursor-pointer text-white bg-emerald-600 shadow-xs">
+                AG
+              </button>
+              <button id="drawer-tab-btn-aas" type="button" onclick="setDrawerTrack('aas')" class="px-2 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer text-white/70 hover:text-white hover:bg-white/10">
+                AAS
+              </button>
+            </div>
+
+            <!-- Live DB Beacon -->
+            <div class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/40 border border-white/15 text-[10px] font-mono font-bold text-slate-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Live</span>
+            </div>
+
+            <!-- Close Drawer Button -->
+            <button id="portfolio-modal-close-btn" type="button" onclick="closePortfolioDrawer()" aria-label="Close portfolio drawer" class="text-white hover:text-white bg-black/25 hover:bg-black/40 p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Drawer Content Area (Embedded Iframe) -->
+        <div class="flex-1 w-full h-full min-h-0 bg-slate-100 overflow-hidden relative">
+          <iframe id="portfolio-drawer-iframe" src="about:blank" title="Formative Learning Portfolio" class="w-full h-full border-0 absolute inset-0"></iframe>
+        </div>
+
+        <!-- Drawer Flight-Deck Footer -->
+        <footer id="portfolio-drawer-footer" class="textured-surface bg-[#1f2937] text-white px-3.5 py-2.5 sm:px-6 sm:py-2.5 flex items-center justify-between border-t border-[#111827] shrink-0 text-xs text-slate-300">
+          <div class="flex items-center gap-2 min-w-0">
+            <span id="drawer-footer-track-badge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold text-white bg-emerald-600 shadow-xs shrink-0">AG • LV101E</span>
+            <span id="drawer-footer-course-title" class="font-bold text-white tracking-wide truncate text-[11px] sm:text-xs">GSEA Semester 2 General English (AG)</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-slate-300 hidden sm:inline text-[11px] sm:text-xs">Phil PARRIS <span class="text-slate-400 font-mono text-[10px] sm:text-[11px]">(LH/LAN)</span></span>
+            <span class="text-slate-500 hidden sm:inline">•</span>
+            <span id="drawer-footer-version-badge" class="font-mono text-emerald-400 font-bold bg-black/40 px-2 py-0.5 rounded border border-white/10 text-[10px] sm:text-xs">v1.0.0</span>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Configuration -->
+  <script>
+  <!-- INLINE_APP_SCRIPTS -->
+  </script>
+</body>
+</html>

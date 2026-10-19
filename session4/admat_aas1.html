@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>AT Module 1 Session 4 - Additional Materials &amp; Resources</title>
+  <!-- Local Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f5f2ee;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-container {
+      width: 98%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 12px 8px;
+    }
+    @media (min-width: 640px) {
+      .deck-container {
+        width: 95%;
+        padding: 12px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .deck-container {
+        width: 90%;
+      }
+    }
+    .moodle-deck-canvas {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 20px 25px -5px rgba(61, 45, 37, 0.06), 0 8px 10px -6px rgba(61, 45, 37, 0.04), 0 1px 3px 0 rgba(61, 45, 37, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .deck-header {
+      background-color: #152438;
+      color: #ffffff;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #0d1724;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%);
+    }
+    .header-icon-box {
+      background-color: #d97706;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn {
+      background-image: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #d97706;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn:hover {
+      background-color: #b45309;
+      transform: translateY(-1px);
+    }
+
+    .deck-body {
+      background-color: #ffffff;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 22px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-badge {
+      background-color: #152438;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+    }
+    .section-intro {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 0 0 18px 0;
+      line-height: 1.5;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .compact-video-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .compact-video-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px -2px rgba(0,0,0,0.06);
+    }
+    .video-header {
+      padding: 10px 12px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .video-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .watch-direct-btn {
+      font-size: 11px;
+      font-weight: 700;
+      color: #b45309;
+      background-color: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 2px 7px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.12s ease;
+    }
+    .watch-direct-btn:hover {
+      background-color: #fde68a;
+      color: #78350f;
+    }
+    .tag-pill {
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .tag-amber { background-color: #fef3c7; color: #92400e; }
+    .tag-emerald { background-color: #d1fae5; color: #065f46; }
+    .tag-sky { background-color: #e0f2fe; color: #0369a1; }
+    .tag-indigo { background-color: #e0e7ff; color: #3730a3; }
+
+    .video-player-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      background-color: #0f172a;
+    }
+    .video-player-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-caption {
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0;
+      background-color: #ffffff;
+      border-top: 1px solid #f1f5f9;
+      flex-grow: 1;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 640px) {
+      .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .news-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .news-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .news-topic {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #64748b;
+      letter-spacing: 0.05em;
+    }
+    .news-source-tag {
+      font-size: 10px;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #334155;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .news-heading {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin: 0 0 6px 0;
+    }
+    .news-snippet {
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px solid #f1f5f9;
+    }
+    .read-time {
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+    .article-btn {
+      font-size: 11px;
+      font-weight: 700;
+      color: #d97706;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .article-btn:hover {
+      color: #b45309;
+      text-decoration: underline;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .resource-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      background-color: #f8fafc;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+    .resource-card:hover {
+      background-color: #ffffff;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+    }
+    .resource-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .resource-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .resource-desc {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .resource-link-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #d97706;
+    }
+
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 18px;
+    }
+    @media (min-width: 1024px) {
+      .grammar-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+    }
+    .grammar-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .grammar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .grammar-card-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .grammar-formula-box {
+      background-color: #f1f5f9;
+      border-left: 3px solid #d97706;
+      border-radius: 0 6px 6px 0;
+      padding: 8px 12px;
+      margin: 8px 0;
+    }
+    .grammar-formula {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #152438;
+      line-height: 1.4;
+    }
+
+    .toeic-question-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .toeic-question-stem {
+      font-size: 12.5px;
+      color: #1e293b;
+      line-height: 1.5;
+      font-weight: 600;
+      margin: 6px 0 10px 0;
+    }
+    .toeic-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .toeic-option-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #334155;
+      padding: 5px 8px;
+      border-radius: 6px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+    .toeic-option-letter {
+      font-weight: 800;
+      color: #64748b;
+      min-width: 22px;
+    }
+    .reveal-details {
+      margin-top: 10px;
+    }
+    .reveal-details summary {
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #d97706;
+      user-select: none;
+      padding: 4px 0;
+    }
+    .reveal-details summary:hover {
+      color: #b45309;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck-container">
+  <div class="moodle-deck-canvas">
+
+    <!-- Header bar -->
+    <header class="deck-header">
+      <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+        <div class="header-icon-box">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
+        <div style="min-width: 0;">
+          <h1 style="font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AT
+          </h1>
+          <p style="font-size: 12px; font-weight: 500; color: #fef3c7; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 1 - Aerodrome • Session 4 - Jobs in Aviation
+          </p>
+        </div>
+      </div>
+      <a class="back-btn" href="../index.html?track=aas#module1">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+        </svg>
+        <span>Back to Module 1</span>
+      </a>
+    </header>
+
+    <!-- Main Content Workspace -->
+    <main class="deck-body">
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 1: VIDEO ANALYSIS (3 COMPACT CARDS)                              -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">01</span>
+          <h3 class="section-title">Video Viewers &amp; Operational Analysis</h3>
+        </div>
+        <p class="section-intro">
+          Analyze real-world aviation professions across the airport ecosystem: airside ground operations, air traffic control centers, and aerodrome flight information services (AFIS).
+        </p>
+
+        <div class="video-grid">
+          <!-- Video 1 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 1: Boeing 777 Airport Ground Handling: Start to Finish">Video 1: Boeing 777 Ground Handling</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=KSfgLX5j-lQ" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-amber">Ground Ops</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="KSfgLX5j-lQ" data-video-title="Boeing 777 Airport Ground Handling: Start to Finish">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/KSfgLX5j-lQ" 
+                title="Boeing 777 Airport Ground Handling: Start to Finish" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Authentic real-world turnaround coordination: marshaling, chock placement, GPU connection, belt loaders, baggage logistics, and pushback operations.
+            </p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 2: Inside Air Traffic Control">Video 2: Air Traffic Control</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=R90mroZyAL4" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-sky">ATCO Roles</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="R90mroZyAL4" data-video-title="Inside Air Traffic Control">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/R90mroZyAL4" 
+                title="Inside Air Traffic Control: Tower, Approach &amp; En-Route" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Tower, approach, and en-route controllers managing active runways, sector handoffs, tactical separation authority, and standard phraseology.
+            </p>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 3: AFIS &amp; Regional Aerodrome Operations">Video 3: AFIS &amp; Operations</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=2BZbHAJQ70s" target="_blank" rel="noopener noreferrer" class="watch-direct-btn">Watch ↗</a>
+                <span class="tag-pill tag-emerald">TSEEAC / AFISO</span>
+              </div>
+            </div>
+            <div class="video-player-container" data-video-id="2BZbHAJQ70s" data-video-title="AFIS &amp; Regional Aerodrome Operations">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/2BZbHAJQ70s" 
+                title="AFIS &amp; Aerodrome Operations: Working at Regional Airports" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="video-caption">
+              <strong>Focus:</strong> Aerodrome Flight Information Service (AFIS) officers providing flight information, weather reports, and alerting service without air traffic control separation authority.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 2: TECHNICAL READING & INDUSTRY BRIEFINGS (4 CARDS)               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">02</span>
+          <h3 class="section-title">Technical Articles &amp; Operational Briefings</h3>
+        </div>
+        <p class="section-intro">
+          Review professional publications examining airport operations networks, the institutional role of TSEEAC, ATCO versus AFISO service scopes, and turnaround coordination.
+        </p>
+
+        <div class="news-grid">
+          <!-- Article 1 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">FlightGlobal / Aviation Careers</span>
+                <span class="news-source-tag">Career Insight</span>
+              </div>
+              <h4 class="news-heading">Beyond the Flight Deck: The Essential Network of Airport Operations</h4>
+              <p class="news-snippet">
+                An in-depth look at the landside, airside, and regulatory roles that keep international aviation flowing seamlessly 24/7.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">5-6 min read</span>
+              <a href="https://www.flightglobal.com" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">DGAC France / ENAC Portal</span>
+                <span class="news-source-tag">Civil Aviation Careers</span>
+              </div>
+              <h4 class="news-heading">The Modern Role of TSEEAC: From AFIS to Safety Oversight</h4>
+              <p class="news-snippet">
+                How France's Civil Aviation Operations Corps supports regional aerodrome operations, civil aviation safety inspections, and air navigation technical support.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">5-7 min read</span>
+              <a href="https://www.ecologie.gouv.fr/direction-generale-laviation-civile-dgac" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Eurocontrol ATM Careers</span>
+                <span class="news-source-tag">Operational Profile</span>
+              </div>
+              <h4 class="news-heading">ATCO vs AFISO: Understanding the Scope of Air Traffic Services</h4>
+              <p class="news-snippet">
+                Comparing tactical separation authority in controlled airspace with flight information and advisory services at regional fields.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">6-8 min read</span>
+              <a href="https://www.eurocontrol.int" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">IATA Ground Operations Bulletin</span>
+                <span class="news-source-tag">Safety &amp; Turnaround</span>
+              </div>
+              <h4 class="news-heading">The Turnaround Coordinator: Heartbeat of On-Time Performance</h4>
+              <p class="news-snippet">
+                Why ramp coordinators, loadmasters, and flight dispatchers form the vital link between airline schedules and safety compliance.
+              </p>
+            </div>
+            <div class="news-footer">
+              <span class="read-time">5-6 min read</span>
+              <a href="https://www.iata.org" target="_blank" rel="noopener noreferrer" class="article-btn">
+                Read Article ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 3: CURATED WEB RESOURCES & REFERENCES (6 CARDS)                   -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">03</span>
+          <h3 class="section-title">Curated Web Resources &amp; Industry Portals</h3>
+        </div>
+        <p class="section-intro">
+          Official civil aviation recruitment links, international operations standards, and TOEIC preparation portals for aviation professionals.
+        </p>
+
+        <div class="resources-grid">
+          <!-- Resource 1 -->
+          <a href="https://www.ecologie.gouv.fr/concours-dgac" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">01 • Civil Aviation Authority</div>
+              <div class="resource-name">DGAC Careers &amp; TSEEAC Competitions</div>
+              <p class="resource-desc">Official French civil aviation authority portal detailing TSEEAC, IEEAC, and ATCO recruitment competitions and corps duties.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 2 -->
+          <a href="https://www.eurocontrol.int/careers" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">02 • European ATM Network</div>
+              <div class="resource-name">Eurocontrol Air Traffic Management</div>
+              <p class="resource-desc">Pan-European air navigation services, controller profiles, and ATM network operations.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 3 -->
+          <a href="https://www.iata.org/en/programs/ops-infra/ground-operations/" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">03 • Ramp &amp; Apron Standards</div>
+              <div class="resource-name">IATA Ground Operations Hub (IGOM)</div>
+              <p class="resource-desc">Global airline industry standards for apron safety, aircraft turnaround, and ground support equipment handling.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 4 -->
+          <a href="https://www.ifatca.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">04 • Professional Association</div>
+              <div class="resource-name">IFATCA Air Traffic Controllers</div>
+              <p class="resource-desc">Worldwide federation representing over 50,000 air traffic controllers across 130 countries.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 5 -->
+          <a href="https://www.icao.int" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">05 • Global Standards</div>
+              <div class="resource-name">ICAO Personnel Licensing (Annex 1)</div>
+              <p class="resource-desc">International civil aviation benchmarks for pilots, flight dispatchers, ATCOs, and aeronautical station operators.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+
+          <!-- Resource 6 -->
+          <a href="https://www.etsglobal.org/fr/fr" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-tag">06 • Evaluation Rubrics</div>
+              <div class="resource-name">ETS Global TOEIC Practice</div>
+              <p class="resource-desc">Official TOEIC Speaking &amp; Writing evaluation benchmarks and sample workplace responses for aviation professionals.</p>
+            </div>
+            <div class="resource-link-label">
+              <span>Visit Portal</span>
+              <span>→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 4: GRAMMAR FOCUS & TOEIC APPLICATION                               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">04</span>
+          <h3 class="section-title">Grammar Point: Expressing Responsibilities, Duties &amp; Authority</h3>
+        </div>
+        <p class="section-intro">
+          Master precise B2 functional language to describe professional obligations, team hierarchy, and regulatory jurisdictions across aviation careers.
+        </p>
+
+        <div class="grammar-grid">
+          <!-- Column 1: Grammar Definition, Formation & Rules -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #152438;">Responsibility &amp; Authority Formulas</span>
+                <span class="tag-pill tag-amber">B2 Functional Focus</span>
+              </div>
+              
+              <!-- Formula Banner -->
+              <div class="grammar-formula-box">
+                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Grammar Patterns</div>
+                <div class="grammar-formula">
+                  BE RESPONSIBLE FOR + -ING • BE TASKED WITH + -ING • HAVE AUTHORITY OVER / TO • ENSURE THAT + CLAUSE
+                </div>
+              </div>
+
+              <!-- Core Rules -->
+              <div style="font-size: 12px; color: #475569; line-height: 1.55; margin-top: 10px;">
+                <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>
+                    <strong style="color: #1e293b;">1. BE RESPONSIBLE FOR + Gerund / Noun:</strong> Used to define primary recurring operational accountability (<em>"The Turnaround Coordinator is <strong>responsible for supervising</strong> cargo loading"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">2. BE TASKED WITH + Gerund / Noun:</strong> Expresses an official operational mission or assigned duty (<em>"AFIS officers are <strong>tasked with providing</strong> traffic information"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">3. HAVE AUTHORITY OVER / TO + Verb:</strong> Denotes legal command or jurisdictional power (<em>"Tower ATCOs <strong>have authority over</strong> the active runway and <strong>authority to issue</strong> clearances"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">4. ENSURE THAT + Clause:</strong> Highlights verification and compliance auditing (<em>"Safety inspectors <strong>ensure that</strong> airlines comply with DGAC regulations"</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">5. REPORT TO vs. LIAISE WITH:</strong> Contrast vertical hierarchy (<em>"The ramp agent <strong>reports to</strong> the coordinator"</em>) with horizontal coordination (<em>"The dispatcher <strong>liaises with</strong> meteorologists"</em>).
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pitfall Alert -->
+              <div style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #fffbeb; border: 1px solid #fef3c7; font-size: 11px; color: #92400e; line-height: 1.45;">
+                <strong>⚠️ Common Preposition &amp; False Friend Trap:</strong> Never say <em>responsible of</em>—always use <strong>responsible for + -ing</strong>. Also, strictly distinguish <em>control</em> (ATCO issuing binding separation orders) from <em>provide information</em> (AFISO advising pilots without executive control clearances).
+              </div>
+            </div>
+
+            <!-- Workplace Examples -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 4px;">
+              <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px;">Operational Responsibility Examples</span>
+              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: #334155;">
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>"The Turnaround Coordinator is <strong>responsible for ensuring</strong> that all ground support equipment is detached before pushback."</em></span>
+                </div>
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #d97706; font-weight: 800;">✓</span>
+                  <span><em>"Unlike aerodrome controllers, AFISOs are <strong>tasked with providing</strong> traffic information rather than tactical separation clearances."</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: TOEIC Part 5 Practice Questions & Interactive Reveals -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #d97706;">TOEIC Diagnostic Practice</span>
+                <span class="tag-pill tag-sky">Part 5: Incomplete Sentences</span>
+              </div>
+
+              <!-- Question 1 -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Question 1 • Responsibility Prepositions</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The Turnaround Coordinator is directly responsible ________ supervising the loading of cargo and ensuring compliance with the weight schedule.
+                </p>
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(A)</span><span>with</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(B)</span><span>for</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(C)</span><span>of</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(D)</span><span>to</span></div>
+                </div>
+                <details class="reveal-details">
+                  <summary>Click to Reveal Correct Answer &amp; Analysis</summary>
+                  <div style="margin-top: 8px; padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER: (B) for</span>
+                    <p style="font-size: 11px; color: #334155; margin: 6px 0 4px 0;">"Responsible for" is the fixed prepositional collocation followed by a gerund ("supervising"). Avoid the common French false friend "responsible of".</p>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Question 2 -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Question 2 • Verb Patterns with Prepositions</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  Unlike aerodrome controllers who issue clearances, AFIS officers are tasked with ________ flight information and meteorological updates to inbound pilots.
+                </p>
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(A)</span><span>provide</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(B)</span><span>provides</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(C)</span><span>providing</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(D)</span><span>provided</span></div>
+                </div>
+                <details class="reveal-details">
+                  <summary>Click to Reveal Correct Answer &amp; Analysis</summary>
+                  <div style="margin-top: 8px; padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER: (C) providing</span>
+                    <p style="font-size: 11px; color: #334155; margin: 6px 0 4px 0;">"Be tasked with" ends with a preposition ("with"), which must be followed by a gerund (-ing form: "providing").</p>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Question 3 -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Question 3 • Passive Voice in Documentation</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  Before releasing the aircraft for departure, the flight dispatcher must verify that all load sheets ________ by the captain.
+                </p>
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(A)</span><span>have signed</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(B)</span><span>have been signed</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(C)</span><span>will sign</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(D)</span><span>signing</span></div>
+                </div>
+                <details class="reveal-details">
+                  <summary>Click to Reveal Correct Answer &amp; Analysis</summary>
+                  <div style="margin-top: 8px; padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER: (B) have been signed</span>
+                    <p style="font-size: 11px; color: #334155; margin: 6px 0 4px 0;">Passive voice is required because load sheets are the receiver of the action: they have been signed by the captain.</p>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Question 4 -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Question 4 • Conjunctions of Assurance</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The civil aviation safety inspector conducted an unannounced audit in order to ensure ________ ground handling personnel were strictly following apron safety protocols.
+                </p>
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(A)</span><span>that</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(B)</span><span>what</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(C)</span><span>which</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(D)</span><span>where</span></div>
+                </div>
+                <details class="reveal-details">
+                  <summary>Click to Reveal Correct Answer &amp; Analysis</summary>
+                  <div style="margin-top: 8px; padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER: (A) that</span>
+                    <p style="font-size: 11px; color: #334155; margin: 6px 0 4px 0;">"Ensure that" introduces a content clause detailing what condition is being secured or verified.</p>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Question 5 -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Question 5 • Prepositions of Concession</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The airport duty manager was commended for handling the ramp emergency calmly, ________ severe winter weather conditions.
+                </p>
+                <div class="toeic-options-list">
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(A)</span><span>despite</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(B)</span><span>although</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(C)</span><span>unless</span></div>
+                  <div class="toeic-option-item"><span class="toeic-option-letter">(D)</span><span>whereas</span></div>
+                </div>
+                <details class="reveal-details">
+                  <summary>Click to Reveal Correct Answer &amp; Analysis</summary>
+                  <div style="margin-top: 8px; padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <span style="background-color: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">CORRECT ANSWER: (A) despite</span>
+                    <p style="font-size: 11px; color: #334155; margin: 6px 0 4px 0;">"Despite" is a preposition of concession followed by a noun phrase ("severe winter weather conditions"). "Although" requires a full clause.</p>
+                  </div>
+                </details>
+              </div>
+
+            </div>
+
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 8px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; color: #64748b;">
+              <span>Target Competency: Duty Verbs &amp; Prepositions</span>
+              <span style="font-weight: 700; color: #d97706;">Score Goal: 850+</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom status footer -->
+    <footer style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 12px 24px; font-size: 11px; color: #64748b; display: flex; justify-content: space-between; align-items: center; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;">
+      <span style="font-weight: 600; color: #334155;">Active: AAS Session 4 Jobs in Aviation</span>
+      <span style="font-weight: 500;">GSEA Semester 1 Technical English • Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
+

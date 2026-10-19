@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDRS - Cadre Réglementaire &amp; Définitions Officielles (Module 3)</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="output.css">
+    <style>
+      :root {
+        --primary: #1a2238;
+        --primary-dark: #121727;
+        --primary-darker: #3e5c2d;
+        --accent: #3b82f6;
+        --accent-dark: #2563eb;
+        --accent-darker: #1d4ed8;
+        --highlight: #e0e7ff;
+      }
+      .theme-header { background-color: #1a2238 !important; border-color: #121727 !important; }
+      .theme-icon-box { background-color: #3b82f6 !important; }
+      .theme-supertitle { color: #e0e7ff !important; }
+      .theme-btn { background-color: #3b82f6 !important; }
+      .theme-btn:hover { background-color: #2563eb !important; }
+      .theme-btn:active { background-color: #1d4ed8 !important; }
+      .theme-badge { background-color: #1a2238 !important; border-color: #121727 !important; }
+      .theme-title { color: #1a2238 !important; }
+      .theme-axe-badge { background-color: #1a2238 !important; }
+      .theme-axe-num { color: #3b82f6 !important; }
+      .theme-axe-title { color: #1a2238 !important; }
+      .theme-tag-badge { background-color: #3b82f6 !important; }
+      .theme-tag-num { color: #1a2238 !important; }
+      .theme-tag-title { color: #1a2238 !important; }
+      .theme-skill-primary { color: #1a2238 !important; }
+      .theme-skill-accent { color: #3b82f6 !important; }
+      .theme-skill-dark { color: #121727 !important; }
+      /* Self-contained layout fallbacks to ensure preview never breaks */
+      .moodle-deck-canvas { background-color: #ffffff; border-radius: 1rem; border: 1px solid #cbd5e1; display: flex; flex-direction: column; overflow: hidden; }
+      .grid { display: grid; }
+      .grid-cols-\[60px_1fr\] { grid-template-columns: 60px 1fr; }
+      .gap-2\.5 { gap: 0.625rem; }
+      .space-y-2\.5 > * + * { margin-top: 0.625rem; }
+      .space-y-4 > * + * { margin-top: 1rem; }
+      .space-x-2 > * + * { margin-left: 0.5rem; }
+      .rounded-xl { border-radius: 0.75rem; }
+      .border-slate-200\/70 { border-color: rgba(226, 232, 240, 0.7); }
+      .bg-slate-50\/60 { background-color: rgba(248, 250, 252, 0.6); }
+      /* Greyed out / Inactive items */
+      .theme-item-muted {
+        background-color: #f8fafc !important;
+        border-color: #e2e8f0 !important;
+        box-shadow: none !important;
+        opacity: 0.38 !important;
+      }
+      .theme-item-muted .theme-axe-badge,
+      .theme-item-muted .theme-tag-badge {
+        background-color: #cbd5e1 !important;
+        color: #64748b !important;
+      }
+      .theme-item-muted .theme-axe-num,
+      .theme-item-muted .theme-tag-num {
+        color: #94a3b8 !important;
+      }
+      .theme-item-muted .theme-axe-title,
+      .theme-item-muted .theme-tag-title {
+        color: #64748b !important;
+      }
+      .theme-item-muted p {
+        color: #94a3b8 !important;
+      }
+    
+      /* Signature Precision CAD Micro-Grid */
+      .textured-surface {
+        background-image: 
+          /* Layer 1: Top ambient spotlight */
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 75%),
+          /* Layer 2: Hairline precision grid vertical lines */
+          linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          /* Layer 3: Hairline precision grid horizontal lines */
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          /* Layer 4: Vertical depth gradient */
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.16) 100%) !important;
+        background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100% !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.3) !important;
+      }
+
+      /* Elements and inactive buttons that must NOT have mesh texture */
+      .theme-icon-box,
+      .theme-badge,
+      .theme-btn,
+      button:disabled,
+      .btn-inactive {
+        background-image: none !important;
+      }
+      </style>
+</head>
+<body class="bg-canvas-mod3 min-h-screen">
+
+<!-- Custom Tailwind adjustments for Olive Green theme (Module 3) -->
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3 font-sans">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-card-mod3 border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="theme-header textured-surface bg-[#1a2238] text-white px-4 py-4 sm:px-6 sm:py-5 flex flex-wrap items-center justify-between gap-3 border-b border-[#121727] shrink-0 relative overflow-hidden">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <div class="theme-icon-box bg-[#3b82f6] p-2.5 rounded-lg text-white shadow-md flex items-center justify-center">
+          <!-- Olive Green Theme Icon -->
+          <svg width="20" height="20" style="width: 20px; height: 20px;" class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate">
+            GSEA SEMESTER 1 AG
+          </h1>
+          <p class="theme-supertitle text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate text-[#e0e7ff] mt-0.5">
+            Module 3 - New Technology • DDRS Cadre Réglementaire
+          </p>
+        </div>
+      </div>
+      <!-- Module Navigation & Back to Module Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <div class="inline-flex rounded-lg p-0.5 bg-black/20 border border-white/20 text-xs font-semibold mr-1">
+          <a href="ddrs1.html" class="px-2.5 py-1 rounded-md text-white/90 hover:text-white hover:bg-white/10 transition-colors">Mod 1</a>
+          <a href="ddrs2.html" class="px-2.5 py-1 rounded-md text-white/90 hover:text-white hover:bg-white/10 transition-colors">Mod 2</a>
+          <span class="px-2.5 py-1 rounded-md bg-white text-[#1a2238] font-bold shadow-sm">Mod 3</span>
+        </div>
+        <a class="theme-btn flex items-center space-x-1.5 bg-[#3b82f6] hover:bg-[#2563eb] active:bg-[#1d4ed8] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0"
+           href="index.html#module3">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 3</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <div class="flex-1 bg-white p-4 sm:p-8 flex flex-col justify-between overflow-y-auto">
+        <div class="flex flex-col lg:flex-row gap-6 items-start justify-between">
+          <div class="space-y-4 flex-1">
+            
+            <!-- Module 3 green badge -->
+            <div class="theme-badge inline-flex items-center space-x-2 bg-[#1a2238] text-white px-3.5 py-1 rounded-full text-xs font-black tracking-wide border border-[#121727] shadow-sm">
+              Référentiel National DD&amp;RS (CGE / CPU / MESR)
+            </div>
+            
+            <h2 class="theme-title text-xl sm:text-2xl font-black text-[#1a2238] tracking-tight">
+              Développement Durable &amp; Responsabilité Sociétale : Tags et Définitions Officielles
+            </h2>
+            <div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Le Référentiel National DD&amp;RS de l'Enseignement Supérieur et de la Recherche (Label DD&amp;RS) structure les engagements écologiques, sociétaux et éthiques des établissements et des grands projets de transport selon 5 axes stratégiques et leurs domaines transversaux d'application.
+              </p>
+              <h3 class="text-xs sm:text-sm font-bold text-slate-800 mt-2.5">
+                Axes et compétences DD&amp;RS associés à ce module&nbsp;:
+              </h3>
+            </div>
+            
+            <!-- List of DDRS Tags and Definitions -->
+            <div class="space-y-2.5 pt-2">
+              
+              <!-- Axe 1 -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-axe-badge bg-[#1a2238] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Axe 1</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-axe-num font-black text-[#3b82f6] text-xs sm:text-sm pt-0.2">1.</span>
+                  <div>
+                    <h3 class="theme-axe-title text-xs sm:text-sm font-bold text-[#1a2238]">Gouvernance et Stratégie</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Intégration du développement durable dans la vision, le projet d'établissement et le pilotage décisionnel. Dialogue continu avec les parties prenantes (étudiants, personnels, collectivités, partenaires), allocation de budgets dédiés et suivi d'indicateurs d'impact mesurables.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Axe 2 -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-axe-badge bg-[#1a2238] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Axe 2</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-axe-num font-black text-[#3b82f6] text-xs sm:text-sm pt-0.2">2.</span>
+                  <div>
+                    <h3 class="theme-axe-title text-xs sm:text-sm font-bold text-[#1a2238]">Formation et Pédagogie</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Sensibilisation et formation de 100 % des apprenants aux enjeux de la transition socio-écologique (limites planétaires, climat, biodiversité). Intégration transversale des compétences DD&amp;RS (rapport Jouzel / socle MESR) pour préparer les ingénieurs à la prise de décision éthique et responsable.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Axe 3 -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-axe-badge bg-[#1a2238] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Axe 3</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-axe-num font-black text-[#3b82f6] text-xs sm:text-sm pt-0.2">3.</span>
+                  <div>
+                    <h3 class="theme-axe-title text-xs sm:text-sm font-bold text-[#1a2238]">Recherche et Innovation</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Orientation et valorisation de l'activité scientifique et technologique en réponse aux Objectifs de Développement Durable (ODD). Soutien aux programmes interdisciplinaires, recherche sobre et responsable, éco-conception et transfert de technologies vertes au service de la société.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Axe 4 -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-axe-badge bg-[#1a2238] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Axe 4</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-axe-num font-black text-[#3b82f6] text-xs sm:text-sm pt-0.2">4.</span>
+                  <div>
+                    <h3 class="theme-axe-title text-xs sm:text-sm font-bold text-[#1a2238]">Gestion Environnementale</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Maîtrise et réduction continue des impacts écologiques directs : décarbonation des mobilités pendulaires et professionnelles, efficacité et sobriété énergétique du patrimoine bâti, gestion circulaire des déchets, préservation de la biodiversité sur site et achats publics responsables.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Axe 5 (Non pertinent pour ce module - grisé) -->
+              <div class="theme-item-muted grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5" title="Non pertinent pour ce module">
+                <span class="theme-axe-badge bg-[#1a2238] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Axe 5</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-axe-num font-black text-[#3b82f6] text-xs sm:text-sm pt-0.2">5.</span>
+                  <div>
+                    <h3 class="theme-axe-title text-xs sm:text-sm font-bold text-[#1a2238]">Politique Sociale et Inclusion</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Engagement institutionnel pour la responsabilité sociétale : égalité professionnelle femmes-hommes, inclusion et accessibilité des personnes en situation de handicap, égalité des chances, amélioration de la qualité de vie et santé globale, et prévention de toute forme de discrimination.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 1 (Item 6 - Non pertinent pour ce module - grisé) -->
+              <div class="theme-item-muted grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5" title="Non pertinent pour ce module">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">6.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Mobilité Durable &amp; Report Modal (Sustainable Mobility)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Stratégie d'optimisation des transports articulée autour de la hiérarchie « Éviter - Transférer - Améliorer » (ASI). Promotion active du report modal vers le ferroviaire, les transports en commun et les mobilités douces face à l'autosolisme et aux vols court-courriers.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 2 (Item 7) -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">7.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Bilan d'Émissions de GES (BEGES / Bilan Carbone)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Comptabilisation réglementaire des gaz à effet de serre (méthode ADEME / ISO 14064) sur les trois périmètres : Scope 1 (émissions directes), Scope 2 (émissions indirectes énergétiques) et Scope 3 (émissions indirectes amont/aval : déplacements, achats, logistique et cycle de vie).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 3 (Item 8) -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">8.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Sobriété Énergétique &amp; Efficacité</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Démarche articulant la sobriété (questionnement et réduction des consommations par la modification des comportements et des usages collectifs) et l'efficacité (optimisation technique des rendements énergétiques pour un même niveau de service).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 4 (Item 9 - Non pertinent pour ce module - grisé) -->
+              <div class="theme-item-muted grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5" title="Non pertinent pour ce module">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">9.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Préservation de la Biodiversité &amp; Zéro Artificialisation Nette (ZAN)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Protection des écosystèmes et des continuités écologiques (trames vertes et bleues). Application des exigences légales (loi Climat et Résilience) visant à stopper la disparition nette d'espaces naturels et agricoles causée par les infrastructures et l'aménagement.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 5 (Item 10) -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">10.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Équité Territoriale &amp; Accessibilité (Territorial Equity)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Principe de justice spatiale garantissant un accès universel, abordable et sécurisé aux réseaux de transport et aux services d'intérêt général pour l'ensemble des territoires (urbains, périurbains et ruraux), luttant contre la fracture et la précarité mobilité.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 6 (Item 11) -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">11.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Achats Responsables &amp; Analyse du Cycle de Vie (ACV / LCA)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Intégration systématique de critères environnementaux et sociaux dans la commande publique et privée. Évaluation globale des impacts de chaque produit, infrastructure ou service de son extraction jusqu'à son recyclage ou élimination finale.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tag 7 (Item 12) -->
+              <div class="grid grid-cols-[60px_1fr] items-center p-2.5 rounded-xl border border-slate-200/70 bg-slate-50/60 shadow-sm gap-2.5">
+                <span class="theme-tag-badge bg-[#3b82f6] text-white text-xs font-bold py-1 rounded-md text-center flex items-center justify-center self-center">Tag</span>
+                <div class="flex items-start space-x-2">
+                  <span class="theme-tag-num font-black text-[#1a2238] text-xs sm:text-sm pt-0.2">12.</span>
+                  <div>
+                    <h3 class="theme-tag-title text-xs sm:text-sm font-bold text-[#1a2238]">Objectifs de Développement Durable (ODD - Agenda 2030)</h3>
+                    <p class="text-[11px] text-slate-600 mt-0.5">Cadre universel des Nations Unies comprenant 17 objectifs interdépendants pour concilier prospérité économique, progrès social et protection de la biosphère. Les politiques de transport et d'ingénierie s'articulent principalement autour des ODD 9, 11, 12 et 13.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Stylized Skills Footer Area -->
+            <div class="w-full pt-3 pb-3 px-4 rounded-xl border border-slate-200/60 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-4 gap-y-2.5 gap-x-4 shadow-sm vocab-footer">
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic tracking-wide text-[#c0684f] vocab-word" style="color: #c0684f; font-style: italic;">FLUENCY</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈfluː.ən.si/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase text-[#d6a555] vocab-word" style="color: #d6a555; text-transform: uppercase;">Grammar</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈɡræm.ər/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold normal-case text-slate-700 underline decoration-slate-300 vocab-word" style="color: #334155; text-decoration: underline; text-decoration-color: #cbd5e1;">Technical Vocabulary</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈtek.nɪ.kəl vəˈkæb/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-[#a85640] vocab-word" style="color: #a85640; font-style: italic;">Pronunciation</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/prəˌnʌn.siˈeɪ.shən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase tracking-wider text-teal-700 vocab-word" style="color: #0f766e; text-transform: uppercase;">Comprehension</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic text-sky-700 vocab-word" style="color: #0369a1; font-style: italic;">Discussion</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/dɪˈskʌʃ.ən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-extrabold uppercase text-[#ea5d74] vocab-word" style="color: #ea5d74; text-transform: uppercase;">CORRECTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/kəˈrek.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold tracking-widest text-[#d6a555] vocab-word" style="color: #d6a555; letter-spacing: 0.08em;">INTERACTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌɪn.təˈræk.ʃən/</span></div>
+            </div>
+            </div>
+
+          </div>
+
+          <!-- Square Image Container with Subtle Drop Shadow -->
+          <div class="w-full sm:w-48 h-48 rounded-xl shrink-0 overflow-hidden shadow-md" style="box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);">
+            <img class="w-full h-full object-cover" src="images/card5.png" alt="DDRS graphic">
+          </div>
+        </div>
+      </div>
+    
+
+    <!-- Bottom status footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-3 py-2 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700">Active: DDRS - Cadre Réglementaire &amp; Définitions (Module 3)</span>
+      <span class="font-medium">GSEA Semester 1 English. Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

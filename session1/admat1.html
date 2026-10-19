@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Session 1 - Additional Materials &amp; Resources</title>
+  <!-- Local Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+
+  <style>
+    /* Robust, self-contained styling for resilient rendering across all browsers */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #f5f2ee;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.085) 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container Canvas */
+    .deck-container {
+      width: 98%;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 12px 8px;
+    }
+    @media (min-width: 640px) {
+      .deck-container {
+        width: 95%;
+        padding: 12px 16px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .deck-container {
+        width: 90%;
+      }
+    }
+    .moodle-deck-canvas {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 20px 25px -5px rgba(61, 45, 37, 0.06), 0 8px 10px -6px rgba(61, 45, 37, 0.04), 0 1px 3px 0 rgba(61, 45, 37, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header styling */
+    .deck-header {
+      background-color: #c0684f;
+      color: #ffffff;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #a85640;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%);
+    }
+    .header-icon-box {
+      background-color: #d6a555;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn {
+      background-image: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #d6a555;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .back-btn:hover {
+      background-color: #bf8f40;
+      transform: translateY(-1px);
+    }
+
+    /* Content Area */
+    .deck-body {
+      background-color: #ffffff;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .deck-body {
+        padding: 16px 14px;
+        gap: 18px;
+      }
+    }
+
+    /* Unified Section Panels: Clean, shaded background container for distinct section separation */
+    .section-panel {
+      background-color: #f8fafc; /* subtle slate tint for elegant contrast */
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    @media (max-width: 640px) {
+      .section-panel {
+        padding: 14px 14px;
+      }
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .section-badge {
+      background-color: #c0684f;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #c0684f;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .section-intro {
+      font-size: 12px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Section 1: Evenly Spaced 3-Column Video Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 720px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .compact-video-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0; /* Prevents grid blowout */
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .compact-video-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .video-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .video-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tag-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tag-amber {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    .tag-emerald {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    .tag-sky {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+    .video-header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .watch-direct-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #b91c1c;
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 9999px;
+      padding: 1.5px 7px;
+      text-decoration: none;
+      line-height: 1.3;
+      transition: all 0.15s ease;
+    }
+    .watch-direct-btn:hover {
+      background-color: #fee2e2;
+      border-color: #f87171;
+      color: #991b1b;
+      transform: translateY(-0.5px);
+    }
+    .local-file-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 11.5px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+    .local-file-banner-icon {
+      font-size: 16px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .local-file-banner-text code {
+      background-color: #dbeafe;
+      color: #1e3a8a;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #0f172a;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+    .video-player-container iframe,
+    .video-player-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      object-fit: contain;
+      background-color: #000000;
+    }
+    .video-facade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-facade img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.86;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .video-facade:hover img {
+      transform: scale(1.05);
+      opacity: 0.96;
+    }
+    .video-play-btn {
+      position: absolute;
+      width: 52px;
+      height: 36px;
+      background-color: rgba(239, 68, 68, 0.92);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      z-index: 2;
+    }
+    .video-facade:hover .video-play-btn {
+      transform: scale(1.12);
+      background-color: #dc2626;
+    }
+    .video-play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+      margin-left: 2px;
+    }
+    .video-facade-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: #f8fafc;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 2;
+    }
+    .video-caption {
+      font-size: 11px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Section 2: News Articles Grid (2 Equal Columns) */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 680px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .news-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      min-width: 0;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .news-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+    .news-topic {
+      font-weight: 800;
+      color: #c0684f;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .news-source-tag {
+      background-color: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .news-heading {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 6px 0;
+    }
+    .news-snippet {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .news-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+    }
+    .read-time {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .article-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #c0684f;
+      color: #ffffff;
+      padding: 6px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .article-btn:hover {
+      background-color: #a85640;
+    }
+
+    /* Section 3: Web Resources (6 Items in 3x2 Grid) */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 580px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .resource-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .resource-card:hover {
+      border-color: #d6a555;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(194, 155, 56, 0.15);
+    }
+    .resource-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .resource-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #d6a555;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .resource-icon {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      transition: color 0.15s ease;
+    }
+    .resource-card:hover .resource-icon {
+      color: #d6a555;
+    }
+    .resource-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 3px 0;
+      transition: color 0.15s ease;
+    }
+    .resource-card:hover .resource-name {
+      color: #c0684f;
+    }
+    .resource-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .resource-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #c0684f;
+    }
+
+    /* Bottom Vocabulary Ribbon */
+    .vocab-footer {
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      background-color: rgba(248, 250, 252, 0.5);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    @media (min-width: 640px) {
+      .vocab-footer {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .vocab-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .vocab-word {
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .vocab-ipa {
+      font-size: 8px;
+      color: #94a3b8;
+      font-family: monospace;
+      margin-top: 1px;
+    }
+
+    /* Deck Footer */
+    .deck-footer {
+      background-color: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 10px 18px;
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Grammar Point & TOEIC Diagnostic Styles */
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 860px) {
+      .grammar-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .grammar-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .grammar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f5f9;
+      gap: 8px;
+    }
+    .grammar-card-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+    .grammar-formula-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      margin: 8px 0;
+    }
+    .grammar-formula {
+      font-size: 13px;
+      font-weight: 800;
+      color: #c0684f;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      letter-spacing: -0.01em;
+    }
+    .toeic-question-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 6px;
+    }
+    .toeic-question-stem {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.5;
+      margin: 4px 0 10px 0;
+    }
+    .toeic-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    @media (max-width: 500px) {
+      .toeic-options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .toeic-option-item {
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .toeic-option-letter {
+      font-weight: 700;
+      color: #94a3b8;
+    }
+    .grammar-details {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .grammar-summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #c0684f;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background-color: #f8fafc;
+      transition: background-color 0.15s ease;
+    }
+    .grammar-summary:hover {
+      background-color: #f1f5f9;
+    }
+    .grammar-summary::-webkit-details-marker {
+      display: none;
+    }
+    .grammar-analysis-body {
+      padding: 12px 14px;
+      border-top: 1px solid #e2e8f0;
+      background-color: #ffffff;
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: #475569;
+    }
+  
+    /* Signature Tactile Micro-Mesh Texture */
+    .textured-surface {
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.045) 0, rgba(255, 255, 255, 0.045) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.16) 1px, transparent 0, transparent 4px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+    }
+
+    .header-icon-box,
+    .section-badge,
+    button:disabled,
+    .btn-inactive,
+    .article-btn,
+    .back-btn {
+      background-image: none !important;
+    }
+    
+  </style>
+</head>
+<body class="bg-canvas-mod1">
+
+<!-- Custom Tailwind adjustments for Warm Editorial / Terracotta & Oat theme -->
+<div class="w-[98%] sm:w-[95%] lg:w-[90%] max-w-[1350px] mx-auto px-2 sm:px-4 py-3 font-sans deck-container">
+  <div class="moodle-deck-canvas bg-white rounded-2xl shadow-card-mod1 border border-slate-300 flex flex-col overflow-hidden">
+    
+    <!-- Header bar -->
+    <header class="deck-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div class="header-icon-box">
+          <!-- Multimedia Library SVG Icon -->
+          <svg width="20" height="20" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col justify-center min-h-[40px] max-h-[40px] overflow-hidden min-w-0" style="display: flex; flex-direction: column; justify-content: center; min-height: 40px; max-height: 40px; overflow: hidden; min-width: 0;">
+          <h1 class="text-[13.5px] sm:text-[15px] font-semibold text-white tracking-wide uppercase leading-[19px] truncate" style="font-size: 15px; font-weight: 600; color: #ffffff; letter-spacing: 0.025em; text-transform: uppercase; line-height: 19px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            GSEA SEMESTER 1 AG
+          </h1>
+          <p class="text-[11.5px] sm:text-[12px] font-medium leading-[16px] truncate mt-0.5" style="font-size: 12px; font-weight: 500; color: #fef39e; line-height: 16px; margin: 2px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Module 1 - Travel, Transport & Leisure • Session 1 - Additional Materials &amp; Resources
+          </p>
+        </div>
+      </div>
+      <!-- Back to Module / Session Link -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <a class="flex items-center space-x-1.5 bg-[#d6a555] hover:bg-[#bf8f40] active:bg-[#a8782f] text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs transition-all shadow-md cursor-pointer shrink-0 back-btn" style="background-image: none !important;"
+           href="../index.html#module1">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="w-3.5 h-3.5 stroke-[2.5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>Back to Module 1</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Workspace Body -->
+    <div class="deck-body">
+      
+      <!-- Introduction & Badge Area -->
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 4px; border-bottom: 1px solid #f1f5f9;">
+        <div>
+          <span style="display: inline-block; background-color: #c0684f; color: #ffffff; padding: 4px 12px; border-radius: 9999px; font-size: 11px; font-weight: 800; border: 1px solid #a85640; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            GSEA Supplementary Resource Hub
+          </span>
+        </div>
+        <h2 style="font-size: 22px; font-weight: 900; color: #c0684f; margin: 4px 0 0 0; letter-spacing: -0.02em;">
+          Session 1 Multimedia, Case Studies &amp; Research Links
+        </h2>
+        <p style="font-size: 13px; color: #64748b; line-height: 1.55; margin: 0; max-width: 950px;">
+          Explore curated audio-visual material, real-world current affairs articles, and authoritative reference portals to expand your vocabulary, deepen your DD&amp;RS insights, and prepare for class discussions.
+        </p>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 1: YOUTUBE VIDEO VIEWERS (Shaded Panel, 3 Evenly Spaced)          -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">01</span>
+          <h3 class="section-title">Video Viewers &amp; Analysis</h3>
+        </div>
+        <p class="section-intro">
+          Watch the accompanying video clips below and take notes on relevant travel collocations, tone, and arguments.
+        </p>
+
+        <!-- Dynamic Local File Mode Warning Banner (shown only when opened via file://) -->
+        <div id="local-file-banner" class="local-file-banner" style="display: none;">
+      <div class="local-file-banner-icon">💡</div>
+      <div class="local-file-banner-text">
+        <strong>Viewing Tip:</strong> Click any video thumbnail or the <strong>Watch ↗</strong> button to watch directly on YouTube with full subtitles, playback speed controls, and interactive transcripts.
+      </div>
+    </div>
+
+        <!-- 3-Column Evenly Spaced Video Grid across the row -->
+        <div class="video-grid">
+          
+          <!-- Video 1 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 1: The Art of Storytelling (TEDx)">Video 1: The Art of Storytelling (TEDx)</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=Nj-hdQMa3uA" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 1 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-amber">Storytelling</span>
+              </div>
+            </div>
+            
+            <!-- 🔗 [LINK 1/11: VIDEO 1 EMBED URL] -->
+            <div class="video-player-container" data-video-id="Nj-hdQMa3uA" data-video-title="Video 1: The Art of Storytelling (TEDx)">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/Nj-hdQMa3uA" 
+                title="YouTube video player 1 - The Art of Storytelling (TEDx)" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Master the biological art of storytelling—discover how suspense, emotion, and relatable narrative arcs hook listeners and bring personal travel anecdotes to life.
+            </p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 2: TOEIC Listening Strategies">Video 2: TOEIC Listening</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=SaV2m8jtaRI" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 2 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-emerald">Strategy</span>
+              </div>
+            </div>
+
+            <!-- 🔗 [LINK 2/11: VIDEO 2 EMBED URL] - Replace src below with your YouTube embed link -->
+            <div class="video-player-container" data-video-id="SaV2m8jtaRI" data-video-title="Video 2: TOEIC Listening Strategies">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/SaV2m8jtaRI" 
+                title="YouTube video player 2 - TOEIC Listening" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Analyze conversational tone in airport announcements and multi-speaker dialogues (TOEIC Parts 3 &amp; 4).
+            </p>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="compact-video-card">
+            <div class="video-header">
+              <span class="video-title" title="Video 3: Airport Infrastructure & DD&RS">Video 3: Airport Operations</span>
+              <div class="video-header-actions">
+                <a href="https://www.youtube.com/watch?v=cjxn0z1f7Pk" target="_blank" rel="noopener noreferrer" class="watch-direct-btn" title="Open Video 3 on YouTube">Watch ↗</a>
+                <span class="tag-pill tag-sky">Case Study</span>
+              </div>
+            </div>
+
+            <!-- 🔗 [LINK 3/11: VIDEO 3 EMBED URL] - Replace src below with your YouTube embed link -->
+            <div class="video-player-container" data-video-id="cjxn0z1f7Pk" data-video-title="Video 3: Airport Infrastructure & Operations">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/cjxn0z1f7Pk" 
+                title="YouTube video player 3 - Airport Infrastructure & Operations" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="video-caption">
+              <strong>Focus:</strong> Evaluate regional transit hubs, electric ground support equipment (e-GSE), and terminal energy efficiency.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 2: FEATURED NEWS & CURRENT AFFAIRS (2 Equal Columns)              -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">02</span>
+          <h3 class="section-title">Featured News &amp; Current Affairs</h3>
+        </div>
+        <p class="section-intro">
+          Read these two industry reports examining ecological responsibility and evolving travel patterns.
+        </p>
+
+        <div class="news-grid">
+          
+          <!-- Article 1 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Travel &amp; Communication</span>
+                <span class="news-source-tag">Cultural Insights</span>
+              </div>
+              <h4 class="news-heading">
+                The Art of the Travel Anecdote: Why Personal Journeys Build Spoken Fluency
+              </h4>
+              <p class="news-snippet">
+                Sharing personal travel anecdotes and navigating unexpected transit disruptions provides the ideal foundation for natural narrative tenses, descriptive vocabulary, and conversational confidence in English.
+              </p>
+            </div>
+            
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 4 mins</span>
+              <!-- 🔗 [LINK 4/11: NEWS ARTICLE 1 URL] -->
+              <a href="https://www.bbc.com/travel" target="_blank" rel="noopener noreferrer" class="article-btn">
+                <span>Read Article</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-card">
+            <div>
+              <div class="news-meta">
+                <span class="news-topic">Exam Preparation</span>
+                <span class="news-source-tag">ETS Global Insights</span>
+              </div>
+              <h4 class="news-heading">
+                Understanding the Global TOEIC Benchmark: Essential Strategies for B2 Learners
+              </h4>
+              <p class="news-snippet">
+                Learn how the 990-point scaled scoring system maps to CEFR B2 and C1 competencies, and why time management pacing in Parts 5, 6, and 7 is decisive for overall test success.
+              </p>
+            </div>
+            
+            <div class="news-footer">
+              <span class="read-time">Estimated read: 5 mins</span>
+              <!-- 🔗 [LINK 5/11: NEWS ARTICLE 2 URL] -->
+              <a href="https://www.etsglobal.org/fr/fr" target="_blank" rel="noopener noreferrer" class="article-btn">
+                <span>Read Article</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 3: CURATED WEB RESOURCES & REFERENCES (6 Items, 3x2 Grid)        -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">03</span>
+          <h3 class="section-title">Curated Web Resources &amp; References</h3>
+        </div>
+        <p class="section-intro">
+          Use these 6 trusted websites for grammar practice, vocabulary study, and sustainability research.
+        </p>
+
+        <div class="resources-grid">
+          
+          <!-- Resource 1 -->
+          <!-- 🔗 [LINK 6/11: RESOURCE 1 URL] - Replace href below with Resource 1 link -->
+          <a href="https://www.etsglobal.org/fr/fr" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">01 • Exam Prep</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Official ETS TOEIC Hub</h4>
+              <p class="resource-desc">
+                Review sample test questions, test timing rubrics, and the official score mapping guide for B2/C1 levels.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Resource 2 -->
+          <!-- 🔗 [LINK 7/11: RESOURCE 2 URL] - Replace href below with Resource 2 link -->
+          <a href="https://www.iata.org/en/programs/sustainability/" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">02 • Sustainability</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">IATA NetZero &amp; Aviation Sustainability</h4>
+              <p class="resource-desc">
+                Authoritative data on the international airline industry's roadmap to net-zero carbon emissions by 2050.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Resource 3 -->
+          <!-- 🔗 [LINK 8/11: RESOURCE 3 URL] - Replace href below with Resource 3 link -->
+          <a href="https://www.unwto.org/sustainable-development" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">03 • DD&amp;RS Guidelines</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">UN Tourism Sustainable Development</h4>
+              <p class="resource-desc">
+                Global framework policies outlining sustainable destination management and community-based tourism (CBT).
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Resource 4 -->
+          <!-- 🔗 [LINK 9/11: RESOURCE 4 URL] - Replace href below with Resource 4 link -->
+          <a href="https://dictionary.cambridge.org" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">04 • Collocations</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">Cambridge English Collocations &amp; Idioms</h4>
+              <p class="resource-desc">
+                Check high-frequency B2/C1 travel combinations, prepositions with transit verbs, and formal business phrases.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Resource 5 -->
+          <!-- 🔗 [LINK 10/11: RESOURCE 5 URL] - Replace href below with Resource 5 link -->
+          <a href="https://www.bbc.com/travel" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">05 • Travel Anecdotes</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">BBC Travel Features &amp; Culture</h4>
+              <p class="resource-desc">
+                Engaging journalistic articles and personal narrative essays to inspire your Session 1 travel anecdotes.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Resource 6 -->
+          <!-- 🔗 [LINK 11/11: RESOURCE 6 URL] - Replace href below with Resource 6 link -->
+          <a href="https://www.icao.int/environmental-protection/CORSIA/Pages/default.aspx" target="_blank" rel="noopener noreferrer" class="resource-card">
+            <div>
+              <div class="resource-header">
+                <span class="resource-tag">06 • Environmental Policy</span>
+                <span class="resource-icon">↗</span>
+              </div>
+              <h4 class="resource-name">ICAO CORSIA &amp; Climate Action</h4>
+              <p class="resource-desc">
+                International Civil Aviation Organization carbon offsetting and reduction scheme policies for international aviation.
+              </p>
+            </div>
+            <div class="resource-action">
+              <span>Visit Resource</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SECTION 4: GRAMMAR FOCUS & TOEIC APPLICATION                               -->
+      <!-- ========================================================================= -->
+      <section class="section-panel">
+        <div class="section-header">
+          <span class="section-badge">04</span>
+          <h3 class="section-title">Grammar Point: The Present Perfect Tense &amp; TOEIC Practice</h3>
+        </div>
+        <p class="section-intro">
+          Learn how the Present Perfect connects past actions to the present moment, and master key time clues in TOEIC Part 5.
+        </p>
+
+        <!-- 2-Column Responsive Layout -->
+        <div class="grammar-grid">
+          
+          <!-- Column 1: Grammar Definition, Formation & Rules -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #c0684f;">How to Use the Present Perfect</span>
+                <span class="tag-pill tag-amber">B1–B2 Grammar Focus</span>
+              </div>
+              
+              <!-- Formula Banner -->
+              <div class="grammar-formula-box">
+                <div style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em;">Sentence Pattern</div>
+                <div class="grammar-formula">
+                  Subject + have / has + Past Participle (V3)
+                </div>
+              </div>
+
+              <!-- When to Use It -->
+              <div style="font-size: 12px; color: #475569; line-height: 1.55; margin-top: 10px;">
+                <p style="margin: 0 0 6px 0;">
+                  <strong style="color: #1e293b;">When to Use It:</strong> Use the Present Perfect when an action that happened in the past is connected to the present:
+                </p>
+                <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>
+                    <strong style="color: #1e293b;">1. Actions continuing now:</strong> Started in the past and continue into the present, signaled by <span style="font-weight: 700; color: #c0684f;">since</span> (+ starting point, e.g., <em>since 2021</em>) or <span style="font-weight: 700; color: #c0684f;">for</span> (+ duration, e.g., <em>for three years</em>).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">2. Past action with a present result:</strong> The exact past time is not mentioned; what matters is the result right now (*"We have updated our safety procedures"*).
+                  </li>
+                  <li>
+                    <strong style="color: #1e293b;">3. Recent updates:</strong> Marked by signal words like <span style="font-weight: 600; color: #334155;">already</span>, <span style="font-weight: 600; color: #334155;">yet</span>, <span style="font-weight: 600; color: #334155;">recently</span>, <span style="font-weight: 600; color: #334155;">just</span>, or <span style="font-weight: 600; color: #334155;">lately</span>.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Crucial TOEIC Contrast / Pitfall Alert -->
+              <div style="margin-top: 10px; padding: 10px 12px; border-radius: 8px; background-color: #fffbeb; border: 1px solid #fef3c7; font-size: 11px; color: #92400e; line-height: 1.45;">
+                <strong>⚠️ The #1 Past vs. Present Perfect Trap:</strong> Never use <em>have / has + V3</em> with finished past dates or times (like <em>yesterday</em>, <em>in 2020</em>, <em>two hours ago</em>, or <em>last year</em>). When you see a specific completed time, always choose the <strong>Past Simple</strong> (*introduced*, *allocated*)!
+              </div>
+            </div>
+
+            <!-- Authentic Workplace Examples -->
+            <div style="border-top: 1px solid #f1f5f9; padding-top: 10px; margin-top: 4px;">
+              <span style="font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px;">Workplace &amp; Transit Examples</span>
+              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 11px; color: #334155;">
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #c0684f; font-weight: 800;">✓</span>
+                  <span><em>"The European Commission <strong>has allocated</strong> new funding for high-speed rail corridors <strong>since 2021</strong>."</em></span>
+                </div>
+                <div style="padding: 7px 10px; border-radius: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 6px;">
+                  <span style="color: #c0684f; font-weight: 800;">✓</span>
+                  <span><em>"Airport ground staff <strong>have not finalized</strong> the passenger rebooking procedures <strong>yet</strong>."</em></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: TOEIC Part 5 Practice Question & Interactive Reveal -->
+          <div class="grammar-card">
+            <div>
+              <div class="grammar-card-header">
+                <span class="grammar-card-title" style="color: #d6a555;">TOEIC Diagnostic Practice</span>
+                <span class="tag-pill tag-sky">Part 5: Incomplete Sentences</span>
+              </div>
+
+              <!-- Question Prompt Box -->
+              <div class="toeic-question-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Sample Item • Reading Section</span>
+                  <span style="font-size: 10px; font-weight: 700; color: #64748b;">Timed Pace: ~30s</span>
+                </div>
+                <p class="toeic-question-stem">
+                  The European Transport Commission ________ several new high-speed rail corridors across member states over the past three years.
+                </p>
+                
+                <!-- Options Grid -->
+                <div class="toeic-options-grid">
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(A)</span> introduces
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(B)</span> was introduced
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(C)</span> has introduced
+                  </div>
+                  <div class="toeic-option-item">
+                    <span class="toeic-option-letter">(D)</span> is introducing
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Self-Check Disclosure -->
+            <div>
+              <details class="grammar-details">
+                <summary class="grammar-summary">
+                  <span style="display: flex; align-items: center; gap: 6px;">
+                    <span>💡</span>
+                    <span>Click to Reveal Answer &amp; TOEIC Strategy Analysis</span>
+                  </span>
+                  <span style="font-size: 11px; color: #94a3b8;">▼</span>
+                </summary>
+                
+                <div class="grammar-analysis-body">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <span style="background-color: #dcfce7; color: #166534; font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 4px; border: 1px solid #bbf7d0;">
+                      Correct Answer: (C) has introduced
+                    </span>
+                  </div>
+                  
+                  <p style="margin: 0 0 8px 0;">
+                    <strong>Grammar Analysis:</strong> The phrase <strong>"over the past three years"</strong> is a major clue: it describes a time period starting in the past and continuing up to right now. An action that stretches into the present requires the <strong>Present Perfect: have / has + past participle</strong> (<em>has introduced</em>).
+                  </p>
+                  
+                  <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px;">
+                    <span style="font-weight: 700; color: #1e293b;">Why the Other Choices Are Incorrect:</span>
+                    <ul style="margin: 0; padding-left: 14px; list-style-type: disc; font-size: 11px; display: flex; flex-direction: column; gap: 3px;">
+                      <li><strong>(A) introduces:</strong> Present simple; used for daily routines or general facts, not a continuous trend over three years.</li>
+                      <li><strong>(B) was introduced:</strong> Passive past simple; would mean the Commission itself was introduced, which makes no sense.</li>
+                      <li><strong>(D) is introducing:</strong> Present continuous; describes an action happening right now this minute, not a three-year record.</li>
+                    </ul>
+                  </div>
+
+                  <div style="padding: 7px 10px; border-radius: 6px; background-color: #fffbeb; border: 1px solid #fef3c7; font-size: 10.5px; color: #92400e;">
+                    <strong>📌 TOEIC Strategy Rule:</strong> Time markers such as <em>over the past/last [period]</em>, <em>since [date]</em>, <em>lately</em>, and <em>so far</em> are primary clues in TOEIC Part 5 that signal the need for <code>have / has + past participle</code>.
+                  </div>
+                </div>
+              </details>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Stylized Skills Footer Area -->
+            <div class="w-full pt-3 pb-3 px-4 rounded-xl border border-slate-200/60 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-4 gap-y-2.5 gap-x-4 shadow-sm vocab-footer">
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic tracking-wide text-[#c0684f] vocab-word" style="color: #c0684f; font-style: italic;">FLUENCY</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈfluː.ən.si/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase text-[#d6a555] vocab-word" style="color: #d6a555; text-transform: uppercase;">Grammar</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈɡræm.ər/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold normal-case text-slate-700 underline decoration-slate-300 vocab-word" style="color: #334155; text-decoration: underline; text-decoration-color: #cbd5e1;">Technical Vocabulary</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˈtek.nɪ.kəl vəˈkæb/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-semibold italic text-[#a85640] vocab-word" style="color: #a85640; font-style: italic;">Pronunciation</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/prəˌnʌn.siˈeɪ.shən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-bold uppercase tracking-wider text-teal-700 vocab-word" style="color: #0f766e; text-transform: uppercase;">Comprehension</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌkɒm.prɪˈhen.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-sm font-black italic text-sky-700 vocab-word" style="color: #0369a1; font-style: italic;">Discussion</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/dɪˈskʌʃ.ən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-xs font-extrabold uppercase text-[#ea5d74] vocab-word" style="color: #ea5d74; text-transform: uppercase;">CORRECTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/kəˈrek.ʃən/</span></div>
+              <div class="flex flex-col vocab-item"><span class="text-[11px] font-extrabold tracking-widest text-[#d6a555] vocab-word" style="color: #d6a555; letter-spacing: 0.08em;">INTERACTION</span><span class="text-[8px] text-slate-400 font-mono vocab-ipa">/ˌɪn.təˈræk.ʃən/</span></div>
+            </div>
+      </div>
+
+    
+
+    <!-- Bottom status footer -->
+    <footer class="deck-footer bg-slate-50 border-t border-slate-200 px-3 py-2 text-[11px] text-slate-500 flex justify-between items-center shrink-0 rounded-b-2xl">
+      <span class="font-medium text-slate-700" style="font-weight: 600; color: #334155;">Active: Session 1 Additional Materials</span>
+      <span class="font-medium">GSEA Semester 1 English. Phil PARRIS LH/LAN</span>
+    </footer>
+
+  </div>
+</div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Under local file:// protocol (e.g. Edge/Chrome opened directly from disk),
+      // modern Chromium browsers suppress Referer headers, causing YouTube embeds
+      // to trigger Error 153 ("Video Player Configuration Error").
+      // In this environment, gracefully upgrade video players to HD thumbnail facade cards.
+      var isFile = window.location.protocol === 'file:';
+      if (isFile) {
+        var banner = document.getElementById('local-file-banner');
+        if (banner) banner.style.display = 'flex';
+
+        var containers = document.querySelectorAll('.video-player-container[data-video-id]');
+        containers.forEach(function(el) {
+          var vid = el.getAttribute('data-video-id');
+          var title = el.getAttribute('data-video-title') || 'Video';
+          var url = 'https://www.youtube.com/watch?v=' + vid;
+          el.innerHTML = 
+            '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="video-facade" title="' + title + ' - Click to play on YouTube">' +
+              '<img src="https://img.youtube.com/vi/' + vid + '/hqdefault.jpg" alt="' + title + '" loading="lazy">' +
+              '<div class="video-play-btn" aria-hidden="true">' +
+                '<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>' +
+              '</div>' +
+              '<div class="video-facade-badge">' +
+                '<span>Watch on YouTube ↗</span>' +
+              '</div>' +
+            '</a>';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
