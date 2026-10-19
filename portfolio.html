@@ -387,7 +387,7 @@
 
         <div>
           <label for="studentPin" class="field-label">4-Digit Security PIN</label>
-          <input type="password" id="studentPin" maxlength="6" placeholder="••••" class="form-input font-mono tracking-widest">
+          <input type="password" id="studentPin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="••••" class="form-input font-mono tracking-widest" autocomplete="current-password">
         </div>
 
         <div class="grid grid-cols-2 gap-2.5">
@@ -1179,8 +1179,53 @@
         return;
       }
 
-      // Protection: Check if already completed (bypassed if in editing mode)
+      // Security Check 1: Enforce strict 4-digit numeric format
+      if (!/^\d{4}$/.test(pin)) {
+        showAuthStatus("Invalid PIN format. Your security PIN must be exactly 4 numeric digits.", true);
+        return;
+      }
+
+      const btn = document.getElementById("btnSubmit");
       const isEdit = (editingEntry !== null);
+
+      // Security Check 2: Pre-flight PIN verification against database before allowing any submission
+      btn.innerText = "Verifying PIN...";
+      btn.disabled = true;
+
+      try {
+        const authQuery = `${SCRIPT_URL}?action=login&student=${encodeURIComponent(student)}&pin=${encodeURIComponent(pin)}&track=${encodeURIComponent(currentTrack)}&_t=${Date.now()}`;
+        const authRes = await fetch(authQuery);
+        const authData = await authRes.json();
+
+        if (!authData.success) {
+          showAuthStatus(`Authentication Failed: ${authData.message || "Incorrect PIN for " + student + ". Submission blocked."}`, true);
+          btn.innerText = isEdit ? "Update & Save Reflection" : "Submit Portfolio Entry";
+          btn.disabled = false;
+          return; // Strictly block submission!
+        }
+
+        // Keep authenticated session alive
+        try {
+          localStorage.setItem("gsea_student", student);
+          localStorage.setItem("gsea_pin", pin);
+          sessionStorage.setItem("gsea_student", student);
+          sessionStorage.setItem("gsea_pin", pin);
+        } catch (e) {}
+
+        // Update signed-in pill status
+        const pill = document.getElementById("authStatusPill");
+        if (pill) {
+          pill.innerText = `Signed In: ${student}`;
+          pill.className = "text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300";
+        }
+      } catch (authErr) {
+        showAuthStatus("Unable to reach authentication server to verify PIN. Please check your connection.", true);
+        btn.innerText = isEdit ? "Update & Save Reflection" : "Submit Portfolio Entry";
+        btn.disabled = false;
+        return;
+      }
+
+      // Protection: Check if already completed (bypassed if in editing mode)
       const modKey = getModuleKey(mod);
       const isAlreadyCompleted = currentLoadedLogs.some(l => 
         (l.track || currentTrack).toUpperCase() === currentTrack.toUpperCase() &&
@@ -1190,12 +1235,12 @@
 
       if (isAlreadyCompleted && !isEdit) {
         showAuthStatus(`Session ${ses} for ${modKey} is already recorded in your portfolio. Click 'Edit' below on that reflection to modify it.`, true);
+        btn.innerText = "Submit Portfolio Entry";
+        btn.disabled = false;
         return;
       }
 
-      const btn = document.getElementById("btnSubmit");
       btn.innerText = isEdit ? "Updating Reflection..." : "Encrypting & Submitting...";
-      btn.disabled = true;
 
       const isAas = (currentTrack === "aas");
       const vocab = document.getElementById("vocab").value.trim();

@@ -113,32 +113,29 @@ function handleAction(data) {
 }
 
 /**
- * Handles Student PIN Authentication & Log Retrieval
+ * Verifies a student's 4-digit PIN against the registered Students tab.
+ * Returns { valid: true } or { valid: false, message: string }
  */
-function handleLogin(studentName, studentPin, requestedTrack) {
+function verifyStudentPin(ss, studentName, studentPin) {
   var student = String(studentName || "").trim();
   var pin = String(studentPin || "").trim();
-  var trackFilter = String(requestedTrack || "").trim().toUpperCase();
 
   if (!student || !pin) {
-    return { success: false, message: "Please select a student and provide a 4-digit PIN." };
+    return { valid: false, message: "Please select a student and provide a 4-digit PIN." };
   }
 
-  var ss = getSpreadsheet();
-
-  // 1. PIN Authentication via Students sheet
   var studentsSheet = getStudentsSheet(ss);
   if (!studentsSheet) {
     var tabNames = ss.getSheets().map(function(s) { return "'" + s.getName() + "'"; }).join(", ");
     return {
-      success: false,
+      valid: false,
       message: "Database Error: 'Students' tab not found in spreadsheet. Available tabs: [" + tabNames + "]"
     };
   }
 
   var studentsData = studentsSheet.getDataRange().getValues();
   if (studentsData.length <= 1) {
-    return { success: false, message: "The 'Students' sheet has no student records registered." };
+    return { valid: false, message: "The 'Students' sheet has no student records registered." };
   }
 
   var authorized = false;
@@ -160,10 +157,36 @@ function handleLogin(studentName, studentPin, requestedTrack) {
   }
 
   if (!found) {
-    return { success: false, message: "Student '" + student + "' not found in registered students list." };
+    return { valid: false, message: "Student '" + student + "' not found in registered students list." };
   }
   if (!authorized) {
-    return { success: false, message: "Incorrect PIN for " + student + ". Please verify your 4-digit code." };
+    return { valid: false, message: "Incorrect PIN for " + student + ". Please verify your 4-digit code." };
+  }
+
+  return { valid: true };
+}
+
+/**
+ * Handles Student PIN Authentication & Log Retrieval
+ */
+function handleLogin(studentName, studentPin, requestedTrack) {
+  var student = String(studentName || "").trim();
+  var pin = String(studentPin || "").trim();
+  var trackFilter = String(requestedTrack || "").trim().toUpperCase();
+
+  if (!student || !pin) {
+    return { success: false, message: "Please select a student and provide a 4-digit PIN." };
+  }
+
+  var ss = getSpreadsheet();
+
+  // 1. PIN Authentication via Students sheet
+  var authCheck = verifyStudentPin(ss, student, pin);
+  if (!authCheck.valid) {
+    return {
+      success: false,
+      message: authCheck.message
+    };
   }
 
   // 2. Fetch Form Responses / PortfolioLogs
@@ -280,6 +303,17 @@ function handleSubmit(d) {
     };
   }
 
+  var ss = getSpreadsheet();
+
+  // Strict PIN Verification before accepting submission
+  var authCheck = verifyStudentPin(ss, student, pin);
+  if (!authCheck.valid) {
+    return {
+      success: false,
+      message: "Submission rejected: " + authCheck.message
+    };
+  }
+
   var lock = LockService.getScriptLock();
   var acquired = false;
   try {
@@ -294,7 +328,6 @@ function handleSubmit(d) {
   }
 
   try {
-    var ss = getSpreadsheet();
     var sheet = getLogsSheet(ss);
 
     if (!sheet) {
@@ -547,4 +580,36 @@ function doOptions(e) {
   return ContentService.createTextOutput("")
     .setMimeType(ContentService.MimeType.TEXT);
 }
+
+/**
+ * Installable Trigger: onFormSubmit
+ * Attach this to the linked Google Sheet (Triggers > Add Trigger > onFormSubmit > From spreadsheet > On form submit)
+ * Automatically verifies incoming Google Form submissions. If an invalid or unauthenticated PIN was submitted,
+ * it marks Column C with "[INVALID_PIN]" and highlights the row in soft red so it is flagged immediately.
+ */
+function onFormSubmit(e) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet() || getSpreadsheet();
+    var logsSheet = getLogsSheet(ss);
+    if (!logsSheet) return;
+
+    var lastRow = logsSheet.getLastRow();
+    if (lastRow <= 1) return;
+
+    // Check last submitted row (Col 2: Student Name, Col 3: PIN)
+    var studentName = String(logsSheet.getRange(lastRow, 2).getValue() || "").trim();
+    var submittedPin = String(logsSheet.getRange(lastRow, 3).getValue() || "").trim();
+
+    var auth = verifyStudentPin(ss, studentName, submittedPin);
+    if (!auth.valid) {
+      // Highlight row in soft red and prefix PIN cell
+      logsSheet.getRange(lastRow, 1, 1, logsSheet.getLastColumn()).setBackground("#fee2e2");
+      logsSheet.getRange(lastRow, 3).setValue("[INVALID_PIN: " + submittedPin + "]");
+      Logger.log("Flagged unauthorized submission at row " + lastRow + " for student: " + studentName + " (Reason: " + auth.message + ")");
+    }
+  } catch (err) {
+    Logger.log("onFormSubmit trigger error: " + err.message);
+  }
+}
+
 
