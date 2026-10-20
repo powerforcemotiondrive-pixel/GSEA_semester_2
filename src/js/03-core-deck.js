@@ -56,13 +56,10 @@
         }
       });
 
-      // Hide image container on error to prevent broken image icons
+      // Image container uses themed blank color tile (Option A)
       const imgEl = document.getElementById('card-image');
-      const imageContainer = document.getElementById('image-container');
-      if (imgEl && imageContainer) {
-        imgEl.addEventListener('error', () => {
-          imageContainer.classList.add('hidden');
-        });
+      if (imgEl) {
+        imgEl.classList.add('hidden');
       }
 
       // Mouse wheel / trackpad scroll listener on the ribbon to cycle through modules
@@ -798,14 +795,15 @@
           dockTitle.textContent = "English Immersion & Destinations";
         } else if (page.isObjectives || page.title === "Semester Objectives") {
           dockTitle.textContent = "Semester 2 Learning Objectives";
-        } else if (page.isAdmin || currentIndex === 6) {
-          dockTitle.textContent = "GSEA26A Administration Hub";
-        } else if (page.detailsUrl || currentIndex === 5) {
+        } else if (page.isAdmin) {
+          dockTitle.textContent = "GSEA25B Administration Hub";
+        } else if (page.detailsUrl || (page.tag && page.tag.includes('Focus'))) {
           dockTitle.textContent = "DDRS Sustainability Guide";
-        } else if (currentIndex === 4) {
-          dockTitle.textContent = `Session 0${currentIndex + 1} Evaluation Center`;
+        } else if (page.isFe) {
+          dockTitle.textContent = mod.id === 1 ? "Session 04 Evaluation Center" : "Session 08 Evaluation Center";
         } else {
-          dockTitle.textContent = `Session 0${currentIndex + 1} Study Resources`;
+          const sNum = mod.id === 1 ? (currentIndex + 1) : (currentIndex + 5);
+          dockTitle.textContent = `Session 0${sNum} Study Resources`;
         }
       }
 
@@ -818,7 +816,19 @@
         btn.onmouseleave = () => btn.style.backgroundColor = mod.primary;
         btn.innerHTML = `<span>${label}</span> <span class="font-bold text-sm leading-none" aria-hidden="true">⇥</span>`;
         btn.addEventListener('click', () => {
-          openModalDrawer(tabKey, mod.id, currentIndex + 1, fallbackHref);
+          let sNum = currentIndex + 1;
+          if (page.isFe) {
+            sNum = mod.id === 1 ? 4 : 8;
+          } else if (page.isAdmin) {
+            sNum = 6;
+          } else if (page.isObjectives) {
+            sNum = 7;
+          } else if (page.isImmersion) {
+            sNum = 8;
+          } else if (mod.id === 2) {
+            sNum = currentIndex + 5;
+          }
+          openModalDrawer(tabKey, mod.id, sNum, fallbackHref);
         });
         return btn;
       };
@@ -827,29 +837,39 @@
         actionContainer.appendChild(createThemedCTA("Open Immersion Guide", "immersion_overview", "immersion.html"));
       } else if (page.isObjectives || page.title === "Semester Objectives") {
         actionContainer.appendChild(createThemedCTA("Open Objectives", "sem_obj_en", ""));
-      } else if (page.isAdmin || currentIndex === 6) {
+      } else if (page.isAdmin) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "admin_groups", "admin.html"));
-      } else if (page.detailsUrl || currentIndex === 5) {
+      } else if (page.detailsUrl || (page.tag && page.tag.includes('Focus'))) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "ddrs", page.detailsUrl || "ddrs1.html"));
-      } else if (currentIndex === 4) {
+      } else if (page.isFe) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "fe_guidelines", page.lessonPlanUrl || page.url || ""));
       } else {
-        // Sessions 1 to 4: In-deck modal workspace hub (single themed CTA to open resources drawer)
+        // Sessions: In-deck modal workspace hub (single themed CTA to open resources drawer)
         const initialTab = page.objectivesUrl ? 'objectives' : (page.lessonPlanUrl ? 'plan' : 'materials');
         const fallback = page.additionalMaterialsUrl || page.url || page.lessonPlanUrl || '';
         actionContainer.appendChild(createThemedCTA("Open Resources", initialTab, fallback));
       }
 
-
+      // Blank Themed Color Tile Display (Option A - Header Color Match)
       const imageContainer = document.getElementById('image-container');
       const imgEl = document.getElementById('card-image');
+      const tileEl = document.getElementById('card-image-tile');
 
-      if (page.imageUrl && page.imageUrl.trim() !== "") {
-        imgEl.src = page.imageUrl;
-        imageContainer.classList.remove('hidden');
-      } else {
+      if (imgEl) {
         imgEl.src = "";
-        imageContainer.classList.add('hidden');
+        imgEl.classList.add('hidden');
+      }
+
+      if (imageContainer) {
+        imageContainer.classList.remove('hidden');
+        imageContainer.style.backgroundColor = mod.primary;
+        imageContainer.style.borderColor = mod.primaryDark;
+        imageContainer.style.boxShadow = `inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.25)`;
+      }
+
+      if (tileEl) {
+        tileEl.style.backgroundColor = mod.primary;
+        tileEl.style.backgroundImage = 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.2) 100%)';
       }
 
       const accessiblePages = pages.filter(p => !p.isMuted);
@@ -1040,9 +1060,9 @@
       const progConfig = PROGRAMS_CONFIG[modalState.program] || PROGRAMS_CONFIG.ag;
       const isObjectivesSession = tabKey.startsWith('sem_obj_') || modalState.tab.startsWith('sem_obj_');
       const isImmersionSession = !isObjectivesSession && (tabKey === 'immersion' || tabKey.startsWith('immersion_'));
-      const isAdminSession = !isObjectivesSession && !isImmersionSession && (modalState.sessionNum === 7 || tabKey.startsWith('admin_'));
-      const isFeSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (modalState.sessionNum === 5 || tabKey.startsWith('fe_'));
-      const isDdrsSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (tabKey === 'ddrs' || modalState.sessionNum === 6);
+      const isAdminSession = !isObjectivesSession && !isImmersionSession && (modalState.sessionNum === 6 || tabKey.startsWith('admin_'));
+      const isFeSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (modalState.sessionNum === 4 || modalState.sessionNum === 8 || tabKey.startsWith('fe_'));
+      const isDdrsSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && !isFeSession && (tabKey === 'ddrs' || (modalState.sessionNum === 5 && tabKey === 'ddrs'));
 
       const semObjEnTab = document.getElementById('modal-tab-sem-obj-en');
       const semObjFrTab = document.getElementById('modal-tab-sem-obj-fr');
@@ -1113,7 +1133,7 @@
         if (adminCalendarTab) adminCalendarTab.classList.remove('hidden');
         if (adminRotaTab) adminRotaTab.classList.remove('hidden');
 
-        tagEl.textContent = "GSEA26A • Course Admin";
+        tagEl.textContent = "GSEA25B • Course Admin";
         titleEl.textContent = "Course Admin — Class Groups, Teachers, Weekly Calendar & FE Rotas";
       } else if (isFeSession) {
         if (semObjEnTab) semObjEnTab.classList.add('hidden');
@@ -1129,8 +1149,10 @@
         if (feObjectivesTab) feObjectivesTab.classList.remove('hidden');
         if (feCriteriaTab) feCriteriaTab.classList.remove('hidden');
 
-        tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • Session 5`;
-        titleEl.textContent = "Session 5 - Formative Evaluation";
+        const feSessionLabel = modalState.modNum === 1 ? "Session 4" : "Session 8";
+        const feNumLabel = modalState.modNum === 1 ? "FE1" : "FE2";
+        tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • ${feSessionLabel}`;
+        titleEl.textContent = `${feSessionLabel} - Formative Evaluation (${feNumLabel})`;
       } else if (isDdrsSession) {
         if (semObjEnTab) semObjEnTab.classList.add('hidden');
         if (semObjFrTab) semObjFrTab.classList.add('hidden');
@@ -1161,7 +1183,8 @@
         if (feCriteriaTab) feCriteriaTab.classList.add('hidden');
 
         const activeModCourse = getActiveModalCourseData();
-        const activeSessionData = (activeModCourse.sessions && activeModCourse.sessions[modalState.sessionNum]) || {};
+        const sKey = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 4) : modalState.sessionNum;
+        const activeSessionData = (activeModCourse.sessions && (activeModCourse.sessions[modalState.sessionNum] || activeModCourse.sessions[sKey])) || {};
         const hasLessonContent = Boolean(activeSessionData.lessonContent);
 
         standardTabs.forEach(t => t.classList.remove('hidden'));
@@ -1186,7 +1209,8 @@
 
         tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • Session ${modalState.sessionNum}`;
         const activeMod = modulesData[modalState.modNum - 1];
-        titleEl.textContent = (activeMod && activeMod.pages && activeMod.pages[modalState.sessionNum - 1] && activeMod.pages[modalState.sessionNum - 1].title) || `Session ${modalState.sessionNum}`;
+        const pIdx = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 5) : (modalState.sessionNum - 1);
+        titleEl.textContent = (activeMod && activeMod.pages && activeMod.pages[pIdx] && activeMod.pages[pIdx].title) || `Session ${modalState.sessionNum}`;
       }
 
       modalEl.classList.remove('hidden');
@@ -1373,7 +1397,8 @@
       if (!bodyEl) return;
       const theme = modulesData[modalState.modNum - 1];
       const modCourse = getActiveModalCourseData();
-      const sessionData = (modCourse.sessions && modCourse.sessions[modalState.sessionNum]) || {};
+      const sKey = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 4) : modalState.sessionNum;
+      const sessionData = (modCourse.sessions && (modCourse.sessions[modalState.sessionNum] || modCourse.sessions[sKey])) || {};
 
       if (modalState.tab === 'sem_obj_en') {
         renderSemesterObjectivesTab('en', theme);

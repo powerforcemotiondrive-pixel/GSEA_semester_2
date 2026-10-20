@@ -50,32 +50,34 @@ Course administration (student lists, teacher assignments, weekly schedules, and
 
 ---
 
-## 2. Active Cohort Configuration (GSEA26A • 2024–2025)
+## 2. Active Cohort Configuration (GSEA25B • Template & Standard Roster)
 
 *This section defines the active variables for Semester 2. Update this section when rotating students or semesters.*
 
-### Courses & Timetable
+### Courses & Timetable Structure
 - **Aeronautical English (AAS • LV121E)**
+  - **Structure**: 8 Sessions continuous (Module 1: Sessions 1, 2, 3 + FE1 as Session 4; Module 2: Sessions 5, 6, 7 + FE2 as Session 8)
   - **Schedule**: Wednesdays 13h15 – 15h15 (2 Hours)
-  - **Group A Teacher**: Tracy NEILL
-  - **Group B Teacher**: Ally HEWETT
-  - **Evaluation Dates**:
-    - FE1: Wednesday 26 November 2024 (Week 48)
-    - FE2: Wednesday 21 January 2025 (Week 03)
+  - **Group A Teacher**: [Group A Teacher]
+  - **Group B Teacher**: [Group B Teacher]
+  - **Evaluation Dates / Milestones**:
+    - FE1 (Session 4): Wednesday Week 47
+    - FE2 (Session 8): Wednesday Week 02
 - **General English (AG • LV101E)**
+  - **Structure**: 8 Sessions continuous (Module 1: Sessions 1, 2, 3 + FE1 as Session 4; Module 2: Sessions 5, 6, 7 + FE2 as Session 8)
   - **Schedule**: Fridays 08h00 – 10h00 (2 Hours)
-  - **Group A Teacher**: Geri MIDDLETON
-  - **Group B Teacher**: Penny WRIGHT
-  - **Evaluation Dates**:
-    - FE1: Friday 28 November 2024 (Week 48)
-    - FE2: Friday 23 January 2025 (Week 03)
+  - **Group A Teacher**: [Group A Teacher]
+  - **Group B Teacher**: [Group B Teacher]
+  - **Evaluation Dates / Milestones**:
+    - FE1 (Session 4): Friday Week 47
+    - FE2 (Session 8): Friday Week 02
 
 ### Evaluation Structure
 - **Slot Length**: 30 minutes per evaluation slot.
 - **Session Capacity**: 4 slots per 2-hour session:
   - AAS Slots: `13h15–13h45`, `13h45–14h15`, `14h15–14h45`, `14h45–15h15`
   - AG Slots: `08h00–08h30`, `08h30–09h00`, `09h00–09h30`, `09h30–10h00`
-- **Slot Formats**: Alternating student pairs and trios rotated dynamically across FE1 and FE2 to ensure diverse peer interactions.
+- **Slot Formats**: Alternating student pairs and trios rotated dynamically across FE1 (Session 4) and FE2 (Session 8) to ensure diverse peer interactions.
 
 ---
 

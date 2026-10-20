@@ -87,12 +87,12 @@
           return;
         }
         if (modalState.modNum === 2) {
-          if (modalState.sessionNum === 1) {
+          if (modalState.sessionNum === 5 || modalState.sessionNum === 1) {
             renderAg2LessonContentTabSession1(sessionData, theme);
-          } else if (modalState.sessionNum === 2) {
+          } else if (modalState.sessionNum === 6 || modalState.sessionNum === 2) {
             renderAg2LessonContentTabSession2(sessionData, theme);
-          } else if (modalState.sessionNum === 4) {
-            renderAg2LessonContentTabSession4(sessionData, theme);
+          } else if (modalState.sessionNum === 7 || modalState.sessionNum === 3) {
+            renderAg2LessonContentTabSession3(sessionData, theme);
           } else {
             renderAg2LessonContentTabSession3(sessionData, theme);
           }
@@ -111,14 +111,14 @@
       }
 
       if (modalState.modNum === 2) {
-        if (modalState.sessionNum === 1) {
+        if (modalState.sessionNum === 5 || modalState.sessionNum === 1) {
           renderAas2LessonContentTabSession1(sessionData, theme);
-        } else if (modalState.sessionNum === 2) {
+        } else if (modalState.sessionNum === 6 || modalState.sessionNum === 2) {
           renderAas2LessonContentTabSession2(sessionData, theme);
-        } else if (modalState.sessionNum === 3) {
+        } else if (modalState.sessionNum === 7 || modalState.sessionNum === 3) {
           renderAas2LessonContentTabSession3(sessionData, theme);
-        } else if (modalState.sessionNum === 4) {
-          renderAas2LessonContentTabSession4(sessionData, theme);
+        } else {
+          renderAas2LessonContentTabSession3(sessionData, theme);
         }
         return;
       }

@@ -404,7 +404,7 @@
              class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/45 backdrop-blur-xs border border-white/15 shadow-inner transition-all duration-300 select-none group cursor-pointer hover:border-white/40 hover:bg-black/60 hover:-translate-y-[1px] active:translate-y-0 no-underline"
              title="Return to ENAC e-Campus (https://e-campus.enac.fr) ↗">
             <span id="promo-badge-dot" class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse transition-all duration-300"></span>
-            <span id="promo-badge-text" class="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-slate-100 uppercase transition-colors duration-300 group-hover:text-white">GSEA 26A</span>
+            <span id="promo-badge-text" class="text-[10px] sm:text-[11px] font-mono font-black tracking-wider text-slate-100 uppercase transition-colors duration-300 group-hover:text-white">GSEA 25B</span>
             <svg class="w-2.5 h-2.5 text-slate-400 group-hover:text-white opacity-0 group-hover:opacity-100 -ml-0.5 transition-all duration-200 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
           </a>
         </div>
@@ -435,7 +435,7 @@
 
         <!-- Main Content Panel Area -->
         <div class="flex-1 bg-white p-4 sm:p-6 flex flex-col justify-between overflow-y-auto content-panel">
-          <!-- Content Card Details with Widescreen Avionics Display (Direction A) -->
+          <!-- Content Card Details with Blank Themed Color Tile Display -->
           <div class="space-y-4">
             <div class="flex flex-col lg:flex-row gap-5 items-start justify-between">
               <div class="space-y-3.5 flex-1 min-w-0">
@@ -444,9 +444,10 @@
                 </div>
                 <div id="card-desc" class="space-y-3"></div>
               </div>
-              <!-- Image Container: Direction A Widescreen Avionics Display (16:10 / 4:3) -->
-              <div id="image-container" class="w-full sm:w-60 lg:w-64 h-44 sm:h-48 md:h-52 rounded-2xl shrink-0 overflow-hidden shadow-md border border-slate-200/90 relative hidden group bg-slate-100">
-                <img id="card-image" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Session graphic">
+              <!-- Image Container: Blank Themed Color Tile matching header -->
+              <div id="image-container" class="w-full sm:w-60 lg:w-64 h-44 sm:h-48 md:h-52 rounded-2xl shrink-0 overflow-hidden shadow-md border border-slate-200/90 relative group transition-all duration-300">
+                <div id="card-image-tile" class="w-full h-full rounded-2xl transition-all duration-300"></div>
+                <img id="card-image" class="hidden" alt="Session graphic">
               </div>
             </div>
 
@@ -777,20 +778,12 @@
         1: {
           s1: "Session 1 - Introduction & Travel Anecdotes",
           s2: "Session 2 - Evolution of Transport",
-          s3: "Session 3 - Overtourism",
-          s4: "Session 4 - Sustainable and Eco-tourism"
+          s3: "Session 3 - Overtourism"
         },
         2: {
-          s1: "Session 1 - Extreme Weather & Atmospheric Hazards",
-          s2: "Session 2 - Sustainable Cities & Low-Emission Mobility",
-          s3: "Session 3 - Building & Supporting Environmental Arguments",
-          s4: "Session 4 - Biodiversity in Urban Areas & Transport Hubs"
-        },
-        3: {
-          s1: "Session 1 - Everyday AI & Workplace Automation",
-          s2: "Session 2 - Future Mobility & Clean Energy Transport",
-          s3: "Session 3 - Technology Ethics & Automated Decisions in AI",
-          s4: "Session 4 - Biometrics, Digital IDs & Passenger Journey"
+          s5: "Session 5 - Extreme Weather & Atmospheric Hazards",
+          s6: "Session 6 - Sustainable Cities & Low-Emission Mobility",
+          s7: "Session 7 - Building & Supporting Environmental Arguments"
         }
       };
 
@@ -798,77 +791,31 @@
         1: {
           s1: "Session 1 - Introduction & Aviation Survey",
           s2: "Session 2 - Passenger Journey & Airfield Movement",
-          s3: "Session 3 - Ground Operations & Turnaround",
-          s4: "Session 4 - Jobs in Aviation"
+          s3: "Session 3 - Ground Operations & Turnaround"
         },
         2: {
-          s1: "Session 1 - Aerodynamics & Flight Principles",
-          s2: "Session 2 - Aircraft Anatomy: Structure & Systems",
-          s3: "Session 3 - Commercial Aircraft & Airlines",
-          s4: "Session 4 - Significant Aviation Accidents & Aircraft Types"
-        },
-        3: {
-          s1: "Session 1 - Health & Human Factors in Aviation",
-          s2: "Session 2 - Meteorology & Severe Weather in Aviation",
-          s3: "Session 3 - Aviation Safety vs. Security: Airport & Aircraft Checks",
-          s4: "Session 4 - Global Semester Review & 3-Team Quiz"
+          s5: "Session 5 - Aerodynamics & Flight Principles",
+          s6: "Session 6 - Aircraft Anatomy: Structure & Systems",
+          s7: "Session 7 - Commercial Aircraft & Airlines"
         }
       };
 
       const titles = (isAas ? aasSessionTitles[modNumber] : agSessionTitles[modNumber]) || (isAas ? aasSessionTitles[1] : agSessionTitles[1]);
 
-      const moduleImages = {
-        1: {
-          card1: isAas ? "images/aas_m1card1.jpg" : "images/ag_m1card1.jpg",
-          card2: isAas ? "images/aas_m1card2.jpg" : "images/ag_m1card2.jpg",
-          card3: isAas ? "images/aas_m1card3.jpg" : "images/ag_m1card3.jpg",
-          card4: isAas ? "images/aas_m1card4.jpg" : "images/ag_m1card4.jpg",
-          fe: "images/fe_progress_check.png",
-          ddrs: isAas ? "images/ddrs_aas_mod1.jpg" : "images/ddrs_ag_mod1.jpg",
-          admin: "images/course_admin.jpg"
-        },
-        2: {
-          card1: isAas ? "images/aas_m2card1.jpg" : "images/ag_m2card1.jpg",
-          card2: isAas ? "images/aas_m2card2.jpg" : "images/ag_m2card2.jpg",
-          card3: isAas ? "images/aas_m2card3.jpg" : "images/ag_m2card3.jpg",
-          card4: isAas ? "images/aas_m2card4.jpg" : "images/ag_m2card4.jpg",
-          fe: "images/fe_progress_check.png",
-          ddrs: isAas ? "images/ddrs_aas_mod2.jpg" : "images/ddrs_ag_mod2.jpg",
-          admin: "images/course_admin.jpg"
-        },
-        3: {
-          card1: isAas ? "images/aas_m3card1.jpg" : "images/ag_m3card1.jpg",
-          card2: isAas ? "images/aas_m3card2.jpg" : "images/ag_m3card2.jpg",
-          card3: isAas ? "images/aas_m3card3.jpg" : "images/ag_m3card3.jpg",
-          card4: isAas ? "images/aas_m3card4.jpg" : "images/ag_m3card4.jpg",
-          fe: "images/fe_progress_check.png",
-          ddrs: isAas ? "images/ddrs_aas_mod3.jpg" : "images/ddrs_ag_mod3.jpg",
-          admin: "images/course_admin.jpg"
-        }
-      };
-
-      const images = moduleImages[modNumber] || moduleImages[1];
-
-      const formativeEvaluationNotice = "All our work this module builds progressively toward your Formative Evaluation in Session 5. Review the vocabulary from the vocabulary section on this page before your evaluation, along with the TOEIC exercises and your personal portfolio.";
+      const formativeEvaluationNotice = modNumber === 1
+        ? "All our work this module builds progressively toward your Formative Evaluation in Session 4. Review the vocabulary from the vocabulary section on this page before your evaluation, along with the TOEIC exercises and your personal portfolio."
+        : "All our work this module builds progressively toward your Formative Evaluation in Session 8. Review the vocabulary from the vocabulary section on this page before your evaluation, along with the TOEIC exercises and your personal portfolio.";
 
       const agDescriptions = {
         1: {
           s1: `Welcome to our module on Travel, Transport & Leisure! In our interactive sessions, we will focus on conversational fluency, vocabulary building, grammar in context, and TOEIC preparation.<br><br><em>Subject overview:</em> An introduction to travel and transport themes alongside personal travel anecdotes.<br><br>${formativeEvaluationNotice}`,
           s2: `Welcome back! Continuing our focus on Travel, Transport & Leisure, we explore how transportation has changed over time and its social and environmental impacts.<br><br><em>Subject overview:</em> Exploring how transport has changed over time, modern transit networks, and switching to greener ways to travel.<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! In this class, we examine how popular destinations manage tourist flows, preserve local cultures, and protect natural sites.<br><br><em>Subject overview:</em> Looking at challenges caused by mass tourism, visitor limits for fragile sites, and ways to spread tourists to quieter areas.<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! As we examine green tourism and travel alternatives, we continue practicing conversation, vocabulary, and TOEIC skills.<br><br><em>Subject overview:</em> Investigating sustainable practices, genuine eco-certifications, and community-based alternatives in modern travel.<br><br>${formativeEvaluationNotice}`
+          s3: `Welcome to Session 3! In this class, we examine how popular destinations manage tourist flows, preserve local cultures, and protect natural sites.<br><br><em>Subject overview:</em> Looking at challenges caused by mass tourism, visitor limits for fragile sites, and ways to spread tourists to quieter areas.<br><br>${formativeEvaluationNotice}`
         },
         2: {
-          s1: `Welcome to Module 2 on Weather & the Environment! In our interactive sessions, we focus on conversational practice, technical reading, and TOEIC strategies while discussing weather phenomena, climate risks, and travel disruptions.<br><br><em>Subject overview:</em> Severe weather events, atmospheric hazards, airport weather advisories, and Word Forms in context.<br><br>${formativeEvaluationNotice}`,
-          s2: `Welcome to Session 2! Continuing our exploration of Weather & the Environment, we investigate how modern cities become more livable, green, and resilient.<br><br><em>Subject overview:</em> Sustainable cities, 15-minute neighborhood corridors, sponge city design, clean urban mobility, and Subject-Verb Agreement.<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! In this class, we practice building and defending clear arguments, using empirical evidence, and expressing opinions persuasively in environmental policy debates.<br><br><em>Subject overview:</em> Structuring arguments & evidence, cautious language & polite disagreement, and Gerunds & Infinitives in decision-making.<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! We examine how urban areas and major transport hubs protect local nature, restore biodiversity, and mitigate wildlife hazards.<br><br><em>Subject overview:</em> Urban tree canopies, constructed wetlands, wildlife corridors, aerodrome bird strike mitigation, and Pronouns & Determiners.<br><br>${formativeEvaluationNotice}`
-        },
-        3: {
-          s1: `Welcome to Module 3 on New Technology! In our interactive sessions, we focus on conversational fluency, technical reading, and TOEIC preparation while exploring how artificial intelligence and machine learning transform workplaces and flight operations.<br><br><em>Subject overview:</em> Everyday AI tools, machine learning pipelines, predictive fleet maintenance, Human-in-the-Loop oversight, and Active vs. Passive Voice in technical descriptions.<br><br>${formativeEvaluationNotice}`,
-          s2: `Welcome to Session 2! We explore how emerging propulsion concepts and clean mobility corridors will reshape transport networks by 2035 and beyond.<br><br><em>Subject overview:</em> Hydrogen aircraft propulsion, battery-electric commuter flight, urban air mobility (eVTOL) vertiports, and Future Forms with Predictive Certainty.<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! We practice professional debate, critical thinking, and polite disagreement on real-world technology governance and ethical quandaries.<br><br><em>Subject overview:</em> Algorithmic bias, explainable AI (XAI), digital surveillance vs. civil liberties, EU AI Act compliance, and Cautious Language & Polite Disagreement.<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! We examine contactless travel, digital credentials, and biometric sovereignty across international border control.<br><br><em>Subject overview:</em> Contactless e-gates, IATA One ID, cybersecurity vulnerabilities, biometric hash encryption, and Relative Clauses with Complex Noun Phrases.<br><br>${formativeEvaluationNotice}`
+          s5: `Welcome to Module 2 on Weather & the Environment! In our interactive sessions, we focus on conversational practice, technical reading, and TOEIC strategies while discussing weather phenomena, climate risks, and travel disruptions.<br><br><em>Subject overview:</em> Severe weather events, atmospheric hazards, airport weather advisories, and Word Forms in context.<br><br>${formativeEvaluationNotice}`,
+          s6: `Welcome to Session 6! Continuing our exploration of Weather & the Environment, we investigate how modern cities become more livable, green, and resilient.<br><br><em>Subject overview:</em> Sustainable cities, 15-minute neighborhood corridors, sponge city design, clean urban mobility, and Subject-Verb Agreement.<br><br>${formativeEvaluationNotice}`,
+          s7: `Welcome to Session 7! In this class, we practice building and defending clear arguments, using empirical evidence, and expressing opinions persuasively in environmental policy debates.<br><br><em>Subject overview:</em> Structuring arguments & evidence, cautious language & polite disagreement, and Gerunds & Infinitives in decision-making.<br><br>${formativeEvaluationNotice}`
         }
       };
 
@@ -876,20 +823,12 @@
         1: {
           s1: `Welcome to Technical English Module 1 on Aerodromes! In this opening session, we explore airport operations, aviation security, commercial airline models, and environmental challenges while practicing discussion fluency and technical vocabulary.<br><br><em>Subject overview:</em> In-class survey interviews discussing key aviation themes: alcohol on board, armed pilots and air marshals, low-cost carrier economics, noise abatement, future propulsion, space tourism, airport security, and flight delay passenger rights.<br><br>${formativeEvaluationNotice}`,
           s2: `Welcome to Session 2! We explore the passenger's journey through the airport—from landside check-in, security screening, and duty-free retail to the departure gate—as well as airside movement areas including aprons, taxiways, ground markings, and runway numbering.<br><br><em>Subject overview:</em> Passenger terminal flow, security checkpoints, airside apron operations, pushback tugs, taxiway guidance markings, and runway magnetic designators.<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! In this class, we analyze ground handling workflows, baggage logistics, refueling protocols, and gate turnaround optimization.<br><br><em>Subject overview:</em> Ramp safety, ground support equipment (GSE), slot allocation, and minimizing turnaround time.<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! We examine aviation operational careers across landside, airside, flight operations, air traffic services, and civil aviation administration.<br><br><em>Subject overview:</em> Professional roles and jurisdictions: Passenger Service Agents, Ramp Coordinators, Flight Crew, ATCOs (Tower, Approach, En-Route), and TSEEAC functions (AFISO, aerodrome operations coordination, DGAC safety oversight). Expressing duties, authority, and handoff procedures.<br><br>${formativeEvaluationNotice}`
+          s3: `Welcome to Session 3! In this class, we analyze ground handling workflows, baggage logistics, refueling protocols, and gate turnaround optimization.<br><br><em>Subject overview:</em> Ramp safety, ground support equipment (GSE), slot allocation, and minimizing turnaround time.<br><br>${formativeEvaluationNotice}`
         },
         2: {
-          s1: `Welcome to Module 2 on Aircraft and Aerodynamics! In this opening session, we explore the four fundamental forces of flight, aircraft control axes, and wing airflow dynamics while developing spoken fluency and cause-and-effect structures.<br><br><em>Subject overview:</em> Lift, weight, thrust, and drag in equilibrium; pitch, roll, and yaw control surfaces; angle of attack, boundary layer separation, and stall recovery procedures.<br><br>${formativeEvaluationNotice}`,
-          s2: `Welcome to Session 2! We examine the external airframe and internal layout of modern commercial aircraft, practicing accurate spatial descriptions, functional explanations, and exterior pre-flight walkaround defect reporting.<br><br><em>Subject overview:</em> Fuselage, empennage, leading-edge slats, trailing-edge flaps, spoilers, landing gear, radome, pitot-static probes, flight deck controls, cabin amenities, and walkaround inspection dialogues.<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! In this class, we analyze commercial aircraft classifications, fleet economics, global aerospace manufacturers, and airline business models.<br><br><em>Subject overview:</em> Regional turboprops, single-aisle narrowbodies, twin-aisle widebodies, freighters, Airbus vs. Boeing duopoly competition, airline fleet planning, and operational route cost comparisons.<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! We investigate landmark aviation accidents throughout history, analyzing the aircraft types involved, mechanical versus human contributing factors, and permanent safety evolutions.<br><br><em>Subject overview:</em> Accident investigation methodology (CVR/FDR, BEA, NTSB), past narrative tenses, and an in-class 15-minute quick-fire group research sprint analyzing landmark case studies followed by spoken safety presentations.<br><br>${formativeEvaluationNotice}`
-        },
-        3: {
-          s1: `Welcome to Module 3 on Health, Meteorology, Safety & Security! In this opening session, we explore in-flight medical emergencies, physiological challenges of flight, and human factors impacting pilots and air traffic controllers.<br><br><em>Subject overview:</em> Cardiac arrest &amp; AED protocols, panic attacks, hyperventilation, claustrophobia, airsickness, hypoxia, pilot and ATCO fatigue, Flight Time Limitations (FTL), circadian disruption, and the IMSAFE checklist.<br><br>${formativeEvaluationNotice}`,
-          s2: `Welcome to Session 2! We examine aviation meteorology, severe atmospheric hazards, and their operational consequences on commercial flight dispatch, en-route navigation, and terminal approaches.<br><br><em>Subject overview:</em> Microbursts, low-level windshear, severe convective turbulence, cumulonimbus (CB) cells, structural and pitot icing, volcanic ash encounters, low visibility procedures (CAT I/II/III), and landmark weather case studies (Delta 191 &amp; BA 009).<br><br>${formativeEvaluationNotice}`,
-          s3: `Welcome to Session 3! In this class, we analyze the critical conceptual and operational distinction between Aviation Safety (preventing unintended hazards) and Aviation Security (preventing intentional unlawful acts).<br><br><em>Subject overview:</em> Airport security architecture (landside/airside, passenger millimeter-wave screening, hold baggage CT/EDS, biometric e-gates) and aircraft technical safety checks (pre-flight walkaround, gear pins, pitot covers, Minimum Equipment List, and maintenance checks).<br><br>${formativeEvaluationNotice}`,
-          s4: `Welcome to Session 4! We conclude Semester 1 with a high-energy Global Review and interactive 3-Team Aviation Grand Prix Quiz covering Aerodromes, Aircraft Systems, Human Factors, Meteorology, and Safety & Security.<br><br><em>Subject overview:</em> Multi-round competitive review quiz (Team Alpha, Team Bravo, Team Charlie), rapid-fire technical challenges, pronunciation consolidation, and workshop rehearsal for the Session 5 Formative Evaluation 3.<br><br>${formativeEvaluationNotice}`
+          s5: `Welcome to Module 2 on Aircraft and Aerodynamics! In this opening session, we explore the four fundamental forces of flight, aircraft control axes, and wing airflow dynamics while developing spoken fluency and cause-and-effect structures.<br><br><em>Subject overview:</em> Lift, weight, thrust, and drag in equilibrium; pitch, roll, and yaw control surfaces; angle of attack, boundary layer separation, and stall recovery procedures.<br><br>${formativeEvaluationNotice}`,
+          s6: `Welcome to Session 6! We examine the external airframe and internal layout of modern commercial aircraft, practicing accurate spatial descriptions, functional explanations, and exterior pre-flight walkaround defect reporting.<br><br><em>Subject overview:</em> Fuselage, empennage, leading-edge slats, trailing-edge flaps, spoilers, landing gear, radome, pitot-static probes, flight deck controls, cabin amenities, and walkaround inspection dialogues.<br><br>${formativeEvaluationNotice}`,
+          s7: `Welcome to Session 7! In this class, we analyze commercial aircraft classifications, fleet economics, global aerospace manufacturers, and airline business models.<br><br><em>Subject overview:</em> Regional turboprops, single-aisle narrowbodies, twin-aisle widebodies, freighters, Airbus vs. Boeing duopoly competition, airline fleet planning, and operational route cost comparisons.<br><br>${formativeEvaluationNotice}`
         }
       };
 
@@ -901,105 +840,141 @@
       const s2ClassReviewUrl = isAas ? (modNumber === 1 ? "session2/rev_aas1.html" : "session2/rev_aas2.html") : `session2/rev${modNumber}.html`;
       const s3AdditionalMaterialsUrl = isAas ? (modNumber === 1 ? "session3/admat_aas1.html" : "session3/admat_aas2.html") : `session3/admat${modNumber}.html`;
       const s3ClassReviewUrl = isAas ? (modNumber === 1 ? "session3/rev_aas1.html" : "session3/rev_aas2.html") : `session3/rev${modNumber}.html`;
-      const s4AdditionalMaterialsUrl = isAas ? (modNumber === 1 ? "session4/admat_aas1.html" : "session4/admat_aas2.html") : `session4/admat${modNumber}.html`;
-      const s4ClassReviewUrl = isAas ? (modNumber === 1 ? "session4/rev_aas1.html" : "session4/rev_aas2.html") : `session4/rev${modNumber}.html`;
-      const s5GuidelinesUrl = isAas ? (modNumber === 1 ? "session5/guidelines_aas1.html" : "session5/guidelines_aas2.html") : `session5/guidelines${modNumber}.html`;
-      const s5ObjectivesUrl = isAas ? (modNumber === 1 ? "session5/obj_aas1.html" : "session5/obj_aas2.html") : `session5/obj${modNumber}.html`;
-      const s5CriteriaUrl = isAas ? (modNumber === 1 ? "session5/criteria_aas1.html" : "session5/criteria_aas2.html") : `session5/criteria${modNumber}.html`;
-      const pages = [
+      const sFeGuidelinesUrl = isAas ? (modNumber === 1 ? "session5/guidelines_aas1.html" : "session5/guidelines_aas2.html") : `session5/guidelines${modNumber}.html`;
+      const sFeObjectivesUrl = isAas ? (modNumber === 1 ? "session5/obj_aas1.html" : "session5/obj_aas2.html") : `session5/obj${modNumber}.html`;
+      const sFeCriteriaUrl = isAas ? (modNumber === 1 ? "session5/criteria_aas1.html" : "session5/criteria_aas2.html") : `session5/criteria${modNumber}.html`;
+
+      const pages = modNumber === 1 ? [
         {
-          tag: `Module ${modNumber} • Session 1`,
+          tag: "Module 1 • Session 1",
           title: titles.s1,
           description: desc.s1,
           url: s1AdditionalMaterialsUrl,
           additionalMaterialsUrl: s1AdditionalMaterialsUrl,
-          lessonPlanUrl: `session1/plan${modNumber}.html`,
-          objectivesUrl: `session1/obj${modNumber}.html`,
-          classReviewUrl: s1ClassReviewUrl,
-          imageUrl: images.card1
+          lessonPlanUrl: "session1/plan1.html",
+          objectivesUrl: "session1/obj1.html",
+          classReviewUrl: s1ClassReviewUrl
         },
         {
-          tag: `Module ${modNumber} • Session 2`,
+          tag: "Module 1 • Session 2",
           title: titles.s2,
           description: desc.s2,
           url: s2AdditionalMaterialsUrl,
           additionalMaterialsUrl: s2AdditionalMaterialsUrl,
-          lessonPlanUrl: `session2/plan${modNumber}.html`,
-          objectivesUrl: `session2/obj${modNumber}.html`,
-          classReviewUrl: s2ClassReviewUrl,
-          imageUrl: images.card2
+          lessonPlanUrl: "session2/plan1.html",
+          objectivesUrl: "session2/obj1.html",
+          classReviewUrl: s2ClassReviewUrl
         },
         {
-          tag: `Module ${modNumber} • Session 3`,
+          tag: "Module 1 • Session 3",
           title: titles.s3,
           description: desc.s3,
           url: s3AdditionalMaterialsUrl,
           additionalMaterialsUrl: s3AdditionalMaterialsUrl,
-          lessonPlanUrl: `session3/plan${modNumber}.html`,
-          objectivesUrl: `session3/obj${modNumber}.html`,
-          classReviewUrl: s3ClassReviewUrl,
-          imageUrl: images.card3
+          lessonPlanUrl: "session3/plan1.html",
+          objectivesUrl: "session3/obj1.html",
+          classReviewUrl: s3ClassReviewUrl
         },
         {
-          tag: `Module ${modNumber} • Session 4`,
-          title: titles.s4,
-          description: desc.s4,
-          url: s4AdditionalMaterialsUrl,
-          additionalMaterialsUrl: s4AdditionalMaterialsUrl,
-          lessonPlanUrl: `session4/plan${modNumber}.html`,
-          objectivesUrl: `session4/obj${modNumber}.html`,
-          classReviewUrl: s4ClassReviewUrl,
-          imageUrl: images.card4
-        },
-        {
-          tag: `Module ${modNumber} • Session 5`,
-          title: "Session 5 - Formative Evaluation",
+          tag: "Module 1 • Session 4",
+          title: "Session 4 - Formative Evaluation 1",
           description: isAas 
-            ? (modNumber === 1
-                ? `Welcome to Session 5! In this Formative Evaluation, you and your partner will present a detailed technical airport profile.<br><br><em>Subject overview:</em> Formative Evaluation 1 — Airports: Technical infrastructure, operational constraints, aerodrome hot spots, and incident/accident analysis.<br><br>All work in this session contributes directly toward your Formative Evaluation.`
-                : (modNumber === 2
-                    ? `Welcome to Session 5! In this Formative Evaluation, you and your partner will present a comprehensive technical profile of an aircraft or an airline of your choice.<br><br><em>Subject overview:</em> Formative Evaluation 2 — Aircraft / Airlines: Technical specifications, operational metrics, historical milestones, and safety analysis.<br><br>All work in this session contributes directly toward your Formative Evaluation.`
-                    : `Welcome to Session 5! Throughout this module, we have worked on aerodrome operations, technical discussions, DDRS, and TOEIC preparation.<br><br><em>Subject overview:</em> Formative Evaluation — Airport operations assessment and technical oral interview.<br><br>All work in this session contributes directly toward your Formative Evaluation.`))
-            : (modNumber === 1
-                ? "Welcome to Session 5! Throughout this module, we have worked on discussion, grammar correction, DDRS, and TOEIC-related exercises.<br><br><em>Subject overview:</em> Formative Evaluation 1 — Design an eco-friendly holiday itinerary or compare two cities with different tourism policies + Targets.<br><br>All work in this session contributes directly toward your Formative Evaluation."
-                : (modNumber === 2
-                    ? "Welcome to Session 5! In this Formative Evaluation, you and your partner will present a comprehensive climate resilience masterplan for an airport or city of your choice.<br><br><em>Subject overview:</em> Formative Evaluation 2 — Climate Resilience: Redesign an airport or city for climate resilience. Cover climate hazard assessments, physical engineering adaptations, nature-based solutions (DDRS), and operational contingencies.<br><br>All work in this session contributes directly toward your Formative Evaluation."
-                    : "Welcome to Session 5! In this Formative Evaluation, you and your partner will present an in-depth technical analysis and critical evaluation of an emerging aviation or non-aviation technology.<br><br><em>Subject overview:</em> Formative Evaluation 3 — Emerging Technology: Presentation on an emerging aviation or non-aviation related technology. Address technical architecture, quantitative efficiency gains, DDRS & ethical challenges, and deployment roadmaps.<br><br>All work in this session contributes directly toward your Formative Evaluation.")),
-          url: s5CriteriaUrl,
-          lessonPlanUrl: s5GuidelinesUrl,
-          objectivesUrl: s5ObjectivesUrl,
-          imageUrl: images.fe
+            ? "Welcome to Session 4! In this Formative Evaluation, you and your partner will present a detailed technical airport profile.<br><br><em>Subject overview:</em> Formative Evaluation 1 — Airports: Technical infrastructure, operational constraints, aerodrome hot spots, and incident/accident analysis.<br><br>All work in this session contributes directly toward your Formative Evaluation."
+            : "Welcome to Session 4! Throughout this module, we have worked on discussion, grammar correction, DDRS, and TOEIC-related exercises.<br><br><em>Subject overview:</em> Formative Evaluation 1 — Design an eco-friendly holiday itinerary or compare two cities with different tourism policies + Targets.<br><br>All work in this session contributes directly toward your Formative Evaluation.",
+          url: sFeCriteriaUrl,
+          lessonPlanUrl: sFeGuidelinesUrl,
+          objectivesUrl: sFeObjectivesUrl,
+          isFe: true
         },
         {
-          tag: `Module ${modNumber} • Focus`,
+          tag: "Module 1 • Focus",
           title: isAas 
-            ? (modNumber === 1 ? "DDRS - Aerodrome Environmental & Social Framework" : modNumber === 2 ? "DDRS - Aircraft Decarbonization & Eco-Design" : "DDRS - Safety Culture & Ethical Operations")
-            : (modNumber === 1 ? "DDRS - Sustainable Mobility & Tourism Framework" : modNumber === 2 ? "DDRS - Climate Resilience & Ecological Transition" : "DDRS - Responsible Innovation & Tech Ethics"),
+            ? "DDRS - Aerodrome Environmental & Social Framework"
+            : "DDRS - Sustainable Mobility & Tourism Framework",
           description: isAas
             ? "<strong>Definition:</strong> DDRS (Sustainable Development & Social Responsibility) in aviation represents sustainable aerodrome operations, emissions reduction, noise mitigation, and ethical workforce standards.<br><br><strong>Key areas covered:</strong> Airport decarbonization, green taxiing, SAF distribution infrastructure, and community acoustic protection.<br><br><strong>Why we discuss DDRS in English:</strong> Communicating airport sustainability initiatives in international English prepares aerospace professionals for global regulatory compliance and industry leadership."
-            : (modNumber === 2
-                ? "<strong>Definition:</strong> DDRS in climate resilience focuses on adapting infrastructure, protecting vulnerable communities, and driving the ecological transition of cities and transport networks.<br><br><strong>Key areas covered:</strong> Sponge city design, urban heat island mitigation, renewable energy microgrids, and biodiversity net gain.<br><br><strong>Why we discuss DDRS in English:</strong> Articulating climate adaptation and environmental engineering in international English prepares engineers to present projects to global stakeholders and international bodies."
-                : modNumber === 3
-                    ? "<strong>Definition:</strong> DDRS (Sustainable Development & Social Responsibility) in emerging technology balances technological acceleration with algorithmic fairness, environmental lifecycle impacts, and human dignity.<br><br><strong>Key areas covered:</strong> Compute carbon footprints, explainable AI (XAI), data privacy sovereignty, and social inclusion under the EU AI Act.<br><br><strong>Why we discuss DDRS in English:</strong> Articulating tech ethics, regulatory compliance, and responsible innovation in international English prepares aerospace professionals to lead global technology governance."
-                    : "<strong>Definition:</strong> DDRS (Sustainable Development & Social Responsibility) is the framework linking environmental protection, social fairness, and ethical decision-making in modern organizations.<br><br><strong>Key areas covered:</strong> Reducing carbon footprints, community wellbeing and inclusion, and responsible innovation.<br><br><strong>Why we discuss DDRS in English:</strong> Discussing DDRS topics builds the vocabulary, critical thinking, and communication skills you need to talk about global environmental and social challenges in professional English."),
-          detailsUrl: isAas ? "" : `ddrs${modNumber}.html`,
-          imageUrl: images.ddrs,
+            : "<strong>Definition:</strong> DDRS (Sustainable Development & Social Responsibility) is the framework linking environmental protection, social fairness, and ethical decision-making in modern organizations.<br><br><strong>Key areas covered:</strong> Reducing carbon footprints, community wellbeing and inclusion, and responsible innovation.<br><br><strong>Why we discuss DDRS in English:</strong> Discussing DDRS topics builds the vocabulary, critical thinking, and communication skills you need to talk about global environmental and social challenges in professional English.",
+          detailsUrl: isAas ? "" : "ddrs1.html",
           isMuted: isAas
         },
         {
-          tag: "GSEA26A • Course Admin",
+          tag: "GSEA25B • Course Admin",
           title: "Course Admin",
-          description: "Welcome to the GSEA26A Course Administration Hub. Access your official class groups (Group A & Group B), teacher assignments, weekly schedules, and dynamic 30-minute Formative Evaluation tutorial rotas.<br><br><em>Subject overview:</em> Weekly classes run Wednesdays (13h15–15h15) for Aeronautical English (LV121E) and Fridays (08h00–10h00) for General English (LV101E).<br><br>Consult your designated FE timeslots ahead of FE1 and FE2. Arrive 5 minutes before your slot with your presentation supports and updated learning portfolio ready.",
+          description: "Welcome to the GSEA25B Course Administration Hub. Access your official class groups (Group A & Group B), teacher assignments, weekly schedules, and dynamic 30-minute Formative Evaluation tutorial rotas.<br><br><em>Subject overview:</em> Weekly classes run Wednesdays (13h15–15h15) for Aeronautical English (LV121E) and Fridays (08h00–10h00) for General English (LV101E).<br><br>Consult your designated FE timeslots ahead of FE1 and FE2. Arrive 5 minutes before your slot with your presentation supports and updated learning portfolio ready.",
           isAdmin: true,
-          adminUrl: "admin.html",
-          imageUrl: images.admin
+          adminUrl: "admin.html"
         },
         {
           tag: isAas ? "Aeronautical English • Course Syllabus" : "General English • Course Syllabus",
           title: "Semester Objectives",
           description: "Here you can find the complete objectives for the full semester 2.<br><br><em>Subject overview:</em> Comprehensive pedagogical roadmap, learning outcomes, and assessment benchmarks for GSEA Semester 2.<br><br>Consult the full bilingual syllabus (English & French) covering continuous assessment, professional development, technical communication, and evaluation criteria.",
-          isObjectives: true,
-          imageUrl: "images/semester_objectives.png"
+          isObjectives: true
+        }
+      ] : [
+        {
+          tag: "Module 2 • Session 5",
+          title: titles.s5,
+          description: desc.s5,
+          url: s1AdditionalMaterialsUrl,
+          additionalMaterialsUrl: s1AdditionalMaterialsUrl,
+          lessonPlanUrl: "session1/plan2.html",
+          objectivesUrl: "session1/obj2.html",
+          classReviewUrl: s1ClassReviewUrl
+        },
+        {
+          tag: "Module 2 • Session 6",
+          title: titles.s6,
+          description: desc.s6,
+          url: s2AdditionalMaterialsUrl,
+          additionalMaterialsUrl: s2AdditionalMaterialsUrl,
+          lessonPlanUrl: "session2/plan2.html",
+          objectivesUrl: "session2/obj2.html",
+          classReviewUrl: s2ClassReviewUrl
+        },
+        {
+          tag: "Module 2 • Session 7",
+          title: titles.s7,
+          description: desc.s7,
+          url: s3AdditionalMaterialsUrl,
+          additionalMaterialsUrl: s3AdditionalMaterialsUrl,
+          lessonPlanUrl: "session3/plan2.html",
+          objectivesUrl: "session3/obj2.html",
+          classReviewUrl: s3ClassReviewUrl
+        },
+        {
+          tag: "Module 2 • Session 8",
+          title: "Session 8 - Formative Evaluation 2",
+          description: isAas 
+            ? "Welcome to Session 8! In this Formative Evaluation, you and your partner will present a comprehensive technical profile of an aircraft or an airline of your choice.<br><br><em>Subject overview:</em> Formative Evaluation 2 — Aircraft / Airlines: Technical specifications, operational metrics, historical milestones, and safety analysis.<br><br>All work in this session contributes directly toward your Formative Evaluation."
+            : "Welcome to Session 8! In this Formative Evaluation, you and your partner will present a comprehensive climate resilience masterplan for an airport or city of your choice.<br><br><em>Subject overview:</em> Formative Evaluation 2 — Climate Resilience: Redesign an airport or city for climate resilience. Cover climate hazard assessments, physical engineering adaptations, nature-based solutions (DDRS), and operational contingencies.<br><br>All work in this session contributes directly toward your Formative Evaluation.",
+          url: sFeCriteriaUrl,
+          lessonPlanUrl: sFeGuidelinesUrl,
+          objectivesUrl: sFeObjectivesUrl,
+          isFe: true
+        },
+        {
+          tag: "Module 2 • Focus",
+          title: isAas 
+            ? "DDRS - Aircraft Decarbonization & Eco-Design"
+            : "DDRS - Climate Resilience & Ecological Transition",
+          description: isAas
+            ? "<strong>Definition:</strong> DDRS (Sustainable Development & Social Responsibility) in aviation represents sustainable aerodrome operations, emissions reduction, noise mitigation, and ethical workforce standards.<br><br><strong>Key areas covered:</strong> Airport decarbonization, green taxiing, SAF distribution infrastructure, and community acoustic protection.<br><br><strong>Why we discuss DDRS in English:</strong> Communicating airport sustainability initiatives in international English prepares aerospace professionals for global regulatory compliance and industry leadership."
+            : "<strong>Definition:</strong> DDRS in climate resilience focuses on adapting infrastructure, protecting vulnerable communities, and driving the ecological transition of cities and transport networks.<br><br><strong>Key areas covered:</strong> Sponge city design, urban heat island mitigation, renewable energy microgrids, and biodiversity net gain.<br><br><strong>Why we discuss DDRS in English:</strong> Articulating climate adaptation and environmental engineering in international English prepares engineers to present projects to global stakeholders and international bodies.",
+          detailsUrl: isAas ? "" : "ddrs2.html",
+          isMuted: isAas
+        },
+        {
+          tag: "GSEA25B • Course Admin",
+          title: "Course Admin",
+          description: "Welcome to the GSEA25B Course Administration Hub. Access your official class groups (Group A & Group B), teacher assignments, weekly schedules, and dynamic 30-minute Formative Evaluation tutorial rotas.<br><br><em>Subject overview:</em> Weekly classes run Wednesdays (13h15–15h15) for Aeronautical English (LV121E) and Fridays (08h00–10h00) for General English (LV101E).<br><br>Consult your designated FE timeslots ahead of FE1 and FE2. Arrive 5 minutes before your slot with your presentation supports and updated learning portfolio ready.",
+          isAdmin: true,
+          adminUrl: "admin.html"
+        },
+        {
+          tag: isAas ? "Aeronautical English • Course Syllabus" : "General English • Course Syllabus",
+          title: "Semester Objectives",
+          description: "Here you can find the complete objectives for the full semester 2.<br><br><em>Subject overview:</em> Comprehensive pedagogical roadmap, learning outcomes, and assessment benchmarks for GSEA Semester 2.<br><br>Consult the full bilingual syllabus (English & French) covering continuous assessment, professional development, technical communication, and evaluation criteria.",
+          isObjectives: true
         }
       ];
 
@@ -1009,8 +984,7 @@
           title: "English Immersion (End of S2)",
           description: "At the end of Semester 2, GSEA students participate in an intensive 4-week English immersion program in an English-speaking destination: Cork, Dublin, Manchester, Leeds, Liverpool, or Shoreham.<br><br><em>Academic & cultural goals:</em> Enhance daily conversational fluency and complete intensive TOEIC preparation for Semester 3. Students attend morning and afternoon language school sessions, cultural excursions, and aviation-specific visits (airport, aerospace company, or museum, subject to availability).<br><br><em>Accommodation:</em> Homestay with vetted local host families (strictly 1 ENAC student per host family) for 100% linguistic immersion.",
           isImmersion: true,
-          immersionUrl: "immersion.html",
-          imageUrl: "images/immersion_card.jpg"
+          immersionUrl: "immersion.html"
         });
       }
 
@@ -1221,13 +1195,10 @@
         }
       });
 
-      // Hide image container on error to prevent broken image icons
+      // Image container uses themed blank color tile (Option A)
       const imgEl = document.getElementById('card-image');
-      const imageContainer = document.getElementById('image-container');
-      if (imgEl && imageContainer) {
-        imgEl.addEventListener('error', () => {
-          imageContainer.classList.add('hidden');
-        });
+      if (imgEl) {
+        imgEl.classList.add('hidden');
       }
 
       // Mouse wheel / trackpad scroll listener on the ribbon to cycle through modules
@@ -1963,14 +1934,15 @@
           dockTitle.textContent = "English Immersion & Destinations";
         } else if (page.isObjectives || page.title === "Semester Objectives") {
           dockTitle.textContent = "Semester 2 Learning Objectives";
-        } else if (page.isAdmin || currentIndex === 6) {
-          dockTitle.textContent = "GSEA26A Administration Hub";
-        } else if (page.detailsUrl || currentIndex === 5) {
+        } else if (page.isAdmin) {
+          dockTitle.textContent = "GSEA25B Administration Hub";
+        } else if (page.detailsUrl || (page.tag && page.tag.includes('Focus'))) {
           dockTitle.textContent = "DDRS Sustainability Guide";
-        } else if (currentIndex === 4) {
-          dockTitle.textContent = `Session 0${currentIndex + 1} Evaluation Center`;
+        } else if (page.isFe) {
+          dockTitle.textContent = mod.id === 1 ? "Session 04 Evaluation Center" : "Session 08 Evaluation Center";
         } else {
-          dockTitle.textContent = `Session 0${currentIndex + 1} Study Resources`;
+          const sNum = mod.id === 1 ? (currentIndex + 1) : (currentIndex + 5);
+          dockTitle.textContent = `Session 0${sNum} Study Resources`;
         }
       }
 
@@ -1983,7 +1955,19 @@
         btn.onmouseleave = () => btn.style.backgroundColor = mod.primary;
         btn.innerHTML = `<span>${label}</span> <span class="font-bold text-sm leading-none" aria-hidden="true">⇥</span>`;
         btn.addEventListener('click', () => {
-          openModalDrawer(tabKey, mod.id, currentIndex + 1, fallbackHref);
+          let sNum = currentIndex + 1;
+          if (page.isFe) {
+            sNum = mod.id === 1 ? 4 : 8;
+          } else if (page.isAdmin) {
+            sNum = 6;
+          } else if (page.isObjectives) {
+            sNum = 7;
+          } else if (page.isImmersion) {
+            sNum = 8;
+          } else if (mod.id === 2) {
+            sNum = currentIndex + 5;
+          }
+          openModalDrawer(tabKey, mod.id, sNum, fallbackHref);
         });
         return btn;
       };
@@ -1992,29 +1976,39 @@
         actionContainer.appendChild(createThemedCTA("Open Immersion Guide", "immersion_overview", "immersion.html"));
       } else if (page.isObjectives || page.title === "Semester Objectives") {
         actionContainer.appendChild(createThemedCTA("Open Objectives", "sem_obj_en", ""));
-      } else if (page.isAdmin || currentIndex === 6) {
+      } else if (page.isAdmin) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "admin_groups", "admin.html"));
-      } else if (page.detailsUrl || currentIndex === 5) {
+      } else if (page.detailsUrl || (page.tag && page.tag.includes('Focus'))) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "ddrs", page.detailsUrl || "ddrs1.html"));
-      } else if (currentIndex === 4) {
+      } else if (page.isFe) {
         actionContainer.appendChild(createThemedCTA("Open Resources", "fe_guidelines", page.lessonPlanUrl || page.url || ""));
       } else {
-        // Sessions 1 to 4: In-deck modal workspace hub (single themed CTA to open resources drawer)
+        // Sessions: In-deck modal workspace hub (single themed CTA to open resources drawer)
         const initialTab = page.objectivesUrl ? 'objectives' : (page.lessonPlanUrl ? 'plan' : 'materials');
         const fallback = page.additionalMaterialsUrl || page.url || page.lessonPlanUrl || '';
         actionContainer.appendChild(createThemedCTA("Open Resources", initialTab, fallback));
       }
 
-
+      // Blank Themed Color Tile Display (Option A - Header Color Match)
       const imageContainer = document.getElementById('image-container');
       const imgEl = document.getElementById('card-image');
+      const tileEl = document.getElementById('card-image-tile');
 
-      if (page.imageUrl && page.imageUrl.trim() !== "") {
-        imgEl.src = page.imageUrl;
-        imageContainer.classList.remove('hidden');
-      } else {
+      if (imgEl) {
         imgEl.src = "";
-        imageContainer.classList.add('hidden');
+        imgEl.classList.add('hidden');
+      }
+
+      if (imageContainer) {
+        imageContainer.classList.remove('hidden');
+        imageContainer.style.backgroundColor = mod.primary;
+        imageContainer.style.borderColor = mod.primaryDark;
+        imageContainer.style.boxShadow = `inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.25)`;
+      }
+
+      if (tileEl) {
+        tileEl.style.backgroundColor = mod.primary;
+        tileEl.style.backgroundImage = 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.2) 100%)';
       }
 
       const accessiblePages = pages.filter(p => !p.isMuted);
@@ -2205,9 +2199,9 @@
       const progConfig = PROGRAMS_CONFIG[modalState.program] || PROGRAMS_CONFIG.ag;
       const isObjectivesSession = tabKey.startsWith('sem_obj_') || modalState.tab.startsWith('sem_obj_');
       const isImmersionSession = !isObjectivesSession && (tabKey === 'immersion' || tabKey.startsWith('immersion_'));
-      const isAdminSession = !isObjectivesSession && !isImmersionSession && (modalState.sessionNum === 7 || tabKey.startsWith('admin_'));
-      const isFeSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (modalState.sessionNum === 5 || tabKey.startsWith('fe_'));
-      const isDdrsSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (tabKey === 'ddrs' || modalState.sessionNum === 6);
+      const isAdminSession = !isObjectivesSession && !isImmersionSession && (modalState.sessionNum === 6 || tabKey.startsWith('admin_'));
+      const isFeSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && (modalState.sessionNum === 4 || modalState.sessionNum === 8 || tabKey.startsWith('fe_'));
+      const isDdrsSession = !isObjectivesSession && !isImmersionSession && !isAdminSession && !isFeSession && (tabKey === 'ddrs' || (modalState.sessionNum === 5 && tabKey === 'ddrs'));
 
       const semObjEnTab = document.getElementById('modal-tab-sem-obj-en');
       const semObjFrTab = document.getElementById('modal-tab-sem-obj-fr');
@@ -2278,7 +2272,7 @@
         if (adminCalendarTab) adminCalendarTab.classList.remove('hidden');
         if (adminRotaTab) adminRotaTab.classList.remove('hidden');
 
-        tagEl.textContent = "GSEA26A • Course Admin";
+        tagEl.textContent = "GSEA25B • Course Admin";
         titleEl.textContent = "Course Admin — Class Groups, Teachers, Weekly Calendar & FE Rotas";
       } else if (isFeSession) {
         if (semObjEnTab) semObjEnTab.classList.add('hidden');
@@ -2294,8 +2288,10 @@
         if (feObjectivesTab) feObjectivesTab.classList.remove('hidden');
         if (feCriteriaTab) feCriteriaTab.classList.remove('hidden');
 
-        tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • Session 5`;
-        titleEl.textContent = "Session 5 - Formative Evaluation";
+        const feSessionLabel = modalState.modNum === 1 ? "Session 4" : "Session 8";
+        const feNumLabel = modalState.modNum === 1 ? "FE1" : "FE2";
+        tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • ${feSessionLabel}`;
+        titleEl.textContent = `${feSessionLabel} - Formative Evaluation (${feNumLabel})`;
       } else if (isDdrsSession) {
         if (semObjEnTab) semObjEnTab.classList.add('hidden');
         if (semObjFrTab) semObjFrTab.classList.add('hidden');
@@ -2326,7 +2322,8 @@
         if (feCriteriaTab) feCriteriaTab.classList.add('hidden');
 
         const activeModCourse = getActiveModalCourseData();
-        const activeSessionData = (activeModCourse.sessions && activeModCourse.sessions[modalState.sessionNum]) || {};
+        const sKey = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 4) : modalState.sessionNum;
+        const activeSessionData = (activeModCourse.sessions && (activeModCourse.sessions[modalState.sessionNum] || activeModCourse.sessions[sKey])) || {};
         const hasLessonContent = Boolean(activeSessionData.lessonContent);
 
         standardTabs.forEach(t => t.classList.remove('hidden'));
@@ -2351,7 +2348,8 @@
 
         tagEl.textContent = `${progConfig.code} Module ${modalState.modNum} • Session ${modalState.sessionNum}`;
         const activeMod = modulesData[modalState.modNum - 1];
-        titleEl.textContent = (activeMod && activeMod.pages && activeMod.pages[modalState.sessionNum - 1] && activeMod.pages[modalState.sessionNum - 1].title) || `Session ${modalState.sessionNum}`;
+        const pIdx = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 5) : (modalState.sessionNum - 1);
+        titleEl.textContent = (activeMod && activeMod.pages && activeMod.pages[pIdx] && activeMod.pages[pIdx].title) || `Session ${modalState.sessionNum}`;
       }
 
       modalEl.classList.remove('hidden');
@@ -2538,7 +2536,8 @@
       if (!bodyEl) return;
       const theme = modulesData[modalState.modNum - 1];
       const modCourse = getActiveModalCourseData();
-      const sessionData = (modCourse.sessions && modCourse.sessions[modalState.sessionNum]) || {};
+      const sKey = (modalState.modNum === 2 && modalState.sessionNum >= 5) ? (modalState.sessionNum - 4) : modalState.sessionNum;
+      const sessionData = (modCourse.sessions && (modCourse.sessions[modalState.sessionNum] || modCourse.sessions[sKey])) || {};
 
       if (modalState.tab === 'sem_obj_en') {
         renderSemesterObjectivesTab('en', theme);
@@ -2788,12 +2787,12 @@
           return;
         }
         if (modalState.modNum === 2) {
-          if (modalState.sessionNum === 1) {
+          if (modalState.sessionNum === 5 || modalState.sessionNum === 1) {
             renderAg2LessonContentTabSession1(sessionData, theme);
-          } else if (modalState.sessionNum === 2) {
+          } else if (modalState.sessionNum === 6 || modalState.sessionNum === 2) {
             renderAg2LessonContentTabSession2(sessionData, theme);
-          } else if (modalState.sessionNum === 4) {
-            renderAg2LessonContentTabSession4(sessionData, theme);
+          } else if (modalState.sessionNum === 7 || modalState.sessionNum === 3) {
+            renderAg2LessonContentTabSession3(sessionData, theme);
           } else {
             renderAg2LessonContentTabSession3(sessionData, theme);
           }
@@ -2812,14 +2811,14 @@
       }
 
       if (modalState.modNum === 2) {
-        if (modalState.sessionNum === 1) {
+        if (modalState.sessionNum === 5 || modalState.sessionNum === 1) {
           renderAas2LessonContentTabSession1(sessionData, theme);
-        } else if (modalState.sessionNum === 2) {
+        } else if (modalState.sessionNum === 6 || modalState.sessionNum === 2) {
           renderAas2LessonContentTabSession2(sessionData, theme);
-        } else if (modalState.sessionNum === 3) {
+        } else if (modalState.sessionNum === 7 || modalState.sessionNum === 3) {
           renderAas2LessonContentTabSession3(sessionData, theme);
-        } else if (modalState.sessionNum === 4) {
-          renderAas2LessonContentTabSession4(sessionData, theme);
+        } else {
+          renderAas2LessonContentTabSession3(sessionData, theme);
         }
         return;
       }
@@ -2879,9 +2878,8 @@
 
           <!-- Hero Banner & Context -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m1card1.jpg'}" alt="${hero.title || 'Introduction & Aviation Survey'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m1card1.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Commercial Aviation Dynamics</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Introduction & Aviation Survey'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'Commercial Aviation Dilemmas, Passenger Disruption & Regulatory Modals'}</p>
@@ -3272,9 +3270,8 @@
 
           <!-- Hero Banner & Context -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m1card2.jpg'}" alt="${hero.title || 'Passenger Journey & Airfield Movement'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m1card2.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Terminal Architecture &amp; Aerodrome Markings</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Passenger Journey & Airfield Movement'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'Terminal Facilitation, Spatial Prepositions & Airside Guidance Systems'}</p>
@@ -3665,9 +3662,8 @@
 
           <!-- Hero Banner & Context -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/turnaround_apron.jpg'}" alt="${hero.title || 'Apron Turnaround'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m1card3.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Apron Servicing Envelope</span>
                 <h2 class="text-base sm:text-xl font-black text-white mt-0.5">${hero.title || 'Ground Operations &amp; Turnaround Management'}</h2>
                 <p class="text-xs text-white/90 mt-1 max-w-2xl">${hero.subtitle || 'Coordinating critical ground handling operations in a 35 to 45-minute servicing window.'}</p>
@@ -4057,9 +4053,8 @@
 
           <!-- Hero Banner & Context -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m1card4.jpg'}" alt="${hero.title || 'Jobs in Aviation'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m1card4.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Aviation Roles &amp; Operational Interfaces</span>
                 <h2 class="text-base sm:text-xl font-black text-white mt-0.5">${hero.title || 'Jobs in Aviation: Roles, Responsibilities &amp; Operational Interfaces'}</h2>
                 <p class="text-xs text-white/90 mt-1 max-w-2xl">${hero.subtitle || 'Landside, Airside, Flight Crew, Air Traffic Services &amp; Civil Aviation Corps (TSEEAC).'}</p>
@@ -4636,9 +4631,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m1card1.jpg'}" alt="${ov.title || 'Introduction & Travel Anecdotes'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m1card1.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Travel & Transport'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Introduction & Travel Anecdotes'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Travel Stories, Flight Disruptions & Sustainable Mobility'}</p>
@@ -4993,9 +4987,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m1card2.jpg'}" alt="${ov.title || 'Evolution of Transport'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m1card2.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Transport Evolution & Green Mobility'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Evolution of Transport & Sustainable Mobility'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Modal Shift, High-Speed Rail & Lower Carbon Journeys'}</p>
@@ -5349,9 +5342,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m1card3.jpg'}" alt="${ov.title || 'Overtourism'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m1card3.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Managing Tourism & City Life'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Overtourism & Tourism Policy'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Managing Visitor Numbers, Protecting Local Life & City Regulations'}</p>
@@ -5678,9 +5670,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m1card4.jpg'}" alt="${ov.title || 'Sustainable Tourism'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m1card4.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Eco-Tourism & Green Certification'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Sustainable & Eco-Tourism'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Responsible Travel, Genuine Green Projects & Community Benefits'}</p>
@@ -6023,7 +6014,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 1</span>
+                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 5</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">${ov.title || 'Extreme Weather & Climate Hazards'}</h3>
             </div>
@@ -6035,9 +6026,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m2card1.jpg'}" alt="${ov.title || 'Extreme Weather'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m2card1.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Extreme Weather & Climate Resilience'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Extreme Weather & Climate Hazards'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Atmospheric Rivers, Heat Domes, Flash Floods & Aerodrome Resilience'}</p>
@@ -6314,7 +6304,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 2</span>
+                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 6</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">${ov.title || 'Sustainable Cities & Low-Emission Urban Mobility'}</h3>
             </div>
@@ -6326,9 +6316,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m2card2.jpg'}" alt="${ov.title || 'Sustainable Cities'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m2card2.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Sustainable Cities & Urban Design'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Sustainable Cities & Low-Emission Urban Mobility'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Sponge Cities, 15-Minute Urbanism, Urban Heat Islands & Transit Corridors'}</p>
@@ -6605,7 +6594,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 3</span>
+                <span class="text-xs font-bold text-slate-700">General English (AG) • Module 2 • Session 7</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">${ov.title || 'Building & Defending Environmental Arguments'}</h3>
             </div>
@@ -6617,9 +6606,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m2card3.jpg'}" alt="${ov.title || 'Building Arguments'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m2card3.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Environmental Argumentation & Policy'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Building & Defending Environmental Arguments'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Structuring Arguments, Linking Words, Polite Disagreement & Policy Debates'}</p>
@@ -6908,9 +6896,8 @@
 
           <!-- Session Overview Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${ov.image || 'images/ag_m2card4.jpg'}" alt="${ov.title || 'Biodiversity'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/ag_m2card4.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">${ov.badge || 'Session Overview • Biodiversity & Ecological Infrastructure'}</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${ov.title || 'Biodiversity in Urban Areas & Transport Hubs'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${ov.subtitle || 'Nature-Based Solutions, Constructed Wetlands, Ecological Corridors & Wildlife Hazard Mitigation'}</p>
@@ -8434,7 +8421,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">AT Module 2 • Session 1</span>
+                <span class="text-xs font-bold text-slate-700">AAS Module 2 • Session 5</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">Aerodynamics &amp; Flight Principles</h3>
             </div>
@@ -8446,9 +8433,8 @@
 
           <!-- Hero Banner & Context -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m2card1.jpg'}" alt="${hero.title || 'Aerodynamics & Flight Principles'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m2card1.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Flight Physics &amp; Aerodynamic Controls</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Aerodynamics &amp; Flight Principles'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'The Four Forces of Flight, The Three Axes &amp; Aerodynamic Control'}</p>
@@ -8743,7 +8729,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">AT Module 2 • Session 2</span>
+                <span class="text-xs font-bold text-slate-700">AAS Module 2 • Session 6</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">${hero.title || 'Aircraft Anatomy: Structure &amp; Systems'}</h3>
             </div>
@@ -8755,9 +8741,8 @@
 
           <!-- Hero Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m2card2.jpg'}" alt="${hero.title || 'Aircraft Anatomy'}" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m2card2.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Airframe Structures &amp; Walkaround Inspection</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Aircraft Anatomy: Structure &amp; Systems'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'External Airframe Components, Flight Deck Controls &amp; Pre-Flight Walkaround Inspections'}</p>
@@ -9021,7 +9006,7 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs" style="background-color: ${theme.primary};">DIGITAL WORKSHEET</span>
-                <span class="text-xs font-bold text-slate-700">AT Module 2 • Session 3</span>
+                <span class="text-xs font-bold text-slate-700">AAS Module 2 • Session 7</span>
               </div>
               <h3 class="text-sm sm:text-base font-black text-slate-900 mt-1">Commercial Aircraft &amp; Airlines</h3>
             </div>
@@ -9033,9 +9018,8 @@
 
           <!-- Hero Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m2card3.jpg'}" alt="Commercial Aircraft & Airlines" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m2card3.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Commercial Aircraft Types &amp; Fleet Strategy</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Commercial Aircraft &amp; Airlines'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'Commercial Aircraft Types, Aerospace Manufacturers &amp; Airline Business Models'}</p>
@@ -9293,9 +9277,8 @@
 
           <!-- Hero Banner -->
           <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
-            <div class="relative">
-              <img src="${hero.image || 'images/aas_m2card4.jpg'}" alt="Aviation Accidents & Aircraft Types" class="w-full h-48 sm:h-64 object-cover" onerror="this.src='images/aas_m2card4.jpg'">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 sm:p-5">
+            <div class="relative w-full h-36 sm:h-44 rounded-t-xl" style="background-color: ${theme.primary}; background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.25) 100%);">
+              <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Accident Investigation &amp; Safety Revolution</span>
                 <h3 class="text-lg sm:text-2xl font-black text-white mt-0.5">${hero.title || 'Significant Aviation Accidents &amp; Aircraft Types'}</h3>
                 <p class="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-2">${hero.subtitle || 'Landmark Air Accidents, Technical Causal Analysis &amp; The Evolution of Flight Safety'}</p>
@@ -11911,7 +11894,7 @@
               Formative Evaluation 3 (FE3) — Aviation Current Events &amp; Press Briefing
             </h3>
             <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-              The Formative Evaluation takes place in <strong>pairs or trios</strong> during a dedicated <strong>30-minute tutorial slot</strong> on <strong>Wednesday 25 February 2025 (Week 08)</strong> with <strong>Tracy NEILL (Group A)</strong> or <strong>Ally HEWETT (Group B)</strong>. You and your partner will roleplay as <strong>Aviation Authority / Airline Spokespersons</strong> delivering a formal 10-12 minute <strong>Press Briefing</strong> on a major recent aviation current event (severe weather disruption, in-flight medical emergency diversion, airport security breach / biometric rollout, or safety maintenance airworthiness directive), followed by spontaneous press conference Q&A, personal vocabulary portfolio audit, and detailed teacher feedback.
+              The Formative Evaluation takes place in <strong>pairs or trios</strong> during a dedicated <strong>30-minute tutorial slot</strong> with <strong>[Group A Teacher] (Group A)</strong> or <strong>[Group B Teacher] (Group B)</strong>. You and your partner will roleplay as <strong>Aviation Authority / Airline Spokespersons</strong> delivering a formal 10-12 minute <strong>Press Briefing</strong> on a major recent aviation current event (severe weather disruption, in-flight medical emergency diversion, airport security breach / biometric rollout, or safety maintenance airworthiness directive), followed by spontaneous press conference Q&A, personal vocabulary portfolio audit, and detailed teacher feedback.
             </p>
           </div>
 
@@ -13923,7 +13906,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide text-white" style="background-color: ${theme.primary};">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Promotion: GSEA26A • 19 Students
+                Promotion: GSEA25B
               </span>
               <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border" style="color: ${theme.accent}; background-color: ${theme.highlight || '#fff7ed'}; border-color: ${theme.accent}30;">
                 Official Rosters &amp; Faculty Assignments
@@ -13933,7 +13916,7 @@
               Class Groups, Assigned Teachers &amp; Course Timetables
             </h3>
             <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-              Official promotion structure for the academic semester. The GSEA26A promotion is divided into <strong>Group A (10 students)</strong> and <strong>Group B (9 students)</strong> for all General English (LV101E) and Aeronautical English (LV121E) classroom sessions. For oral Formative Evaluations (FE1, FE2), students follow dynamic rotating pairings and trios across exactly 4 slots of 30 minutes (2 hours total).
+              Official promotion structure for the academic semester. The GSEA25B promotion is divided into <strong>Group A</strong> and <strong>Group B</strong> for all General English (LV101E) and Aeronautical English (LV121E) classroom sessions. For oral Formative Evaluations (FE1, FE2), students follow dynamic rotating pairings and trios across exactly 4 slots of 30 minutes (2 hours total).
             </p>
           </div>
 
@@ -13959,11 +13942,11 @@
                 <div class="space-y-2.5 text-xs">
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                     <span class="font-bold text-slate-700">Group A Teacher</span>
-                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Geri MIDDLETON</span>
+                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">[Group A Teacher]</span>
                   </div>
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                     <span class="font-bold text-slate-700">Group B Teacher</span>
-                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Penny WRIGHT</span>
+                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">[Group B Teacher]</span>
                   </div>
                 </div>
               </div>
@@ -13980,11 +13963,11 @@
                 <div class="space-y-2.5 text-xs">
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                     <span class="font-bold text-slate-700">Group A Teacher</span>
-                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Tracy NEILL</span>
+                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">[Group A Teacher]</span>
                   </div>
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                     <span class="font-bold text-slate-700">Group B Teacher</span>
-                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">Ally HEWETT</span>
+                    <span class="font-bold text-slate-900 bg-white px-2.5 py-1 rounded shadow-2xs border border-slate-200">[Group B Teacher]</span>
                   </div>
                 </div>
               </div>
@@ -14044,16 +14027,16 @@
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">BEDU</td><td class="py-2 px-3">Titouan</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">BEN HASSEN</td><td class="py-2 px-3">Ewan</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">MEYER</td><td class="py-2 px-3">Alexandre</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">LE BRAS</td><td class="py-2 px-3">Aine</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">ROBIN</td><td class="py-2 px-3">Louise</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">RENARD</td><td class="py-2 px-3">Ruben</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">ILPIDE</td><td class="py-2 px-3">Anatole</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">RASPILLER</td><td class="py-2 px-3">Thomas</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">RENAULT</td><td class="py-2 px-3">Guillaume</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">10</td><td class="py-2 px-3 font-bold text-slate-800">CAMGUILHEH</td><td class="py-2 px-3">Vincent</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">01</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">02</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">03</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">04</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">05</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">06</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">07</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">08</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">09</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">10</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">10</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -14079,15 +14062,15 @@
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">SEVIN</td><td class="py-2 px-3">Brian</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">BENSMAINE</td><td class="py-2 px-3">Mohamed</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">DEBORDE</td><td class="py-2 px-3">Vincent</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">VILLAIN</td><td class="py-2 px-3">Maxime</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">SELLES</td><td class="py-2 px-3">Eliott</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">HAVA</td><td class="py-2 px-3">Peter</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">MARMANDE</td><td class="py-2 px-3">Justine</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">KUHN</td><td class="py-2 px-3">Aurianne</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">GADBIN</td><td class="py-2 px-3">Francois</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">01</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">02</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">03</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">04</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">05</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">06</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">07</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">08</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">09</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -14116,33 +14099,31 @@
         code: "LV101E",
         name: "General English (AG)",
         dayTime: "Fridays 08h00 – 10h00",
-        faculty: "Geri MIDDLETON (Group A) & Penny WRIGHT (Group B)",
+        faculty: "Group A & Group B Faculty",
         modules: [
           {
             num: 1,
-            title: "Module 1: Travel, Transport & Society",
-            weeks: "Weeks 44 – 48",
+            title: "Module 1: Travel, Transport & Leisure",
+            weeks: "Weeks 44 – 47",
             headerBg: "#1e293b",
             sessions: [
               { week: "W44", date: "Fri 31 Oct", title: "Session 1 — Introduction & Travel Anecdotes", tag: "Teaching Session", isFe: false },
               { week: "W45", date: "Fri 07 Nov", title: "Session 2 — Evolution of Transport", tag: "Teaching Session", isFe: false },
-              { week: "W46", date: "Fri 14 Nov", title: "Session 3 — Overtourism", tag: "Teaching Session", isFe: false },
-              { week: "W47", date: "Fri 21 Nov", title: "Session 4 — Sustainable and Eco-tourism", tag: "Teaching Session • Prep FE1", isFe: false },
-              { week: "W48", date: "Fri 28 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Fri 28 Nov • 30-min evaluation slots (Geri MIDDLETON / Penny WRIGHT)", tag: "Grade /20", isFe: true }
+              { week: "W46", date: "Fri 14 Nov", title: "Session 3 — Overtourism", tag: "Teaching Session • Prep FE1", isFe: false },
+              { week: "W47", date: "Fri 21 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Fri 21 Nov • 30-min evaluation slots (Session 4)", tag: "Grade /20", isFe: true }
             ]
           },
           {
             num: 2,
-            title: "Module 2: Weather, Environment & Ecological Transition",
-            weeks: "Weeks 49 – Week 3",
+            title: "Module 2: Weather & the Environment",
+            weeks: "Weeks 48 – Week 02",
             headerBg: "#1b382b",
             sessions: [
-              { week: "W49", date: "Fri 05 Dec", title: "Session 1 — Extreme Weather", tag: "Teaching Session", isFe: false },
-              { week: "W50", date: "Fri 12 Dec", title: "Session 2 — Sustainable Cities", tag: "Teaching Session", isFe: false },
+              { week: "W48", date: "Fri 28 Nov", title: "Session 5 — Extreme Weather & Atmospheric Hazards", tag: "Teaching Session", isFe: false },
+              { week: "W49", date: "Fri 05 Dec", title: "Session 6 — Sustainable Cities & Low-Emission Mobility", tag: "Teaching Session", isFe: false },
               { isHoliday: true, text: "🎄 Weeks 51 & 52 — Christmas & Winter Vacation (No Classes)" },
-              { week: "W01", date: "Fri 09 Jan", title: "Session 3 — Building and Supporting Arguments", tag: "Teaching Session", isFe: false },
-              { week: "W02", date: "Fri 16 Jan", title: "Session 4 — Biodiversity in Urban Areas and Airports", tag: "Teaching Session • Prep FE2", isFe: false },
-              { week: "W03", date: "Fri 23 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Oral Tutorials", subtitle: "Fri 23 Jan • 30-min evaluation slots (Geri MIDDLETON / Penny WRIGHT)", tag: "Grade /20", isFe: true }
+              { week: "W01", date: "Fri 09 Jan", title: "Session 7 — Building and Supporting Arguments", tag: "Teaching Session • Prep FE2", isFe: false },
+              { week: "W02", date: "Fri 16 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Oral Tutorials", subtitle: "Fri 16 Jan • 30-min evaluation slots (Session 8)", tag: "Grade /20", isFe: true }
             ]
           }
         ]
@@ -14151,33 +14132,31 @@
         code: "LV121E",
         name: "Aeronautical English (AAS)",
         dayTime: "Wednesdays 13h15 – 15h15",
-        faculty: "Tracy NEILL (Group A) & Ally HEWETT (Group B)",
+        faculty: "Group A & Group B Faculty",
         modules: [
           {
             num: 1,
-            title: "Module 1: Aerodromes, Air Traffic & Surface Operations",
-            weeks: "Weeks 44 – 48",
+            title: "Module 1: Aerodromes & Ground Operations",
+            weeks: "Weeks 44 – 47",
             headerBg: "#1e293b",
             sessions: [
               { week: "W44", date: "Wed 29 Oct", title: "Session 1 — Introduction & Aviation Survey", tag: "Teaching Session", isFe: false },
               { week: "W45", date: "Wed 05 Nov", title: "Session 2 — Passenger Journey & Airfield Movement", tag: "Teaching Session", isFe: false },
-              { week: "W46", date: "Wed 12 Nov", title: "Session 3 — Ground Operations & Turnaround", tag: "Teaching Session", isFe: false },
-              { week: "W47", date: "Wed 19 Nov", title: "Session 4 — Air Traffic Control & Surface Movement", tag: "Teaching Session • Prep FE1", isFe: false },
-              { week: "W48", date: "Wed 26 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Wed 26 Nov • 30-min evaluation slots (Tracy NEILL / Ally HEWETT)", tag: "Grade /20", isFe: true }
+              { week: "W46", date: "Wed 12 Nov", title: "Session 3 — Ground Operations & Turnaround", tag: "Teaching Session • Prep FE1", isFe: false },
+              { week: "W47", date: "Wed 19 Nov", title: "FORMATIVE EVALUATION 1 (FE1) — Oral Tutorials", subtitle: "Wed 19 Nov • 30-min evaluation slots (Session 4)", tag: "Grade /20", isFe: true }
             ]
           },
           {
             num: 2,
-            title: "Module 2: Aircraft & Aerodynamics",
-            weeks: "Weeks 49 – Week 3",
+            title: "Module 2: Aircraft and Aerodynamics",
+            weeks: "Weeks 48 – Week 02",
             headerBg: "#1b382b",
             sessions: [
-              { week: "W49", date: "Wed 03 Dec", title: "Session 1 — Aerodynamics & Flight Principles", tag: "Teaching Session", isFe: false },
-              { week: "W50", date: "Wed 10 Dec", title: "Session 2 — Aircraft Anatomy: Structure & Systems", tag: "Teaching Session", isFe: false },
+              { week: "W48", date: "Wed 26 Nov", title: "Session 5 — Aerodynamics & Flight Principles", tag: "Teaching Session", isFe: false },
+              { week: "W49", date: "Wed 03 Dec", title: "Session 6 — Aircraft Anatomy: Structure & Systems", tag: "Teaching Session", isFe: false },
               { isHoliday: true, text: "🎄 Weeks 51 & 52 — Christmas & Winter Vacation (No Classes)" },
-              { week: "W01", date: "Wed 07 Jan", title: "Session 3 — Commercial Aircraft & Airlines", tag: "Teaching Session", isFe: false },
-              { week: "W02", date: "Wed 14 Jan", title: "Session 4 — Significant Aviation Accidents & Aircraft Types", tag: "Teaching Session • Prep FE2", isFe: false },
-              { week: "W03", date: "Wed 21 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Aircraft & Airlines Profile", subtitle: "Wed 21 Jan • 30-min evaluation slots (Tracy NEILL / Ally HEWETT)", tag: "Grade /20", isFe: true }
+              { week: "W01", date: "Wed 07 Jan", title: "Session 7 — Commercial Aircraft & Airlines", tag: "Teaching Session • Prep FE2", isFe: false },
+              { week: "W02", date: "Wed 14 Jan", title: "FORMATIVE EVALUATION 2 (FE2) — Aircraft & Airlines Profile", subtitle: "Wed 14 Jan • 30-min evaluation slots (Session 8)", tag: "Grade /20", isFe: true }
             ]
           }
         ]
@@ -14328,47 +14307,47 @@
         fes: {
           1: {
             title: "FE1 — Module 1 Oral Evaluation",
-            week: "Week 48",
-            dateStr: "Friday 28 November 2024",
+            week: "Week 47",
+            dateStr: "Friday 21 November 2024",
             groupA: {
-              teacher: "Geri MIDDLETON",
+              teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["BEDU Titouan", "BEN HASSEN Ewan"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["MEYER Alexandre", "LE BRAS Aine"] },
-                { num: 3, time: "09h00 – 09h30", type: "trio", students: ["ROBIN Louise", "RENARD Ruben", "ILPIDE Anatole"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["RASPILLER Thomas", "RENAULT Guillaume", "CAMGUILHEM Vincent"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 01", "Student 02"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 03", "Student 04"] },
+                { num: 3, time: "09h00 – 09h30", type: "trio", students: ["Student 05", "Student 06", "Student 07"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 08", "Student 09", "Student 10"] }
               ]
             },
             groupB: {
-              teacher: "Penny WRIGHT",
+              teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["SEVIN Brian", "BENSMAINE Mohamed"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["DEBORDE Vincent", "VILLAIN Maxime"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["SELLES Eliott", "HAVA Peter"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["MARMANDE Justine", "KUHN Aurianne", "GADBIN Francois"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 01", "Student 02"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 03", "Student 04"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 05", "Student 06"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 07", "Student 08", "Student 09"] }
               ]
             }
           },
           2: {
             title: "FE2 — Module 2 Oral Evaluation",
-            week: "Week 03",
-            dateStr: "Friday 23 January 2025",
+            week: "Week 02",
+            dateStr: "Friday 16 January 2025",
             groupA: {
-              teacher: "Geri MIDDLETON",
+              teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "trio", students: ["RASPILLER Thomas", "ROBIN Louise", "MEYER Alexandre"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["RENAULT Guillaume", "RENARD Ruben"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["CAMGUILHEM Vincent", "BEN HASSEN Ewan"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["BEDU Titouan", "LE BRAS Aine", "ILPIDE Anatole"] }
+                { num: 1, time: "08h00 – 08h30", type: "trio", students: ["Student 08", "Student 05", "Student 03"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 09", "Student 06"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 10", "Student 02"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 01", "Student 04", "Student 07"] }
               ]
             },
             groupB: {
-              teacher: "Penny WRIGHT",
+              teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["KUHN Aurianne", "SEVIN Brian"] },
-                { num: 2, time: "08h30 – 09h00", type: "trio", students: ["BENSMAINE Mohamed", "DEBORDE Vincent", "SELLES Eliott"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["VILLAIN Maxime", "MARMANDE Justine"] },
-                { num: 4, time: "09h30 – 10h00", type: "pair", students: ["HAVA Peter", "GADBIN Francois"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 08", "Student 01"] },
+                { num: 2, time: "08h30 – 09h00", type: "trio", students: ["Student 02", "Student 03", "Student 05"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 04", "Student 07"] },
+                { num: 4, time: "09h30 – 10h00", type: "pair", students: ["Student 06", "Student 09"] }
               ]
             }
           }
@@ -14382,47 +14361,47 @@
         fes: {
           1: {
             title: "FE1 — Module 1 Oral Evaluation",
-            week: "Week 48",
-            dateStr: "Wednesday 26 November 2024",
+            week: "Week 47",
+            dateStr: "Wednesday 19 November 2024",
             groupA: {
-              teacher: "Tracy NEILL",
+              teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["BEDU Titouan", "MEYER Alexandre"] },
-                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["BEN HASSEN Ewan", "ROBIN Louise", "RASPILLER Thomas"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["LE BRAS Aine", "RENARD Ruben"] },
-                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["ILPIDE Anatole", "RENAULT Guillaume", "CAMGUILHEM Vincent"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 01", "Student 03"] },
+                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["Student 02", "Student 05", "Student 08"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 04", "Student 06"] },
+                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["Student 07", "Student 09", "Student 10"] }
               ]
             },
             groupB: {
-              teacher: "Ally HEWETT",
+              teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["SEVIN Brian", "VILLAIN Maxime"] },
-                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["BENSMAINE Mohamed", "HAVA Peter"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["DEBORDE Vincent", "MARMANDE Justine"] },
-                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["SELLES Eliott", "KUHN Aurianne", "GADBIN Francois"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 01", "Student 04"] },
+                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["Student 02", "Student 06"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 03", "Student 07"] },
+                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["Student 05", "Student 08", "Student 09"] }
               ]
             }
           },
           2: {
             title: "FE2 — Module 2 Oral Evaluation",
-            week: "Week 03",
-            dateStr: "Wednesday 21 January 2025",
+            week: "Week 02",
+            dateStr: "Wednesday 14 January 2025",
             groupA: {
-              teacher: "Tracy NEILL",
+              teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "trio", students: ["RENAULT Guillaume", "BEN HASSEN Ewan", "RENARD Ruben"] },
-                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["CAMGUILHEM Vincent", "LE BRAS Aine"] },
-                { num: 3, time: "14h15 – 14h45", type: "trio", students: ["ILPIDE Anatole", "MEYER Alexandre", "ROBIN Louise"] },
-                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["BEDU Titouan", "RASPILLER Thomas"] }
+                { num: 1, time: "13h15 – 13h45", type: "trio", students: ["Student 09", "Student 02", "Student 06"] },
+                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["Student 10", "Student 04"] },
+                { num: 3, time: "14h15 – 14h45", type: "trio", students: ["Student 07", "Student 03", "Student 05"] },
+                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["Student 01", "Student 08"] }
               ]
             },
             groupB: {
-              teacher: "Ally HEWETT",
+              teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["KUHN Aurianne", "BENSMAINE Mohamed"] },
-                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["GADBIN Francois", "DEBORDE Vincent", "SEVIN Brian"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["SELLES Eliott", "MARMANDE Justine"] },
-                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["VILLAIN Maxime", "HAVA Peter"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 08", "Student 02"] },
+                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["Student 09", "Student 03", "Student 01"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 05", "Student 07"] },
+                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["Student 04", "Student 06"] }
               ]
             }
           }
@@ -14468,7 +14447,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide text-white" style="background-color: ${theme.primary};">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Official Formative Evaluation Rota • GSEA26A
+                Official Formative Evaluation Rota • GSEA25B
               </span>
               <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border" style="color: ${theme.accent}; background-color: ${theme.highlight || '#fff7ed'}; border-color: ${theme.accent}30;">
                 Dynamic Rotations • 4 Slots of 30 min (2 Hours)
@@ -14535,7 +14514,7 @@
                   <!-- Group A Rows -->
                   <tr class="bg-slate-50/80 font-bold text-slate-800 text-[11px]">
                     <td colspan="3" class="py-2 px-3 tracking-wide uppercase bg-slate-100">
-                      Group A (${activeCourseKey === 'ag' ? 'Fridays • Geri MIDDLETON' : 'Wednesdays • Tracy NEILL'})
+                      Group A (${activeCourseKey === 'ag' ? 'Fridays • [Group A Teacher]' : 'Wednesdays • [Group A Teacher]'})
                     </td>
                   </tr>
                   ${[0, 1, 2, 3].map(idx => `
@@ -14561,7 +14540,7 @@
                   <!-- Group B Rows -->
                   <tr class="bg-slate-50/80 font-bold text-slate-800 text-[11px]">
                     <td colspan="3" class="py-2 px-3 tracking-wide uppercase bg-slate-100">
-                      Group B (${activeCourseKey === 'ag' ? 'Fridays • Penny WRIGHT' : 'Wednesdays • Ally HEWETT'})
+                      Group B (${activeCourseKey === 'ag' ? 'Fridays • [Group B Teacher]' : 'Wednesdays • [Group B Teacher]'})
                     </td>
                   </tr>
                   ${[0, 1, 2, 3].map(idx => `
