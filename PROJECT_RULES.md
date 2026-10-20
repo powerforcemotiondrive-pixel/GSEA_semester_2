@@ -39,6 +39,8 @@ Before modifying any file in this repository, any AI assistant MUST adhere to th
    - Automated via `scripts/backup.js` and executable directly via `npm run backup1` / `npm run backup2`.
 9. **CROSS-PROJECT SYNCHRONIZATION (`Semester 1` <-> `Semester 2`)**:
    - Any new rules, operational guidelines, or shared tooling scripts must immediately be synchronized across both `GSEA_semester_1` and `GSEA_semester_2`.
+10. **ATOMIC COMMIT & PUSH PROTOCOL**:
+   - Whenever instructed to "Commit" or "Commit changes", the assistant automatically runs both `git commit` and `git push origin main` in a single step to keep remote GitHub repositories and GitHub Pages permanently up to date.
 
 ---
 
