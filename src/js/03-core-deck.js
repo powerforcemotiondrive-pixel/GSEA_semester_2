@@ -538,22 +538,7 @@
           `;
         } else {
           item.setAttribute('aria-label', `Navigate to ${page.title}`);
-          let rightHtml = '';
-          if (idx <= 3) {
-            rightHtml = `<svg class="flight-strip-chevron w-3.5 h-3.5 shrink-0 opacity-40 transition-all pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
-          } else if (idx === 4) {
-            rightHtml = `<span class="flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all shrink-0">FE</span>`;
-          } else if (idx === 5 || page.detailsUrl) {
-            rightHtml = `<span class="flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all shrink-0">DDRS</span>`;
-          } else if (idx === 6 || page.isAdmin) {
-            rightHtml = `<span class="flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all shrink-0">ADMIN</span>`;
-          } else if (idx === 7 || page.isObjectives) {
-            rightHtml = `<span class="flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all shrink-0">OBJ</span>`;
-          } else if (idx >= 8 || page.isImmersion) {
-            rightHtml = `<span class="flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-all shrink-0">S2</span>`;
-          } else {
-            rightHtml = `<svg class="flight-strip-chevron w-3.5 h-3.5 shrink-0 opacity-40 transition-all pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
-          }
+          const rightHtml = `<svg class="flight-strip-chevron w-3.5 h-3.5 shrink-0 opacity-40 transition-all pointer-events-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
 
           item.innerHTML = `
             <div class="flex items-center gap-2 min-w-0 pr-1 pointer-events-none">
@@ -583,7 +568,6 @@
         const badge = item.querySelector('.flight-strip-badge');
         const title = item.querySelector('.flight-strip-title');
         const chevron = item.querySelector('.flight-strip-chevron');
-        const pill = item.querySelector('.flight-strip-pill');
 
         if (isActive) {
           item.className = "flight-strip-card group w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-between border cursor-pointer shadow-2xs";
@@ -595,32 +579,19 @@
             title.className = "flight-strip-title truncate text-xs font-bold text-slate-900 transition-all pointer-events-none";
           }
           if (badge) {
-            if (idx === 4) {
-              badge.style.backgroundColor = '#fef3c7';
-              badge.style.color = '#92400e';
-              badge.style.border = '1px solid #fcd34d';
-            } else {
-              badge.style.backgroundColor = '#f1f5f9';
-              badge.style.color = '#334155';
-              badge.style.border = '1px solid #e2e8f0';
-            }
+            badge.style.backgroundColor = '#f1f5f9';
+            badge.style.color = '#334155';
+            badge.style.border = '1px solid #e2e8f0';
           }
           if (chevron) {
             chevron.style.color = mod.accent;
             chevron.style.opacity = '0.9';
             chevron.style.transform = 'none';
           }
-          if (pill) {
-            if (idx === 4) {
-              pill.className = "flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500 text-white shadow-2xs shrink-0";
-            } else {
-              pill.className = "flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-800 text-white shadow-2xs shrink-0";
-            }
-          }
         } else {
           item.style.borderLeft = '';
-          if (idx <= 3) {
-            // Sessions 01 to 04: Core Teaching Units (Clean White / Slate Border)
+          if (idx <= 4) {
+            // Sessions 01 to 05: Core Teaching & FE Units (Clean White / Slate Border)
             item.className = "flight-strip-card group w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-between border border-slate-200/90 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-800 hover:text-slate-900 hover:shadow-2xs hover:translate-x-[3px] cursor-pointer";
             item.style.backgroundColor = '#ffffff';
             item.style.borderColor = '#e2e8f0';
@@ -638,39 +609,24 @@
               chevron.style.opacity = '0.35';
               chevron.style.transform = 'none';
             }
-          } else if (idx === 4) {
-            // Session 05: Evaluation Milestone (Warm Amber Highlight)
-            item.className = "flight-strip-card group w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-between border border-amber-200/80 bg-amber-50/70 hover:bg-amber-50 hover:border-amber-300/90 text-amber-950 hover:shadow-2xs hover:translate-x-[3px] cursor-pointer";
-            item.style.backgroundColor = '#fffbeb';
-            item.style.borderColor = '#fde68a';
-            if (title) {
-              title.style.color = '#78350f';
-              title.className = "flight-strip-title truncate text-xs font-bold text-amber-950 group-hover:text-amber-900 transition-all pointer-events-none";
-            }
-            if (badge) {
-              badge.style.backgroundColor = '#fef3c7';
-              badge.style.color = '#92400e';
-              badge.style.border = '1px solid #fde68a';
-            }
-            if (pill) {
-              pill.className = "flight-strip-pill text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-200/80 text-amber-900 border border-amber-300/80 shrink-0";
-            }
           } else {
-            // Cards 06 to 08/09: Administrative & Reference Frameworks (Muted Cool Slate)
-            item.className = "flight-strip-card group w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-between border border-slate-200/70 bg-slate-100/75 hover:bg-slate-100 hover:border-slate-300 text-slate-600 hover:text-slate-900 hover:shadow-2xs hover:translate-x-[3px] cursor-pointer";
-            item.style.backgroundColor = '#f1f5f9';
-            item.style.borderColor = '#e2e8f0';
+            // Cards 06 to 08/09: Administrative & Reference Frameworks (Grounded Slate-200 / Touch Darker)
+            item.className = "flight-strip-card group w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-between border border-slate-300/80 bg-slate-200/70 hover:bg-slate-200 hover:border-slate-400/80 text-slate-700 hover:text-slate-900 hover:shadow-2xs hover:translate-x-[3px] cursor-pointer";
+            item.style.backgroundColor = '#e2e8f0';
+            item.style.borderColor = '#cbd5e1';
             if (title) {
-              title.style.color = '#475569';
-              title.className = "flight-strip-title truncate text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-all pointer-events-none";
+              title.style.color = '#334155';
+              title.className = "flight-strip-title truncate text-xs font-medium text-slate-700 group-hover:text-slate-900 transition-all pointer-events-none";
             }
             if (badge) {
-              badge.style.backgroundColor = '#e2e8f0';
-              badge.style.color = '#64748b';
-              badge.style.border = '1px solid #cbd5e1';
+              badge.style.backgroundColor = '#cbd5e1';
+              badge.style.color = '#1e293b';
+              badge.style.border = '1px solid #94a3b8';
             }
-            if (pill) {
-              pill.className = "flight-strip-pill text-[9px] font-mono font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-200/70 text-slate-600 border border-slate-300/60 shrink-0";
+            if (chevron) {
+              chevron.style.color = '#64748b';
+              chevron.style.opacity = '0.35';
+              chevron.style.transform = 'none';
             }
           }
         }
