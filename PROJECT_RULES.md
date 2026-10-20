@@ -30,6 +30,15 @@ Before modifying any file in this repository, any AI assistant MUST adhere to th
    - This script minifies Tailwind CSS, validates all resources in `imsmanifest.xml`, and builds `dist/GSEA_Semester_2_SCORM.zip`.
 6. **DUAL ADMIN HUB SYNCHRONIZATION**:
    - Any changes to schedules, teacher assignments, or student groups MUST be made to both `src/js/11-admin-hub.js` (in-deck drawer) and `admin.html` (standalone portal).
+7. **MANDATORY PRE-IMPLEMENTATION RESPONSE & APPROVAL GATE**:
+   - ALL user questions, requests, and feature suggestions require a thorough review, report, and recommendation response from the AI assistant **BEFORE** implementing any changes.
+   - The assistant must always conclude with an explicit prompt asking the user to **proceed or ignore/adjust** and await explicit confirmation before modifying any files.
+8. **AUTOMATED DATED BACKUPS (`backup1` & `backup2`)**:
+   - `backup1` creates a full dated zip archive into `~/Documents/moodle_backups/GSEA_semester_1/`.
+   - `backup2` creates a full dated zip archive into `~/Documents/moodle_backups/GSEA_semester_2/`.
+   - Automated via `scripts/backup.js` and executable directly via `npm run backup1` / `npm run backup2`.
+9. **CROSS-PROJECT SYNCHRONIZATION (`Semester 1` <-> `Semester 2`)**:
+   - Any new rules, operational guidelines, or shared tooling scripts must immediately be synchronized across both `GSEA_semester_1` and `GSEA_semester_2`.
 
 ---
 

@@ -9,7 +9,9 @@
     "build": "node scripts/build-html.js && npx @tailwindcss/cli -i ./src/input.css -o ./output.css --minify",
     "package": "node scripts/package-scorm.js",
     "dev:css": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --watch",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "backup1": "node scripts/backup.js semester1",
+    "backup2": "node scripts/backup.js semester2"
   },
   "repository": {
     "type": "git",
