@@ -23,6 +23,8 @@ if (arg === '2' || arg === 'semester2' || arg === 'backup2') {
   semesterNum = 1;
 }
 
+const sourceDirCandidate = path.join(os.homedir(), 'Documents', targetFolder);
+const sourceDir = fs.existsSync(sourceDirCandidate) ? sourceDirCandidate : rootDir;
 const destDir = path.join(os.homedir(), 'Documents', 'moodle_backups', targetFolder);
 
 // 1. Ensure target backup directory exists
@@ -52,14 +54,14 @@ if (fs.existsSync(zipFilePath)) {
 }
 
 console.log(`\n📦 Creating full backup for GSEA ${semesterLabel}...`);
-console.log(`📂 Source:      ${rootDir}`);
+console.log(`📂 Source:      ${sourceDir}`);
 console.log(`📍 Destination: ${destDir}`);
 console.log(`🏷️  Archive:     ${zipFilename}\n`);
 
 try {
   // Zip entire project directory excluding heavy transient folders (node_modules, .git) & macOS artifacts
   const zipCmd = `zip -r -q "${zipFilePath}" . -x "*.DS_Store" "*node_modules*" "*.git*"`;
-  execSync(zipCmd, { cwd: rootDir, stdio: 'inherit' });
+  execSync(zipCmd, { cwd: sourceDir, stdio: 'inherit' });
 
   const stats = fs.statSync(zipFilePath);
   const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
