@@ -1,0 +1,63 @@
+================================================================================
+ENAC GSEA ENGLISH COURSEWARE — SYSTEM INSTRUCTIONS & RUNBOOK
+================================================================================
+
+--------------------------------------------------------------------------------
+INSTRUCTION: Injecting Private Data
+--------------------------------------------------------------------------------
+
+1. OVERVIEW & DATA PROTECTION PRINCIPLE
+   To comply with GDPR, French CNIL guidelines, and institutional privacy rules:
+   - The Git repository, commit history, and AI prompts NEVER see student names.
+   - All student lists, oral evaluation rotas, and portfolio login dropdowns 
+     use anonymous identifiers (GRPA001–GRPA010 for Group A, GRPB001–GRPB009 
+     for Group B).
+   - Real student names are injected strictly at package-time for ENAC Moodle.
+
+2. WHERE REAL NAMES ARE STORED (OFFLINE & PRIVATE)
+   File: ./students.private.json
+   - This file is permanently listed in .gitignore.
+   - It lives exclusively on your local computer and is never pushed to GitHub.
+   - If onboarding a new machine, copy students.private.example.json to 
+     students.private.json and fill in the student names.
+
+3. HOW TO UPDATE STUDENT ROSTERS FOR A NEW COHORT
+   Step 1: Open students.private.json in any text editor.
+   Step 2: Match student names to their group identifiers:
+           "GRPA001": "BEDU Titouan",
+           "GRPA002": "BEN HASSEN Ewan",
+           "GRPB001": "SEVIN Brian",
+           ...
+   Step 3: Save the file.
+
+4. HOW TO GENERATE THE MOODLE PACKAGE (1-CLICK COMMAND)
+   Open your terminal in the project directory and run:
+   
+       npm run package:moodle
+
+   The script automatically:
+   a) Compiles index.html from src/ and builds minified Tailwind CSS.
+   b) Stages index.html, admin.html, and portfolio.html into an offline bundle.
+   c) Injects the real student names from students.private.json into all three:
+      - index.html (In-deck slide-over admin drawer & FE rotas)
+      - admin.html (Standalone admin portal & FE rotas)
+      - portfolio.html (Student authentication dropdown menu)
+   d) Bundles the Moodle SCORM package into:
+      - dist/GSEA_Semester_X_SCORM_MOODLE.zip
+      - ./GSEA_Semester_X_SCORM_MOODLE.zip
+   e) Leaves your local Git working tree 100% anonymous (zero Git leakage).
+
+5. HOW TO UPLOAD TO ENAC MOODLE / ECAMPUS
+   Step 1: Go to your course page in ENAC Moodle / eCampus.
+   Step 2: Turn editing on ("Activer le mode édition").
+   Step 3: Click Edit Settings ("Paramètres") on the SCORM activity.
+   Step 4: Under Package ("Fichier du paquet"), delete the old zip and drag 
+           in GSEA_Semester_X_SCORM_MOODLE.zip.
+   Step 5: Click Save and display ("Enregistrer et afficher").
+
+6. STANDARD ANONYMOUS PACKAGING (FOR GITHUB / PUBLIC DEMO)
+   If you ever need a package that contains NO student names:
+   
+       npm run package
+   
+   Output: dist/GSEA_Semester_X_SCORM.zip

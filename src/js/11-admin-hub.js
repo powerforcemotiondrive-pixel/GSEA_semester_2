@@ -82,6 +82,17 @@
               </span>
               <span class="text-slate-400 text-[11px]">Academic Year 2024–2025</span>
             </div>
+
+            <!-- Pedagogical Transparency & AI Disclosure Notice -->
+            <div class="p-3.5 bg-slate-50 border border-slate-200/90 rounded-xl flex items-start gap-2.5 text-xs text-slate-600 shadow-2xs">
+              <svg class="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div class="space-y-0.5">
+                <span class="font-bold text-slate-800 text-[11px] uppercase tracking-wider block">Pedagogical Transparency Notice</span>
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  Selected exercises, case examples, and language drills used throughout this course have been developed with the aid of generative artificial intelligence. All exercises have been curated, verified, and finalized by the course instructor.
+                </p>
+              </div>
+            </div>
           </div>
 
           <!-- Dynamic Rotation Callout Banner -->
@@ -122,22 +133,21 @@
                     <thead>
                       <tr class="bg-slate-50 text-slate-500 border-b border-slate-200 text-[11px]">
                         <th class="py-2 px-3 w-10 font-bold">#</th>
-                        <th class="py-2 px-3 font-bold">Surname</th>
-                        <th class="py-2 px-3 font-bold">First Name</th>
+                        <th class="py-2 px-3 font-bold">Student Identifier</th>
                         <th class="py-2 px-3 font-bold text-right">FE Rota</th>
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">01</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">02</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">03</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">04</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">05</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">06</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">07</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">08</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">09</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">10</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">10</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA001</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA002</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA003</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA004</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA005</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA006</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA007</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA008</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA009</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">10</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPA010</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -157,22 +167,22 @@
                     <thead>
                       <tr class="bg-slate-50 text-slate-500 border-b border-slate-200 text-[11px]">
                         <th class="py-2 px-3 w-10 font-bold">#</th>
-                        <th class="py-2 px-3 font-bold">Surname</th>
-                        <th class="py-2 px-3 font-bold">First Name</th>
+                        <th class="py-2 px-3 font-bold">Student Identifier</th>
                         <th class="py-2 px-3 font-bold text-right">FE Rota</th>
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">01</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">02</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">03</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">04</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">05</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">06</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">07</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">08</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
-                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-bold text-slate-800">Student</td><td class="py-2 px-3">09</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">01</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB001</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">02</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB002</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">03</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB003</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">04</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB004</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">05</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB005</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">06</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB006</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">07</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB007</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">08</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB008</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
+                      <tr class="hover:bg-slate-50/60"><td class="py-2 px-3 font-mono text-slate-400">09</td><td class="py-2 px-3 font-mono font-bold text-slate-800">GRPB009</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">Rotates per FE</span></td></tr>
                     </tbody>
+                  </table>
                   </table>
                 </div>
               </div>
@@ -413,19 +423,19 @@
             groupA: {
               teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 01", "Student 02"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 03", "Student 04"] },
-                { num: 3, time: "09h00 – 09h30", type: "trio", students: ["Student 05", "Student 06", "Student 07"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 08", "Student 09", "Student 10"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["GRPA001", "GRPA002"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["GRPA003", "GRPA004"] },
+                { num: 3, time: "09h00 – 09h30", type: "trio", students: ["GRPA005", "GRPA006", "GRPA007"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["GRPA008", "GRPA009", "GRPA010"] }
               ]
             },
             groupB: {
               teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 01", "Student 02"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 03", "Student 04"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 05", "Student 06"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 07", "Student 08", "Student 09"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["GRPB001", "GRPB002"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["GRPB003", "GRPB004"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["GRPB005", "GRPB006"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["GRPB007", "GRPB008", "GRPB009"] }
               ]
             }
           },
@@ -436,19 +446,19 @@
             groupA: {
               teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "trio", students: ["Student 08", "Student 05", "Student 03"] },
-                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["Student 09", "Student 06"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 10", "Student 02"] },
-                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["Student 01", "Student 04", "Student 07"] }
+                { num: 1, time: "08h00 – 08h30", type: "trio", students: ["GRPA008", "GRPA005", "GRPA003"] },
+                { num: 2, time: "08h30 – 09h00", type: "pair", students: ["GRPA009", "GRPA006"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["GRPA010", "GRPA002"] },
+                { num: 4, time: "09h30 – 10h00", type: "trio", students: ["GRPA001", "GRPA004", "GRPA007"] }
               ]
             },
             groupB: {
               teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["Student 08", "Student 01"] },
-                { num: 2, time: "08h30 – 09h00", type: "trio", students: ["Student 02", "Student 03", "Student 05"] },
-                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["Student 04", "Student 07"] },
-                { num: 4, time: "09h30 – 10h00", type: "pair", students: ["Student 06", "Student 09"] }
+                { num: 1, time: "08h00 – 08h30", type: "pair", students: ["GRPB008", "GRPB001"] },
+                { num: 2, time: "08h30 – 09h00", type: "trio", students: ["GRPB002", "GRPB003", "GRPB005"] },
+                { num: 3, time: "09h00 – 09h30", type: "pair", students: ["GRPB004", "GRPB007"] },
+                { num: 4, time: "09h30 – 10h00", type: "pair", students: ["GRPB006", "GRPB009"] }
               ]
             }
           }
@@ -467,19 +477,19 @@
             groupA: {
               teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 01", "Student 03"] },
-                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["Student 02", "Student 05", "Student 08"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 04", "Student 06"] },
-                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["Student 07", "Student 09", "Student 10"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["GRPA001", "GRPA003"] },
+                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["GRPA002", "GRPA005", "GRPA008"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["GRPA004", "GRPA006"] },
+                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["GRPA007", "GRPA009", "GRPA010"] }
               ]
             },
             groupB: {
               teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 01", "Student 04"] },
-                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["Student 02", "Student 06"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 03", "Student 07"] },
-                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["Student 05", "Student 08", "Student 09"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["GRPB001", "GRPB004"] },
+                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["GRPB002", "GRPB006"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["GRPB003", "GRPB007"] },
+                { num: 4, time: "14h45 – 15h15", type: "trio", students: ["GRPB005", "GRPB008", "GRPB009"] }
               ]
             }
           },
@@ -490,19 +500,19 @@
             groupA: {
               teacher: "[Group A Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "trio", students: ["Student 09", "Student 02", "Student 06"] },
-                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["Student 10", "Student 04"] },
-                { num: 3, time: "14h15 – 14h45", type: "trio", students: ["Student 07", "Student 03", "Student 05"] },
-                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["Student 01", "Student 08"] }
+                { num: 1, time: "13h15 – 13h45", type: "trio", students: ["GRPA009", "GRPA002", "GRPA006"] },
+                { num: 2, time: "13h45 – 14h15", type: "pair", students: ["GRPA010", "GRPA004"] },
+                { num: 3, time: "14h15 – 14h45", type: "trio", students: ["GRPA007", "GRPA003", "GRPA005"] },
+                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["GRPA001", "GRPA008"] }
               ]
             },
             groupB: {
               teacher: "[Group B Teacher]",
               slots: [
-                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["Student 08", "Student 02"] },
-                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["Student 09", "Student 03", "Student 01"] },
-                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["Student 05", "Student 07"] },
-                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["Student 04", "Student 06"] }
+                { num: 1, time: "13h15 – 13h45", type: "pair", students: ["GRPB008", "GRPB002"] },
+                { num: 2, time: "13h45 – 14h15", type: "trio", students: ["GRPB009", "GRPB003", "GRPB001"] },
+                { num: 3, time: "14h15 – 14h45", type: "pair", students: ["GRPB005", "GRPB007"] },
+                { num: 4, time: "14h45 – 15h15", type: "pair", students: ["GRPB004", "GRPB006"] }
               ]
             }
           }

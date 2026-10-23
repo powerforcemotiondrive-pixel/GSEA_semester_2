@@ -1,0 +1,22 @@
+{
+  "_comment": "Example template for students.private.json. Copy this file to students.private.json and enter real student names.",
+  "GRPA001": "LASTNAME Firstname",
+  "GRPA002": "LASTNAME Firstname",
+  "GRPA003": "LASTNAME Firstname",
+  "GRPA004": "LASTNAME Firstname",
+  "GRPA005": "LASTNAME Firstname",
+  "GRPA006": "LASTNAME Firstname",
+  "GRPA007": "LASTNAME Firstname",
+  "GRPA008": "LASTNAME Firstname",
+  "GRPA009": "LASTNAME Firstname",
+  "GRPA010": "LASTNAME Firstname",
+  "GRPB001": "LASTNAME Firstname",
+  "GRPB002": "LASTNAME Firstname",
+  "GRPB003": "LASTNAME Firstname",
+  "GRPB004": "LASTNAME Firstname",
+  "GRPB005": "LASTNAME Firstname",
+  "GRPB006": "LASTNAME Firstname",
+  "GRPB007": "LASTNAME Firstname",
+  "GRPB008": "LASTNAME Firstname",
+  "GRPB009": "LASTNAME Firstname"
+}
