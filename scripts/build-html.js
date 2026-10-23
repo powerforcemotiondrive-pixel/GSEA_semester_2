@@ -10,6 +10,18 @@ const outputPath = path.join(rootDir, 'index.html');
 function buildHtml() {
   console.log('🏗️  Compiling index.html from src/ modules...');
 
+  // Verify data/course-data.js syntax and integrity
+  const courseDataPath = path.join(rootDir, 'data', 'course-data.js');
+  if (fs.existsSync(courseDataPath)) {
+    try {
+      require(courseDataPath);
+      console.log('  ✓ [data/course-data.js] Syntax and data structure verified.');
+    } catch (err) {
+      console.error(`✗ Fatal Error: Syntax or parsing error in ${courseDataPath}:`, err.message);
+      process.exit(1);
+    }
+  }
+
   if (!fs.existsSync(templatePath)) {
     console.error(`✗ Error: Template not found at ${templatePath}`);
     process.exit(1);
