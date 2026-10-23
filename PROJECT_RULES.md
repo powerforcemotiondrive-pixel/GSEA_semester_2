@@ -41,6 +41,13 @@ Before modifying any file in this repository, any AI assistant MUST adhere to th
    - Any new rules, operational guidelines, or shared tooling scripts must immediately be synchronized across both `GSEA_semester_1` and `GSEA_semester_2`.
 10. **ATOMIC COMMIT & PUSH PROTOCOL**:
    - Whenever instructed to "Commit" or "Commit changes", the assistant automatically runs both `git commit` and `git push origin main` in a single step to keep remote GitHub repositories and GitHub Pages permanently up to date.
+11. **PLAIN ENGLISH & GLOBAL B2 ACCESSIBILITY (ZERO PEDAGOGICAL OR ACADEMIC JARGON)**:
+   - **Language Lessons, Not Technical Instruction**: All sessions are communicative, spoken English lessons designed to build confidence, practical fluency, and real-world conversation skills. They are NOT theoretical linguistics lectures, teacher-training courses, or technical instruction sessions.
+   - **Universal B2 Understandability**: All instructions—both student-facing worksheets and teacher notes—must use clear, simple, plain English easily understood by any B2 learner worldwide.
+   - **Strictly Forbidden Academic / Linguistic Jargon**:
+     - Never use pedagogical meta-labels or academic jargon such as: `"scaffolding phrases"`, `"pedagogical scaffolding"`, `"discourse markers"`, `"syntactic complexity"`, `"prepositional dependency"`, `"distractor patterns"`, `"subject-auxiliary inversion"`, `"concessive signposts"`, or `"opinion signposts"`.
+     - Always replace with direct, human-friendly terms: `"Useful phrases"`, `"Useful storytelling words"`, `"Example story"`, `"Key phrases for expressing opinions"`, `"Connecting words"`, `"Sentence patterns"`.
+   - **Simple, Actionable Steps**: Keep all task instructions concise, direct, and focused on spoken communication, peer interaction, and listening.
 
 ---
 

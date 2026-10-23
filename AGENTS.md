@@ -73,6 +73,14 @@ Course administration (student lists, teacher assignments, weekly schedules, and
   1. `npm run package`: Generates `dist/GSEA_Semester_X_SCORM.zip` with 100% anonymous identifiers (safe for Git, GitHub Pages, and AI cloud pair-programming).
   2. `npm run package:moodle`: Automatically injects real student names from `students.private.json` strictly into the output zip `dist/GSEA_Semester_X_SCORM_MOODLE.zip` for direct upload to ENAC Moodle / eCampus, leaving working directory files completely anonymous.
 
+### I. Plain English & Global B2 Accessibility (Zero Pedagogical or Academic Jargon)
+- **Language Lessons, Not Technical Instruction**: All sessions are communicative, spoken English lessons designed to build confidence, practical fluency, and real-world conversation skills. They are NOT theoretical linguistics lectures, teacher-training courses, or technical instruction sessions.
+- **Universal B2 Understandability**: All instructions—both student-facing worksheets and teacher notes—must use clear, simple, plain English easily understood by any B2 learner worldwide.
+- **Strictly Forbidden Academic / Linguistic Jargon**:
+  - Never use pedagogical meta-labels or academic jargon such as: `"scaffolding phrases"`, `"pedagogical scaffolding"`, `"discourse markers"`, `"syntactic complexity"`, `"prepositional dependency"`, `"distractor patterns"`, `"subject-auxiliary inversion"`, `"concessive signposts"`, or `"opinion signposts"`.
+  - Always replace with direct, human-friendly terms: `"Useful phrases"`, `"Useful storytelling words"`, `"Example story"`, `"Key phrases for expressing opinions"`, `"Connecting words"`, `"Sentence patterns"`.
+- **Simple, Actionable Steps**: Keep all task instructions concise, direct, and focused on spoken communication, peer interaction, and listening.
+
 ---
 
 ## 2. Active Cohort Configuration (GSEA26A • 2026–2027)
